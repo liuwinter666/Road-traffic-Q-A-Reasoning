@@ -1,0 +1,152 @@
+# Khái niệm định nghĩa (defined classes) của ontology, sinh vào ontology/traffic_law.owl.
+#
+# thresholds: NGƯỠNG PHÁP LÝ — mỗi lớp phải có `evidence` (id phần tử + cụm từ nguyên văn).
+#   tests/test_ontology.py kiểm tra cụm từ có trong nội dung phần tử ở phiên bản đã nêu.
+#   Lớp được định nghĩa: <cls> ⊓ ∃<property>.<datatype>[facets]
+# unions: lớp hợp (A ⊔ B), dùng khi văn bản viết "A hoặc B".
+# observations: dấu hiệu sự kiện (không phải ngưỡng pháp lý), định nghĩa bằng giá trị boolean
+#   và/hoặc ràng buộc lớp. Không cần evidence.
+
+thresholds:
+  # ---------- Nồng độ cồn (giống nhau ở V1–V4) ----------
+  - {name: NongDoConKhiThoMuc1, group: MucNongDoCon, cls: HanhViDieuKhienXe, property: nongDoConKhiTho,
+     datatype: float, min_exclusive: 0, max_inclusive: 0.25,
+     label: "Nồng độ cồn khí thở > 0 và ≤ 0,25 mg/L",
+     evidence: [{version: V3, id: ND168-D6-K6-c, phrase: "chưa vượt quá 0,25 miligam/1 lít khí thở"},
+                {version: V1, id: ND100-D5-K6-c, phrase: "chưa vượt quá 0,25 miligam/1 lít khí thở"}]}
+  - {name: NongDoConKhiThoMuc2, group: MucNongDoCon, cls: HanhViDieuKhienXe, property: nongDoConKhiTho,
+     datatype: float, min_exclusive: 0.25, max_inclusive: 0.4,
+     label: "Nồng độ cồn khí thở > 0,25 và ≤ 0,4 mg/L",
+     evidence: [{version: V3, id: ND168-D6-K9-a, phrase: "vượt quá 0,25 miligam đến 0,4 miligam/1 lít khí thở"},
+                {version: V1, id: ND100-D5-K8-c, phrase: "vượt quá 0,25 miligam đến 0,4 miligam/1 lít khí thở"}]}
+  - {name: NongDoConKhiThoMuc3, group: MucNongDoCon, cls: HanhViDieuKhienXe, property: nongDoConKhiTho,
+     datatype: float, min_exclusive: 0.4,
+     label: "Nồng độ cồn khí thở > 0,4 mg/L",
+     evidence: [{version: V3, id: ND168-D6-K11-a, phrase: "vượt quá 0,4 miligam/1 lít khí thở"},
+                {version: V1, id: ND100-D5-K10-a, phrase: "vượt quá 0,4 miligam/1 lít khí thở"}]}
+  - {name: NongDoConMauMuc1, group: MucNongDoCon, cls: HanhViDieuKhienXe, property: nongDoConMau,
+     datatype: float, min_exclusive: 0, max_inclusive: 50,
+     label: "Nồng độ cồn trong máu > 0 và ≤ 50 mg/100 mL",
+     evidence: [{version: V3, id: ND168-D6-K6-c, phrase: "chưa vượt quá 50 miligam/100 mililít máu"},
+                {version: V1, id: ND100-D5-K6-c, phrase: "chưa vượt quá 50 miligam/100 mililít máu"}]}
+  - {name: NongDoConMauMuc2, group: MucNongDoCon, cls: HanhViDieuKhienXe, property: nongDoConMau,
+     datatype: float, min_exclusive: 50, max_inclusive: 80,
+     label: "Nồng độ cồn trong máu > 50 và ≤ 80 mg/100 mL",
+     evidence: [{version: V3, id: ND168-D6-K9-a, phrase: "vượt quá 50 miligam đến 80 miligam/100 mililít máu"},
+                {version: V1, id: ND100-D5-K8-c, phrase: "vượt quá 50 miligam đến 80 miligam/100 mililít máu"}]}
+  - {name: NongDoConMauMuc3, group: MucNongDoCon, cls: HanhViDieuKhienXe, property: nongDoConMau,
+     datatype: float, min_exclusive: 80,
+     label: "Nồng độ cồn trong máu > 80 mg/100 mL",
+     evidence: [{version: V3, id: ND168-D6-K11-a, phrase: "vượt quá 80 miligam/100 mililít máu"},
+                {version: V1, id: ND100-D5-K10-a, phrase: "vượt quá 80 miligam/100 mililít máu"}]}
+
+  # ---------- Mức vượt tốc độ: tocDoVuot = tocDoThucTe − tocDoToiDaChoPhep (km/h) ----------
+  - {name: VuotTocDo05Den10, group: MucVuotTocDo, cls: HanhViDieuKhienXe, property: tocDoVuot,
+     datatype: float, min_inclusive: 5, max_exclusive: 10, label: "Vượt tốc độ từ 05 đến dưới 10 km/h",
+     evidence: [{version: V3, id: ND168-D6-K3-a, phrase: "từ 05 km/h đến dưới 10 km/h"},
+                {version: V1, id: ND100-D6-K2-c, phrase: "từ 05 km/h đến dưới 10 km/h"}]}
+  - {name: VuotTocDo10Den20, group: MucVuotTocDo, cls: HanhViDieuKhienXe, property: tocDoVuot,
+     datatype: float, min_inclusive: 10, max_inclusive: 20, label: "Vượt tốc độ từ 10 đến 20 km/h",
+     evidence: [{version: V3, id: ND168-D6-K5-dd, phrase: "từ 10 km/h đến 20 km/h"},
+                {version: V1, id: ND100-D6-K4-a, phrase: "từ 10 km/h đến 20 km/h"}]}
+  - {name: VuotTocDoTren20Den35, group: MucVuotTocDo, cls: HanhViDieuKhienXe, property: tocDoVuot,
+     datatype: float, min_exclusive: 20, max_inclusive: 35, label: "Vượt tốc độ trên 20 đến 35 km/h (ô tô)",
+     evidence: [{version: V3, id: ND168-D6-K6-a, phrase: "trên 20 km/h đến 35 km/h"},
+                {version: V1, id: ND100-D5-K6-a, phrase: "trên 20 km/h đến 35 km/h"}]}
+  - {name: VuotTocDoTren35, group: MucVuotTocDo, cls: HanhViDieuKhienXe, property: tocDoVuot,
+     datatype: float, min_exclusive: 35, label: "Vượt tốc độ trên 35 km/h (ô tô)",
+     evidence: [{version: V3, id: ND168-D6-K7-a, phrase: "quá tốc độ quy định trên 35 km/h"},
+                {version: V1, id: ND100-D5-K7-c, phrase: "quá tốc độ quy định trên 35 km/h"}]}
+  - {name: VuotTocDoTren20, group: MucVuotTocDo, cls: HanhViDieuKhienXe, property: tocDoVuot,
+     datatype: float, min_exclusive: 20, label: "Vượt tốc độ trên 20 km/h (xe mô tô, xe gắn máy)",
+     evidence: [{version: V3, id: ND168-D7-K8-a, phrase: "quá tốc độ quy định trên 20 km/h"},
+                {version: V1, id: ND100-D6-K7-a, phrase: "quá tốc độ quy định trên 20 km/h"}]}
+
+  # ---------- Độ tuổi người điều khiển ----------
+  - {name: NguoiTu14Den16Tuoi, group: NhomTuoi, cls: Nguoi, property: tuoi, datatype: int,
+     min_inclusive: 14, max_exclusive: 16, label: "Người từ đủ 14 tuổi đến dưới 16 tuổi",
+     evidence: [{version: V3, id: ND168-D18-K1, phrase: "từ đủ 14 tuổi đến dưới 16 tuổi"},
+                {version: V1, id: ND100-D21-K1, phrase: "từ đủ 14 tuổi đến dưới 16 tuổi"}]}
+  - {name: NguoiTu16Den18Tuoi, group: NhomTuoi, cls: Nguoi, property: tuoi, datatype: int,
+     min_inclusive: 16, max_exclusive: 18, label: "Người từ đủ 16 tuổi đến dưới 18 tuổi",
+     evidence: [{version: V3, id: ND168-D18-K6, phrase: "từ đủ 16 tuổi đến dưới 18 tuổi"},
+                {version: V1, id: ND100-D21-K6, phrase: "từ đủ 16 tuổi đến dưới 18 tuổi"}]}
+
+  # ---------- Dung tích / công suất xe mô tô (phân hạng thay đổi giữa NĐ 100 và NĐ 168) ----------
+  - {name: DungTichDuoi175cm3, group: NhomDungTichCongSuat, cls: PhuongTien, property: dungTichXiLanh,
+     datatype: float, min_exclusive: 0, max_exclusive: 175, label: "Dung tích xi-lanh dưới 175 cm3",
+     evidence: [{version: V1, id: ND100-D21-K5, phrase: "dung tích xi lanh dưới 175 cm3"}]}
+  - {name: DungTichTu175cm3, group: NhomDungTichCongSuat, cls: PhuongTien, property: dungTichXiLanh,
+     datatype: float, min_inclusive: 175, label: "Dung tích xi-lanh từ 175 cm3 trở lên",
+     evidence: [{version: V1, id: ND100-D21-K7, phrase: "dung tích xi lanh từ 175 cm3 trở lên"}]}
+  - {name: DungTichDen125cm3, group: NhomDungTichCongSuat, cls: PhuongTien, property: dungTichXiLanh,
+     datatype: float, min_exclusive: 0, max_inclusive: 125, label: "Dung tích xi-lanh đến 125 cm3",
+     evidence: [{version: V3, id: ND168-D18-K5, phrase: "dung tích xi-lanh đến 125 cm3"}]}
+  - {name: DungTichTren125cm3, group: NhomDungTichCongSuat, cls: PhuongTien, property: dungTichXiLanh,
+     datatype: float, min_exclusive: 125, label: "Dung tích xi-lanh trên 125 cm3",
+     evidence: [{version: V3, id: ND168-D18-K7, phrase: "dung tích xi-lanh trên 125 cm3"}]}
+  - {name: CongSuatDen11kW, group: NhomDungTichCongSuat, cls: PhuongTien, property: congSuatDongCoDien,
+     datatype: float, min_exclusive: 0, max_inclusive: 11, label: "Công suất động cơ điện đến 11 kW",
+     evidence: [{version: V3, id: ND168-D18-K5, phrase: "công suất động cơ điện đến 11 kW"}]}
+  - {name: CongSuatTren11kW, group: NhomDungTichCongSuat, cls: PhuongTien, property: congSuatDongCoDien,
+     datatype: float, min_exclusive: 11, label: "Công suất động cơ điện trên 11 kW",
+     evidence: [{version: V3, id: ND168-D18-K7, phrase: "công suất động cơ điện trên 11 kW"}]}
+  - {name: DungTichTu50cm3, group: NhomDungTichCongSuat, cls: PhuongTien, property: dungTichXiLanh,
+     datatype: float, min_inclusive: 50, label: "Dung tích xi-lanh từ 50 cm3 trở lên",
+     evidence: [{version: V1, id: ND100-D21-K4-a, phrase: "từ 50 cm3 trở lên"},
+                {version: V3, id: ND168-D18-K4-a, phrase: "từ 50 cm3 trở lên"}]}
+  - {name: CongSuatTu4kW, group: NhomDungTichCongSuat, cls: PhuongTien, property: congSuatDongCoDien,
+     datatype: float, min_inclusive: 4, label: "Công suất động cơ điện từ 04 kW trở lên",
+     evidence: [{version: V3, id: ND168-D18-K4-a, phrase: "công suất động cơ điện từ 04 kW trở lên"}]}
+
+unions:
+  - {name: NongDoConMuc1, group: MucNongDoCon, of: [NongDoConKhiThoMuc1, NongDoConMauMuc1],
+     label: "Nồng độ cồn mức 1 (máu hoặc hơi thở)", note: "Văn bản viết 'trong máu hoặc hơi thở'"}
+  - {name: NongDoConMuc2, group: MucNongDoCon, of: [NongDoConKhiThoMuc2, NongDoConMauMuc2],
+     label: "Nồng độ cồn mức 2 (máu hoặc hơi thở)"}
+  - {name: NongDoConMuc3, group: MucNongDoCon, of: [NongDoConKhiThoMuc3, NongDoConMauMuc3],
+     label: "Nồng độ cồn mức 3 (máu hoặc hơi thở)"}
+  - {name: XeMoToHangNhoND168, group: NhomDungTichCongSuat, of: [DungTichDen125cm3, CongSuatDen11kW],
+     label: "Xe mô tô đến 125 cm3 hoặc đến 11 kW (phân hạng NĐ 168, khoản 5 Điều 18)"}
+  - {name: XeMoToHangLonND168, group: NhomDungTichCongSuat, of: [DungTichTren125cm3, CongSuatTren11kW],
+     label: "Xe mô tô trên 125 cm3 hoặc trên 11 kW (phân hạng NĐ 168, khoản 7 Điều 18)"}
+  - {name: XeMoToTu50cm3Hoac4kW, group: NhomDungTichCongSuat, of: [DungTichTu50cm3, CongSuatTu4kW],
+     label: "Xe mô tô từ 50 cm3 hoặc từ 04 kW (điểm a khoản 4 Điều 18 NĐ 168)"}
+
+observations:
+  # Mỗi mục: lớp ≡ <cls> ⊓ (prop = giá trị)... [⊓ ∃<some_prop>.<some_class>]
+  - {name: CoMaTuyTrongCoThe, cls: HanhViDieuKhienXe, values: {coMaTuyTrongCoThe: true}, label: "Trong cơ thể có chất ma túy"}
+  - {name: TuChoiKiemTraNongDoCon, cls: HanhViDieuKhienXe, values: {tuChoiKiemTraNongDoCon: true}, label: "Không chấp hành yêu cầu kiểm tra nồng độ cồn"}
+  - {name: TuChoiKiemTraMaTuy, cls: HanhViDieuKhienXe, values: {tuChoiKiemTraMaTuy: true}, label: "Không chấp hành yêu cầu kiểm tra ma túy"}
+  - {name: KhongChapHanhDenTinHieu, cls: HanhViDieuKhienXe, values: {khongChapHanhDenTinHieu: true}, label: "Không chấp hành hiệu lệnh đèn tín hiệu"}
+  - {name: KhongChapHanhHieuLenhNguoiDieuKhienGT, cls: HanhViDieuKhienXe,
+     values: {coHieuLenhNguoiDieuKhienGT: true, chapHanhHieuLenh: false},
+     label: "Có hiệu lệnh của người điều khiển/kiểm soát giao thông nhưng không chấp hành"}
+  - {name: KhongChapHanhYeuCauKiemTra, cls: HanhViDieuKhienXe,
+     values: {coYeuCauKiemTraCuaNguoiThiHanhCongVu: true, chapHanhYeuCauKiemTra: false},
+     label: "Có yêu cầu kiểm tra, kiểm soát của người thi hành công vụ nhưng không chấp hành"}
+  - {name: ChongDoiNguoiThiHanhCongVu, cls: HanhViDieuKhienXe, values: {chongDoiNguoiThiHanhCongVu: true}, label: "Xúc phạm, đe dọa, cản trở, chống đối người thi hành công vụ"}
+  - {name: DiNguocChieu, cls: HanhViDieuKhienXe, values: {diNguocChieu: true}, label: "Đi ngược chiều"}
+  - {name: DiNguocChieuTrenCaoToc, cls: HanhViDieuKhienXe, values: {diNguocChieu: true},
+     some: {trenLoaiDuong: DuongCaoToc}, label: "Đi ngược chiều trên đường cao tốc"}
+  - {name: DiSaiPhanDuongLanDuong, cls: HanhViDieuKhienXe, values: {diSaiPhanDuongLanDuong: true}, label: "Không đi đúng phần đường, làn đường quy định"}
+  - {name: ChuyenLanSaiQuyDinh, cls: HanhViDieuKhienXe, values: {chuyenLanSaiQuyDinh: true}, label: "Chuyển làn không đúng nơi cho phép / không có tín hiệu"}
+  - {name: DungTaySuDungDienThoai, cls: HanhViDieuKhienXe, values: {dungTaySuDungDienThoai: true}, label: "Dùng tay cầm và sử dụng điện thoại khi điều khiển xe"}
+  - {name: KhongDoiMuBaoHiem, cls: HanhViDieuKhienXe, values: {doiMuBaoHiem: false}, label: "Người điều khiển không đội (hoặc không cài quai) mũ bảo hiểm"}
+  - {name: ChoNguoiKhongDoiMuBaoHiem, cls: HanhViDieuKhienXe, values: {nguoiNgoiSauDoiMuBaoHiem: false}, label: "Chở người ngồi sau không đội mũ bảo hiểm"}
+  - {name: KhongThatDayAnToan, cls: HanhViDieuKhienXe, values: {thatDayAnToan: false}, label: "Người lái không thắt dây an toàn"}
+  - {name: LienQuanTaiNanKhongDungLai, cls: HanhViDieuKhienXe, values: {lienQuanTrucTiepTaiNan: true, dungLaiSauTaiNan: false},
+     label: "Liên quan trực tiếp đến vụ tai nạn mà không dừng lại, giữ hiện trường, cứu giúp"}
+  - {name: GayTaiNanBoTron, cls: HanhViDieuKhienXe, values: {gayTaiNan: true, dungLaiSauTaiNan: false},
+     label: "Gây tai nạn mà không dừng lại / bỏ trốn"}
+  - {name: LangLachDanhVong, cls: HanhViDieuKhienXe, values: {langLachDanhVong: true}, label: "Lạng lách, đánh võng"}
+  - {name: KhongChapHanhHieuLenhDungXe, cls: HanhViDieuKhienXe, values: {coHieuLenhDungXe: true, chapHanhHieuLenh: false},
+     label: "Không chấp hành hiệu lệnh dừng xe của người thi hành công vụ"}
+  - {name: KhongCoGPLX, cls: HanhViDieuKhienXe, values: {coGPLX: false}, label: "Không có giấy phép lái xe"}
+  - {name: KhongMangTheoGPLX, cls: HanhViDieuKhienXe, values: {coGPLX: true, mangTheoGPLX: false}, label: "Có nhưng không mang theo giấy phép lái xe"}
+  - {name: KhongCoDangKyXe, cls: HanhViDieuKhienXe, values: {coDangKyXe: false}, label: "Không có giấy (chứng nhận) đăng ký xe"}
+  - {name: KhongMangTheoDangKyXe, cls: HanhViDieuKhienXe, values: {coDangKyXe: true, mangTheoDangKyXe: false}, label: "Có nhưng không mang theo đăng ký xe"}
+  - {name: KhongCoBaoHiemTNDS, cls: HanhViDieuKhienXe, values: {coBaoHiemTNDS: false}, label: "Không có bảo hiểm TNDS bắt buộc còn hiệu lực"}
+  - {name: KhongMangTheoBaoHiemTNDS, cls: HanhViDieuKhienXe, values: {coBaoHiemTNDS: true, mangTheoBaoHiemTNDS: false}, label: "Có nhưng không mang theo bảo hiểm TNDS"}
+  - {name: XeKinhDoanhVanTai, cls: HanhViDieuKhienXe, values: {kinhDoanhVanTai: true}, label: "Điều khiển xe kinh doanh vận tải"}
+  - {name: XeKhongKinhDoanhVanTai, cls: HanhViDieuKhienXe, values: {kinhDoanhVanTai: false}, label: "Điều khiển xe không kinh doanh vận tải"}

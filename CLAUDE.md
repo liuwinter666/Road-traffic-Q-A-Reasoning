@@ -2,7 +2,8 @@
 
 ## Trạng thái hiện tại
 - Phase 0: khởi tạo repo, môi trường, kiểm tra reasoner — XONG
-- Phase 1: parser + hợp nhất V1/V2/V3 + đề xuất 60 hành vi MVP — ĐANG REVIEW
+- Phase 1: parser + hợp nhất V1/V2/V3 + đề xuất 60 hành vi MVP — XONG (đã thêm V4 = NĐ 238)
+- Phase 2: ontology traffic_law.owl + docs/ontology_design.md — ĐANG REVIEW
 - Gốc project = thư mục `DoAn/` (tương ứng `traffic-law-expert/` trong đặc tả).
 - Tên file dữ liệu thô: `data/raw/ND_100.docx`, `ND_123.docx`, `ND_168.docx`.
 
@@ -20,17 +21,21 @@
 - Test: `pytest`
 - Sinh lại articles_v*.jsonl + consolidation_review.md: `python -m src.ingest.build_articles`
 - Kiểm chứng + sinh bảng hành vi MVP: `python -m src.ingest.mvp_report` (→ docs/mvp_behaviors.md)
+- Sinh ontology: `python -m src.kb.build_ontology` (→ ontology/traffic_law.owl, KHÔNG sửa tay file .owl)
 
 ## Dữ liệu pháp lý
 - `config/legal_sources.yaml`: văn bản, phiên bản V1/V2/V3, ngoại lệ hiệu lực theo phần tử, văn bản chưa có (NĐ 238).
 - `config/consolidation_overrides.yaml`: quyết định duyệt tay cho lệnh hợp nhất không tự áp được.
-- `config/mvp_behaviors.yaml`: mã hành vi → id điều khoản từng phiên bản (+ cụm từ kiểm chứng).
+- `config/mvp_behaviors.yaml`: mã hành vi → id điều khoản từng phiên bản (+ cụm từ kiểm chứng); refs ngắn hơn số phiên bản thì phiên bản sau kế thừa id.
+- `config/ontology_concepts.yaml`: ngưỡng pháp lý (lớp định nghĩa OWL, kèm evidence), lớp hợp, dấu hiệu sự kiện boolean.
+- Phiên bản: V1 NĐ100, V2 NĐ100+123, V3 NĐ168, V4 NĐ168+238 (từ 15/8/2026). default_version: current.
 - Id phần tử: `ND168-D7-K10-a`; chữ `đ` viết `dd` trong id. V2 dùng id của NĐ 100 (văn bản gốc).
 - Bản ghi JSONL có `status` (active|bai_bo), `history`, `history_inherited`, `khung_phat` (trích từ văn bản).
 
 ## Ghi chú kỹ thuật
-- HermiT không hỗ trợ SWRL built-in (`swrlb:greaterThan`...). Khi dùng HermiT dự phòng,
-  các so sánh ngưỡng số phải được tiền xử lý trong `fact_builder.py` thành lớp/thuộc tính boolean.
+- HermiT không hỗ trợ SWRL built-in → ngưỡng số là lớp định nghĩa OWL (facet), luật SWRL chỉ nối lớp, KHÔNG dùng built-in.
+- HermiT không hỗ trợ xsd:date → mọi ngày lưu xsd:dateTime.
+- YAML: không dùng khóa `on` (YAML 1.1 hiểu là True).
 - owlready2 0.51 cần Java 25+ (jena-arq-fixed2.10.0.jar có class version 69). Máy dev: JDK portable tại `%USERPROFILE%/.jdks/jdk-25.0.5+8`, trỏ qua `JAVA_EXE` trong `.env`.
 - owlready2 dùng `World()` riêng cho mỗi vụ việc để tránh lẫn cá thể giữa các phiên.
 
