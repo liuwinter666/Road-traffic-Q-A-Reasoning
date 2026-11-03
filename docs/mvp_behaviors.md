@@ -1,6 +1,6 @@
 # Đề xuất danh sách hành vi MVP (chờ duyệt)
 
-_Sinh tự động bởi `python -m src.ingest.mvp_report` ngày 2026-11-03 từ `config/mvp_behaviors.yaml` + `data/processed/articles_v*.jsonl`. Mức phạt được trích tự động từ đoạn mở đầu của khoản; ✎ = phần tử bị văn bản sửa đổi (NĐ 123 ở V2, NĐ 238 ở V4) thay đổi._
+_Sinh tự động bởi `python -m src.ingest.mvp_report` ngày 2026-11-04 từ `config/mvp_behaviors.yaml` + `data/processed/articles_v*.jsonl`. Mức phạt được trích tự động từ đoạn mở đầu của khoản; ✎ = phần tử bị văn bản sửa đổi (NĐ 123 ở V2, NĐ 238 ở V4) thay đổi._
 
 Tổng số hành vi: **60**. Lỗi kiểm chứng: **0**.
 

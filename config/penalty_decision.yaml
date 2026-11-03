@@ -1,0 +1,70 @@
+# Quyết định mức xử phạt đề xuất (src/kb/penalty.py). Mọi quy tắc có căn cứ nguyên văn `trich` — test
+# tests/test_penalty.py kiểm tra trích dẫn có trong phần tử `id` (văn bản bổ trợ hoặc nghị định).
+# Tình tiết được suy ra bằng luật SWRL trong ontology/rules/penalty_decision.swrl.
+
+muc_phat:
+  # Mức cụ thể = trung bình khung; có tình tiết giảm nhẹ thì có thể giảm nhưng không dưới mức tối thiểu,
+  # tăng nặng thì có thể tăng nhưng không quá mức tối đa.
+  can_cu:
+    id: LXLVPHC-D23-K4
+    trich: "Mức tiền phạt cụ thể đối với một hành vi vi phạm hành chính là mức trung bình của khung tiền phạt được quy định đối với hành vi đó"
+  can_cu_gioi_han:
+    id: LXLVPHC-D23-K4
+    trich: "nếu có tình tiết giảm nhẹ thì mức tiền phạt có thể giảm xuống nhưng không được thấp hơn mức tối thiểu của khung tiền phạt; nếu có tình tiết tăng nặng thì mức tiền phạt có thể tăng lên nhưng không được vượt quá mức tối đa của khung tiền phạt"
+  # Mức tăng/giảm cụ thể theo số tình tiết: khoản 4 Điều 23 giao "Chính phủ quy định chi tiết khoản này" —
+  # văn bản hướng dẫn chưa có trong data/raw/ → QUY ƯỚC CỦA HỆ THỐNG, cần kiểm chứng.
+  quy_uoc_dieu_chinh:
+    mo_ta: "Mỗi tình tiết (tăng nặng trừ giảm nhẹ) dịch mức đề xuất 1/so_buoc khoảng cách từ mức trung bình tới biên khung"
+    so_buoc: 2
+    TODO_VERIFY: "Văn bản Chính phủ quy định chi tiết khoản 4 Điều 23 Luật XLVPHC chưa có trong dữ liệu"
+
+nhieu_hanh_vi:
+  id: LXLVPHC-D3-K1-d
+  trich: "Một người thực hiện nhiều hành vi vi phạm hành chính hoặc vi phạm hành chính nhiều lần thì bị xử phạt về từng hành vi vi phạm"
+
+mot_hanh_vi_mot_lan:
+  id: LXLVPHC-D3-K1-d
+  trich: "Một hành vi vi phạm hành chính chỉ bị xử phạt một lần."
+
+to_chuc:
+  he_so: 2
+  id: LXLVPHC-D3-K1-e
+  trich: "Đối với cùng một hành vi vi phạm hành chính thì mức phạt tiền đối với tổ chức bằng 02 lần mức phạt tiền đối với cá nhân."
+
+nguoi_chua_thanh_nien:
+  duoi_14:
+    xu_phat: false
+    id: LXLVPHC-D5-K1-a
+    trich: "Người từ đủ 14 tuổi đến dưới 16 tuổi bị xử phạt vi phạm hành chính về vi phạm hành chính do cố ý"
+    suy_ra: "Điều 5 chỉ coi người từ đủ 14 tuổi trở lên là đối tượng bị xử phạt"
+  tu_14_den_16:
+    chi_khi_co_y: {id: LXLVPHC-D5-K1-a, trich: "Người từ đủ 14 tuổi đến dưới 16 tuổi bị xử phạt vi phạm hành chính về vi phạm hành chính do cố ý"}
+    khong_phat_tien: {id: LXLVPHC-D134-K3, trich: "Trường hợp người từ đủ 14 tuổi đến dưới 16 tuổi vi phạm hành chính thì không áp dụng hình thức phạt tiền."}
+    hinh_thuc_thay_the: {id: LXLVPHC-D135-K1, trich: "Các hình thức xử phạt áp dụng đối với người chưa thành niên bao gồm"}
+  tu_16_den_18:
+    he_so_toi_da: 0.5
+    id: LXLVPHC-D134-K3
+    trich: "Trường hợp người từ đủ 16 tuổi đến dưới 18 tuổi vi phạm hành chính bị phạt tiền thì mức tiền phạt không quá 1/2 mức tiền phạt áp dụng đối với người thành niên"
+
+# Tình tiết đã là dấu hiệu của chính hành vi vi phạm thì không coi là tăng nặng (khoản 2 Điều 10)
+tinh_tiet_trung_hanh_vi:
+  id: LXLVPHC-D10-K2
+  trich: "Tình tiết quy định tại khoản 1 Điều này đã được quy định là hành vi vi phạm hành chính thì không được coi là tình tiết tăng nặng."
+  bang:
+    TTTN_dd: [CHONG_DOI_CONG_VU]
+    TTTN_k: [OT_GAY_TAI_NAN_BO_TRON, XM_GAY_TAI_NAN_BO_TRON, OT_LIEN_QUAN_TAI_NAN_KHONG_DUNG, XM_LIEN_QUAN_TAI_NAN_KHONG_DUNG]
+    TTTN_i: [OT_HIEU_LENH_CSGT, XM_HIEU_LENH_CSGT, KHONG_CHAP_HANH_KIEM_TRA]
+
+# Điều kiện của chế tài có điều kiện ↔ sự kiện của vụ việc
+dieu_kien_che_tai:
+  tai_pham: [taiPham]
+  nhieu_lan: [viPhamNhieuLan]
+  tai_pham_hoac_nhieu_lan: [taiPham, viPhamNhieuLan]
+  gay_tai_nan: [gayTaiNan]
+
+# Trừ điểm GPLX (NĐ 168 và sửa đổi — chỉ V3, V4)
+tru_diem:
+  ap_dung_phien_ban: [V3, V4]
+  nhieu_hanh_vi: {id: ND168-D50-K1-b, trich: "chỉ áp dụng trừ điểm đối với hành vi vi phạm bị trừ nhiều điểm nhất"}
+  khong_qua_diem_con_lai: {id: ND168-D50-K1-c, trich: "Trường hợp số điểm còn lại của giấy phép lái xe ít hơn số điểm bị trừ thì áp dụng trừ hết số điểm còn lại của giấy phép lái xe đó"}
+  dang_bi_tuoc: {id: ND168-D50-K1-dd, trich: "Không trừ điểm giấy phép lái xe khi giấy phép lái xe đó đang trong thời hạn bị tước quyền sử dụng giấy phép lái xe"}

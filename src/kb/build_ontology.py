@@ -301,6 +301,7 @@ def build_tbox(onto) -> types.SimpleNamespace:
             "coBaoHiemTNDS": "Có bảo hiểm TNDS bắt buộc còn hiệu lực",
             "mangTheoBaoHiemTNDS": "Mang theo chứng nhận bảo hiểm TNDS",
             "kinhDoanhVanTai": "Xe kinh doanh vận tải",
+            "gplxDangBiTuoc": "GPLX đang trong thời hạn bị tước quyền sử dụng",
         }
         for name, vi in bool_facts.items():
             dprop(name, HanhViDieuKhienXe, bool, vi=vi)
@@ -329,6 +330,12 @@ def build_tbox(onto) -> types.SimpleNamespace:
         dprop("thoiHanToiThieuThang", HinhThucBoSung, int, vi="Thời hạn tước tối thiểu (tháng)")
         dprop("thoiHanToiDaThang", HinhThucBoSung, int, vi="Thời hạn tước tối đa (tháng)")
         dprop("soDiemTru", TruDiemGPLX, int, vi="Số điểm GPLX bị trừ")
+        for nm in ("thoiHanToiThieuThang", "thoiHanToiDaThang"):
+            onto[nm].domain = [HinhThucBoSung]
+        dk = types.new_class("dieuKienApDung", (DataProperty, FunctionalProperty))
+        dk.range = [str]
+        label(dk, "Điều kiện áp dụng hình thức/biện pháp (vd. tái phạm, gây tai nạn)")
+        dprop("diemConLai", HanhViDieuKhienXe, int, vi="Số điểm GPLX còn lại của người lái")
         dprop("maQuyTac", QuyTac, str, vi="Mã quy tắc (R001...)")
         dprop("ketLuanMaHanhVi", QuyTac, str, vi="Mã hành vi mà quy tắc kết luận")
         dprop("moTaQuyTac", QuyTac, str, vi="Mô tả quy tắc")
@@ -412,6 +419,15 @@ def build_defined_classes(onto, cfg: dict) -> None:
             c = types.new_class(u["name"], (onto[u["group"]],))
             c.equivalent_to = [Or([onto[x] for x in u["of"]])]
             label(c, u["label"], u.get("note"))
+        for tf in cfg.get("tinh_tiet_facts") or []:
+            if onto[tf["fact"]] is None:
+                p = types.new_class(tf["fact"], (DataProperty, FunctionalProperty))
+                p.domain = [onto.HanhVi]
+                p.range = [bool]
+                label(p, tf["label"])
+            c = types.new_class(f"DH_{tf['fact']}", (onto.DauHieuSuKien,))
+            c.equivalent_to = [onto.HanhVi & onto[tf["fact"]].value(True)]
+            label(c, f"Dấu hiệu tình tiết: {tf['label']}")
         for o in cfg["observations"]:
             expr = onto[o["cls"]]
             for p, v in o.get("values", {}).items():
@@ -646,6 +662,64 @@ def build_abox(onto, sources: dict, behaviors: list[dict], concepts: dict) -> di
     return stats
 
 
+SANCTION_CLASS = {"tuoc_gplx": "TuocGPLX", "tich_thu_phuong_tien": "TichThuPhuongTien", "tich_thu": "TichThuTangVat",
+                  "tru_diem": "TruDiemGPLX", "thu_hoi": "BienPhapKhacPhucHauQua"}
+CONDITION_LABEL = {"tai_pham": "tái phạm", "nhieu_lan": "vi phạm nhiều lần",
+                   "tai_pham_hoac_nhieu_lan": "tái phạm hoặc vi phạm nhiều lần", "gay_tai_nan": "gây tai nạn giao thông"}
+
+
+def build_rules_abox(onto, registry: dict) -> dict[str, int]:
+    """Cá thể QuyTac (mỗi luật SWRL) và hình thức xử phạt bổ sung/trừ điểm gắn với điều khoản."""
+    stats = {"quy_tac": 0, "che_tai": 0}
+    with onto:
+        marker = types.new_class("DuocSuyRaBoiQuyTac", (Thing,))
+        label(marker, "Lớp đánh dấu: cá thể được kết luận bởi một quy tắc (QT_<mã>)")
+        for qid, q in registry["quy_tac"].items():
+            mc = types.new_class(f"QT_{qid}", (marker,))
+            label(mc, f"Được suy ra bởi quy tắc {qid}")
+            r = onto.QuyTac(qid)
+            r.maQuyTac = qid
+            r.moTaQuyTac = q["mo_ta"]
+            label(r, f"{qid}: {q['mo_ta']}" + (f" ({q['phien_ban']})" if q.get("phien_ban") else ""))
+            if q.get("ma_hanh_vi"):
+                r.ketLuanMaHanhVi = q["ma_hanh_vi"]
+            if q.get("phien_ban"):
+                r.apDungChoPhienBan = [onto[q["phien_ban"]]]
+            bases = q["can_cu"] if isinstance(q["can_cu"], list) else [q["can_cu"]]
+            r.canCuDieuKhoan = [x for x in (onto[b.get("iri", b["id"])] for b in bases) if x is not None]
+            r.canCuPhapLy = [b["id"] for b in bases]
+            stats["quy_tac"] += 1
+        seen = set()
+        for code, hv in registry["hanh_vi"].items():
+            for v, info in hv["phien_ban"].items():
+                prov = onto[info["can_cu"]["iri"]]
+                for s in info["che_tai"]:
+                    key = (v, s["can_cu_id"], s["loai"], json.dumps(s["gia_tri"], sort_keys=True), s["dieu_kien"])
+                    name = f"CT_{v}_{s['can_cu_id']}_{s['loai']}" + (f"_{s['dieu_kien'][:12]}" if s["dieu_kien"] else "")
+                    name = name.replace(" ", "_")
+                    ind = onto[name]
+                    if key not in seen:
+                        seen.add(key)
+                        ind = onto[SANCTION_CLASS[s["loai"]]](name)
+                        g = s["gia_tri"]
+                        if s["loai"] == "tuoc_gplx":
+                            ind.thoiHanToiThieuThang, ind.thoiHanToiDaThang = g["tu_thang"], g["den_thang"]
+                        if s["loai"] == "tru_diem":
+                            ind.soDiemTru = g["so_diem"]
+                        if s["dieu_kien"]:
+                            ind.dieuKienApDung = CONDITION_LABEL.get(s["dieu_kien"], s["dieu_kien"])
+                        ind.canCuPhapLy = [f"{v}:{s['can_cu_id']} — {s['nguyen_van'][:300]}"]
+                        label(ind, f"{s['loai']} {g} ({v} {s['can_cu_id']})")
+                        stats["che_tai"] += 1
+                    if prov is not None:
+                        if s["loai"] in ("tru_diem", "thu_hoi"):
+                            if ind not in prov.coBienPhapKhac:
+                                prov.coBienPhapKhac.append(ind)
+                        elif ind not in prov.coHinhThucBoSung:
+                            prov.coHinhThucBoSung.append(ind)
+    return stats
+
+
 def build(out: Path = OUT_FILE) -> Path:
     """Dựng toàn bộ ontology và ghi ra file RDF/XML."""
     from src.ingest.build_articles import load_sources
@@ -665,6 +739,12 @@ def build(out: Path = OUT_FILE) -> Path:
     build_defined_classes(onto, concepts)
     build_behavior_classes(onto, behaviors, versions)
     stats = build_abox(onto, sources, behaviors, concepts)
+    from src.kb.rules_builder import REGISTRY_FILE, load_registry
+
+    if REGISTRY_FILE.exists():
+        stats.update(build_rules_abox(onto, load_registry()))
+    else:
+        logger.warning("Chưa có {} — chạy python -m src.kb.rules_builder trước", REGISTRY_FILE.name)
     out.parent.mkdir(parents=True, exist_ok=True)
     onto.save(file=str(out), format="rdfxml")
     n_cls, n_prop = len(list(onto.classes())), len(list(onto.properties()))

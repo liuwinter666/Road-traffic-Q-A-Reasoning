@@ -5,8 +5,8 @@
 - Phase 1: parser + hợp nhất V1/V2/V3 + đề xuất 60 hành vi MVP — XONG (đã thêm V4 = NĐ 238)
 - Phase 2: ontology traffic_law.owl + docs/ontology_design.md — XONG
 - Bổ sung sau Phase 2: hiệu lực tới cấp phần nội dung + có điều kiện (temporal.py), văn bản bổ trợ
-  GTDB2008/LTTATGT(+L118)/TT31/TT38/LXLVPHC, 0 lệnh hợp nhất treo — ĐANG REVIEW
-- Tiếp theo: Phase 3 (luật SWRL, rule_registry, reasoner, penalty_decision)
+  GTDB2008/LTTATGT(+L118)/TT31/TT38/LXLVPHC, 0 lệnh hợp nhất treo — XONG
+- Phase 3: luật SWRL (303), rule_registry, sanctions, reasoner (HermiT), penalty — ĐANG REVIEW (docs/rules_design.md)
 - Gốc project = thư mục `DoAn/` (tương ứng `traffic-law-expert/` trong đặc tả).
 - Tên file dữ liệu thô: `data/raw/ND_100.docx`, `ND_123.docx`, `ND_168.docx`.
 
@@ -26,7 +26,9 @@
 - Kiểm chứng + sinh bảng hành vi MVP: `python -m src.ingest.mvp_report` (→ docs/mvp_behaviors.md)
 - Sinh ontology: `python -m src.kb.build_ontology` (→ ontology/traffic_law.owl, KHÔNG sửa tay file .owl)
 - Bảng tốc độ TT 38: `python -m src.ingest.speed_limits` (→ data/processed/speed_limits.json)
-- Thứ tự sinh lại toàn bộ: build_articles → speed_limits → mvp_report → build_ontology
+- Sinh lại TOÀN BỘ đúng thứ tự: `python -m scripts.build_all`
+  (build_articles → speed_limits → mvp_report → rules_builder → build_ontology → reasoning_kb)
+- Suy luận một vụ việc: `from src.kb.reasoner import suy_luan; from src.kb.penalty import quyet_dinh`
 
 ## Dữ liệu pháp lý
 - `config/legal_sources.yaml`: văn bản, phiên bản V1/V2/V3, ngoại lệ hiệu lực theo phần tử, văn bản chưa có (NĐ 238).
@@ -45,7 +47,11 @@
 - Bản ghi JSONL có `status` (active|bai_bo), `history`, `history_inherited`, `khung_phat` (trích từ văn bản).
 
 ## Ghi chú kỹ thuật
+- Reasoner chính là HermiT (Pellet 2.3.1 bỏ sót kết luận luật có lớp ngưỡng khi đủ bộ luật — test_pellet_limitation).
 - HermiT không hỗ trợ SWRL built-in → ngưỡng số là lớp định nghĩa OWL (facet), luật SWRL chỉ nối lớp, KHÔNG dùng built-in.
+- Truy vết luật qua lớp đánh dấu QT_<mã> (không bật infer_property_values — O(n²)); ontology suy luận gọn theo phiên bản
+  ở ontology/reasoning/; reasoner chia lô 10 vụ việc.
+- Luật sinh từ config/rule_specs.yaml (điều kiện) + config/mvp_behaviors.yaml (điều khoản); KHÔNG sửa tay .swrl/registry.
 - HermiT không hỗ trợ xsd:date → mọi ngày lưu xsd:dateTime.
 - YAML: không dùng khóa `on` (YAML 1.1 hiểu là True).
 - owlready2 0.51 cần Java 25+ (jena-arq-fixed2.10.0.jar có class version 69). Máy dev: JDK portable tại `%USERPROFILE%/.jdks/jdk-25.0.5+8`, trỏ qua `JAVA_EXE` trong `.env`.

@@ -1,0 +1,39 @@
+# Sinh tự động bởi `python -m src.kb.rules_builder` từ config/rule_specs.yaml — không sửa tay.
+# Mỗi luật: dòng chú thích '# <mã> | <hành vi> | <phiên bản> | <căn cứ>' rồi '<mã>: <SWRL>'.
+# Căn cứ đầy đủ, nguyên văn, ngày hiệu lực: ontology/rule_registry.yaml.
+
+# R161 | OT_LANG_LACH_KHONG_DUNG_XE | V1 | khoản 9 Điều 5 NĐ 100/2019/NĐ-CP
+R161: HanhViDieuKhienXe(?h), thuocVuViec(?h, ?v), apDungPhienBan(?v, V1), chuThe(?h, ?n), suDungPhuongTien(?h, ?x), NhomXeOTo(?x), LangLachDanhVong(?h), KhongChapHanhHieuLenhDungXe(?h) -> HV_OT_LANG_LACH_KHONG_DUNG_XE(?h), QT_R161(?h), apDungDieuKhoan(?h, V1_ND100-D5-K9), duocSuyRaBoi(?h, R161), viPhamHanhVi(?n, ?h)
+
+# R162 | OT_LANG_LACH_KHONG_DUNG_XE | V1 | khoản 9 Điều 5 NĐ 100/2019/NĐ-CP
+R162: HanhViDieuKhienXe(?h), thuocVuViec(?h, ?v), apDungPhienBan(?v, V1), chuThe(?h, ?n), suDungPhuongTien(?h, ?x), NhomXeOTo(?x), LangLachDanhVong(?h), CoGayTaiNan(?h) -> HV_OT_LANG_LACH_KHONG_DUNG_XE(?h), QT_R162(?h), apDungDieuKhoan(?h, V1_ND100-D5-K9), duocSuyRaBoi(?h, R162), viPhamHanhVi(?n, ?h)
+
+# R163 | OT_LANG_LACH_KHONG_DUNG_XE | V2 | khoản 9 Điều 5 NĐ 100/2019/NĐ-CP
+R163: HanhViDieuKhienXe(?h), thuocVuViec(?h, ?v), apDungPhienBan(?v, V2), chuThe(?h, ?n), suDungPhuongTien(?h, ?x), NhomXeOTo(?x), LangLachDanhVong(?h), KhongChapHanhHieuLenhDungXe(?h) -> HV_OT_LANG_LACH_KHONG_DUNG_XE(?h), QT_R163(?h), apDungDieuKhoan(?h, V2_ND100-D5-K9), duocSuyRaBoi(?h, R163), viPhamHanhVi(?n, ?h)
+
+# R164 | OT_LANG_LACH_KHONG_DUNG_XE | V2 | khoản 9 Điều 5 NĐ 100/2019/NĐ-CP
+R164: HanhViDieuKhienXe(?h), thuocVuViec(?h, ?v), apDungPhienBan(?v, V2), chuThe(?h, ?n), suDungPhuongTien(?h, ?x), NhomXeOTo(?x), LangLachDanhVong(?h), CoGayTaiNan(?h) -> HV_OT_LANG_LACH_KHONG_DUNG_XE(?h), QT_R164(?h), apDungDieuKhoan(?h, V2_ND100-D5-K9), duocSuyRaBoi(?h, R164), viPhamHanhVi(?n, ?h)
+
+# R165 | XM_LANG_LACH_KHONG_DUNG_XE | V1 | khoản 9 Điều 6 NĐ 100/2019/NĐ-CP
+R165: HanhViDieuKhienXe(?h), thuocVuViec(?h, ?v), apDungPhienBan(?v, V1), chuThe(?h, ?n), suDungPhuongTien(?h, ?x), NhomXeMoTo(?x), LangLachDanhVong(?h), KhongChapHanhHieuLenhDungXe(?h) -> HV_XM_LANG_LACH_KHONG_DUNG_XE(?h), QT_R165(?h), apDungDieuKhoan(?h, V1_ND100-D6-K9), duocSuyRaBoi(?h, R165), viPhamHanhVi(?n, ?h)
+
+# R166 | XM_LANG_LACH_KHONG_DUNG_XE | V1 | khoản 9 Điều 6 NĐ 100/2019/NĐ-CP
+R166: HanhViDieuKhienXe(?h), thuocVuViec(?h, ?v), apDungPhienBan(?v, V1), chuThe(?h, ?n), suDungPhuongTien(?h, ?x), NhomXeMoTo(?x), LangLachDanhVong(?h), CoGayTaiNan(?h) -> HV_XM_LANG_LACH_KHONG_DUNG_XE(?h), QT_R166(?h), apDungDieuKhoan(?h, V1_ND100-D6-K9), duocSuyRaBoi(?h, R166), viPhamHanhVi(?n, ?h)
+
+# R167 | XM_LANG_LACH_KHONG_DUNG_XE | V2 | khoản 9 Điều 6 NĐ 100/2019/NĐ-CP
+R167: HanhViDieuKhienXe(?h), thuocVuViec(?h, ?v), apDungPhienBan(?v, V2), chuThe(?h, ?n), suDungPhuongTien(?h, ?x), NhomXeMoTo(?x), LangLachDanhVong(?h), KhongChapHanhHieuLenhDungXe(?h) -> HV_XM_LANG_LACH_KHONG_DUNG_XE(?h), QT_R167(?h), apDungDieuKhoan(?h, V2_ND100-D6-K9), duocSuyRaBoi(?h, R167), viPhamHanhVi(?n, ?h)
+
+# R168 | XM_LANG_LACH_KHONG_DUNG_XE | V2 | khoản 9 Điều 6 NĐ 100/2019/NĐ-CP
+R168: HanhViDieuKhienXe(?h), thuocVuViec(?h, ?v), apDungPhienBan(?v, V2), chuThe(?h, ?n), suDungPhuongTien(?h, ?x), NhomXeMoTo(?x), LangLachDanhVong(?h), CoGayTaiNan(?h) -> HV_XM_LANG_LACH_KHONG_DUNG_XE(?h), QT_R168(?h), apDungDieuKhoan(?h, V2_ND100-D6-K9), duocSuyRaBoi(?h, R168), viPhamHanhVi(?n, ?h)
+
+# R169 | KHONG_CHAP_HANH_KIEM_TRA | V3 | khoản 10 Điều 12 NĐ 168/2024/NĐ-CP
+R169: HanhViDieuKhienXe(?h), thuocVuViec(?h, ?v), apDungPhienBan(?v, V3), chuThe(?h, ?n), suDungPhuongTien(?h, ?x), KhongChapHanhYeuCauKiemTra(?h) -> HV_KHONG_CHAP_HANH_KIEM_TRA(?h), QT_R169(?h), apDungDieuKhoan(?h, V3_ND168-D12-K10), duocSuyRaBoi(?h, R169), viPhamHanhVi(?n, ?h)
+
+# R170 | KHONG_CHAP_HANH_KIEM_TRA | V4 | khoản 10 Điều 12 NĐ 168/2024/NĐ-CP
+R170: HanhViDieuKhienXe(?h), thuocVuViec(?h, ?v), apDungPhienBan(?v, V4), chuThe(?h, ?n), suDungPhuongTien(?h, ?x), KhongChapHanhYeuCauKiemTra(?h) -> HV_KHONG_CHAP_HANH_KIEM_TRA(?h), QT_R170(?h), apDungDieuKhoan(?h, V4_ND168-D12-K10), duocSuyRaBoi(?h, R170), viPhamHanhVi(?n, ?h)
+
+# R171 | CHONG_DOI_CONG_VU | V3 | điểm a khoản 14 Điều 12 NĐ 168/2024/NĐ-CP
+R171: HanhViDieuKhienXe(?h), thuocVuViec(?h, ?v), apDungPhienBan(?v, V3), chuThe(?h, ?n), suDungPhuongTien(?h, ?x), ChongDoiNguoiThiHanhCongVu(?h) -> HV_CHONG_DOI_CONG_VU(?h), QT_R171(?h), apDungDieuKhoan(?h, V3_ND168-D12-K14-a), duocSuyRaBoi(?h, R171), viPhamHanhVi(?n, ?h)
+
+# R172 | CHONG_DOI_CONG_VU | V4 | điểm a khoản 14 Điều 12 NĐ 168/2024/NĐ-CP
+R172: HanhViDieuKhienXe(?h), thuocVuViec(?h, ?v), apDungPhienBan(?v, V4), chuThe(?h, ?n), suDungPhuongTien(?h, ?x), ChongDoiNguoiThiHanhCongVu(?h) -> HV_CHONG_DOI_CONG_VU(?h), QT_R172(?h), apDungDieuKhoan(?h, V4_ND168-D12-K14-a), duocSuyRaBoi(?h, R172), viPhamHanhVi(?n, ?h)

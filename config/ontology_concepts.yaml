@@ -138,6 +138,8 @@ observations:
   - {name: KhongThatDayAnToan, cls: HanhViDieuKhienXe, values: {thatDayAnToan: false}, label: "Người lái không thắt dây an toàn"}
   - {name: LienQuanTaiNanKhongDungLai, cls: HanhViDieuKhienXe, values: {lienQuanTrucTiepTaiNan: true, dungLaiSauTaiNan: false},
      label: "Liên quan trực tiếp đến vụ tai nạn mà không dừng lại, giữ hiện trường, cứu giúp"}
+  - {name: CoGayTaiNan, cls: HanhViDieuKhienXe, values: {gayTaiNan: true}, label: "Gây tai nạn giao thông"}
+  - {name: DaBiTuocGPLX, cls: HanhViDieuKhienXe, values: {gplxDangBiTuoc: true}, label: "GPLX đang trong thời hạn bị tước quyền sử dụng"}
   - {name: GayTaiNanBoTron, cls: HanhViDieuKhienXe, values: {gayTaiNan: true, dungLaiSauTaiNan: false},
      label: "Gây tai nạn mà không dừng lại / bỏ trốn"}
   - {name: LangLachDanhVong, cls: HanhViDieuKhienXe, values: {langLachDanhVong: true}, label: "Lạng lách, đánh võng"}
@@ -184,3 +186,26 @@ support_provisions:
 tinh_tiet:
   - {source: LXLVPHC, parent_id: LXLVPHC-D9, class: TinhTietGiamNhe, prefix: TTGN}
   - {source: LXLVPHC, parent_id: LXLVPHC-D10-K1, class: TinhTietTangNang, prefix: TTTN}
+
+# ---------------------------------------------------------------------------
+# Sự kiện làm phát sinh tình tiết (boolean trên HanhVi) → cá thể tình tiết trong Luật XLVPHC.
+# Sinh: thuộc tính dữ liệu <fact>, lớp dấu hiệu DH_<fact> ≡ HanhVi ⊓ <fact> = true,
+#       và luật SWRL (ontology/rules/penalty_decision.swrl): DH_<fact>(?h) → coTinhTiet(?h, <tinh_tiet>)
+# ---------------------------------------------------------------------------
+tinh_tiet_facts:
+  # tăng nặng (khoản 1 Điều 10)
+  - {fact: viPhamCoToChuc, tinh_tiet: TTTN_a, label: "Vi phạm có tổ chức"}
+  - {fact: taiPham, tinh_tiet: TTTN_b, label: "Tái phạm"}
+  - {fact: viPhamNhieuLan, tinh_tiet: TTTN_b, label: "Vi phạm nhiều lần"}
+  - {fact: langMaNguoiThiHanhCongVu, tinh_tiet: TTTN_dd, label: "Lăng mạ, phỉ báng người đang thi hành công vụ"}
+  - {fact: tiepTucViPhamSauYeuCauChamDut, tinh_tiet: TTTN_i, label: "Tiếp tục vi phạm dù đã được yêu cầu chấm dứt"}
+  - {fact: tronTranhCheGiauViPham, tinh_tiet: TTTN_k, label: "Trốn tránh, che giấu vi phạm"}
+  - {fact: viPhamDoiVoiTreEmNguoiGia, tinh_tiet: TTTN_m, label: "Vi phạm đối với nhiều người, trẻ em, người già, người khuyết tật, phụ nữ mang thai"}
+  # giảm nhẹ (Điều 9)
+  - {fact: tuNguyenKhacPhucHauQua, tinh_tiet: TTGN_1, label: "Ngăn chặn, giảm bớt hậu quả, tự nguyện khắc phục, bồi thường"}
+  - {fact: thanhThatHoiLoi, tinh_tiet: TTGN_2, label: "Tự nguyện khai báo, thành thật hối lỗi"}
+  - {fact: biKichDongTinhThan, tinh_tiet: TTGN_3, label: "Bị kích động về tinh thần do hành vi trái pháp luật của người khác"}
+  - {fact: biEpBuocLeThuoc, tinh_tiet: TTGN_4, label: "Bị ép buộc hoặc lệ thuộc về vật chất, tinh thần"}
+  - {fact: phuNuMangThaiGiaYeuBenhTat, tinh_tiet: TTGN_5, label: "Phụ nữ mang thai, người già yếu, người có bệnh hoặc khuyết tật hạn chế nhận thức"}
+  - {fact: hoanCanhDacBietKhoKhan, tinh_tiet: TTGN_6, label: "Hoàn cảnh đặc biệt khó khăn không do mình gây ra"}
+  - {fact: trinhDoLacHau, tinh_tiet: TTGN_7, label: "Vi phạm do trình độ lạc hậu"}

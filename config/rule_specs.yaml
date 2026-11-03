@@ -1,0 +1,181 @@
+# Đặc tả luật SWRL cho các hành vi MVP. `python -m src.kb.rules_builder` sinh ra
+#   ontology/rules/{alcohol,speed,signal,resistance,documents,penalty_decision}.swrl
+#   ontology/rule_registry.yaml
+#
+# Thân luật chung (act mặc định HanhViDieuKhienXe):
+#   <act>(?h), thuocVuViec(?h, ?v), apDungPhienBan(?v, <V>), chuThe(?h, ?n), suDungPhuongTien(?h, ?x),
+#   <xe>(?x)..., <dk>(?h)..., <nguoi>(?n)..., <extra>
+# Kết luận: HV_<mã>(?h), apDungDieuKhoan(?h, <V>_<id>), duocSuyRaBoi(?h, <Rxxx>), viPhamHanhVi(?n, ?h)
+#
+# xe / dk / nguoi: danh sách PHƯƠNG ÁN (hoặc); mỗi phương án là một lớp hoặc danh sách lớp (và).
+#   Tích các phương án → nhiều luật cho cùng hành vi/phiên bản. Không dùng SWRL built-in.
+# phien_ban: ghi đè theo phiên bản (khóa "V1", "V1,V2", ...). Điều khoản lấy từ config/mvp_behaviors.yaml.
+# loai_tru_boi: hành vi này KHÔNG áp khi hành vi kia cũng được kết luận cho cùng hành vi thực tế
+#   (câu "trừ hành vi vi phạm quy định tại ..." hoặc nguyên tắc một hành vi chỉ bị xử phạt một lần).
+# vi_du: tình huống mẫu để test tự động (abox.build_case): xe, xe_tt, nguoi, su_kien, duong, chu_xe.
+
+files:
+  nong_do_con: alcohol
+  ma_tuy: alcohol
+  toc_do: speed
+  tin_hieu: signal
+  phan_lan: signal
+  thiet_bi: signal
+  an_toan: signal
+  tai_nan: signal
+  lai_nguy_hiem: signal
+  cong_vu: resistance
+  giay_to: documents
+  gplx: documents
+  do_tuoi: documents
+  chu_xe: documents
+
+specs:
+  # ===================== NỒNG ĐỘ CỒN, MA TÚY =====================
+  OT_CON_1: {xe: [NhomXeOTo], dk: [NongDoConMuc1], vi_du: {xe: OTo, su_kien: {nongDoConKhiTho: 0.2}}}
+  OT_CON_2: {xe: [NhomXeOTo], dk: [NongDoConMuc2], vi_du: {xe: OTo, su_kien: {nongDoConKhiTho: 0.3}}}
+  OT_CON_3: {xe: [NhomXeOTo], dk: [NongDoConMuc3], vi_du: {xe: OTo, su_kien: {nongDoConMau: 90.0}}}
+  OT_TU_CHOI_DO_CON: {xe: [NhomXeOTo], dk: [TuChoiKiemTraNongDoCon], vi_du: {xe: OTo, su_kien: {tuChoiKiemTraNongDoCon: true}}}
+  OT_MA_TUY: {xe: [NhomXeOTo], dk: [CoMaTuyTrongCoThe], vi_du: {xe: OTo, su_kien: {coMaTuyTrongCoThe: true}}}
+  OT_TU_CHOI_MA_TUY: {xe: [NhomXeOTo], dk: [TuChoiKiemTraMaTuy], vi_du: {xe: OTo, su_kien: {tuChoiKiemTraMaTuy: true}}}
+  XM_CON_1: {xe: [NhomXeMoTo], dk: [NongDoConMuc1], vi_du: {xe: XeMoToHaiBanh, su_kien: {nongDoConKhiTho: 0.1}}}
+  XM_CON_2: {xe: [NhomXeMoTo], dk: [NongDoConMuc2], vi_du: {xe: XeMayDien, su_kien: {nongDoConKhiTho: 0.35}}}
+  XM_CON_3: {xe: [NhomXeMoTo], dk: [NongDoConMuc3], vi_du: {xe: XeMoToHaiBanh, su_kien: {nongDoConKhiTho: 0.5}}}
+  XM_TU_CHOI_DO_CON: {xe: [NhomXeMoTo], dk: [TuChoiKiemTraNongDoCon], vi_du: {xe: XeGanMay, su_kien: {tuChoiKiemTraNongDoCon: true}}}
+  XM_MA_TUY: {xe: [NhomXeMoTo], dk: [CoMaTuyTrongCoThe], vi_du: {xe: XeMoToHaiBanh, su_kien: {coMaTuyTrongCoThe: true}}}
+
+  # ===================== TỐC ĐỘ (tocDoVuot = thực tế − tối đa) =====================
+  OT_TD_05_10: {xe: [NhomXeOTo], dk: [VuotTocDo05Den10], vi_du: {xe: OTo, su_kien: {tocDoThucTe: 57, tocDoToiDaChoPhep: 50}}}
+  OT_TD_10_20: {xe: [NhomXeOTo], dk: [VuotTocDo10Den20], vi_du: {xe: OTo, su_kien: {tocDoThucTe: 70, tocDoToiDaChoPhep: 60}}}
+  OT_TD_20_35: {xe: [NhomXeOTo], dk: [VuotTocDoTren20Den35], vi_du: {xe: OTo, su_kien: {tocDoThucTe: 115, tocDoToiDaChoPhep: 90}}}
+  OT_TD_TREN_35: {xe: [NhomXeOTo], dk: [VuotTocDoTren35], vi_du: {xe: OTo, su_kien: {tocDoThucTe: 100, tocDoToiDaChoPhep: 60}}}
+  XM_TD_05_10: {xe: [NhomXeMoTo], dk: [VuotTocDo05Den10], vi_du: {xe: XeMoToHaiBanh, su_kien: {tocDoThucTe: 55, tocDoToiDaChoPhep: 50}}}
+  XM_TD_10_20: {xe: [NhomXeMoTo], dk: [VuotTocDo10Den20], vi_du: {xe: XeMoToHaiBanh, su_kien: {tocDoThucTe: 80, tocDoToiDaChoPhep: 60}}}
+  XM_TD_TREN_20: {xe: [NhomXeMoTo], dk: [VuotTocDoTren20], vi_du: {xe: XeMoToHaiBanh, su_kien: {tocDoThucTe: 85, tocDoToiDaChoPhep: 60}}}
+
+  # ===================== TÍN HIỆU, PHẦN ĐƯỜNG, AN TOÀN, TAI NẠN =====================
+  OT_DEN_DO: {xe: [NhomXeOTo], dk: [KhongChapHanhDenTinHieu], vi_du: {xe: OTo, su_kien: {khongChapHanhDenTinHieu: true}}}
+  OT_HIEU_LENH_CSGT: {xe: [NhomXeOTo], dk: [KhongChapHanhHieuLenhNguoiDieuKhienGT],
+                      vi_du: {xe: OTo, su_kien: {coHieuLenhNguoiDieuKhienGT: true, chapHanhHieuLenh: false}}}
+  OT_NGUOC_CHIEU: {xe: [NhomXeOTo], dk: [DiNguocChieu], loai_tru_boi: [OT_NGUOC_CHIEU_CAO_TOC],
+                   vi_du: {xe: OTo, su_kien: {diNguocChieu: true}, duong: [DuongMotChieu]}}
+  OT_NGUOC_CHIEU_CAO_TOC: {xe: [NhomXeOTo], dk: [DiNguocChieuTrenCaoToc],
+                           vi_du: {xe: OTo, su_kien: {diNguocChieu: true}, duong: [DuongCaoToc]}}
+  OT_SAI_PHAN_LAN: {xe: [NhomXeOTo], dk: [DiSaiPhanDuongLanDuong], vi_du: {xe: OTo, su_kien: {diSaiPhanDuongLanDuong: true}}}
+  OT_CHUYEN_LAN: {xe: [NhomXeOTo], dk: [ChuyenLanSaiQuyDinh], vi_du: {xe: OTo, su_kien: {chuyenLanSaiQuyDinh: true}}}
+  OT_DIEN_THOAI: {xe: [NhomXeOTo], dk: [DungTaySuDungDienThoai], vi_du: {xe: OTo, su_kien: {dungTaySuDungDienThoai: true}}}
+  OT_DAY_AN_TOAN: {xe: [NhomXeOTo], dk: [KhongThatDayAnToan], vi_du: {xe: OTo, su_kien: {thatDayAnToan: false}}}
+  OT_LIEN_QUAN_TAI_NAN_KHONG_DUNG: {xe: [NhomXeOTo], dk: [LienQuanTaiNanKhongDungLai], loai_tru_boi: [OT_GAY_TAI_NAN_BO_TRON],
+                                    vi_du: {xe: OTo, su_kien: {lienQuanTrucTiepTaiNan: true, dungLaiSauTaiNan: false}}}
+  OT_GAY_TAI_NAN_BO_TRON: {xe: [NhomXeOTo], dk: [GayTaiNanBoTron],
+                           vi_du: {xe: OTo, su_kien: {gayTaiNan: true, lienQuanTrucTiepTaiNan: true, dungLaiSauTaiNan: false}}}
+  OT_LANG_LACH: {xe: [NhomXeOTo], dk: [LangLachDanhVong], loai_tru_boi: [OT_LANG_LACH_KHONG_DUNG_XE],
+                 vi_du: {xe: OTo, su_kien: {langLachDanhVong: true}}}
+  XM_DEN_DO: {xe: [NhomXeMoTo], dk: [KhongChapHanhDenTinHieu], vi_du: {xe: XeMoToHaiBanh, su_kien: {khongChapHanhDenTinHieu: true}}}
+  XM_HIEU_LENH_CSGT: {xe: [NhomXeMoTo], dk: [KhongChapHanhHieuLenhNguoiDieuKhienGT],
+                      vi_du: {xe: XeMoToHaiBanh, su_kien: {coHieuLenhNguoiDieuKhienGT: true, chapHanhHieuLenh: false}}}
+  XM_NGUOC_CHIEU: {xe: [NhomXeMoTo], dk: [DiNguocChieu], vi_du: {xe: XeMoToHaiBanh, su_kien: {diNguocChieu: true}, duong: [DuongMotChieu]}}
+  XM_SAI_PHAN_LAN: {xe: [NhomXeMoTo], dk: [DiSaiPhanDuongLanDuong], vi_du: {xe: XeMoToHaiBanh, su_kien: {diSaiPhanDuongLanDuong: true}}}
+  XM_CHUYEN_LAN: {xe: [NhomXeMoTo], dk: [ChuyenLanSaiQuyDinh], vi_du: {xe: XeMoToHaiBanh, su_kien: {chuyenLanSaiQuyDinh: true}}}
+  XM_MU_BAO_HIEM: {xe: [NhomXeMoTo], dk: [KhongDoiMuBaoHiem], vi_du: {xe: XeMoToHaiBanh, su_kien: {doiMuBaoHiem: false}}}
+  XM_CHO_NGUOI_KHONG_MU: {xe: [NhomXeMoTo], dk: [ChoNguoiKhongDoiMuBaoHiem],
+                          vi_du: {xe: XeMoToHaiBanh, su_kien: {nguoiNgoiSauDoiMuBaoHiem: false}}}
+  XM_DIEN_THOAI: {xe: [NhomXeMoTo], dk: [DungTaySuDungDienThoai], vi_du: {xe: XeMoToHaiBanh, su_kien: {dungTaySuDungDienThoai: true}}}
+  XM_LIEN_QUAN_TAI_NAN_KHONG_DUNG: {xe: [NhomXeMoTo], dk: [LienQuanTaiNanKhongDungLai], loai_tru_boi: [XM_GAY_TAI_NAN_BO_TRON],
+                                    vi_du: {xe: XeMoToHaiBanh, su_kien: {lienQuanTrucTiepTaiNan: true, dungLaiSauTaiNan: false}}}
+  XM_GAY_TAI_NAN_BO_TRON: {xe: [NhomXeMoTo], dk: [GayTaiNanBoTron],
+                           vi_du: {xe: XeMoToHaiBanh, su_kien: {gayTaiNan: true, lienQuanTrucTiepTaiNan: true, dungLaiSauTaiNan: false}}}
+  XM_LANG_LACH: {xe: [NhomXeMoTo], dk: [LangLachDanhVong], loai_tru_boi: [XM_LANG_LACH_KHONG_DUNG_XE],
+                 vi_du: {xe: XeMoToHaiBanh, su_kien: {langLachDanhVong: true}}}
+
+  # ===================== NGƯỜI THI HÀNH CÔNG VỤ =====================
+  OT_LANG_LACH_KHONG_DUNG_XE:
+    xe: [NhomXeOTo]
+    dk: [[LangLachDanhVong, KhongChapHanhHieuLenhDungXe], [LangLachDanhVong, CoGayTaiNan]]
+    vi_du: {xe: OTo, su_kien: {langLachDanhVong: true, coHieuLenhDungXe: true, chapHanhHieuLenh: false}}
+  XM_LANG_LACH_KHONG_DUNG_XE:
+    xe: [NhomXeMoTo]
+    dk: [[LangLachDanhVong, KhongChapHanhHieuLenhDungXe], [LangLachDanhVong, CoGayTaiNan]]
+    vi_du: {xe: XeMoToHaiBanh, su_kien: {langLachDanhVong: true, gayTaiNan: true, dungLaiSauTaiNan: true}}
+  KHONG_CHAP_HANH_KIEM_TRA:
+    dk: [KhongChapHanhYeuCauKiemTra]
+    loai_tru_boi: [OT_TU_CHOI_DO_CON, XM_TU_CHOI_DO_CON, OT_TU_CHOI_MA_TUY]
+    vi_du: {xe: XeMoToHaiBanh, su_kien: {coYeuCauKiemTraCuaNguoiThiHanhCongVu: true, chapHanhYeuCauKiemTra: false}}
+  CHONG_DOI_CONG_VU: {dk: [ChongDoiNguoiThiHanhCongVu], vi_du: {xe: OTo, su_kien: {chongDoiNguoiThiHanhCongVu: true}}}
+
+  # ===================== GIẤY TỜ, GPLX =====================
+  XM_KHONG_MANG_GPLX:
+    xe: [XeMoTo, XeTuongTuXeMoTo]
+    dk: [KhongMangTheoGPLX]
+    vi_du: {xe: XeMoToHaiBanh, su_kien: {coGPLX: true, mangTheoGPLX: false, kinhDoanhVanTai: true}}
+    phien_ban: {"V3,V4": {dk: [[KhongMangTheoGPLX, XeKinhDoanhVanTai]]}}
+  OT_KHONG_MANG_GPLX:
+    xe: [NhomXeOTo]
+    dk: [KhongMangTheoGPLX]
+    vi_du: {xe: OTo, su_kien: {coGPLX: true, mangTheoGPLX: false, kinhDoanhVanTai: true}}
+    phien_ban: {"V3,V4": {dk: [[KhongMangTheoGPLX, XeKinhDoanhVanTai]]}}
+  XM_KHONG_MANG_DANG_KY:
+    xe: [NhomXeMoTo]
+    dk: [KhongMangTheoDangKyXe]
+    vi_du: {xe: XeMoToHaiBanh, su_kien: {coDangKyXe: true, mangTheoDangKyXe: false, kinhDoanhVanTai: true}}
+    phien_ban: {"V3,V4": {dk: [[KhongMangTheoDangKyXe, XeKinhDoanhVanTai]]}}
+  OT_KHONG_MANG_DANG_KY:
+    xe: [NhomXeOTo]
+    dk: [KhongMangTheoDangKyXe]
+    vi_du: {xe: OTo, su_kien: {coDangKyXe: true, mangTheoDangKyXe: false, kinhDoanhVanTai: true}}
+    phien_ban: {"V3,V4": {dk: [[KhongMangTheoDangKyXe, XeKinhDoanhVanTai]]}}
+  XM_KHONG_BAO_HIEM:
+    xe: [NhomXeMoTo]
+    dk: [KhongCoBaoHiemTNDS, KhongMangTheoBaoHiemTNDS]
+    vi_du: {xe: XeMoToHaiBanh, su_kien: {coBaoHiemTNDS: false}}
+    phien_ban: {"V3,V4": {dk: [KhongCoBaoHiemTNDS]}}
+  OT_KHONG_BAO_HIEM:
+    xe: [NhomXeOTo]
+    dk: [KhongCoBaoHiemTNDS, KhongMangTheoBaoHiemTNDS]
+    vi_du: {xe: OTo, su_kien: {coBaoHiemTNDS: false}}
+    phien_ban: {"V3,V4": {dk: [KhongCoBaoHiemTNDS]}}
+  XM_KHONG_DANG_KY: {xe: [NhomXeMoTo], dk: [KhongCoDangKyXe], vi_du: {xe: XeMoToHaiBanh, su_kien: {coDangKyXe: false}}}
+  OT_KHONG_DANG_KY: {xe: [NhomXeOTo], dk: [KhongCoDangKyXe], vi_du: {xe: OTo, su_kien: {coDangKyXe: false}}}
+  XM_KHONG_GPLX_NHO:
+    xe: [[XeMoToHaiBanh, DungTichDuoi175cm3], XeTuongTuXeMoTo]
+    dk: [KhongCoGPLX]
+    vi_du: {xe: XeMoToHaiBanh, xe_tt: {dungTichXiLanh: 110}, su_kien: {coGPLX: false}}
+    phien_ban: {"V3,V4": {xe: [[XeMoToHaiBanh, XeMoToHangNhoND168], XeTuongTuXeMoTo]}}
+  XM_KHONG_GPLX_LON:
+    xe: [[XeMoToHaiBanh, DungTichTu175cm3], XeMoToBaBanh]
+    dk: [KhongCoGPLX]
+    vi_du: {xe: XeMoToHaiBanh, xe_tt: {dungTichXiLanh: 250}, su_kien: {coGPLX: false}}
+    phien_ban: {"V3,V4": {xe: [[XeMoToHaiBanh, XeMoToHangLonND168], XeMoToBaBanh]}}
+  OT_KHONG_GPLX: {xe: [NhomXeOTo], dk: [KhongCoGPLX], vi_du: {xe: OTo, su_kien: {coGPLX: false}}}
+
+  # ===================== ĐỘ TUỔI =====================
+  CHUA_DU_TUOI_14_16: {xe: [NhomXeMoTo, NhomXeOTo], nguoi: [NguoiTu14Den16Tuoi], vi_du: {xe: XeGanMay, nguoi: {tuoi: 15}}}
+  CHUA_DU_TUOI_16_18_MOTO:
+    xe: [[XeMoTo, DungTichTu50cm3]]
+    nguoi: [NguoiTu16Den18Tuoi]
+    vi_du: {xe: XeMoToHaiBanh, xe_tt: {dungTichXiLanh: 110}, nguoi: {tuoi: 17}}
+    phien_ban:
+      V3: {xe: [[XeMoTo, XeMoToTu50cm3Hoac4kW]]}
+      V4: {xe: [XeMoTo, XeTuongTuXeMoTo]}
+  CHUA_DU_TUOI_16_18_OTO: {xe: [NhomXeOTo], nguoi: [NguoiTu16Den18Tuoi], vi_du: {xe: OTo, nguoi: {tuoi: 17}}}
+
+  # ===================== CHỦ XE (suy luận 2 bước) =====================
+  CHU_XM_GIAO_XE:
+    act: HanhViGiaoXe
+    xe: [NhomXeMoTo]
+    extra: ["giaoXeCho(?h, ?m)", "NguoiKhongDuDieuKienDieuKhienXe(?m)"]
+    vi_du: {xe: XeMoToHaiBanh, xe_tt: {dungTichXiLanh: 110}, nguoi: {tuoi: 15}, chu_xe: {tuoi: 45}}
+  CHU_OT_GIAO_XE:
+    act: HanhViGiaoXe
+    xe: [NhomXeOTo]
+    extra: ["giaoXeCho(?h, ?m)", "NguoiKhongDuDieuKienDieuKhienXe(?m)"]
+    vi_du: {xe: OTo, nguoi: {tuoi: 30}, su_kien: {coGPLX: false}, chu_xe: {tuoi: 50}}
+
+# Suy ra "người không đủ điều kiện điều khiển xe" (căn cứ luật giao thông theo thời điểm) — dùng cho lỗi chủ xe.
+dieu_kien_nguoi_lai:
+  tu_hanh_vi: [CHUA_DU_TUOI_14_16, CHUA_DU_TUOI_16_18_MOTO, CHUA_DU_TUOI_16_18_OTO,
+               OT_KHONG_GPLX, XM_KHONG_GPLX_NHO, XM_KHONG_GPLX_LON]
+  chua_du_14_tuoi: {nguoi: NguoiChuaDu14Tuoi, xe: [NhomXeMoTo, NhomXeOTo]}
+  can_cu:
+    "V1,V2": [GTDB2008-D58-K1, GTDB2008-D60-K1]
+    "V3,V4": [LTTATGT-D56-K1, LTTATGT-D59-K1]

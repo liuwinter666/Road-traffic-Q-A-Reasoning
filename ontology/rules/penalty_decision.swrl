@@ -1,0 +1,45 @@
+# Sinh tự động bởi `python -m src.kb.rules_builder` từ config/rule_specs.yaml — không sửa tay.
+# Mỗi luật: dòng chú thích '# <mã> | <hành vi> | <phiên bản> | <căn cứ>' rồi '<mã>: <SWRL>'.
+# Căn cứ đầy đủ, nguyên văn, ngày hiệu lực: ontology/rule_registry.yaml.
+
+# R290 | TÌNH TIẾT TTTN_a | Vi phạm có tổ chức
+R290: HanhVi(?h), DH_viPhamCoToChuc(?h) -> QT_R290(?h), coTinhTiet(?h, TTTN_a), duocSuyRaBoi(?h, R290)
+
+# R291 | TÌNH TIẾT TTTN_b | Tái phạm
+R291: HanhVi(?h), DH_taiPham(?h) -> QT_R291(?h), coTinhTiet(?h, TTTN_b), duocSuyRaBoi(?h, R291)
+
+# R292 | TÌNH TIẾT TTTN_b | Vi phạm nhiều lần
+R292: HanhVi(?h), DH_viPhamNhieuLan(?h) -> QT_R292(?h), coTinhTiet(?h, TTTN_b), duocSuyRaBoi(?h, R292)
+
+# R293 | TÌNH TIẾT TTTN_dd | Lăng mạ, phỉ báng người đang thi hành công vụ
+R293: HanhVi(?h), DH_langMaNguoiThiHanhCongVu(?h) -> QT_R293(?h), coTinhTiet(?h, TTTN_dd), duocSuyRaBoi(?h, R293)
+
+# R294 | TÌNH TIẾT TTTN_i | Tiếp tục vi phạm dù đã được yêu cầu chấm dứt
+R294: HanhVi(?h), DH_tiepTucViPhamSauYeuCauChamDut(?h) -> QT_R294(?h), coTinhTiet(?h, TTTN_i), duocSuyRaBoi(?h, R294)
+
+# R295 | TÌNH TIẾT TTTN_k | Trốn tránh, che giấu vi phạm
+R295: HanhVi(?h), DH_tronTranhCheGiauViPham(?h) -> QT_R295(?h), coTinhTiet(?h, TTTN_k), duocSuyRaBoi(?h, R295)
+
+# R296 | TÌNH TIẾT TTTN_m | Vi phạm đối với nhiều người, trẻ em, người già, người khuyết tật, phụ nữ mang thai
+R296: HanhVi(?h), DH_viPhamDoiVoiTreEmNguoiGia(?h) -> QT_R296(?h), coTinhTiet(?h, TTTN_m), duocSuyRaBoi(?h, R296)
+
+# R297 | TÌNH TIẾT TTGN_1 | Ngăn chặn, giảm bớt hậu quả, tự nguyện khắc phục, bồi thường
+R297: HanhVi(?h), DH_tuNguyenKhacPhucHauQua(?h) -> QT_R297(?h), coTinhTiet(?h, TTGN_1), duocSuyRaBoi(?h, R297)
+
+# R298 | TÌNH TIẾT TTGN_2 | Tự nguyện khai báo, thành thật hối lỗi
+R298: HanhVi(?h), DH_thanhThatHoiLoi(?h) -> QT_R298(?h), coTinhTiet(?h, TTGN_2), duocSuyRaBoi(?h, R298)
+
+# R299 | TÌNH TIẾT TTGN_3 | Bị kích động về tinh thần do hành vi trái pháp luật của người khác
+R299: HanhVi(?h), DH_biKichDongTinhThan(?h) -> QT_R299(?h), coTinhTiet(?h, TTGN_3), duocSuyRaBoi(?h, R299)
+
+# R300 | TÌNH TIẾT TTGN_4 | Bị ép buộc hoặc lệ thuộc về vật chất, tinh thần
+R300: HanhVi(?h), DH_biEpBuocLeThuoc(?h) -> QT_R300(?h), coTinhTiet(?h, TTGN_4), duocSuyRaBoi(?h, R300)
+
+# R301 | TÌNH TIẾT TTGN_5 | Phụ nữ mang thai, người già yếu, người có bệnh hoặc khuyết tật hạn chế nhận thức
+R301: HanhVi(?h), DH_phuNuMangThaiGiaYeuBenhTat(?h) -> QT_R301(?h), coTinhTiet(?h, TTGN_5), duocSuyRaBoi(?h, R301)
+
+# R302 | TÌNH TIẾT TTGN_6 | Hoàn cảnh đặc biệt khó khăn không do mình gây ra
+R302: HanhVi(?h), DH_hoanCanhDacBietKhoKhan(?h) -> QT_R302(?h), coTinhTiet(?h, TTGN_6), duocSuyRaBoi(?h, R302)
+
+# R303 | TÌNH TIẾT TTGN_7 | Vi phạm do trình độ lạc hậu
+R303: HanhVi(?h), DH_trinhDoLacHau(?h) -> QT_R303(?h), coTinhTiet(?h, TTGN_7), duocSuyRaBoi(?h, R303)

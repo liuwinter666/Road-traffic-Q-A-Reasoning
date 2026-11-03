@@ -52,7 +52,7 @@ class Settings(BaseSettings):
 
     # Reasoner
     java_exe: str = ""
-    reasoner: Literal["pellet", "hermit"] = "pellet"
+    reasoner: Literal["pellet", "hermit"] = "hermit"
     java_memory_mb: int = 2000
 
     # Pháp lý

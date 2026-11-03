@@ -1,6 +1,6 @@
 # Báo cáo hợp nhất văn bản — cần duyệt tay
 
-_Sinh tự động bởi `python -m src.ingest.build_articles` ngày 2026-11-03. Không sửa tay file này; ghi quyết định vào `config/consolidation_overrides.yaml`._
+_Sinh tự động bởi `python -m src.ingest.build_articles` ngày 2026-11-04. Không sửa tay file này; ghi quyết định vào `config/consolidation_overrides.yaml`._
 
 ## 1. Cảnh báo khi đọc văn bản nguồn
 
