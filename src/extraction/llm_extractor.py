@@ -1,7 +1,8 @@
 """Trích xuất hồ sơ vụ việc từ lời người dùng.
 
-Hai bước:
+Ba bước:
   1. ``LLMExtractor.trich_xuat``: LLM chép cụm từ bề mặt vào ``TrichXuatLLM`` (prompt ``extraction`` có phiên bản).
+  1b. ``grounding.kiem_chung``: tất định — bỏ cụm từ không có trong lời người dùng (chống LLM tự thêm thông tin).
   2. ``xay_dung_ho_so``: tất định — normalizer chuẩn hóa số/đơn vị/ngày; entity_linker ánh xạ cụm từ vào node
      ontology; ghi nguồn gốc và giả định cho từng trường.
 
@@ -17,6 +18,7 @@ from loguru import logger
 from src.config import ROOT_DIR
 from src.extraction import normalizer as N
 from src.extraction.entity_linker import EntityLinker
+from src.extraction.grounding import kiem_chung
 from src.extraction.schema import DauHieu, HoSoVuViec, NguonGoc, TrichXuatLLM
 from src.llm.client import LLMClient, get_llm_client
 from src.llm.prompts import load_prompt
@@ -145,10 +147,12 @@ class LLMExtractor:
     """Trích xuất bằng LLM + chuẩn hóa."""
 
     def __init__(self, client: LLMClient | None = None, linker: EntityLinker | None = None,
-                 prompt_version: int | None = None):
+                 prompt_version: int | None = None, kiem_chung_cum_tu: bool = True):
         self.client = client or get_llm_client()
         self.linker = linker or EntityLinker()
         self.prompt = load_prompt("extraction", prompt_version)
+        self.kiem_chung_cum_tu = kiem_chung_cum_tu      # tắt được cho thí nghiệm ablation
+        self.loai_bo_lan_cuoi: list[str] = []
 
     def trich_xuat(self, tin_nhan: str, hom_nay: date | None = None, cau_hoi_truoc: list[str] | None = None) -> TrichXuatLLM:
         today = hom_nay or date.today()
@@ -157,7 +161,15 @@ class LLMExtractor:
         prompt = self.prompt.render(hom_nay=today.strftime("%d/%m/%Y"), ngu_canh=ngu_canh, tin_nhan=tin_nhan)
         out = self.client.generate_structured(prompt, TrichXuatLLM, system=self.prompt.system)
         logger.debug("Trích xuất ({}): {}", self.prompt.ma, out.model_dump(exclude_defaults=True))
+        self.loai_bo_lan_cuoi = []
+        if self.kiem_chung_cum_tu:
+            kq = kiem_chung(out, tin_nhan)
+            out, self.loai_bo_lan_cuoi = kq.trich_xuat, kq.loai_bo
+            for x in kq.loai_bo:
+                logger.warning("Kiểm chứng cụm từ: {}", x)
         return out
 
     def ho_so(self, tin_nhan: str, hom_nay: date | None = None, cau_hoi_truoc: list[str] | None = None) -> HoSoVuViec:
-        return xay_dung_ho_so(self.trich_xuat(tin_nhan, hom_nay, cau_hoi_truoc), self.linker, hom_nay)
+        hs = xay_dung_ho_so(self.trich_xuat(tin_nhan, hom_nay, cau_hoi_truoc), self.linker, hom_nay)
+        hs.cum_tu_loai_bo = list(self.loai_bo_lan_cuoi)
+        return hs

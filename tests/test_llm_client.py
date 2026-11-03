@@ -11,6 +11,7 @@ from pydantic import BaseModel
 from src.llm.client import (
     DiskCache,
     LLMClient,
+    LLMError,
     OllamaClient,
     RateLimiter,
     RateLimitError,
@@ -122,8 +123,11 @@ def test_ollama_json_format_and_validation(tmp_path, monkeypatch):
     c = OllamaClient("qwen2.5:7b", cache=DiskCache(tmp_path), max_rpm=0)
     assert c.generate_structured("p", Out, system="s") == Out(ten="b", so=3)
     assert sent["url"].endswith("/api/chat") and sent["body"]["format"] == "json"
-    assert sent["body"]["messages"][0] == {"role": "system", "content": "s"}
-    assert '"so"' in sent["body"]["messages"][1]["content"]          # schema đính kèm trong prompt
+    sys_msg, user_msg = sent["body"]["messages"]
+    assert sys_msg["role"] == "system" and sys_msg["content"].startswith("s\n")
+    assert '"so"' in sys_msg["content"]                               # schema nằm trong system (prefix cố định)
+    assert user_msg == {"role": "user", "content": "p"}
+    assert sent["body"]["options"]["num_ctx"] == 4096 and sent["body"]["keep_alive"] == "30m"
 
 
 def test_ollama_429_maps_to_rate_limit(tmp_path, monkeypatch):
@@ -143,3 +147,32 @@ def test_factory_rejects_unknown_provider():
 
     with pytest.raises(LLMError):
         get_llm_client("anthropic")
+
+
+def test_ollama_timeout_khong_retry(tmp_path, monkeypatch):
+    import httpx
+
+    n = {"calls": 0}
+
+    def slow(*a, **k):
+        n["calls"] += 1
+        raise httpx.ReadTimeout("timed out")
+    monkeypatch.setattr(httpx, "post", slow)
+    c = OllamaClient("m", cache=DiskCache(tmp_path), max_rpm=0, max_retries=3, sleep=lambda s: None)
+    with pytest.raises(LLMError, match="OLLAMA_TIMEOUT_S"):
+        c.generate("p", use_cache=False)
+    assert n["calls"] == 1
+
+
+def test_factory_ollama_dung_timeout_rieng(monkeypatch):
+    from src.config import get_settings
+    from src.llm.client import get_llm_client
+
+    get_settings.cache_clear()
+    monkeypatch.setenv("OLLAMA_TIMEOUT_S", "123")
+    try:
+        c = get_llm_client("ollama")
+        assert c.timeout_s == 123 and c.num_ctx == get_settings().ollama_num_ctx
+    finally:
+        get_settings.cache_clear()
+

@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import random
 import threading
 import time
@@ -277,27 +278,38 @@ def _gemini_retry_delay(e) -> float | None:
 class OllamaClient(LLMClient):
     provider = "ollama"
 
-    def __init__(self, model: str, base_url: str = "http://localhost:11434", **kw):
+    def __init__(self, model: str, base_url: str = "http://localhost:11434", num_ctx: int = 4096,
+                 keep_alive: str = "30m", **kw):
         super().__init__(model, **kw)
         self.base_url = base_url.rstrip("/")
+        self.num_ctx, self.keep_alive = num_ctx, keep_alive
 
     def _call(self, prompt, system, json_schema, schema_model) -> str:
         import httpx
 
-        messages = ([{"role": "system", "content": system}] if system else [])
-        content = prompt
+        # Schema đặt trong system (phần đầu cố định giữa các lần gọi) → llama.cpp dùng lại KV-cache của prefix,
+        # chỉ phải đọc phần lời người dùng thay đổi. Yêu cầu JSON gọn, bỏ trường null để giảm token sinh ra
+        # (trường thiếu lấy giá trị mặc định khi validate Pydantic).
         if json_schema is not None:
-            content += ("\n\nTrả lời DUY NHẤT bằng một đối tượng JSON theo JSON schema sau:\n"
-                        + json.dumps(json_schema, ensure_ascii=False))
-        messages.append({"role": "user", "content": content})
-        body = {"model": self.model, "messages": messages, "stream": False,
-                "options": {"temperature": self.temperature, "num_predict": self.max_tokens}}
+            system = ((system + "\n\n") if system else "") + (
+                "Trả lời DUY NHẤT bằng một đối tượng JSON gọn (không xuống dòng, không thụt lề) theo JSON schema "
+                "dưới đây; được bỏ qua trường có giá trị null hoặc danh sách rỗng.\nJSON schema:\n"
+                + json.dumps(json_schema, ensure_ascii=False, separators=(",", ":")))
+        messages = ([{"role": "system", "content": system}] if system else [])
+        messages.append({"role": "user", "content": prompt})
+        body = {"model": self.model, "messages": messages, "stream": False, "keep_alive": self.keep_alive,
+                "options": {"temperature": self.temperature, "num_predict": self.max_tokens,
+                            "num_ctx": self.num_ctx}}
         if json_schema is not None:
             body["format"] = "json"
         try:
             r = httpx.post(f"{self.base_url}/api/chat", json=body, timeout=self.timeout_s)
-        except (httpx.TimeoutException, httpx.ConnectError) as e:
-            raise TransientError(type(e).__name__) from e
+        except httpx.ConnectError as e:
+            raise TransientError(f"ConnectError — Ollama có đang chạy tại {self.base_url}?") from e
+        except httpx.TimeoutException as e:
+            # Không retry: gọi lại cũng chậm như vậy (máy chạy CPU) — báo rõ cách khắc phục.
+            raise LLMError(f"Ollama quá thời gian chờ {self.timeout_s:.0f}s ({self.model}). Tăng OLLAMA_TIMEOUT_S "
+                           "hoặc dùng model nhỏ hơn (OLLAMA_MODEL, vd. qwen2.5:3b).") from e
         if r.status_code == 429:
             raise RateLimitError("Ollama 429", None)
         if r.status_code >= 500:
@@ -315,6 +327,7 @@ class OllamaClient(LLMClient):
 def get_llm_client(provider: str | None = None, **overrides) -> LLMClient:
     """Tạo client theo cấu hình (.env); ``provider`` ghi đè LLM_PROVIDER."""
     s = get_settings()
+    provided = provider is not None
     provider = (provider or s.llm_provider).lower()
     common = dict(temperature=s.llm_temperature, max_tokens=s.llm_max_tokens, timeout_s=s.llm_timeout_s,
                   max_rpm=s.llm_max_rpm, max_retries=s.llm_max_retries, backoff_base_s=s.llm_backoff_base_s,
@@ -323,5 +336,11 @@ def get_llm_client(provider: str | None = None, **overrides) -> LLMClient:
     if provider == "gemini":
         return GeminiClient(s.gemini_model, s.gemini_api_key, **common)
     if provider == "ollama":
-        return OllamaClient(s.ollama_model, s.ollama_base_url, **common)
-    raise LLMError(f"LLM_PROVIDER='{provider}' không hỗ trợ (gemini | ollama)")
+        common["timeout_s"] = overrides.get("timeout_s", s.ollama_timeout_s)
+        return OllamaClient(s.ollama_model, s.ollama_base_url, num_ctx=s.ollama_num_ctx,
+                            keep_alive=s.ollama_keep_alive, **common)
+    nguon = "tham số provider" if provided else (
+        "biến môi trường LLM_PROVIDER của shell (ghi đè .env — xóa bằng "
+        "`Remove-Item Env:LLM_PROVIDER` hoặc `unset LLM_PROVIDER`)" if "LLM_PROVIDER" in os.environ
+        else "LLM_PROVIDER trong .env")
+    raise LLMError(f"LLM_PROVIDER='{provider}' không hỗ trợ (gemini | ollama); giá trị lấy từ {nguon}")

@@ -40,6 +40,9 @@ class Settings(BaseSettings):
     gemini_model: str = "gemini-3.5-flash-lite"
     ollama_base_url: str = "http://localhost:11434"
     ollama_model: str = "qwen2.5:7b"
+    ollama_timeout_s: float = 300.0     # model local chạy CPU chậm hơn nhiều so với API
+    ollama_num_ctx: int = 4096          # cửa sổ ngữ cảnh (token); prompt trích xuất ~1.500 token
+    ollama_keep_alive: str = "30m"      # giữ model trong RAM giữa các lượt (tránh nạp lại ~25s)
     llm_temperature: float = 0.0
     llm_max_tokens: int = 4096
     llm_timeout_s: float = 60.0
@@ -59,9 +62,6 @@ class Settings(BaseSettings):
     java_exe: str = ""
     reasoner: Literal["pellet", "hermit"] = "hermit"
     java_memory_mb: int = 2000
-
-    # Pháp lý
-    default_legal_version: str = "V3"
 
     # Logging
     log_level: str = "INFO"

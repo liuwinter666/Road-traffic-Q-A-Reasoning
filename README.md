@@ -51,6 +51,16 @@ Lưu ý gói miễn phí:
 ### Ollama (dự phòng, chạy local)
 1. Cài Ollama: https://ollama.com, rồi tải model: `ollama pull qwen2.5:7b`
 2. Trong `.env`: `LLM_PROVIDER=ollama`, `OLLAMA_MODEL=qwen2.5:7b` (đổi model tùy máy).
+3. Máy chỉ có CPU (không GPU rời) chạy model 7B rất chậm: một lần trích xuất có thể mất 1–3 phút. Tăng
+   `OLLAMA_TIMEOUT_S` nếu bị báo quá thời gian chờ, hoặc dùng model nhỏ hơn (`ollama pull qwen2.5:3b`).
+   `OLLAMA_KEEP_ALIVE` giữ model trong RAM giữa các lượt; JSON schema nằm trong system prompt (phần đầu cố định)
+   để Ollama dùng lại phần prompt đã xử lý ở lần gọi trước.
+
+### Lỗi thường gặp: sửa `.env` mà không có tác dụng
+Biến môi trường của shell **ghi đè** `.env`. Nếu báo `LLM_PROVIDER='anthropic' không hỗ trợ` (hoặc giá trị cũ khác)
+dù `.env` đã đúng: terminal còn giữ biến cũ — thường do VS Code bật `python.terminal.useEnvFile` (chép `.env` vào
+terminal lúc mở). Xóa biến (`Remove-Item Env:LLM_PROVIDER` / `unset LLM_PROVIDER`) hoặc mở terminal mới;
+nên để `"python.terminal.useEnvFile": false` vì ứng dụng tự đọc `.env`.
 
 Structured output: Gemini dùng JSON schema mode; Ollama dùng `format: "json"`. Mọi phản hồi được validate bằng
 Pydantic, sai schema thì gọi lại một lần kèm thông báo lỗi.

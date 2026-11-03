@@ -8,7 +8,8 @@
   GTDB2008/LTTATGT(+L118)/TT31/TT38/LXLVPHC, 0 lệnh hợp nhất treo — XONG
 - Phase 3: luật SWRL (303), rule_registry, sanctions, reasoner (HermiT), penalty — XONG (docs/rules_design.md)
 - Phase 4: lớp LLM (Gemini chính + Ollama dự phòng; cache, retry 429, giới hạn RPM), normalizer, entity linker,
-  synonyms.json, slot checker, llm_extractor (test bằng mock) — ĐANG REVIEW
+  synonyms.json, slot checker, llm_extractor, kiểm chứng cụm từ (grounding) — XONG
+- Quyết định đã chốt: không rõ ngày vi phạm → `default_version: current` (phiên bản hiệu lực hôm nay, không cố định V3).
 - Gốc project = thư mục `DoAn/` (tương ứng `traffic-law-expert/` trong đặc tả).
 - Tên file dữ liệu thô: `data/raw/ND_100.docx`, `ND_123.docx`, `ND_168.docx`.
 
@@ -233,3 +234,8 @@ Bắt đầu với **Phase 0**.
 - LLM chỉ chép cụm từ bề mặt (TrichXuatLLM); chuẩn hóa/ánh xạ là tất định (normalizer, entity_linker, synonyms.json);
   sự kiện kéo theo của node lấy từ ontology_concepts.yaml; phân loại xe máy theo dung tích ở config/phan_loai_xe.yaml
   (khác nhau giữa Luật GTĐB 2008 "dưới 50 cm3" và Luật TTATGT "không lớn hơn 50 cm3").
+- Kiểm chứng cụm từ (`src/extraction/grounding.py`): sau LLM, bỏ mọi cụm không có trong lời người dùng (so khớp
+  bỏ dấu, số viết bằng chữ quy ra chữ số); chỗ bị bỏ ghi vào `HoSoVuViec.cum_tu_loai_bo`. Chỉ đối chiếu tin nhắn
+  người dùng, không đối chiếu câu hỏi hệ thống. Tắt cho ablation: `LLMExtractor(kiem_chung_cum_tu=False)`.
+- Ollama trên máy dev chạy CPU (~50 s/lần trích xuất với qwen2.5:7b): timeout riêng `OLLAMA_TIMEOUT_S`, không retry
+  khi hết giờ; schema đặt trong system prompt để tái dùng KV-cache. Không dùng Ollama cho đánh giá hàng loạt.

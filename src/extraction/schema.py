@@ -95,6 +95,7 @@ class HoSoVuViec(BaseModel):
     nguon: dict[str, NguonGoc] = Field(default_factory=dict)
     gia_dinh: list[str] = Field(default_factory=list)
     khong_lien_ket: list[str] = Field(default_factory=list)   # cụm không ánh xạ được vào ontology
+    cum_tu_loai_bo: list[str] = Field(default_factory=list)   # cụm LLM trả về nhưng không có trong lời người dùng
 
     @property
     def ngay_vi_pham(self) -> date | None:
@@ -110,7 +111,7 @@ class HoSoVuViec(BaseModel):
         """Gộp hồ sơ của lượt mới: trường có giá trị ở lượt mới ghi đè; danh sách/dict được hợp."""
         data = self.model_dump()
         for k, v in moi.model_dump().items():
-            if k in ("loai_duong", "gia_dinh", "khong_lien_ket"):
+            if k in ("loai_duong", "gia_dinh", "khong_lien_ket", "cum_tu_loai_bo"):
                 data[k] = list(dict.fromkeys(data[k] + v))
             elif k == "dau_hieu":
                 seen = {(d["node"], d["goc"]) for d in data[k]}

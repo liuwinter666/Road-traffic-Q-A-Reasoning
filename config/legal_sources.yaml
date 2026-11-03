@@ -118,6 +118,7 @@ versions:
 
 # Phiên bản dùng khi không rõ thời điểm vi phạm.
 #   "current" = phiên bản đang có hiệu lực tại ngày chạy hệ thống; hoặc ghi tên cụ thể (vd. V3).
+#   Đã chốt (duyệt Phase 4): current — đặc tả ghi V3 khi chưa có NĐ 238; từ 15/8/2026 luật hiện hành là V4.
 default_version: current
 
 # Văn bản đã biết là tồn tại nhưng CHƯA có trong data/raw/. Dùng để cảnh báo khi
