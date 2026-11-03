@@ -1050,8 +1050,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Nồng độ cồn khí thở &gt; 0,25 và ≤ 0,4 mg/L</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K9-a — “vượt quá 0,25 miligam đến 0,4 miligam/1 lít khí thở”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K8-c — “vượt quá 0,25 miligam đến 0,4 miligam/1 lít khí thở”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K9-a — “vượt quá 0,25 miligam đến 0,4 miligam/1 lít khí thở”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#NongDoConKhiThoMuc3">
@@ -1082,8 +1082,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Nồng độ cồn khí thở &gt; 0,4 mg/L</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K10-a — “vượt quá 0,4 miligam/1 lít khí thở”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-a — “vượt quá 0,4 miligam/1 lít khí thở”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K10-a — “vượt quá 0,4 miligam/1 lít khí thở”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#NongDoConMauMuc1">
@@ -1278,8 +1278,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Vượt tốc độ từ 10 đến 20 km/h</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K5-dd — “từ 10 km/h đến 20 km/h”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K4-a — “từ 10 km/h đến 20 km/h”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K5-dd — “từ 10 km/h đến 20 km/h”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#VuotTocDoTren20Den35">
@@ -1319,8 +1319,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Vượt tốc độ trên 20 đến 35 km/h (ô tô)</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K6-a — “trên 20 km/h đến 35 km/h”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K6-a — “trên 20 km/h đến 35 km/h”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K6-a — “trên 20 km/h đến 35 km/h”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#VuotTocDoTren35">
@@ -1351,8 +1351,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Vượt tốc độ trên 35 km/h (ô tô)</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K7-c — “quá tốc độ quy định trên 35 km/h”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K7-a — “quá tốc độ quy định trên 35 km/h”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K7-c — “quá tốc độ quy định trên 35 km/h”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#VuotTocDoTren20">
@@ -1383,8 +1383,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Vượt tốc độ trên 20 km/h (xe mô tô, xe gắn máy)</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K7-a — “quá tốc độ quy định trên 20 km/h”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K8-a — “quá tốc độ quy định trên 20 km/h”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K7-a — “quá tốc độ quy định trên 20 km/h”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#NguoiTu14Den16Tuoi">
@@ -1424,8 +1424,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Người từ đủ 14 tuổi đến dưới 16 tuổi</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K1 — “từ đủ 14 tuổi đến dưới 16 tuổi”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K1 — “từ đủ 14 tuổi đến dưới 16 tuổi”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K1 — “từ đủ 14 tuổi đến dưới 16 tuổi”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#NguoiTu16Den18Tuoi">
@@ -1710,8 +1710,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Dung tích xi-lanh từ 50 cm3 trở lên</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K4-a — “từ 50 cm3 trở lên”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K4-a — “từ 50 cm3 trở lên”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K4-a — “từ 50 cm3 trở lên”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#CongSuatTu4kW">
@@ -1804,8 +1804,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Người từ đủ 16 tuổi trở lên</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC:LXLVPHC-D5-K1-a — “người từ đủ 16 tuổi trở lên bị xử phạt vi phạm hành chính về mọi vi phạm hành chính”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT:LTTATGT-D59-K1-a — “Người đủ 16 tuổi trở lên được điều khiển xe gắn máy”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC:LXLVPHC-D5-K1-a — “người từ đủ 16 tuổi trở lên bị xử phạt vi phạm hành chính về mọi vi phạm hành chính”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#NguoiTu18TuoiTroLen">
@@ -2460,9 +2460,9 @@
   <rdfs:subClassOf rdf:resource="#ViPhamNongDoCon"/>
   <rdfs:label xml:lang="vi">Ô tô: có nồng độ cồn chưa vượt 50 mg/100 ml máu hoặc 0,25 mg/l khí thở</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_CON_1</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K6-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K6-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K6-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K6-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K6-c</canCuPhapLy>
 </owl:Class>
 
@@ -2470,8 +2470,8 @@
   <rdfs:subClassOf rdf:resource="#ViPhamNongDoCon"/>
   <rdfs:label xml:lang="vi">Ô tô: nồng độ cồn vượt 50–80 mg/100 ml máu hoặc 0,25–0,4 mg/l khí thở</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_CON_2</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K9-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K8-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K9-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K8-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K9-a</canCuPhapLy>
 </owl:Class>
@@ -2481,8 +2481,8 @@
   <rdfs:label xml:lang="vi">Ô tô: nồng độ cồn vượt 80 mg/100 ml máu hoặc 0,4 mg/l khí thở</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_CON_3</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K10-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K10-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K10-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K11-a</canCuPhapLy>
 </owl:Class>
 
@@ -2490,9 +2490,9 @@
   <rdfs:subClassOf rdf:resource="#ViPhamNongDoCon"/>
   <rdfs:label xml:lang="vi">Ô tô: không chấp hành yêu cầu kiểm tra nồng độ cồn</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_TU_CHOI_DO_CON</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K10-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K10-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K10-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K11-b</canCuPhapLy>
 </owl:Class>
 
@@ -2500,10 +2500,10 @@
   <rdfs:subClassOf rdf:resource="#ViPhamMaTuy"/>
   <rdfs:label xml:lang="vi">Ô tô: trong cơ thể có chất ma túy</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_MA_TUY</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K10-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K10-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K11-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K10-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K10-c</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_TU_CHOI_MA_TUY">
@@ -2520,28 +2520,28 @@
   <rdfs:subClassOf rdf:resource="#ViPhamTocDo"/>
   <rdfs:label xml:lang="vi">Ô tô: quá tốc độ từ 05 đến dưới 10 km/h</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_TD_05_10</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K3-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K3-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K3-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K3-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K3-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_TD_10_20">
   <rdfs:subClassOf rdf:resource="#ViPhamTocDo"/>
   <rdfs:label xml:lang="vi">Ô tô: quá tốc độ từ 10 đến 20 km/h</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_TD_10_20</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K5-dd</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K5-dd</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-i</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K5-i</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K5-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-i</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K5-dd</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_TD_20_35">
   <rdfs:subClassOf rdf:resource="#ViPhamTocDo"/>
   <rdfs:label xml:lang="vi">Ô tô: quá tốc độ trên 20 đến 35 km/h</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_TD_20_35</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K6-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K6-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K6-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K6-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K6-a</canCuPhapLy>
 </owl:Class>
@@ -2550,19 +2550,19 @@
   <rdfs:subClassOf rdf:resource="#ViPhamTocDo"/>
   <rdfs:label xml:lang="vi">Ô tô: quá tốc độ trên 35 km/h</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_TD_TREN_35</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K7-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K7-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K7-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K7-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K7-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K7-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K7-c</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_DEN_DO">
   <rdfs:subClassOf rdf:resource="#ViPhamTinHieuHieuLenh"/>
   <rdfs:label xml:lang="vi">Ô tô: không chấp hành hiệu lệnh đèn tín hiệu (vượt đèn đỏ)</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_DEN_DO</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K9-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K5-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K9-b</canCuPhapLy>
 </owl:Class>
 
@@ -2570,30 +2570,30 @@
   <rdfs:subClassOf rdf:resource="#ViPhamTinHieuHieuLenh"/>
   <rdfs:label xml:lang="vi">Ô tô: không chấp hành hiệu lệnh, hướng dẫn của người điều khiển/kiểm soát giao thông</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_HIEU_LENH_CSGT</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K9-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K9-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K5-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K9-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-b</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_NGUOC_CHIEU">
   <rdfs:subClassOf rdf:resource="#ViPhamPhanDuongLanDuong"/>
   <rdfs:label xml:lang="vi">Ô tô: đi ngược chiều đường một chiều / đường cấm đi ngược chiều</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_NGUOC_CHIEU</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K9-d</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K5-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K9-d</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K9-d</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-c</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_NGUOC_CHIEU_CAO_TOC">
   <rdfs:subClassOf rdf:resource="#ViPhamPhanDuongLanDuong"/>
   <rdfs:label xml:lang="vi">Ô tô: đi ngược chiều / lùi xe trên đường cao tốc</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_NGUOC_CHIEU_CAO_TOC</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K8-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K8-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K11-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K8-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K11-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K8-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_SAI_PHAN_LAN">
@@ -2601,29 +2601,29 @@
   <rdfs:label xml:lang="vi">Ô tô: không đi bên phải; đi không đúng phần đường, làn đường quy định</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_SAI_PHAN_LAN</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K5-dd</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K5-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K5-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K5-b</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_CHUYEN_LAN">
   <rdfs:subClassOf rdf:resource="#ViPhamPhanDuongLanDuong"/>
   <rdfs:label xml:lang="vi">Ô tô: chuyển làn không đúng nơi cho phép hoặc không có tín hiệu báo trước</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_CHUYEN_LAN</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K2-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K2-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K2-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K2-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K2-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K2-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_DIEN_THOAI">
   <rdfs:subClassOf rdf:resource="#ViPhamSuDungThietBi"/>
   <rdfs:label xml:lang="vi">Ô tô: dùng tay sử dụng điện thoại khi điều khiển xe</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_DIEN_THOAI</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K4-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K4-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K5-h</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K5-h</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K4-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K4-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K5-h</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_DAY_AN_TOAN">
@@ -2631,20 +2631,20 @@
   <rdfs:label xml:lang="vi">Ô tô: người lái không thắt dây an toàn</rdfs:label>
   <rdfs:comment xml:lang="vi">V1/V2 viết 'dây an toàn', V3 viết 'dây đai an toàn'</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_DAY_AN_TOAN</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K3-k</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K3-k</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K3-p</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K3-p</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K3-k</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K3-k</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K3-p</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_LIEN_QUAN_TAI_NAN_KHONG_DUNG">
   <rdfs:subClassOf rdf:resource="#ViPhamLienQuanTaiNan"/>
   <rdfs:label xml:lang="vi">Ô tô: liên quan trực tiếp đến vụ tai nạn mà không dừng lại, không giữ nguyên hiện trường, không cứu giúp</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_LIEN_QUAN_TAI_NAN_KHONG_DUNG</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K4-g</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K2-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K2-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K4-g</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K2-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K4-g</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_GAY_TAI_NAN_BO_TRON">
@@ -2652,9 +2652,9 @@
   <rdfs:label xml:lang="vi">Ô tô: gây tai nạn mà không dừng lại, bỏ trốn, không trình báo</rdfs:label>
   <rdfs:comment xml:lang="vi">V3 là cả khoản 8 (không chia điểm)</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_GAY_TAI_NAN_BO_TRON</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K8-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K8</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K8</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K8</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K8-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K8-b</canCuPhapLy>
 </owl:Class>
 
@@ -2663,9 +2663,9 @@
   <rdfs:label xml:lang="vi">Ô tô: lạng lách, đánh võng; chạy quá tốc độ đuổi nhau; dùng chân điều khiển vô lăng</rdfs:label>
   <rdfs:comment xml:lang="vi">V3 là cả khoản 12</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_LANG_LACH</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K12</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K12</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K7-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K12</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K12</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K7-b</canCuPhapLy>
 </owl:Class>
 
@@ -2682,20 +2682,20 @@
   <rdfs:subClassOf rdf:resource="#ViPhamNongDoCon"/>
   <rdfs:label xml:lang="vi">Xe máy: có nồng độ cồn chưa vượt 50 mg/100 ml máu hoặc 0,25 mg/l khí thở</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_CON_1</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K6-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K6-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K6-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K6-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K6-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K6-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_CON_2">
   <rdfs:subClassOf rdf:resource="#ViPhamNongDoCon"/>
   <rdfs:label xml:lang="vi">Xe máy: nồng độ cồn vượt 50–80 mg/100 ml máu hoặc 0,25–0,4 mg/l khí thở</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_CON_2</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K7-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K8-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K8-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K7-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K8-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K7-c</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_CON_3">
@@ -2704,18 +2704,18 @@
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_CON_3</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K8-e</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K9-d</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K8-e</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K9-d</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K8-e</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_TU_CHOI_DO_CON">
   <rdfs:subClassOf rdf:resource="#ViPhamNongDoCon"/>
   <rdfs:label xml:lang="vi">Xe máy: không chấp hành yêu cầu kiểm tra nồng độ cồn</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_TU_CHOI_DO_CON</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K9-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K9-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K8-g</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K8-g</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K9-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K9-dd</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_MA_TUY">
@@ -2723,8 +2723,8 @@
   <rdfs:label xml:lang="vi">Xe máy: trong cơ thể có chất ma túy</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_MA_TUY</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K8-h</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K8-h</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K9-e</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K8-h</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K9-e</canCuPhapLy>
 </owl:Class>
 
@@ -2732,9 +2732,9 @@
   <rdfs:subClassOf rdf:resource="#ViPhamTocDo"/>
   <rdfs:label xml:lang="vi">Xe máy: quá tốc độ từ 05 đến dưới 10 km/h</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_TD_05_10</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K2-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K2-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K2-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K2-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K2-c</canCuPhapLy>
 </owl:Class>
 
@@ -2742,40 +2742,40 @@
   <rdfs:subClassOf rdf:resource="#ViPhamTocDo"/>
   <rdfs:label xml:lang="vi">Xe máy: quá tốc độ từ 10 đến 20 km/h</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_TD_10_20</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K4-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K4-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K4-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K4-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K4-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K4-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_TD_TREN_20">
   <rdfs:subClassOf rdf:resource="#ViPhamTocDo"/>
   <rdfs:label xml:lang="vi">Xe máy: quá tốc độ trên 20 km/h</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_TD_TREN_20</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K8-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K7-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K7-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K8-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K7-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K8-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_DEN_DO">
   <rdfs:subClassOf rdf:resource="#ViPhamTinHieuHieuLenh"/>
   <rdfs:label xml:lang="vi">Xe máy: không chấp hành hiệu lệnh đèn tín hiệu (vượt đèn đỏ)</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_DEN_DO</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K7-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K7-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K4-e</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K4-e</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K4-e</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K7-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K7-c</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_HIEU_LENH_CSGT">
   <rdfs:subClassOf rdf:resource="#ViPhamTinHieuHieuLenh"/>
   <rdfs:label xml:lang="vi">Xe máy: không chấp hành hiệu lệnh, hướng dẫn của người điều khiển/kiểm soát giao thông</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_HIEU_LENH_CSGT</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K7-d</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K4-g</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K4-g</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K7-d</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K7-d</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_NGUOC_CHIEU">
@@ -2784,18 +2784,18 @@
   <rdfs:comment xml:lang="vi">V1 là cả khoản 5; V2 tách thành điểm a khoản 5 (sửa bởi NĐ 123)</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_NGUOC_CHIEU</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K7-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K5</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K5-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K7-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K5</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_SAI_PHAN_LAN">
   <rdfs:subClassOf rdf:resource="#ViPhamPhanDuongLanDuong"/>
   <rdfs:label xml:lang="vi">Xe máy: không đi bên phải; đi không đúng phần đường, làn đường quy định</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_SAI_PHAN_LAN</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K3-d</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K3-d</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K3-g</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K3-d</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K3-d</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K3-g</canCuPhapLy>
 </owl:Class>
 
@@ -2803,10 +2803,10 @@
   <rdfs:subClassOf rdf:resource="#ViPhamPhanDuongLanDuong"/>
   <rdfs:label xml:lang="vi">Xe máy: chuyển làn không đúng nơi được phép hoặc không có tín hiệu báo trước</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_CHUYEN_LAN</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K1-e</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K1-e</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K1-i</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K1-i</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K1-e</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_MU_BAO_HIEM">
@@ -2814,9 +2814,9 @@
   <rdfs:label xml:lang="vi">Xe máy: người lái không đội mũ bảo hiểm hoặc không cài quai đúng quy cách</rdfs:label>
   <rdfs:comment xml:lang="vi">V2: NĐ 123 bãi bỏ điểm i khoản 2 và bổ sung điểm n khoản 3 (tăng mức phạt)</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_MU_BAO_HIEM</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K3-n</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K2-i</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K2-h</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K3-n</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K2-h</canCuPhapLy>
 </owl:Class>
 
@@ -2827,48 +2827,48 @@
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_CHO_NGUOI_KHONG_MU</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K2-i</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K3-o</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K2-i</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K2-k</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K2-i</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_DIEN_THOAI">
   <rdfs:subClassOf rdf:resource="#ViPhamSuDungThietBi"/>
   <rdfs:label xml:lang="vi">Xe máy: sử dụng ô, điện thoại, thiết bị âm thanh khi điều khiển xe</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_DIEN_THOAI</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K4-h</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K4-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K4-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K4-h</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K4-h</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_LIEN_QUAN_TAI_NAN_KHONG_DUNG">
   <rdfs:subClassOf rdf:resource="#ViPhamLienQuanTaiNan"/>
   <rdfs:label xml:lang="vi">Xe máy: liên quan trực tiếp đến vụ tai nạn mà không dừng lại, không giữ nguyên hiện trường, không cứu giúp</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_LIEN_QUAN_TAI_NAN_KHONG_DUNG</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K3-e</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K3-e</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K5-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K5-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K3-e</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K3-e</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_GAY_TAI_NAN_BO_TRON">
   <rdfs:subClassOf rdf:resource="#ViPhamLienQuanTaiNan"/>
   <rdfs:label xml:lang="vi">Xe máy: gây tai nạn mà không dừng lại, bỏ trốn, không trình báo</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_GAY_TAI_NAN_BO_TRON</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K9-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K9-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K8-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K8-dd</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K9-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K9-c</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_LANG_LACH">
   <rdfs:subClassOf rdf:resource="#ViPhamLaiXeNguyHiem"/>
   <rdfs:label xml:lang="vi">Xe máy: lạng lách, đánh võng trên đường bộ</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_LANG_LACH</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K8-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K9-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K9-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K8-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K8-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K9-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_LANG_LACH_KHONG_DUNG_XE">
@@ -2885,8 +2885,8 @@
   <rdfs:label xml:lang="vi">Không chấp hành yêu cầu kiểm tra, kiểm soát của người thi hành công vụ về TTATGT</rdfs:label>
   <rdfs:comment xml:lang="vi">Chỉ có ở NĐ 168. TODO_VERIFY: V1/V2 không tìm thấy quy định chung trong NĐ 100/123</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">KHONG_CHAP_HANH_KIEM_TRA</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D12-K10</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D12-K10</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D12-K10</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_CHONG_DOI_CONG_VU">
@@ -2894,8 +2894,8 @@
   <rdfs:label xml:lang="vi">Xúc phạm, đe dọa, cản trở, chống đối người thi hành công vụ về TTATGT</rdfs:label>
   <rdfs:comment xml:lang="vi">Chỉ có ở NĐ 168. TODO_VERIFY: với V1/V2 hành vi này thuộc văn bản khác chưa có trong data/raw/</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CHONG_DOI_CONG_VU</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D12-K14-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D12-K14-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D12-K14-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_KHONG_MANG_GPLX">
@@ -2904,8 +2904,8 @@
   <rdfs:comment xml:lang="vi">V3 chỉ áp dụng với người điều khiển xe KINH DOANH VẬN TẢI</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_KHONG_MANG_GPLX</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K2-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K2-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K2-d</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K2-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K2-d</canCuPhapLy>
 </owl:Class>
 
@@ -2914,9 +2914,9 @@
   <rdfs:label xml:lang="vi">Ô tô: không mang theo giấy phép lái xe</rdfs:label>
   <rdfs:comment xml:lang="vi">V3 chỉ áp dụng với người điều khiển xe KINH DOANH VẬN TẢI</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_KHONG_MANG_GPLX</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K3-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K3-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K3-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K3-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K3-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K3-a</canCuPhapLy>
 </owl:Class>
 
@@ -2926,9 +2926,9 @@
   <rdfs:comment xml:lang="vi">V3 chỉ áp dụng với người điều khiển xe KINH DOANH VẬN TẢI</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_KHONG_MANG_DANG_KY</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K2-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K2-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K2-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K2-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K2-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K2-b</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_KHONG_MANG_DANG_KY">
@@ -2936,9 +2936,9 @@
   <rdfs:label xml:lang="vi">Ô tô: không mang theo giấy đăng ký xe</rdfs:label>
   <rdfs:comment xml:lang="vi">V3 chỉ áp dụng với người điều khiển xe KINH DOANH VẬN TẢI</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_KHONG_MANG_DANG_KY</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K3-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K3-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K3-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K3-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K3-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K3-b</canCuPhapLy>
 </owl:Class>
 
@@ -2947,40 +2947,40 @@
   <rdfs:label xml:lang="vi">Xe máy: không có (V1/V2: hoặc không mang) chứng nhận bảo hiểm TNDS bắt buộc còn hiệu lực</rdfs:label>
   <rdfs:comment xml:lang="vi">V1/V2 gộp 'không có hoặc không mang'; V3 tách: không có (mọi người lái) / không mang (chỉ KDVT, điểm a khoản 2)</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_KHONG_BAO_HIEM</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K2-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K2-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K2-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K2-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K2-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K2-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_KHONG_BAO_HIEM">
   <rdfs:subClassOf rdf:resource="#ViPhamGiayToXe"/>
   <rdfs:label xml:lang="vi">Ô tô: không có (V1/V2: hoặc không mang) chứng nhận bảo hiểm TNDS bắt buộc còn hiệu lực</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_KHONG_BAO_HIEM</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K4-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K4-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K4-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K4-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K4-b</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_KHONG_DANG_KY">
   <rdfs:subClassOf rdf:resource="#ViPhamGiayToXe"/>
   <rdfs:label xml:lang="vi">Xe máy: điều khiển xe không có giấy (chứng nhận) đăng ký xe</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_KHONG_DANG_KY</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D14-K2-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D14-K2-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D17-K2-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D17-K2-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D14-K2-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D14-K2-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_KHONG_DANG_KY">
   <rdfs:subClassOf rdf:resource="#ViPhamGiayToXe"/>
   <rdfs:label xml:lang="vi">Ô tô: điều khiển xe không có giấy (chứng nhận) đăng ký xe</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_KHONG_DANG_KY</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D16-K4-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D13-K4-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D13-K4-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D16-K4-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D13-K4-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D16-K4-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D13-K4-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_KHONG_GPLX_NHO">
@@ -2988,8 +2988,8 @@
   <rdfs:label xml:lang="vi">Mô tô hai bánh dung tích nhỏ (V1/V2: dưới 175 cm3; V3: đến 125 cm3 / 11 kW): không có GPLX</rdfs:label>
   <rdfs:comment xml:lang="vi">Ngưỡng phân loại xe thay đổi giữa NĐ 100 và NĐ 168</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_KHONG_GPLX_NHO</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K5-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K5-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K5-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K5-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K5-a</canCuPhapLy>
 </owl:Class>
@@ -2998,10 +2998,10 @@
   <rdfs:subClassOf rdf:resource="#ViPhamGiayPhepLaiXe"/>
   <rdfs:label xml:lang="vi">Mô tô dung tích lớn (V1/V2: từ 175 cm3; V3: trên 125 cm3 / 11 kW), mô tô ba bánh: không có GPLX</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_KHONG_GPLX_LON</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K7-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K7-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K7-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K7-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K7-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K7-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K7-b</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_KHONG_GPLX">
@@ -3009,9 +3009,9 @@
   <rdfs:label xml:lang="vi">Ô tô: không có giấy phép lái xe</rdfs:label>
   <rdfs:comment xml:lang="vi">NĐ 123 thay toàn bộ Điều 21: V1 ở khoản 8, V2 ở khoản 9</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_KHONG_GPLX</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K9-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K9-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K8-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K9-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K9-b</canCuPhapLy>
 </owl:Class>
 
@@ -3020,10 +3020,10 @@
   <rdfs:label xml:lang="vi">Người từ đủ 14 đến dưới 16 tuổi điều khiển xe mô tô, xe gắn máy hoặc ô tô</rdfs:label>
   <rdfs:comment xml:lang="vi">Hình thức: cảnh cáo</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CHUA_DU_TUOI_14_16</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K1</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K1</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K1</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K1</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K1</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K1</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_CHUA_DU_TUOI_16_18_MOTO">
@@ -3031,18 +3031,18 @@
   <rdfs:label xml:lang="vi">Người từ đủ 16 đến dưới 18 tuổi điều khiển mô tô (V1–V3: từ 50 cm3; V3 thêm từ 04 kW; V4: mọi xe mô tô)</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CHUA_DU_TUOI_16_18_MOTO</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K4-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K4-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K4-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K4-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K4-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_CHUA_DU_TUOI_16_18_OTO">
   <rdfs:subClassOf rdf:resource="#ViPhamDoTuoi"/>
   <rdfs:label xml:lang="vi">Người từ đủ 16 đến dưới 18 tuổi điều khiển ô tô</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CHUA_DU_TUOI_16_18_OTO</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K6</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K6</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K6</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K6</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K6</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K6</canCuPhapLy>
 </owl:Class>
 
@@ -3051,20 +3051,20 @@
   <rdfs:label xml:lang="vi">Chủ xe máy giao xe hoặc để người không đủ điều kiện điều khiển xe</rdfs:label>
   <rdfs:comment xml:lang="vi">V3 là cả khoản 10 Điều 32. Ví dụ suy luận gián tiếp: con 15 tuổi đi xe máy của bố → bố vi phạm</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CHU_XM_GIAO_XE</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D30-K5-dd</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D30-K5-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D32-K10</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D32-K10</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D30-K5-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D30-K5-dd</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_CHU_OT_GIAO_XE">
   <rdfs:subClassOf rdf:resource="#ViPhamCuaChuXe"/>
   <rdfs:label xml:lang="vi">Chủ xe ô tô giao xe hoặc để người không đủ điều kiện điều khiển xe</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CHU_OT_GIAO_XE</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D30-K8-h</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D32-K14-i</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D32-K14-i</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D30-K8-h</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D30-K8-h</canCuPhapLy>
 </owl:Class>
 
 <owl:NamedIndividual rdf:about="#ND100">

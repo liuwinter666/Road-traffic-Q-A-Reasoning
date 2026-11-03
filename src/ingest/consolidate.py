@@ -565,6 +565,11 @@ def _apply_phrase(text: str, old: str, new) -> str:
     trong “khoản 6; điểm c khoản 8” → “khoản 6; điểm d khoản 7; điểm c khoản 8”.
     """
     if isinstance(new, str):
+        if new == "" and old[-1:] not in PUNCT:
+            # Bỏ một mục cuối của danh sách: dấu phân cách đứng trước mục đó đi cùng mục bị bỏ.
+            # "đăng ký xe; biển số xe; giấy chứng nhận … theo quy định;" − "giấy chứng nhận …"
+            #   → "đăng ký xe; biển số xe theo quy định;"
+            text = re.sub(rf"[;,] {re.escape(old)}(?= \w)", "", text)
         out = text.replace(old, new)
         if new == "":
             out = re.sub(r" {2,}", " ", out)
