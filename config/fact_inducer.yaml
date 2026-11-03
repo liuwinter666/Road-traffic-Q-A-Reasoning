@@ -19,9 +19,12 @@ luon_hoi_lai:
   - taiPham
   - viPhamNhieuLan
 
-# Định nghĩa pháp lý đính kèm prompt để LLM hiểu đúng thuật ngữ của thuộc tính (trích NGUYÊN VĂN từ văn bản bổ
-# trợ có hiệu lực tại ngày vi phạm — chọn qua support_roles; không viết định nghĩa bằng lời của hệ thống).
+# Căn cứ pháp lý đính kèm prompt (định nghĩa thuật ngữ, quy tắc tín hiệu...) để LLM hiểu đúng thuộc tính — trích
+# NGUYÊN VĂN từ văn bản bổ trợ có hiệu lực tại ngày vi phạm (chọn qua support_roles; không viết lại bằng lời hệ thống).
 dinh_nghia:
   - thuoc_tinh: [coHieuLenhNguoiDieuKhienGT]
     vai_tro: dinh_nghia_nguoi_dieu_khien_gt
     id: {GTDB2008: GTDB2008-D3-K25, LTTATGT: LTTATGT-D2-K10}
+  - thuoc_tinh: [khongChapHanhDenTinHieu]
+    vai_tro: quy_tac_den_tin_hieu
+    id: {GTDB2008: GTDB2008-D10-K3-c, LTTATGT: LTTATGT-D11-K4-b}

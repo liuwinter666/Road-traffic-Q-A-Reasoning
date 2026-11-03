@@ -15,6 +15,10 @@ cau_hoi:
     uu_tien: 3
     cau_hoi: "Vi phạm xảy ra chính xác vào ngày nào?"
     ly_do: "Khoảng thời gian bạn nêu nằm vắt qua hai giai đoạn áp dụng văn bản khác nhau"
+  den_vang:
+    uu_tien: 3
+    cau_hoi: "Lúc đèn chuyển sang vàng, xe của bạn đã đi tới (đang ở trên) hoặc đã qua vạch dừng chưa? Đèn vàng đứng yên hay nhấp nháy?"
+    ly_do: "Đèn vàng phải dừng trước vạch dừng, nhưng đang ở trên/đã qua vạch dừng hoặc đèn vàng nhấp nháy thì được đi tiếp (khoản 4 Điều 11 Luật TTATGT; khoản 3 Điều 10 Luật GTĐB 2008)"
   nong_do_con:
     uu_tien: 4
     cau_hoi: "Kết quả đo nồng độ cồn là bao nhiêu (ghi rõ mg/lít khí thở hay mg/100 ml máu)? Nếu bạn từ chối đo, hãy cho biết."

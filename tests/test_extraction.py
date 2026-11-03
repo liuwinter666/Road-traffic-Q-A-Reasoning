@@ -221,3 +221,50 @@ def test_prompt_loader():
 
     p = load_prompt("extraction")
     assert p.ma == "extraction@v1" and "{tin_nhan}" in p.user and p.system
+
+
+# ---------------- đèn vàng, loại xe chung chung, gộp loại xe ----------------
+
+class HangSoEmbedder:
+    """Mọi cụm có cùng vector → embedding luôn "khớp" (độ tương đồng 1.0): mô phỏng trường hợp xấu nhất."""
+
+    def encode(self, texts):
+        return np.ones((len(texts), 8)) / np.sqrt(8)
+
+
+def test_den_vang_khong_ket_luan_ngay(linker):
+    hs = xay_dung_ho_so(TrichXuatLLM(loai_xe="xe máy", su_kien=[
+        SuKienTho(mo_ta="vượt đèn vàng", trich_dan="tôi vượt đèn vàng ở ngã tư")]), linker, T)
+    assert "KhongChapHanhDenTinHieu" not in hs.nodes() and "_DEN_VANG" in hs.goi_y()
+    assert "khongChapHanhDenTinHieu" not in hs.su_kien
+    kq = kiem_tra(hs, T)
+    assert [q.truong for q in kq.cau_hoi] == ["den_vang"] and "vạch dừng" in kq.cau_hoi[0].cau_hoi
+    # đèn đỏ vẫn kết luận trực tiếp
+    hs2 = xay_dung_ho_so(TrichXuatLLM(loai_xe="xe máy", su_kien=[
+        SuKienTho(mo_ta="vượt đèn đỏ", trich_dan="tôi vượt đèn đỏ")]), linker, T)
+    assert hs2.su_kien.get("khongChapHanhDenTinHieu") is True
+    # có sự kiện (từ câu trả lời) thì không hỏi nữa
+    hs.su_kien["khongChapHanhDenTinHieu"] = False
+    assert kiem_tra(hs, T).du_thong_tin
+
+
+def test_xe_chung_chung_khong_doan_loai_xe():
+    lk = EntityLinker(embedder=HangSoEmbedder(), threshold=0.8)
+    for cum in ("xe tôi", "chiếc xe", "xe của tôi", "xe"):
+        hs = xay_dung_ho_so(TrichXuatLLM(loai_xe=cum), lk, T)
+        assert hs.loai_xe is None, cum
+    assert xay_dung_ho_so(TrichXuatLLM(loai_xe="xe máy"), lk, T).loai_xe == "NhomXeMoTo"
+
+
+def test_loai_xe_embedding_khong_ghi_de_va_can_xac_nhan(linker):
+    from src.extraction.schema import NguonGoc
+
+    cu = xay_dung_ho_so(TrichXuatLLM(loai_xe="xe máy"), linker, T)
+    moi = HoSoVuViec(loai_xe="OTo", nguon={"loai_xe": NguonGoc(goc="con xe cũ", phuong_phap="embedding")})
+    gop = cu.cap_nhat(moi)
+    assert gop.loai_xe == "NhomXeMoTo" and gop.nguon["loai_xe"].phuong_phap == "tu_dien"
+    # chỉ có loại xe từ embedding → hỏi xác nhận, câu hỏi mang đúng mục "loai_xe"
+    hs = HoSoVuViec(loai_xe="OTo", nguon={"loai_xe": NguonGoc(goc="con xe cũ", phuong_phap="embedding")},
+                    su_kien={"doiMuBaoHiem": False})
+    q = kiem_tra(hs, T).cau_hoi
+    assert [x.truong for x in q] == ["xac_nhan"] and q[0].muc_xac_nhan == ["loai_xe"] and "con xe cũ" in q[0].cau_hoi

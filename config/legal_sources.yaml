@@ -285,3 +285,4 @@ support_roles:
   xu_ly_vphc: [LXLVPHC]
   phan_loai_xe: [GTDB2008, LTTATGT]
   dinh_nghia_nguoi_dieu_khien_gt: [GTDB2008, LTTATGT]   # định nghĩa "người điều khiển giao thông" (fact_inducer)
+  quy_tac_den_tin_hieu: [GTDB2008, LTTATGT]             # ý nghĩa tín hiệu đèn (đèn vàng) — fact_inducer, slot_checker

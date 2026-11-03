@@ -24,6 +24,8 @@ from src.llm.client import LLMClient, get_llm_client
 from src.llm.prompts import load_prompt
 
 PHAN_LOAI_FILE = ROOT_DIR / "config" / "phan_loai_xe.yaml"
+XE_CHUNG_CHUNG = {"xe", "tôi", "của", "mình", "em", "anh", "chị", "bạn", "chiếc", "cái", "con", "nó", "này", "đó",
+                  "ấy", "nhà", "cũ", "mới", "kia", "đấy"}
 
 
 def phan_loai_xe_may(dung_tich: float | None, cong_suat: float | None, ngay: date) -> tuple[str, str] | None:
@@ -87,8 +89,11 @@ def xay_dung_ho_so(tx: TrichXuatLLM, linker: EntityLinker, hom_nay: date | None 
             setattr(hs, fld, v.gia_tri)
             note(fld, raw, ghi_chu=v.gia_dinh)
 
-    # Loại xe
-    if tx.loai_xe:
+    # Loại xe — cụm chỉ gồm "xe" + đại từ/lượng từ ("xe tôi", "chiếc xe") không cho biết loại xe: bỏ qua, không để
+    # embedding đoán (đo được: "xe tôi" → ô tô 0.80, "xe" → xe khách 0.85)
+    if tx.loai_xe and not (set(N.chuan_hoa_chu(tx.loai_xe).split()) - XE_CHUNG_CHUNG):
+        hs.khong_lien_ket.append(f"loại xe: {tx.loai_xe}")
+    elif tx.loai_xe:
         lk = linker.link_one(tx.loai_xe, "xe")
         if lk:
             hs.loai_xe = lk.node
@@ -122,6 +127,11 @@ def xay_dung_ho_so(tx: TrichXuatLLM, linker: EntityLinker, hom_nay: date | None 
         if not links:
             hs.khong_lien_ket.append(sk.mo_ta)
             continue
+        # Đèn vàng: cụm chung "vượt đèn" không đủ để kết luận không chấp hành tín hiệu — theo quy tắc đèn vàng
+        # (khoản 4 Điều 11 Luật TTATGT; khoản 3 Điều 10 Luật GTĐB 2008), đã đi trên/qua vạch dừng hoặc đèn vàng
+        # nhấp nháy thì được đi tiếp. Bỏ liên kết đó; slot_checker hỏi chi tiết, fact_inducer suy ra từ câu trả lời.
+        if any(lk.node == "_DEN_VANG" for lk in links):
+            links = [lk for lk in links if not (lk.node == "KhongChapHanhDenTinHieu" and "đỏ" not in lk.goc)]
         for lk in links:
             hs.dau_hieu.append(DauHieu(node=lk.node, kieu=lk.kieu, su_kien=lk.su_kien, goc=lk.goc,
                                        trich_dan=sk.trich_dan, phuong_phap=lk.phuong_phap,

@@ -114,7 +114,7 @@ def trinh_bay(kq: KetQuaLuot, chi_tiet: bool = False) -> str:
         for s in suy_ra:
             out.append(f"  - {s.mo_ta()} — “{s.bang_chung}” (tin cậy {s.do_tin_cay:.2f}"
                        + (", bạn đã xác nhận" if s.trang_thai == "xac_nhan" else "") + ")")
-            if s.giai_thich and (chi_tiet or "định nghĩa:" in s.giai_thich):
+            if s.giai_thich and (chi_tiet or "căn cứ:" in s.giai_thich):
                 out.append(f"      {s.giai_thich}")
 
     notes = kq.trace.ghi_chu if kq.trace is not None else list(dict.fromkeys(kq.ghi_chu + qd.ghi_chu))

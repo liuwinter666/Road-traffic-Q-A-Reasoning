@@ -121,7 +121,7 @@ class FactInducer:
             f"- {k}: {v}" for k, v in dm.items())
         dn = dinh_nghia_phap_ly(_ngay(hs, hom_nay))
         if dn:
-            system += "\n\nĐỊNH NGHĨA PHÁP LÝ (trích nguyên văn):\n" + "\n".join(
+            system += "\n\nCĂN CỨ PHÁP LÝ (trích nguyên văn):\n" + "\n".join(
                 f"- [{d['id']}] {d['nguyen_van']} (liên quan: {', '.join(d['thuoc_tinh'])})" for d in dn)
         da_biet = "\n".join(f"- {k} = {str(v).lower()}" for k, v in sorted(hs.su_kien.items()) if k in dm) or "(chưa có)"
         prompt = self.prompt.render(da_biet=da_biet, loi_ke="\n".join(f"[{i + 1}] {m}" for i, m in enumerate(loi_ke)))
@@ -149,7 +149,7 @@ class FactInducer:
             sk = SuKienSuyRa(thuoc_tinh=t, gia_tri=bool(d["gia_tri"]), do_tin_cay=float(d["do_tin_cay"]),
                              bang_chung=d.get("bang_chung", ""), giai_thich=d.get("giai_thich", ""), nhan=dm[t])
             if can_cu := [x["id"] for x in dinh_nghia if t in x["thuoc_tinh"]]:
-                sk.giai_thich = (sk.giai_thich + " " if sk.giai_thich else "") + f"(định nghĩa: {', '.join(can_cu)})"
+                sk.giai_thich = (sk.giai_thich + " " if sk.giai_thich else "") + f"(căn cứ: {', '.join(can_cu)})"
             nguon = hs.nguon.get(f"su_kien.{t}")
             truc_tiep = t in hs.su_kien and (nguon is None or nguon.phuong_phap != "suy_ra")
             if truc_tiep:

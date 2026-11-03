@@ -38,6 +38,9 @@ class CauHoi:
     cau_hoi: str
     ly_do: str
     uu_tien: int
+    # với câu xác nhận: đúng các mục được hỏi ("loai_xe", "lien_ket:<node>|<cụm>", "su_kien:<thuộc tính>") —
+    # câu trả lời có/không chỉ áp cho các mục này
+    muc_xac_nhan: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -70,6 +73,12 @@ def _nhan() -> dict[str, str]:
 def nhan_node(node: str) -> str:
     """Nhãn tiếng Việt của node (dấu hiệu / tình tiết) để hỏi người dùng — không lộ tên nội bộ."""
     return _nhan().get(node, node).lower()
+
+
+def loai_xe_cho_xac_nhan(hs: HoSoVuViec) -> bool:
+    """Loại xe ánh xạ bằng embedding, chưa được người dùng xác nhận."""
+    g = hs.nguon.get("loai_xe")
+    return hs.loai_xe is not None and g is not None and g.phuong_phap == "embedding"
 
 
 def cho_xac_nhan_lien_ket(hs: HoSoVuViec) -> list:
@@ -127,6 +136,10 @@ def kiem_tra(hs: HoSoVuViec, hom_nay: date | None = None) -> KetQuaSlot:
     if hs.loai_xe is None and phu_thuoc_xe:
         need["loai_xe"] = ""
 
+    # Đèn vàng: kết luận phụ thuộc vị trí xe so với vạch dừng / đèn nhấp nháy (quy tắc đèn vàng của luật)
+    if "_DEN_VANG" in hints and "khongChapHanhDenTinHieu" not in hs.su_kien:
+        need["den_vang"] = ""
+
     # Nồng độ cồn
     if "_CO_CON" in hints and hs.nong_do_con_khi_tho is None and hs.nong_do_con_mau is None \
             and "TuChoiKiemTraNongDoCon" not in nodes:
@@ -177,16 +190,26 @@ def kiem_tra(hs: HoSoVuViec, hom_nay: date | None = None) -> KetQuaSlot:
     # Xác nhận: liên kết bằng embedding (dấu hiệu/tình tiết — gợi ý "_..." chỉ dùng để chọn câu hỏi nên không cần
     # xác nhận), sự kiện suy ra có độ tin cậy vừa phải. Gộp thành MỘT câu hỏi, hỏi riêng một lượt (trước các câu
     # khác) để câu trả lời "có"/"không" áp đúng cho đúng những mục đã hỏi.
-    muc = [f"“{d.goc}” nghĩa là {nhan_node(d.node)}" for d in cho_xac_nhan_lien_ket(hs)]
+    lien_ket = cho_xac_nhan_lien_ket(hs)
+    muc = [f"“{d.goc}” nghĩa là {nhan_node(d.node)}" for d in lien_ket]
+    khoa = [f"lien_ket:{d.node}|{d.goc}" for d in lien_ket]
+    if loai_xe_cho_xac_nhan(hs):
+        from src.explanation.tracer import nhan
+
+        muc.insert(0, f"xe của bạn (“{hs.nguon['loai_xe'].goc}”) là {nhan(hs.loai_xe).lower()}")
+        khoa.insert(0, "loai_xe")
     nhom: dict[str, list] = {}
     for sk in hs.su_kien_suy_ra:
-        if sk.trang_thai == "cho_xac_nhan":
+        # đèn vàng: hỏi chi tiết vạch dừng trước, không hỏi xác nhận suy đoán của LLM về cùng thuộc tính
+        if sk.trang_thai == "cho_xac_nhan" and not (sk.thuoc_tinh == "khongChapHanhDenTinHieu" and "den_vang" in need):
             nhom.setdefault(sk.bang_chung, []).append(sk)
     muc += [f"{'; '.join(x.mo_ta() for x in ds)} (từ “{bc}”)" for bc, ds in nhom.items()]
+    khoa += [f"su_kien:{x.thuoc_tinh}" for ds in nhom.values() for x in ds]
     if muc:
         c = cfg["cau_hoi"]["xac_nhan"]
         text = muc[0] if len(muc) == 1 else " ".join(f"({i}) {m};" for i, m in enumerate(muc, 1)).rstrip(";")
-        return KetQuaSlot(False, [CauHoi("xac_nhan", c["cau_hoi"].format(mo_ta=text), c["ly_do"], 0)], v, ghi_chu)
+        return KetQuaSlot(False, [CauHoi("xac_nhan", c["cau_hoi"].format(mo_ta=text), c["ly_do"], 0, khoa)],
+                          v, ghi_chu)
 
     qs.sort(key=lambda q: q.uu_tien)
     return KetQuaSlot(not qs, qs[: cfg["so_cau_hoi_toi_da"]], v, ghi_chu)

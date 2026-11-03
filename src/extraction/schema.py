@@ -132,7 +132,15 @@ class HoSoVuViec(BaseModel):
     def cap_nhat(self, moi: "HoSoVuViec") -> "HoSoVuViec":
         """Gộp hồ sơ của lượt mới: trường có giá trị ở lượt mới ghi đè; danh sách/dict được hợp."""
         data = self.model_dump()
-        for k, v in moi.model_dump().items():
+        moi_data = moi.model_dump()
+
+        def la_embedding(hs: "HoSoVuViec") -> bool:
+            return bool(hs.nguon.get("loai_xe")) and hs.nguon["loai_xe"].phuong_phap == "embedding"
+        # Loại xe đoán bằng embedding ở lượt mới không ghi đè loại xe đã chắc chắn ở lượt trước
+        if self.loai_xe and moi.loai_xe and moi.loai_xe != self.loai_xe and la_embedding(moi) and not la_embedding(self):
+            moi_data["loai_xe"] = None
+            moi_data["nguon"].pop("loai_xe", None)
+        for k, v in moi_data.items():
             if k in ("loai_duong", "gia_dinh", "khong_lien_ket", "cum_tu_loai_bo"):
                 data[k] = list(dict.fromkeys(data[k] + v))
             elif k == "dau_hieu":

@@ -60,9 +60,11 @@ def test_danh_muc_tu_ontology():
 
 
 def test_dinh_nghia_theo_ngay():
-    assert [d["id"] for d in dinh_nghia_phap_ly(date(2023, 1, 1))] == ["GTDB2008-D3-K25"]
-    d = dinh_nghia_phap_ly(date(2026, 1, 1))[0]
-    assert d["id"] == "LTTATGT-D2-K10" and "Cảnh sát giao thông" in d["nguyen_van"]
+    assert [d["id"] for d in dinh_nghia_phap_ly(date(2023, 1, 1))] == ["GTDB2008-D3-K25", "GTDB2008-D10-K3-c"]
+    d = {x["id"]: x for x in dinh_nghia_phap_ly(date(2026, 1, 1))}
+    assert set(d) == {"LTTATGT-D2-K10", "LTTATGT-D11-K4-b"}
+    assert "Cảnh sát giao thông" in d["LTTATGT-D2-K10"]["nguyen_van"]
+    assert "vạch dừng" in d["LTTATGT-D11-K4-b"]["nguyen_van"]
 
 
 def test_ap_dung_phan_loai():
@@ -236,3 +238,23 @@ def test_pipeline_inducer_loi_van_ket_luan(tmp_path, reasoner):
     assert k.suy_luan.ma_hanh_vi == {"XM_MU_BAO_HIEM"}
     assert any("Không suy ra được sự kiện gián tiếp" in g for g in k.ghi_chu)
 
+
+
+def test_xac_nhan_chi_ap_dung_muc_da_hoi():
+    """'Có' chỉ áp cho mục được hỏi; mục chờ khác (không được hỏi ở lượt đó) giữ nguyên."""
+    from src.extraction.schema import SuKienSuyRa
+
+    hs = HoSoVuViec(su_kien_suy_ra=[
+        SuKienSuyRa(thuoc_tinh="boChay", gia_tri=True, do_tin_cay=0.7, bang_chung="chạy luôn", trang_thai="cho_xac_nhan"),
+        SuKienSuyRa(thuoc_tinh="khongChapHanhDenTinHieu", gia_tri=True, do_tin_cay=0.7, bang_chung="đèn vàng",
+                    trang_thai="cho_xac_nhan")])
+    Pipeline._ap_dung_xac_nhan(hs, True, {"su_kien:boChay"})
+    tt = {s.thuoc_tinh: s.trang_thai for s in hs.su_kien_suy_ra}
+    assert tt == {"boChay": "xac_nhan", "khongChapHanhDenTinHieu": "cho_xac_nhan"}
+    assert hs.su_kien == {"boChay": True}
+
+
+def test_xac_nhan_loai_xe_bi_bac():
+    hs = HoSoVuViec(loai_xe="OTo", nguon={"loai_xe": NguonGoc(goc="con xe cũ", phuong_phap="embedding")})
+    Pipeline._ap_dung_xac_nhan(hs, False, {"loai_xe"})
+    assert hs.loai_xe is None and "loai_xe" not in hs.nguon

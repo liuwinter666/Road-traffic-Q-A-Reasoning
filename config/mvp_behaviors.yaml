@@ -27,7 +27,7 @@ behaviors:
      refs: [ND100-D5-K6-a, ND100-D5-K6-a, ND168-D6-K6-a], check: "quá tốc độ quy định trên 20 km/h đến 35 km/h"}
   - {code: OT_TD_TREN_35, nhom: toc_do, xe: oto, ten: "Ô tô: quá tốc độ trên 35 km/h",
      refs: [ND100-D5-K7-c, ND100-D5-K7-c, ND168-D6-K7-a], check: "quá tốc độ quy định trên 35 km/h"}
-  - {code: OT_DEN_DO, nhom: tin_hieu, xe: oto, ten: "Ô tô: không chấp hành hiệu lệnh đèn tín hiệu (vượt đèn đỏ)",
+  - {code: OT_DEN_DO, nhom: tin_hieu, xe: oto, ten: "Ô tô: không chấp hành hiệu lệnh của đèn tín hiệu giao thông",
      refs: [ND100-D5-K5-a, ND100-D5-K5-a, ND168-D6-K9-b], check: "Không chấp hành hiệu lệnh của đèn tín hiệu giao thông"}
   - {code: OT_HIEU_LENH_CSGT, nhom: tin_hieu, xe: oto, ten: "Ô tô: không chấp hành hiệu lệnh, hướng dẫn của người điều khiển/kiểm soát giao thông",
      refs: [ND100-D5-K5-b, ND100-D5-K5-b, ND168-D6-K9-c], check: "hướng dẫn của người điều khiển giao thông hoặc người kiểm soát giao thông"}
@@ -71,7 +71,7 @@ behaviors:
      refs: [ND100-D6-K4-a, ND100-D6-K4-a, ND168-D7-K4-a], check: "quá tốc độ quy định từ 10 km/h đến 20 km/h"}
   - {code: XM_TD_TREN_20, nhom: toc_do, xe: xe_may, ten: "Xe máy: quá tốc độ trên 20 km/h",
      refs: [ND100-D6-K7-a, ND100-D6-K7-a, ND168-D7-K8-a], check: "quá tốc độ quy định trên 20 km/h"}
-  - {code: XM_DEN_DO, nhom: tin_hieu, xe: xe_may, ten: "Xe máy: không chấp hành hiệu lệnh đèn tín hiệu (vượt đèn đỏ)",
+  - {code: XM_DEN_DO, nhom: tin_hieu, xe: xe_may, ten: "Xe máy: không chấp hành hiệu lệnh của đèn tín hiệu giao thông",
      refs: [ND100-D6-K4-e, ND100-D6-K4-e, ND168-D7-K7-c], check: "Không chấp hành hiệu lệnh của đèn tín hiệu giao thông"}
   - {code: XM_HIEU_LENH_CSGT, nhom: tin_hieu, xe: xe_may, ten: "Xe máy: không chấp hành hiệu lệnh, hướng dẫn của người điều khiển/kiểm soát giao thông",
      refs: [ND100-D6-K4-g, ND100-D6-K4-g, ND168-D7-K7-d], check: "hướng dẫn của người điều khiển giao thông hoặc người kiểm soát giao thông"}

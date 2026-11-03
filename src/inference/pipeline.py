@@ -21,7 +21,7 @@ from loguru import logger
 from src.extraction import normalizer as N
 from src.extraction.llm_extractor import LLMExtractor
 from src.extraction.schema import HoSoVuViec, NguonGoc
-from src.extraction.slot_checker import CauHoi, cho_xac_nhan_lien_ket, kiem_tra
+from src.extraction.slot_checker import CauHoi, cho_xac_nhan_lien_ket, kiem_tra, loai_xe_cho_xac_nhan
 from src.inference.fact_builder import DuLieuVuViec, xay_dung
 from src.inference.fact_inducer import FactInducer, dong_bo_su_kien
 from src.llm.client import LLMClient, LLMError, get_llm_client
@@ -148,7 +148,8 @@ class Pipeline:
         da_hoi_xn = any(q.truong == "xac_nhan" for q in phien.cau_hoi_truoc)
         tra_loi, con_lai = tra_loi_co_khong(tin_nhan) if da_hoi_xn else (None, 0)
         if tra_loi is not None:
-            self._ap_dung_xac_nhan(hs, tra_loi)
+            muc = [m for q in phien.cau_hoi_truoc if q.truong == "xac_nhan" for m in q.muc_xac_nhan]
+            self._ap_dung_xac_nhan(hs, tra_loi, set(muc))
         co_noi_dung = tra_loi is None or con_lai >= 3
 
         # 2. Trích xuất + chuẩn hóa + liên kết
@@ -230,13 +231,21 @@ class Pipeline:
             out.tra_loi += "\n\n" + goi_y_lien_quan(out.lien_quan)
 
     @staticmethod
-    def _ap_dung_xac_nhan(hs: HoSoVuViec, dong_y: bool) -> None:
-        """Áp câu trả lời có/không cho các mục đang chờ xác nhận."""
+    def _ap_dung_xac_nhan(hs: HoSoVuViec, dong_y: bool, muc: set[str]) -> None:
+        """Áp câu trả lời có/không cho ĐÚNG các mục ``muc`` mà câu xác nhận vừa hỏi."""
         for sk in hs.su_kien_suy_ra:
-            if sk.trang_thai == "cho_xac_nhan":
+            if sk.trang_thai == "cho_xac_nhan" and f"su_kien:{sk.thuoc_tinh}" in muc:
                 sk.trang_thai = "xac_nhan" if dong_y else "tu_choi"
+        if "loai_xe" in muc and loai_xe_cho_xac_nhan(hs):
+            if dong_y:
+                hs.nguon["loai_xe"].phuong_phap = "nguoi_dung_xac_nhan"
+            else:
+                hs.loai_xe = None
+                hs.nguon.pop("loai_xe", None)
         bo = []
-        for d in cho_xac_nhan_lien_ket(hs):            # đúng các mục slot_checker đã hỏi
+        for d in cho_xac_nhan_lien_ket(hs):
+            if f"lien_ket:{d.node}|{d.goc}" not in muc:
+                continue
             if dong_y:
                 d.phuong_phap = "nguoi_dung_xac_nhan"
             else:
