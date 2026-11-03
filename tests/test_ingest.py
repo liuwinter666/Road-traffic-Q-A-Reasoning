@@ -133,3 +133,26 @@ def test_v3_element_override(records):
     assert v3["ND168-D6-K3-a"]["effective_from"] == "2025-01-01"
     assert v3["ND168-D32-K1-b"]["effective_from"] is None
     assert v3["ND168-D32-K1-b"]["effective_verified"] is False
+
+
+# ---------------- V4 (NĐ 238 sửa NĐ 168) ----------------
+
+def test_v4_consolidation(records, builder):
+    v3, v4 = records["V3"], records["V4"]
+    results = builder.build("V4").consolidation[-1][1]
+    assert sum(r.status == "review" for r in results) == 5
+    # bổ sung khoản 1a vào TRƯỚC khoản 1
+    ids = [i for i in v4 if i.startswith("ND168-D6-K") and i.count("-") == 2]
+    assert ids[:2] == ["ND168-D6-K1a", "ND168-D6-K1"]
+    # lệnh nằm ở tiêu đề Điều ("Điều 6. Sửa đổi bổ sung điểm a khoản 4 Điều 18")
+    assert "50 cm3" in v3["ND168-D18-K4-a"]["text"] and "50 cm3" not in v4["ND168-D18-K4-a"]["text"]
+    # điểm "k1"
+    assert "ND168-D41-K4-k1" in v4
+    assert v4["ND168-D32-K17-d"]["status"] == "bai_bo"
+
+
+def test_v4_element_override_scoped(records):
+    # ngoại lệ hiệu lực do NĐ 238 đặt ra chỉ áp cho V4, không áp cho V3
+    assert records["V4"]["ND168-D20-K5-l"]["effective_from"] == "2028-01-01"
+    assert records["V3"]["ND168-D20-K5-l"]["effective_from"] == "2025-01-01"
+    assert records["V4"]["ND168-D6-K1a"]["effective_from"] == "2026-08-15"

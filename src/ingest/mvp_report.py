@@ -22,7 +22,6 @@ from src.config import PROCESSED_DIR, ROOT_DIR
 
 BEHAVIORS_FILE = ROOT_DIR / "config" / "mvp_behaviors.yaml"
 OUT_FILE = ROOT_DIR / "docs" / "mvp_behaviors.md"
-VERSIONS = ["V1", "V2", "V3"]
 DOC_LABEL = {"ND100": "NĐ 100/2019", "ND168": "NĐ 168/2024"}
 
 
@@ -60,14 +59,20 @@ def fine_str(r: dict, arts: dict[str, dict]) -> str:
 def main() -> int:
     logger.remove()
     logger.add(sys.stderr, level="INFO")
+    from src.ingest.build_articles import load_sources
+
+    vcfg = load_sources()["versions"]
+    versions = list(vcfg)
     cfg = yaml.safe_load(BEHAVIORS_FILE.read_text(encoding="utf-8"))
-    arts = {v: load_articles(v) for v in VERSIONS}
+    arts = {v: load_articles(v) for v in versions}
     errors: list[str] = []
     rows = []
     for b in cfg["behaviors"]:
         cells = []
         fines = []
-        for v, rid in zip(VERSIONS, b["refs"]):
+        # refs ngắn hơn số phiên bản: phiên bản sau kế thừa id của phiên bản trước (vẫn kiểm chứng)
+        refs = list(b["refs"]) + [b["refs"][-1]] * (len(versions) - len(b["refs"]))
+        for v, rid in zip(versions, refs):
             if rid is None:
                 cells.append("— _không có_")
                 fines.append(None)
@@ -80,29 +85,31 @@ def main() -> int:
                 continue
             if r["status"] != "active":
                 errors.append(f"{b['code']} {v}: {rid} có trạng thái {r['status']}")
-            phrase = b.get("check_v3") if (v == "V3" and b.get("check_v3")) else b["check"]
+            phrase = b.get(f"check_{v.lower()}") or (b.get("check_v3") if versions.index(v) >= versions.index("V3") else None) or b["check"]
             if phrase.lower() not in r["full_text"].lower():
                 errors.append(f"{b['code']} {v}: {rid} không chứa cụm '{phrase}'")
             f = fine_str(r, arts[v])
             fines.append(f)
             flag = "" if r["history"] or r["history_inherited"] else ""
-            if v == "V2" and (r["history"] or r["history_inherited"]):
+            if v != versions[0] and v != "V3" and (r["history"] or r["history_inherited"]):
                 flag = " ✎"
             cells.append(f"{cite(r)}{flag}<br>`{rid}`<br>**{f}**")
         changes = []
-        if fines[0] and fines[1] and fines[0] != fines[1]:
-            changes.append("V1→V2 đổi mức")
-        if fines[1] and fines[2] and fines[1] != fines[2]:
-            changes.append("V2→V3 đổi mức")
-        if (fines[1] is None) != (fines[2] is None):
-            changes.append("V2/V3 khác phạm vi")
+        for (va, fa, ca), (vb_, fb, cb) in zip(zip(versions, fines, cells), zip(versions[1:], fines[1:], cells[1:])):
+            if fa and fb and fa != fb:
+                changes.append(f"{va}→{vb_} đổi mức")
+            elif (fa is None) != (fb is None):
+                changes.append(f"{va}/{vb_} khác phạm vi")
+            elif fa and fb and "✎" in cb and va != "V2":
+                changes.append(f"{vb_} sửa nội dung")
         note = "; ".join(changes + ([b["note"]] if b.get("note") else []))
         rows.append((b, cells, note))
 
     L = ["# Đề xuất danh sách hành vi MVP (chờ duyệt)", "",
          f"_Sinh tự động bởi `python -m src.ingest.mvp_report` ngày {date.today()} từ "
          "`config/mvp_behaviors.yaml` + `data/processed/articles_v*.jsonl`. "
-         "Mức phạt được trích tự động từ đoạn mở đầu của khoản; ✎ = phần tử V2 bị NĐ 123 sửa đổi/bổ sung._", "",
+         "Mức phạt được trích tự động từ đoạn mở đầu của khoản; ✎ = phần tử bị văn bản sửa đổi "
+         "(NĐ 123 ở V2, NĐ 238 ở V4) thay đổi._", "",
          f"Tổng số hành vi: **{len(rows)}**. Lỗi kiểm chứng: **{len(errors)}**.", ""]
     if errors:
         L += ["## Lỗi kiểm chứng", ""] + [f"- {e}" for e in errors] + [""]
@@ -110,9 +117,9 @@ def main() -> int:
     for row in rows:
         groups.setdefault(row[0]["nhom"], []).append(row)
     for g, items in groups.items():
-        L += [f"## Nhóm `{g}`", "",
-              "| Mã | Hành vi | V1 (2020–2021) | V2 (2022–2024) | V3 (từ 2025) | Ghi chú |",
-              "|---|---|---|---|---|---|"]
+        heads = [f"{v} ({vcfg[v]['effective_from']} → {vcfg[v].get('effective_to') or 'nay'})" for v in versions]
+        L += [f"## Nhóm `{g}`", "", "| Mã | Hành vi | " + " | ".join(heads) + " | Ghi chú |",
+              "|" + "---|" * (len(versions) + 3)]
         for b, cells, note in items:
             L.append(f"| `{b['code']}` | {b['ten']} | " + " | ".join(cells) + f" | {note} |")
         L.append("")

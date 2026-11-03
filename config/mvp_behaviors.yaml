@@ -139,7 +139,7 @@ behaviors:
      note: "NĐ 123 thay toàn bộ Điều 21: V1 ở khoản 8, V2 ở khoản 9"}
   - {code: CHUA_DU_TUOI_14_16, nhom: do_tuoi, xe: chung, ten: "Người từ đủ 14 đến dưới 16 tuổi điều khiển xe mô tô, xe gắn máy hoặc ô tô",
      refs: [ND100-D21-K1, ND100-D21-K1, ND168-D18-K1], check: "từ đủ 14 tuổi đến dưới 16 tuổi", note: "Hình thức: cảnh cáo"}
-  - {code: CHUA_DU_TUOI_16_18_MOTO, nhom: do_tuoi, xe: xe_may, ten: "Người từ đủ 16 đến dưới 18 tuổi điều khiển mô tô từ 50 cm3 (V3: hoặc từ 04 kW)",
+  - {code: CHUA_DU_TUOI_16_18_MOTO, nhom: do_tuoi, xe: xe_may, ten: "Người từ đủ 16 đến dưới 18 tuổi điều khiển mô tô (V1–V3: từ 50 cm3; V3 thêm từ 04 kW; V4: mọi xe mô tô)",
      refs: [ND100-D21-K4-a, ND100-D21-K4-a, ND168-D18-K4-a], check: "từ đủ 16 tuổi đến dưới 18 tuổi"}
   - {code: CHUA_DU_TUOI_16_18_OTO, nhom: do_tuoi, xe: oto, ten: "Người từ đủ 16 đến dưới 18 tuổi điều khiển ô tô",
      refs: [ND100-D21-K6, ND100-D21-K6, ND168-D18-K6], check: "từ đủ 16 tuổi đến dưới 18 tuổi"}

@@ -53,9 +53,33 @@ documents:
         evidence: "Điều 53 khoản 2: quy định tại điểm b khoản 1 Điều 32 của Nghị định này có hiệu lực thi hành theo quy định của pháp luật bảo vệ môi trường về kiểm định khí thải xe mô tô, xe gắn máy."
         verified: false        # TODO_VERIFY: cần văn bản pháp luật BVMT
 
+  ND238:
+    file: ND_238.docx
+    so_hieu: "238/2026/NĐ-CP"
+    ten: "Nghị định sửa đổi, bổ sung một số điều của Nghị định số 168/2024/NĐ-CP"
+    ngay_ban_hanh: 2026-06-26
+    type: amendment
+    amends: ND168
+    # Mỗi Điều 1–19 sửa một Điều của NĐ 168 (Điều 20, 21: hiệu lực, chuyển tiếp)
+    amend_dieu: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"]
+    effective_from: 2026-08-15
+    evidence: "Điều 20 khoản 1: Nghị định này có hiệu lực thi hành từ ngày 15 tháng 8 năm 2026."
+    verified: true
+    # Ngoại lệ hiệu lực do NĐ 238 bổ sung vào Điều 53 NĐ 168 (Điều 18 NĐ 238).
+    # Chỉ áp cho các phiên bản có NĐ 238 trong nguồn hợp nhất.
+    element_effective_overrides:
+      - ids: [ND168-D20-K5-l, ND168-D21-K3-b, ND168-D32-K9a-b]
+        effective_from: 2028-01-01
+        partial: true   # chỉ phần quy định về thiết bị ghi hình người lái của một số loại xe
+        evidence: "điểm l khoản 5 Điều 20, điểm b khoản 3 Điều 21, điểm b khoản 9a Điều 32 của Nghị định này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2028"
+        verified: true
+      - ids: [ND168-D20-K5-n, ND168-D26-K7-k, ND168-D26-K7-l]
+        effective_from: 2029-01-01
+        evidence: "điểm n khoản 5 Điều 20; điểm k, điểm l khoản 7 Điều 26 của Nghị định này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2029 và theo quy định của pháp luật về thiết bị ghi nhận hình ảnh khoang chở khách"
+        verified: false   # TODO_VERIFY: còn phụ thuộc pháp luật về thiết bị ghi hình khoang khách
+
 # Phiên bản pháp lý. Khoảng hiệu lực là [effective_from, effective_to] (bao gồm hai đầu).
 # build.base: văn bản gốc; build.base_version: kế thừa phiên bản trước; build.amendments: áp lần lượt.
-# scope_dieu: (tùy chọn) chỉ giữ các Điều này trong file articles_v*.jsonl; bỏ trống = giữ tất cả.
 versions:
   V1:
     label: "NĐ 100/2019 nguyên bản"
@@ -73,17 +97,21 @@ versions:
   V3:
     label: "NĐ 168/2024"
     effective_from: 2025-01-01
-    effective_to: null
+    effective_to: 2026-08-14
     build:
       base: ND168
+  V4:
+    label: "NĐ 168/2024 hợp nhất sửa đổi của NĐ 238/2026"
+    effective_from: 2026-08-15
+    effective_to: null
+    build:
+      base_version: V3
+      amendments: [ND238]
 
-default_version: V3
+# Phiên bản dùng khi không rõ thời điểm vi phạm.
+#   "current" = phiên bản đang có hiệu lực tại ngày chạy hệ thống; hoặc ghi tên cụ thể (vd. V3).
+default_version: current
 
 # Văn bản đã biết là tồn tại nhưng CHƯA có trong data/raw/. Dùng để cảnh báo khi
 # thời điểm vi phạm rơi vào khoảng hiệu lực của chúng.
-pending_documents:
-  - so_hieu: "238/2026/NĐ-CP"
-    amends: ND168
-    effective_from: 2026-08-15
-    source: "Người dùng cung cấp trong đặc tả; chưa có văn bản để đối chiếu"
-    verified: false   # TODO_VERIFY
+pending_documents: []

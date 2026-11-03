@@ -69,6 +69,8 @@ class Instruction:
     text: str           # câu lệnh (đã bỏ số thứ tự)
     content: list[str] = field(default_factory=list)
     sub: bool = False   # True nếu là lệnh con đánh chữ (a, b, c...)
+    context: "Target | None" = None  # đích ngầm định lấy từ tiêu đề (vd. "...của Điều 6")
+    unquoted: bool = False  # nội dung thiếu ngoặc kép mở (lỗi trình bày văn bản nguồn)
 
 
 @dataclass
@@ -87,35 +89,86 @@ class ApplyResult:
 
 RE_NUM = re.compile(r"^(\d+)\.\s+(.*)$")
 RE_LET = re.compile(r"^([a-zđ])\)\s+(.*)$")
+RE_VERB = re.compile(r"^(Sửa đổi|Bổ sung|Bãi bỏ|Thay|Bỏ)\b")
+RE_CHUONG_LINE = re.compile(r"^(Chương\s+[IVXLC]+|Mục\s+\d+\.)")
 
 
-def extract_instructions(amend: ParsedDoc, dieu_so: str, doc_label: str) -> list[Instruction]:
-    """Lấy danh sách lệnh trong Điều ``dieu_so`` của văn bản sửa đổi."""
-    dieu = amend.find_dieu(dieu_so)
-    if dieu is None:
-        raise ValueError(f"Không thấy Điều {dieu_so} trong {amend.doc}")
-    idx = amend.dieu.index(dieu)
-    start = dieu.para + 1
-    end = amend.dieu[idx + 1].para if idx + 1 < len(amend.dieu) else len(amend.paragraphs)
+def _is_quoted_start(line: str) -> bool:
+    return line.startswith((OPEN_Q, '"'))
 
+
+def _merge_ctx(parent: "Target | None", text: str) -> "Target | None":
+    """Ngữ cảnh đích: lấy Điều/khoản xuất hiện trong ``text``, thiếu thì kế thừa ``parent``."""
+    ts = [t for t in parse_targets(text) if t.diem is None]
+    t = ts[0] if ts else Target()
+    dieu = t.dieu or (parent.dieu if parent else None)
+    khoan = t.khoan if t.khoan else (parent.khoan if parent and not t.dieu else None)
+    return Target(dieu=dieu, khoan=khoan) if (dieu or khoan) else parent
+
+
+def extract_instructions(amend: ParsedDoc, dieu_so: "str | list[str]", doc_label: str) -> list[Instruction]:
+    """Lấy danh sách lệnh trong (các) Điều ``dieu_so`` của văn bản sửa đổi.
+
+    Hỗ trợ hai cách viết:
+      * NĐ 123: một Điều chứa toàn bộ lệnh, mỗi lệnh ghi đủ "điểm .. khoản .. Điều ..".
+      * NĐ 238: mỗi Điều sửa một Điều của văn bản gốc; đích nằm ở tiêu đề Điều
+        ("Điều 2. Sửa đổi, bổ sung một số điểm, khoản của Điều 6") hoặc chính tiêu đề là lệnh
+        ("Điều 3. Sửa đổi, bổ sung điểm b khoản 8 Điều 13" + nội dung ngay sau).
+    """
+    dieus = [dieu_so] if isinstance(dieu_so, str) else list(dieu_so)
     out: list[Instruction] = []
-    depth = 0
-    num = ""
-    for i in range(start, end):
-        line = amend.paragraphs[i]
-        in_quote = depth > 0 or line.startswith(OPEN_Q)
-        if in_quote and out:
-            out[-1].content.append(line)
+    for so in dieus:
+        dieu = amend.find_dieu(so)
+        if dieu is None:
+            raise ValueError(f"Không thấy Điều {so} trong {amend.doc}")
+        idx = amend.dieu.index(dieu)
+        start = dieu.para + 1
+        end = amend.dieu[idx + 1].para if idx + 1 < len(amend.dieu) else len(amend.paragraphs)
+        lines = amend.paragraphs[start:end]
+        header = dieu.title.strip()
+        ctx_dieu = None
+        mine: list[Instruction] = []
+        if RE_VERB.match(header) and "một số" not in header and lines and _is_quoted_start(lines[0]):
+            # Tiêu đề Điều chính là lệnh
+            mine.append(Instruction(ref=f"Điều {so} {doc_label}", para=dieu.para, text=header))
         else:
-            if m := RE_NUM.match(line):
-                num, body, ref = m.group(1), m.group(2), f"khoản {m.group(1)}"
-            elif m := RE_LET.match(line):
-                body, ref = m.group(2), f"điểm {m.group(1)} khoản {num}"
+            ctx_dieu = _merge_ctx(None, header)
+
+        depth = 0
+        num = ""
+        ctx_num = ctx_dieu
+        for off, line in enumerate(lines):
+            i = start + off
+            if depth == 0 and (RE_CHUONG_LINE.match(line) or (line.isupper() and len(line) > 3)):
+                continue  # tiêu đề Chương/Mục nằm giữa các Điều, không phải lệnh
+            in_quote = depth > 0 or _is_quoted_start(line)
+            m_num, m_let = RE_NUM.match(line), RE_LET.match(line)
+            body = (m_num or m_let).group(2) if (m_num or m_let) else line
+            is_instr = (not in_quote) and bool(m_num or m_let) and bool(RE_VERB.match(body))
+            last = mine[-1] if mine else None
+            if in_quote and last is not None:
+                last.content.append(line)
+            elif (not is_instr and last is not None and last.text.rstrip().endswith("như sau:")
+                  and (not last.content or last.unquoted)):
+                # Nội dung sửa đổi thiếu ngoặc kép mở (vd. NĐ 238 Điều 8 khoản 3)
+                last.content.append(line)
+                last.unquoted = True
             else:
-                body, ref = line, f"khoản {num} (đoạn không đánh số)"
-            out.append(Instruction(ref=f"{ref} Điều {dieu_so} {doc_label}", para=i, text=body,
-                                   sub=bool(RE_LET.match(line))))
-        depth = max(0, depth + quote_balance(line))
+                if m_num:
+                    num = m_num.group(1)
+                    ref = f"khoản {num}"
+                    ctx = ctx_dieu
+                    ctx_num = _merge_ctx(ctx_dieu, body)
+                elif m_let:
+                    ref = f"điểm {m_let.group(1)} khoản {num}" if num else f"điểm {m_let.group(1)}"
+                    ctx = ctx_num
+                else:
+                    ref = f"khoản {num} (đoạn không đánh số)" if num else "(đoạn không đánh số)"
+                    ctx = ctx_dieu
+                mine.append(Instruction(ref=f"{ref} Điều {so} {doc_label}", para=i, text=body,
+                                        sub=bool(m_let), context=ctx))
+            depth = max(0, depth + quote_balance(line))
+        out.extend(mine)
     return out
 
 
@@ -134,8 +187,20 @@ def strip_outer_quotes(lines: list[str]) -> list[str]:
 # ---------------------------------------------------------------------------
 
 RE_TOKEN = re.compile(
-    r"(?:(?P<pre>tên|đoạn mở đầu)\s+)?(?P<kind>điểm|khoản|Điều)\s+(?P<so>\d+[a-zđ]?|[a-zđư])(?![\w])"
+    r"(?:(?P<pre>tên|đoạn mở đầu)\s+)?(?P<kind>điểm|khoản|Điều)\s+(?P<so>\d+[a-zđ]?|[a-zđư]\d?)(?![\w])"
 )
+
+
+def fill_context(targets: list[Target], ctx: "Target | None") -> list[Target]:
+    """Bổ sung Điều/khoản còn thiếu của đích từ ngữ cảnh tiêu đề (đích tương đối)."""
+    if ctx is None:
+        return targets
+    for t in targets:
+        if t.dieu is None:
+            t.dieu = ctx.dieu
+            if t.khoan is None and t.diem is not None:
+                t.khoan = ctx.khoan
+    return targets
 
 
 def parse_targets(s: str) -> list[Target]:
@@ -197,12 +262,13 @@ def unit_id(doc: str, t: Target) -> str:
 # Áp lệnh
 # ---------------------------------------------------------------------------
 
-RE_REPLACE = re.compile(r"^Sửa đổi(?:,\s*bổ sung)?\s+(?P<tg>.+?)\s+như sau:?\s*$")
-RE_INSERT = re.compile(r"^Bổ sung\s+(?P<new>.+?)\s+vào sau\s+(?P<after>.+?)\s+như sau:?\s*$")
+RE_REPLACE = re.compile(r"^Sửa đổi(?:,?\s*bổ sung)?\s+(?P<tg>.+?)(?:\s+như sau:?)?\s*$")
+RE_INSERT = re.compile(
+    r"^Bổ sung\s+(?P<new>.+?)\s+vào (?P<pos>sau|trước)\s+(?P<after>.+?)(?:\s+như sau:?)?\s*$")
 RE_REPEAL = re.compile(r"^Bãi bỏ\s+(?P<tg>.+?)[;.]?\s*$")
 Q = r"[“\"](?P<{n}>.+?)[”\"]"
 RE_PH_REPLACE = re.compile(
-    rf"^Thay cụm từ {Q.format(n='old')} bằng cụm từ {Q.format(n='new')} tại (?P<tg>.+?)[;.]?\s*$")
+    rf"^Thay(?: thế)? cụm từ {Q.format(n='old')} bằng cụm từ {Q.format(n='new')} tại (?P<tg>.+?)[;.]?\s*$")
 RE_PH_INSERT = re.compile(
     rf"^Bổ sung cụm từ {Q.format(n='new')} vào (?P<pos>trước|sau) cụm từ {Q.format(n='anchor')}"
     r" tại (?P<tg>.+?)[;.]?\s*$")
@@ -265,7 +331,7 @@ class Consolidator:
 
         content = strip_outer_quotes(instr.content)
         if m := RE_INSERT.match(text):
-            return self._insert(instr, m.group("new"), m.group("after"), content)
+            return self._insert(instr, m.group("new"), m.group("after"), content, m.group("pos"))
         if m := RE_REPLACE.match(text):
             return self._replace(instr, m.group("tg"), content)
         return self._review(instr, "Không nhận dạng được lệnh có nội dung trích dẫn")
@@ -286,7 +352,7 @@ class Consolidator:
 
     # ---- thao tác cấu trúc ----
     def _replace(self, instr: Instruction, tg: str, content: list[str]) -> ApplyResult:
-        targets = parse_targets(tg)
+        targets = fill_context(parse_targets(tg), instr.context)
         if not targets or any(t.dieu is None for t in targets):
             return self._review(instr, f"Không xác định được đơn vị đích từ '{tg}'")
         level = "diem" if targets[0].diem else ("khoan" if targets[0].khoan else "dieu")
@@ -330,22 +396,23 @@ class Consolidator:
         self._note(old, instr, "Sửa đổi " + ("tên điều" if t.part == "title" else "đoạn mở đầu"))
         return self._ok(instr, f"Thay {t.label()}", [unit_id(self.doc.doc, t)])
 
-    def _insert(self, instr: Instruction, new_desc: str, after: str, content: list[str]) -> ApplyResult:
-        anchors = parse_targets(after)
+    def _insert(self, instr: Instruction, new_desc: str, after: str, content: list[str],
+                pos_kw: str = "sau") -> ApplyResult:
+        anchors = fill_context(parse_targets(after), instr.context)
         if len(anchors) != 1 or anchors[0].dieu is None:
             return self._review(instr, f"Không xác định được vị trí chèn '{after}'")
         a = anchors[0]
         level = "diem" if a.diem else ("khoan" if a.khoan else "dieu")
         anchor, container = locate(self.doc, a)
         if anchor is None:
-            return self._review(instr, f"Không tìm thấy {a.label()} để chèn sau")
+            return self._review(instr, f"Không tìm thấy {a.label()} để chèn {pos_kw}")
         new_units = parse_units(content, level)
         kind = {"diem": "điểm", "khoan": "khoản", "dieu": "Điều"}[level]
-        wanted = re.findall(rf"{kind}\s+(\d+[a-zđ]?|[a-zđ])(?![\w])", new_desc)
+        wanted = re.findall(rf"{kind}\s+(\d+[a-zđ]?|[a-zđ]\d?)(?![\w])", new_desc)
         got = [u.so for u in new_units]
         if wanted != got:
             return self._review(instr, f"{kind} cần bổ sung {wanted} nhưng nội dung có {got}")
-        pos = container.index(anchor) + 1
+        pos = container.index(anchor) + (1 if pos_kw == "sau" else 0)
         ids = []
         for u in new_units:
             if any(x.so == u.so for x in container):
@@ -363,7 +430,7 @@ class Consolidator:
         return self._ok(instr, f"Bổ sung {kind} {got}", ids)
 
     def _repeal(self, instr: Instruction, tg: str) -> ApplyResult:
-        targets = parse_targets(tg)
+        targets = fill_context(parse_targets(tg), instr.context)
         if not targets or any(t.dieu is None for t in targets):
             return self._review(instr, f"Không xác định được đơn vị bãi bỏ từ '{tg}'")
         ids = []
@@ -376,8 +443,11 @@ class Consolidator:
             ids.append(unit_id(self.doc.doc, t))
         return self._ok(instr, "Bãi bỏ", ids)
 
-    def _phrase(self, instr: Instruction, tg: str, old: str, new: str, action: str) -> ApplyResult:
-        targets = parse_targets(tg)
+    def _phrase(self, instr: Instruction, tg: str, old: str, new, action: str) -> ApplyResult:
+        added = new[1] if isinstance(new, tuple) else new
+        if "cụm từ" in tg or any(q in x for x in (old, added) for q in '"“”'):
+            return self._review(instr, "Lệnh ghép nhiều cụm từ trong một câu — cần tách tay")
+        targets = fill_context(parse_targets(tg), instr.context)
         if not targets or any(t.dieu is None for t in targets):
             return self._review(instr, f"Không xác định được đơn vị đích từ '{tg}'")
         # Kiểm tra trước toàn bộ, chỉ áp khi mọi đích đều rõ ràng

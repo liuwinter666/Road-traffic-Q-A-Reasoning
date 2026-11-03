@@ -23,7 +23,7 @@ RE_CHUONG = re.compile(r"^Chương\s+([IVXLC]+)\b")
 RE_MUC = re.compile(r"^Mục\s+(\d+)\.\s*(.*)$")
 RE_DIEU = re.compile(r"^Điều\s+(\d+[a-zđ]?)\.\s*(.*)$")
 RE_KHOAN = re.compile(r"^(\d+[a-zđ]?)\.\s+(.*)$")
-RE_DIEM = re.compile(r"^([a-zđư])\)\s*(.*)$")
+RE_DIEM = re.compile(r"^([a-zđư]\d?)\)\s*(.*)$")  # cho phép điểm "k1" (NĐ 238)
 
 OPEN_Q, CLOSE_Q = "“", "”"
 
@@ -138,8 +138,20 @@ def normalize_ws(s: str) -> str:
 
 
 def quote_balance(s: str) -> int:
-    """Hiệu số ngoặc kép mở – đóng trong chuỗi."""
-    return s.count(OPEN_Q) - s.count(CLOSE_Q)
+    """Hiệu số ngoặc kép mở – đóng trong chuỗi.
+
+    Ngoài ngoặc cong “ ”, xử lý cả ngoặc ASCII (NĐ 238 dùng loại này, NĐ 123 có chỗ trộn
+    ASCII mở + cong đóng): một dấu nháy ASCII là *mở* nếu đứng đầu dòng hoặc sau khoảng trắng/"("
+    và ngay sau nó không phải khoảng trắng; ngược lại là *đóng*.
+    """
+    bal = s.count(OPEN_Q) - s.count(CLOSE_Q)
+    for i, ch in enumerate(s):
+        if ch != '"':
+            continue
+        prev = s[i - 1] if i > 0 else " "
+        nxt = s[i + 1] if i + 1 < len(s) else " "
+        bal += 1 if (prev.isspace() or prev == "(") and not nxt.isspace() else -1
+    return bal
 
 
 def parse_paragraphs(doc: str, paras: list[str], quiet: bool = False) -> ParsedDoc:

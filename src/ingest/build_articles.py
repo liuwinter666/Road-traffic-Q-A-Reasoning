@@ -92,7 +92,9 @@ class Builder:
             if meta.get("amends") != vb.doc.doc:
                 raise ValueError(f"{am_key} sửa {meta.get('amends')}, không phải {vb.doc.doc}")
             label = f"NĐ {meta['so_hieu']}".replace("/NĐ-CP", "")
-            instrs = extract_instructions(self.parsed(am_key), str(meta["amend_dieu"]), label)
+            ad = meta["amend_dieu"]
+            ad = [str(x) for x in ad] if isinstance(ad, list) else str(ad)
+            instrs = extract_instructions(self.parsed(am_key), ad, label)
             c = Consolidator(vb.doc, label, self.overrides)
             vb.doc = c.run(instrs)
             vb.sources.append(am_key)
@@ -101,11 +103,15 @@ class Builder:
         return vb
 
 
-def _overrides_map(cfg: dict) -> dict[str, dict]:
-    """id phần tử → {effective_from, evidence, verified} từ element_effective_overrides."""
+def _overrides_map(cfg: dict, sources: list[str]) -> dict[str, dict]:
+    """id phần tử → {effective_from, evidence, verified} từ element_effective_overrides.
+
+    Chỉ lấy ngoại lệ của các văn bản nằm trong ``sources`` (nguồn hợp nhất của phiên bản);
+    văn bản sau ghi đè văn bản trước.
+    """
     out = {}
-    for doc_key, meta in cfg["documents"].items():
-        for o in meta.get("element_effective_overrides", []) or []:
+    for doc_key in sources:
+        for o in cfg["documents"][doc_key].get("element_effective_overrides", []) or []:
             for i in o["ids"]:
                 out[i] = o
     return out
@@ -121,7 +127,7 @@ def flatten(vb: VersionBuild, cfg: dict) -> list[dict]:
     docs = cfg["documents"]
     base_key = vb.doc.doc
     v_from, v_to = _iso(vmeta["effective_from"]), _iso(vmeta.get("effective_to"))
-    eff_over = _overrides_map(cfg)
+    eff_over = _overrides_map(cfg, vb.sources)
     records = []
 
     def rec(level, d, k=None, p=None) -> dict:
@@ -141,6 +147,8 @@ def flatten(vb: VersionBuild, cfg: dict) -> list[dict]:
             ef_o = _iso(o["effective_from"])
             ef = max(ef, ef_o) if ef_o else None
             note, verified = o["evidence"], o.get("verified", True)
+            if o.get("partial"):
+                note = "[Chỉ một phần nội dung] " + note
         fine = extract_fine(k.text) if k else None
         return {
             "id": uid,
