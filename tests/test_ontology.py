@@ -23,7 +23,7 @@ def onto():
 
 def articles(v: str) -> dict[str, dict]:
     """Bản ghi theo phiên bản (V1..) hoặc văn bản bổ trợ (LXLVPHC, LTTATGT, TT38)."""
-    name = f"articles_{v.lower()}" if v.startswith("V") else f"support_{v.lower()}"
+    name = f"articles_{v.lower()}" if v[1:].isdigit() else f"support_{v.lower()}"
     with (PROCESSED_DIR / f"{name}.jsonl").open(encoding="utf-8") as f:
         return {r["id"]: r for r in map(json.loads, f)}
 
@@ -187,3 +187,12 @@ def test_tinh_tiet_individuals(onto):
     assert len(gn) == 8 and len(tn) == 12
     assert onto.TTTN_b.canCuDieuKhoan == [onto["LXLVPHC-D10-K1-b"]] and "tái phạm" in onto.TTTN_b.label[0]
     assert onto["LXLVPHC-D23-K4"].hieuLucTu.year == 2022 and onto["LXLVPHC-D23-K4"].noiDungTruocDo
+
+
+
+def test_supporting_versions_in_ontology(onto):
+    assert onto.LTTATGT_2026A is not None and onto.L118 is not None and onto.GTDB2008 is not None
+    assert onto["LTTATGT_2025_LTTATGT-D59-K1-b"].thuocPhienBan == onto.LTTATGT_2025
+    assert onto["GTDB2008-D60-K1-b"] is not None and onto["TT31-D7"] is not None
+    parts = [p for p in onto.PhanNoiDung.instances() if p.thuocDieuKhoanCha == onto["LTTATGT_2026B_LTTATGT-D35-K2"]]
+    assert sorted(p.hieuLucTu.year for p in parts) == [2028, 2029]

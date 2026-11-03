@@ -265,6 +265,9 @@ def unit_id(doc: str, t: Target) -> str:
 RE_REPLACE = re.compile(r"^Sửa đổi(?:,?\s*bổ sung)?\s+(?P<tg>.+?)(?:\s+như sau:?)?\s*$")
 RE_INSERT = re.compile(
     r"^Bổ sung\s+(?P<new>.+?)\s+vào (?P<pos>sau|trước)\s+(?P<after>.+?)(?:\s+như sau:?)?\s*$")
+RE_REPLACE_INSERT = re.compile(
+    r"^Sửa đổi(?:,?\s*bổ sung)?\s+(?P<tg>.+?)\s+và bổ sung\s+(?P<new>.+?)\s+vào sau\s+(?P<after>.+?)"
+    r"(?:\s+như sau:?)?\s*$")
 RE_REPEAL = re.compile(r"^Bãi bỏ\s+(?P<tg>.+?)[;.]?\s*$")
 Q = r"[“\"](?P<{n}>.+?)[”\"]"
 RE_PH_REPLACE = re.compile(
@@ -342,6 +345,8 @@ class Consolidator:
             return self._review(instr, "Không nhận dạng được lệnh (không có nội dung trích dẫn)")
 
         content = strip_outer_quotes(instr.content)
+        if m := RE_REPLACE_INSERT.match(text):
+            return self._replace_and_insert(instr, m.group("tg"), m.group("new"), m.group("after"), content)
         if m := RE_INSERT.match(text):
             return self._insert(instr, m.group("new"), m.group("after"), content, m.group("pos"))
         if m := RE_REPLACE.match(text):
@@ -392,6 +397,43 @@ class Consolidator:
             container[container.index(old)] = new
             ids.append(unit_id(self.doc.doc, t))
         return self._ok(instr, "Thay đơn vị", ids)
+
+    def _replace_and_insert(self, instr: Instruction, tg: str, new_desc: str, after: str,
+                            content: list[str]) -> ApplyResult:
+        """Lệnh "Sửa đổi khoản 7, khoản 8 và bổ sung khoản 9 vào sau khoản 8 Điều 60": tách nội dung theo số
+        hiệu — đơn vị trùng số với đích thì thay, còn lại thì chèn sau đơn vị neo."""
+        anchors = fill_context(parse_targets(after), instr.context)
+        if len(anchors) != 1 or anchors[0].dieu is None:
+            return self._review(instr, f"Không xác định được vị trí chèn '{after}'")
+        a = anchors[0]
+        targets = fill_context(parse_targets(tg + (f" Điều {a.dieu}" if "Điều" not in tg else "")), instr.context)
+        level = "diem" if a.diem else ("khoan" if a.khoan else "dieu")
+        units = parse_units(content, level)
+        want = {(t.diem or t.khoan or t.dieu) for t in targets}
+        rep_lines, ins_lines = [], []
+        for u in units:
+            (rep_lines if u.so in want else ins_lines).append(u)
+        if {u.so for u in rep_lines} != want or not ins_lines:
+            return self._review(instr, "Không tách được phần sửa đổi và phần bổ sung trong nội dung")
+        ids = []
+        for t in targets:
+            old, container = locate(self.doc, t)
+            if old is None:
+                return self._review(instr, f"Không tìm thấy {t.label()}")
+            new = next(u for u in rep_lines if u.so == (t.diem or t.khoan or t.dieu))
+            new.para, new.history = old.para, old.history + [f"Sửa đổi bởi {instr.ref}"]
+            container[container.index(old)] = new
+            ids.append(unit_id(self.doc.doc, t))
+        anchor, container = locate(self.doc, a)
+        pos = container.index(anchor) + 1
+        for u in ins_lines:
+            u.history.append(f"Bổ sung bởi {instr.ref}")
+            u.para = -1
+            container.insert(pos, u)
+            pos += 1
+            ids.append(unit_id(self.doc.doc, Target(dieu=a.dieu, khoan=u.so if level == "khoan" else a.khoan,
+                                                    diem=u.so if level == "diem" else None)))
+        return self._ok(instr, f"Thay {sorted(want)} và bổ sung {[u.so for u in ins_lines]}", ids)
 
     def _replace_paragraph(self, instr: Instruction, t: Target, n: int, content: list[str]) -> ApplyResult:
         """Thay đoạn thứ ``n`` (đếm từ 1) trong nội dung của một điểm/khoản."""

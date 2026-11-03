@@ -128,7 +128,7 @@ def read_paragraphs(path: Path) -> list[str]:
     return [normalize_ws(p) for p in paras if p and p.strip()]
 
 
-SKIP_TABLE_MARKERS = ("CỘNG HÒA XÃ HỘI CHỦ NGHĨA", "Nơi nhận")
+SKIP_TABLE_MARKERS = ("CỘNG HÒA XÃ HỘI CHỦ NGHĨA", "Nơi nhận", "CHỦ TỊCH QUỐC HỘI")
 
 
 def _docx_lines(d) -> list[str]:

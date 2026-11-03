@@ -442,7 +442,9 @@ def build_behavior_classes(onto, behaviors: list[dict], versions: list[str]) -> 
 # ABox: văn bản, phiên bản, điều khoản
 # ---------------------------------------------------------------------------
 
-DOC_LABEL = {"ND100": "NĐ 100/2019", "ND123": "NĐ 123/2021", "ND168": "NĐ 168/2024", "ND238": "NĐ 238/2026"}
+DOC_LABEL = {"ND100": "NĐ 100/2019", "ND123": "NĐ 123/2021", "ND168": "NĐ 168/2024", "ND238": "NĐ 238/2026",
+             "LTTATGT": "Luật TTATGT 2024", "L118": "Luật 118/2025/QH15", "GTDB2008": "Luật GTĐB 2008",
+             "TT31": "TT 31/2019/TT-BGTVT", "TT38": "TT 38/2024/TT-BGTVT", "LXLVPHC": "Luật XLVPHC"}
 
 
 def cite(r: dict) -> str:
@@ -478,8 +480,11 @@ def _special_effectivity(r: dict) -> bool:
 def build_abox(onto, sources: dict, behaviors: list[dict], concepts: dict) -> dict[str, int]:
     """Tạo cá thể văn bản, phiên bản, điều khoản (MVP + phần tử có hiệu lực riêng + văn bản bổ trợ),
     phần nội dung có hiệu lực riêng, khung phạt và tình tiết."""
+    from src.ingest.build_articles import support_outputs
+
     versions = list(sources["versions"])
     support = sources.get("supporting_documents") or {}
+    outs = support_outputs(sources)   # khóa đầu ra văn bản bổ trợ (văn bản hoặc phiên bản của văn bản)
     stats = {"van_ban": 0, "phien_ban": 0, "dieu_khoan": 0, "phan_noi_dung": 0, "khung_phat": 0, "tinh_tiet": 0}
     with onto:
         docs = {}
@@ -510,8 +515,20 @@ def build_abox(onto, sources: dict, behaviors: list[dict], concepts: dict) -> di
         for v in versions:
             pbs[v].gomVanBan = [docs[k] for k in srcs(v)]
 
-        # Tập id cần đưa vào ontology theo nguồn (phiên bản hoặc văn bản bổ trợ)
-        keys = versions + list(support)
+        # Phiên bản của văn bản bổ trợ (vd. LTTATGT_2025) là cá thể PhienBanPhapLy riêng
+        for k, info in outs.items():
+            if info["version"]:
+                pb = onto.PhienBanPhapLy(k)
+                pb.maPhienBan = k
+                pb.hieuLucTu = _date(info["effective_from"])
+                if info["effective_to"]:
+                    pb.hieuLucDen = _date(info["effective_to"])
+                label(pb, f"{k}: {info['label']}")
+                pbs[k] = pb
+                stats["phien_ban"] += 1
+
+        # Tập id cần đưa vào ontology theo nguồn (phiên bản nghị định hoặc đầu ra văn bản bổ trợ)
+        keys = versions + list(outs)
         wanted: dict[str, set[str]] = {k: set() for k in keys}
         for b in behaviors:
             refs = list(b["refs"]) + [b["refs"][-1]] * (len(versions) - len(b["refs"]))
@@ -522,8 +539,12 @@ def build_abox(onto, sources: dict, behaviors: list[dict], concepts: dict) -> di
             for e in t["evidence"]:
                 wanted[e["version"]].add(e["id"])
         for key, ids in (concepts.get("support_provisions") or {}).items():
-            wanted[key].update(ids)
+            # khóa văn bản có nhiều phiên bản → áp cho mọi phiên bản của văn bản đó
+            for k in [o for o, info in outs.items() if info["doc"] == key] or [key]:
+                avail = _load_records(k, versions)
+                wanted[k].update(i for i in ids if i in avail)
         recs_by_key = {k: _load_records(k, versions) for k in keys}
+        versioned = set(versions) | {k for k, info in outs.items() if info["version"]}
         for spec in concepts.get("tinh_tiet") or []:  # căn cứ của từng tình tiết
             wanted[spec["source"]].update(rid for rid, r in recs_by_key[spec["source"]].items()
                                           if r["parent_id"] == spec["parent_id"])
@@ -531,7 +552,7 @@ def build_abox(onto, sources: dict, behaviors: list[dict], concepts: dict) -> di
             wanted[k].update(rid for rid, r in recs_by_key[k].items() if _special_effectivity(r))
 
         def iri(k, rid):
-            return prov_iri(k, rid) if k in versions else rid
+            return prov_iri(k, rid) if k in versioned else rid
 
         for k in keys:
             arts = recs_by_key[k]
@@ -548,7 +569,7 @@ def build_abox(onto, sources: dict, behaviors: list[dict], concepts: dict) -> di
                 ind.trichDan = cite(r)
                 ind.noiDung = r["text"]
                 ind.trangThai = r["status"]
-                if k in versions:
+                if k in versioned:
                     ind.thuocPhienBan = pbs[k]
                 ind.thuocVanBan = [docs[r["doc"]]]
                 if r["effective_from"]:
@@ -565,9 +586,9 @@ def build_abox(onto, sources: dict, behaviors: list[dict], concepts: dict) -> di
                 notes = [s["can_cu"] for s in r.get("hieu_luc_chi_tiet") or [] if s["can_cu"]]
                 if notes:
                     ind.canCuPhapLy = notes
-                if k in versions and (r["history"] or r["history_inherited"]):
+                if k in versioned and (r["history"] or r["history_inherited"]):
                     ind.duocSuaDoiBoi = [docs[x] for x in r["nguon_hop_nhat"][1:]]
-                label(ind, f"{k} — {cite(r)}" if k in versions else cite(r))
+                label(ind, f"{k} — {cite(r)}" if k in versioned else cite(r))
                 stats["dieu_khoan"] += 1
                 # Phần nội dung có hiệu lực riêng (cấp dưới điểm)
                 if r.get("hieu_luc_mot_phan"):
@@ -577,7 +598,7 @@ def build_abox(onto, sources: dict, behaviors: list[dict], concepts: dict) -> di
                         pn.maDieuKhoan = f"{rid}#P{n + 1}"
                         pn.moTaPhamVi = sg["mo_ta_pham_vi"]
                         pn.thuocDieuKhoanCha = ind
-                        if k in versions:
+                        if k in versioned:
                             pn.thuocPhienBan = pbs[k]
                         if sg["tu"]:
                             pn.hieuLucTu = _date(sg["tu"])

@@ -19,7 +19,7 @@ from src.config import PROCESSED_DIR, ROOT_DIR
 
 MAPPING_FILE = ROOT_DIR / "config" / "speed_limits.yaml"
 OUT_FILE = PROCESSED_DIR / "speed_limits.json"
-RE_SPEED = re.compile(r"là (\d+) km/h")
+RE_SPEED = re.compile(r"(?:là|không quá|không vượt quá) (\d+) km/h")
 
 
 def _records(key: str) -> dict[str, dict]:
@@ -50,25 +50,33 @@ def resolve(spec: dict, recs: dict[str, dict]) -> dict:
 
 
 def build() -> dict:
+    """Trích bảng tốc độ của mọi thông tư khai báo trong config/speed_limits.yaml."""
     cfg = yaml.safe_load(MAPPING_FILE.read_text(encoding="utf-8"))
     from src.ingest.build_articles import load_sources
 
-    src_meta = load_sources()["supporting_documents"][cfg["source"]]
-    recs = _records(cfg["source"])
-    out = {"nguon": cfg["source"], "so_hieu": src_meta["so_hieu"],
-           "hieu_luc_tu": str(src_meta["effective_from"]), "hieu_luc_den": src_meta.get("effective_to"),
-           "nhom": [], "cao_toc": {}}
-    for g in cfg["nhom"]:
-        item = {"ten": g["ten"], "classes": g["classes"], "ghi_chu": g.get("ghi_chu")}
-        for key in ("trong_khu_dong_dan_cu", "ngoai_khu_dong_dan_cu", "moi_loai_duong"):
-            if key in g:
-                item[key] = resolve(g[key], recs)
-        out["nhom"].append(item)
-    for key in ("toi_da", "toi_thieu"):
-        out["cao_toc"][key] = resolve(cfg["cao_toc"][key], recs)
-    out["cao_toc"]["ghi_chu"] = cfg["cao_toc"].get("ghi_chu")
+    support = load_sources()["supporting_documents"]
+    out = {"nguon": []}
+    for src in cfg["sources"]:
+        meta = support[src["source"]]
+        recs = _records(src["source"])
+        item = {"nguon": src["source"], "so_hieu": meta["so_hieu"],
+                "hieu_luc_tu": str(meta["effective_from"]),
+                "hieu_luc_den": str(meta["effective_to"]) if meta.get("effective_to") else None,
+                "nhom": [], "cao_toc": {}}
+        for g in src["nhom"]:
+            grp = {"ten": g["ten"], "classes": g["classes"], "ghi_chu": g.get("ghi_chu")}
+            for key in ("trong_khu_dong_dan_cu", "ngoai_khu_dong_dan_cu", "moi_loai_duong"):
+                if key in g:
+                    grp[key] = resolve(g[key], recs)
+            item["nhom"].append(grp)
+        for key in ("toi_da", "toi_thieu"):
+            if key in src["cao_toc"]:
+                item["cao_toc"][key] = resolve(src["cao_toc"][key], recs)
+        item["cao_toc"]["ghi_chu"] = src["cao_toc"].get("ghi_chu")
+        out["nguon"].append(item)
     OUT_FILE.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
-    logger.info("Ghi bảng tốc độ ({} nhóm xe) -> {}", len(out["nhom"]), OUT_FILE.relative_to(ROOT_DIR))
+    logger.info("Ghi bảng tốc độ ({}) -> {}", ", ".join(f"{x['nguon']}: {len(x['nhom'])} nhóm xe" for x in out["nguon"]),
+                OUT_FILE.relative_to(ROOT_DIR))
     return out
 
 

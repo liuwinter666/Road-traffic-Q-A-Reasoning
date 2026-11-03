@@ -69,8 +69,30 @@ def test_van_ban_hop_nhat_khong_co_cau_chu_cu():
     assert T.trang_thai_hieu_luc(r, date(2023, 1, 1)).ma == T.CO_HIEU_LUC
 
 
-def test_luat_ttatgt_hieu_luc_rieng_khoan():
-    s = recs("support_lttatgt")
-    assert T.trang_thai_hieu_luc(s["LTTATGT-D10-K3"], date(2025, 6, 1)).ma == T.CHUA_HIEU_LUC
-    assert T.trang_thai_hieu_luc(s["LTTATGT-D10-K3"], date(2026, 1, 1)).ma == T.CO_HIEU_LUC
-    assert T.trang_thai_hieu_luc(s["LTTATGT-D56-K1"], date(2024, 6, 1)).ma == T.CHUA_HIEU_LUC
+def test_luat_118_lui_hieu_luc_khoan_3_dieu_10():
+    """Luật 118 (điểm a khoản 20 Điều 7, hiệu lực 01/01/2026) lùi hiệu lực khoản 3 Điều 10 Luật TTATGT
+    từ 01/01/2026 sang 01/07/2026 — mốc cũ không bao giờ có hiệu lực."""
+    v2025, v2026a, v2026b = (recs(f"support_lttatgt_{x}") for x in ("2025", "2026a", "2026b"))
+    assert T.trang_thai_hieu_luc(v2025["LTTATGT-D10-K3"], date(2025, 6, 1)).ma == T.CHUA_HIEU_LUC
+    assert T.trang_thai_hieu_luc(v2026a["LTTATGT-D10-K3"], date(2026, 3, 1)).ma == T.CHUA_HIEU_LUC
+    t = T.trang_thai_hieu_luc(v2026b["LTTATGT-D10-K3"], date(2026, 8, 1))
+    assert t.ma == T.CO_HIEU_LUC and v2026b["LTTATGT-D10-K3"]["history"]   # câu chữ mới do Luật 118 sửa
+    assert "01 tháng 7 năm 2026" in v2026a["LTTATGT-D88-K2"]["text"]
+
+
+def test_luat_118_hieu_luc_mot_phan_dieu_35():
+    r = recs("support_lttatgt_2026b")["LTTATGT-D35-K2"]
+    assert [x["tu"] for x in r["hieu_luc_chi_tiet"]] == ["2026-07-01", "2028-01-01", "2029-01-01"]
+    t = T.trang_thai_hieu_luc(r, date(2030, 1, 1))
+    assert t.ma == T.MOT_PHAN and "lộ trình do Chính phủ quy định" in t.giai_thich
+
+
+def test_chon_van_ban_bo_tro():
+    c = T.chon_van_ban_bo_tro
+    assert c("toc_do_toi_da", date(2021, 5, 1)).khoa == "TT31"
+    assert c("toc_do_toi_da", date(2025, 1, 1)).khoa == "TT38"
+    assert c("toc_do_toi_da", date(2019, 6, 1)).khoa is None          # trước TT 31 — không có dữ liệu
+    assert c("dieu_kien_nguoi_lai", date(2024, 12, 31)).khoa == "GTDB2008"
+    assert c("dieu_kien_nguoi_lai", date(2025, 3, 1)).khoa == "LTTATGT_2025"
+    assert c("dieu_kien_nguoi_lai", date(2026, 3, 1)).khoa == "LTTATGT_2026A"
+    assert c("dieu_kien_nguoi_lai", date(2026, 9, 1)).khoa == "LTTATGT_2026B"

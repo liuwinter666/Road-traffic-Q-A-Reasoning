@@ -199,10 +199,16 @@ flowchart LR
 
 | Khóa | Văn bản | Hiệu lực | Dùng cho |
 |---|---|---|---|
-| `LTTATGT` | Luật Trật tự, an toàn GTĐB 36/2024/QH15 | từ 01/01/2025 (khoản 3 Điều 10 từ 01/01/2026) | điều kiện người lái (Điều 56), hạng GPLX (Điều 57), độ tuổi (Điều 59) |
-| `TT38` | Thông tư 38/2024/TT-BGTVT | từ 01/01/2025 | tốc độ tối đa khi không có biển báo → `data/processed/speed_limits.json` |
+| `GTDB2008` | Luật Giao thông đường bộ 23/2008/QH12 | 01/07/2009 – 31/12/2024 | điều kiện người lái (Điều 58), độ tuổi (Điều 60) — vi phạm thuộc V1, V2 |
+| `LTTATGT_2025` / `_2026A` / `_2026B` | Luật TTATGT 36/2024/QH15 và các bản hợp nhất Luật 118/2025/QH15 | 2025 / 01–06/2026 / từ 01/07/2026 | điều kiện người lái (Điều 56), hạng GPLX (Điều 57), độ tuổi (Điều 59) — V3, V4 |
+| `TT31` | Thông tư 31/2019/TT-BGTVT | 15/10/2019 – 31/12/2024 | tốc độ tối đa khi không có biển báo — V1, V2 |
+| `TT38` | Thông tư 38/2024/TT-BGTVT | từ 01/01/2025 | tốc độ tối đa khi không có biển báo — V3, V4 |
 | `LXLVPHC` | Luật Xử lý VPHC (hợp nhất 90/VBHN-VPQH) | gốc 01/07/2013; câu chữ từng phần tử theo chú thích | tình tiết (Điều 9, 10), mức phạt cụ thể (khoản 4 Điều 23), đối tượng (Điều 5), người chưa thành niên (Điều 134) |
 
+* Văn bản được chọn theo ngày vi phạm qua `support_roles` (`dieu_kien_nguoi_lai`, `toc_do_toi_da`, `xu_ly_vphc`)
+  và hàm `temporal.chon_van_ban_bo_tro`. Bảng tốc độ của cả TT 31 và TT 38: `data/processed/speed_limits.json`.
+* Văn bản bổ trợ có nhiều phiên bản (Luật TTATGT) dùng tên cá thể có tiền tố phiên bản
+  (`LTTATGT_2025_LTTATGT-D59-K1-b`) và có cá thể `PhienBanPhapLy` riêng.
 * Cá thể điều khoản bổ trợ dùng id làm tên (`LXLVPHC-D23-K4`), không có tiền tố phiên bản.
 * Với văn bản hợp nhất, ngày hiệu lực câu chữ hiện hành của từng phần tử lấy từ chú thích `[n]`; trước ngày
   đó, `noiDungTruocDo` ghi rõ câu chữ cũ không có trong dữ liệu.
@@ -242,10 +248,10 @@ dựng lại được chuỗi: sự kiện → lớp định nghĩa → quy tắ
 
 ## 10. TODO_VERIFY
 
-* `NguoiKhongDuDieuKienDieuKhienXe`: V3, V4 có căn cứ Điều 56, 59 Luật TTATGT. V1, V2 dẫn khoản 1 Điều 58 Luật
-  Giao thông đường bộ 2008 — **chưa có trong `data/raw/`**.
-* Tốc độ tối đa khi không có biển báo: V3, V4 dùng TT 38/2024; V1, V2 thuộc TT 31/2019 — **chưa có**, hệ thống
-  phải hỏi tốc độ trên biển báo.
-* Luật TTATGT đã được sửa bởi Luật 118/2025/QH15 (theo phần căn cứ của NĐ 238) — văn bản sửa đổi chưa có.
+* Luật GTĐB 2008 trong `data/raw/` là bản gốc; các sửa đổi của Luật 35/2018/QH14 và 44/2019/QH14 (được khoản 3
+  Điều 88 Luật TTATGT nêu) chưa có. Điều 58, 60 dùng cho MVP không thuộc phần được biết là đã sửa, nhưng chưa
+  kiểm chứng được.
+* TT 31/2019 có thể đã bị sửa bởi Điều 15 TT 06/2023/TT-BGTVT (TT 38 có dẫn) — chưa có văn bản.
 * Luật XLVPHC chỉ có bản hợp nhất 2026: với vi phạm trước ngày câu chữ hiện hành có hiệu lực (vd. khoản 4
   Điều 23 trước 01/01/2022), hệ thống báo thiếu dữ liệu câu chữ tại thời điểm đó.
+* Trước 15/10/2019 không có thông tư tốc độ trong dữ liệu (ngoài phạm vi V1–V4).

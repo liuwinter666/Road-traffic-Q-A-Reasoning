@@ -23,6 +23,12 @@ Ngày có hiệu lực của một văn bản không đủ để biết một qu
    định mức phạt cụ thể) mang câu chữ do Luật 67/2020 sửa, có hiệu lực từ 01/01/2022. Với vi phạm năm 2021,
    quy định tương ứng có tồn tại nhưng câu chữ cũ không có trong dữ liệu.
 
+5. **Văn bản sửa đổi lùi hiệu lực trước khi mốc cũ kịp đến.** Luật TTATGT (Điều 88 khoản 2) cho khoản 3 Điều
+   10 hiệu lực từ 01/01/2026. Luật 118/2025/QH15 (điểm a khoản 20 Điều 7) sửa mốc này thành 01/07/2026, và riêng
+   lệnh sửa đó có hiệu lực từ 01/01/2026 (khoản 2 Điều 11 Luật 118), trong khi phần còn lại của Luật 118 có hiệu
+   lực từ 01/07/2026. Kết quả: mốc 01/01/2026 không bao giờ có hiệu lực, và Luật TTATGT có **ba phiên bản**:
+   bản gốc (2025), bản chỉ áp lệnh lùi hiệu lực (01/01–30/06/2026), bản áp toàn bộ sửa đổi (từ 01/07/2026).
+
 ## 2. Mô hình
 
 Mỗi phần tử văn bản (điều, khoản, điểm) mang một danh sách **đoạn hiệu lực** (`hieu_luc_chi_tiet`):
@@ -49,7 +55,8 @@ Quy tắc đánh giá (`src/kb/temporal.py › trang_thai_hieu_luc`):
   "không có quy định").
 
 Ngoại lệ hiệu lực do văn bản sửa đổi đặt ra chỉ áp cho phiên bản có văn bản đó trong nguồn hợp nhất: mốc 2028
-của NĐ 238 gắn với V4, không gắn nhầm vào V3.
+của NĐ 238 gắn với V4, không gắn nhầm vào V3. Khi các lệnh của một văn bản sửa đổi có ngày hiệu lực khác nhau,
+phiên bản trung gian chỉ áp đúng các lệnh đã có hiệu lực (`amendments: [{doc: L118, only: [...]}]`).
 
 ## 3. Kết quả chạy thực tế
 
@@ -61,9 +68,11 @@ của NĐ 238 gắn với V4, không gắn nhầm vào V3.
 | `ND168-D20-K5-n` (V4) | 01/06/2029 | `chua_hieu_luc_dieu_kien` | Mốc 01/01/2029 đã đến nhưng hiệu lực còn theo quy định của pháp luật về thiết bị ghi nhận hình ảnh khoang chở khách …; điều kiện này chưa được xác nhận trong dữ liệu nên hệ thống coi là chưa có hiệu lực. |
 | `ND168-D32-K1-b` (V3) | 03/11/2026 | `chua_xac_dinh` | Văn bản không nêu ngày hiệu lực; hiệu lực theo quy định của pháp luật bảo vệ môi trường về kiểm định khí thải xe mô tô, xe gắn máy. Hệ thống coi là chưa có hiệu lực. |
 | `ND168-D6-K3-m` (V3) | 01/06/2025 | `chua_hieu_luc` | Có hiệu lực từ 01/01/2026; ngày 01/06/2025 chưa có hiệu lực. |
+| `LTTATGT-D10-K3` (bản 2026A) | 01/03/2026 | `chua_hieu_luc` | Có hiệu lực từ 01/07/2026; ngày 01/03/2026 chưa có hiệu lực. (Mốc cũ 01/01/2026 đã bị Luật 118 lùi.) |
+| `LTTATGT-D10-K3` (bản 2026B) | 01/08/2026 | `co_hieu_luc` | Có hiệu lực từ 01/07/2026 — câu chữ do khoản 3 Điều 7 Luật 118 sửa. |
 | `LXLVPHC-D23-K4` | 01/06/2021 | `khong_co_du_lieu_thoi_diem` | Câu chữ hiện hành có hiệu lực từ 01/01/2022 … Không có trong dữ liệu — văn bản hợp nhất chỉ chứa câu chữ hiện hành; câu chữ áp dụng trước 2022-01-01 có thể khác. |
 
-Kiểm thử: `tests/test_temporal.py`, `tests/test_ontology.py::test_conditional_and_partial_effectivity`.
+Kiểm thử: `tests/test_temporal.py` (gồm `test_luat_118_lui_hieu_luc_khoan_3_dieu_10`), `tests/test_ontology.py::test_conditional_and_partial_effectivity`.
 
 ## 4. Ý nghĩa
 

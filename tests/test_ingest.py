@@ -208,3 +208,32 @@ def test_docx_tables_read_in_order():
     doc = parse_file("TT38", RAW_DIR / "TT_38.docx")
     k2 = doc.find_dieu("6").find_khoan("2").text
     assert "Bảng 2" in k2 and "| Xe ô tô chở người đến 28 chỗ" in k2
+
+
+
+def test_supporting_evidence_quotes(cfg):
+    """Căn cứ hiệu lực của văn bản bổ trợ: ngày kết thúc (trích từ văn bản thay thế), căn cứ ở cấp phiên bản."""
+    texts = {}
+
+    def text_of(key):
+        if key not in texts:
+            meta = cfg["documents"].get(key) or cfg["supporting_documents"][key]
+            texts[key] = "\n".join(read_paragraphs(RAW_DIR / meta["file"]))
+        return texts[key]
+
+    for key, meta in cfg["supporting_documents"].items():
+        if e := meta.get("effective_to_evidence"):
+            assert e["quote"] in text_of(e["doc"]), key
+        if meta.get("evidence_khac"):
+            assert meta["evidence_khac"] in text_of(key), key
+        for v, vm in (meta.get("versions") or {}).items():
+            for o in vm.get("element_effectivity") or []:
+                assert o["evidence"] in text_of(o.get("evidence_doc", key)), v
+
+
+def test_luat_118_consolidation(cfg, builder):
+    results = builder.build("LTTATGT_2026B").consolidation[-1][1]
+    assert sum(r.status == "applied" for r in results) == 31
+    assert not [r for r in results if r.status == "review"]
+    only = builder.build("LTTATGT_2026A").consolidation[-1][1]
+    assert [r.instr.ref for r in only] == ["điểm a khoản 20 Điều 7 Luật 118/2025/QH15"]

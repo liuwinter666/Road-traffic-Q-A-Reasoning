@@ -1050,8 +1050,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Nồng độ cồn khí thở &gt; 0,25 và ≤ 0,4 mg/L</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K8-c — “vượt quá 0,25 miligam đến 0,4 miligam/1 lít khí thở”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K9-a — “vượt quá 0,25 miligam đến 0,4 miligam/1 lít khí thở”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K8-c — “vượt quá 0,25 miligam đến 0,4 miligam/1 lít khí thở”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#NongDoConKhiThoMuc3">
@@ -1082,8 +1082,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Nồng độ cồn khí thở &gt; 0,4 mg/L</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-a — “vượt quá 0,4 miligam/1 lít khí thở”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K10-a — “vượt quá 0,4 miligam/1 lít khí thở”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-a — “vượt quá 0,4 miligam/1 lít khí thở”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#NongDoConMauMuc1">
@@ -1123,8 +1123,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Nồng độ cồn trong máu &gt; 0 và ≤ 50 mg/100 mL</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K6-c — “chưa vượt quá 50 miligam/100 mililít máu”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K6-c — “chưa vượt quá 50 miligam/100 mililít máu”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K6-c — “chưa vượt quá 50 miligam/100 mililít máu”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#NongDoConMauMuc2">
@@ -1237,8 +1237,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Vượt tốc độ từ 05 đến dưới 10 km/h</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K3-a — “từ 05 km/h đến dưới 10 km/h”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K2-c — “từ 05 km/h đến dưới 10 km/h”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K3-a — “từ 05 km/h đến dưới 10 km/h”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#VuotTocDo10Den20">
@@ -1278,8 +1278,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Vượt tốc độ từ 10 đến 20 km/h</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K4-a — “từ 10 km/h đến 20 km/h”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K5-dd — “từ 10 km/h đến 20 km/h”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K4-a — “từ 10 km/h đến 20 km/h”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#VuotTocDoTren20Den35">
@@ -1319,8 +1319,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Vượt tốc độ trên 20 đến 35 km/h (ô tô)</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K6-a — “trên 20 km/h đến 35 km/h”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K6-a — “trên 20 km/h đến 35 km/h”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K6-a — “trên 20 km/h đến 35 km/h”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#VuotTocDoTren35">
@@ -1383,8 +1383,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Vượt tốc độ trên 20 km/h (xe mô tô, xe gắn máy)</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K8-a — “quá tốc độ quy định trên 20 km/h”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K7-a — “quá tốc độ quy định trên 20 km/h”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K8-a — “quá tốc độ quy định trên 20 km/h”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#NguoiTu14Den16Tuoi">
@@ -1424,8 +1424,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Người từ đủ 14 tuổi đến dưới 16 tuổi</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K1 — “từ đủ 14 tuổi đến dưới 16 tuổi”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K1 — “từ đủ 14 tuổi đến dưới 16 tuổi”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K1 — “từ đủ 14 tuổi đến dưới 16 tuổi”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#NguoiTu16Den18Tuoi">
@@ -1710,8 +1710,9 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Dung tích xi-lanh từ 50 cm3 trở lên</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K4-a — “từ 50 cm3 trở lên”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K4-a — “từ 50 cm3 trở lên”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GTDB2008:GTDB2008-D60-K1-b — “có dung tích xi-lanh từ 50 cm3 trở lên”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K4-a — “từ 50 cm3 trở lên”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#CongSuatTu4kW">
@@ -1804,8 +1805,9 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Người từ đủ 16 tuổi trở lên</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT:LTTATGT-D59-K1-a — “Người đủ 16 tuổi trở lên được điều khiển xe gắn máy”</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC:LXLVPHC-D5-K1-a — “người từ đủ 16 tuổi trở lên bị xử phạt vi phạm hành chính về mọi vi phạm hành chính”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT_2025:LTTATGT-D59-K1-a — “Người đủ 16 tuổi trở lên được điều khiển xe gắn máy”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GTDB2008:GTDB2008-D60-K1-a — “Người đủ 16 tuổi trở lên được lái xe gắn máy có dung tích xi-lanh dưới 50 cm3”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#NguoiTu18TuoiTroLen">
@@ -1836,7 +1838,8 @@
     </owl:Class>
   </owl:equivalentClass>
   <rdfs:label xml:lang="vi">Người từ đủ 18 tuổi trở lên (được cấp GPLX hạng A1, A, B1, B, C1)</rdfs:label>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT:LTTATGT-D59-K1-b — “Người đủ 18 tuổi trở lên được cấp giấy phép lái xe hạng A1, A, B1, B, C1”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT_2025:LTTATGT-D59-K1-b — “Người đủ 18 tuổi trở lên được cấp giấy phép lái xe hạng A1, A, B1, B, C1”</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GTDB2008:GTDB2008-D60-K1-b — “Người đủ 18 tuổi trở lên được lái xe mô tô hai bánh, xe mô tô ba bánh có dung tích xi-lanh từ 50 cm3 trở lên”</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#NongDoConMuc1">
@@ -2460,9 +2463,9 @@
   <rdfs:subClassOf rdf:resource="#ViPhamNongDoCon"/>
   <rdfs:label xml:lang="vi">Ô tô: có nồng độ cồn chưa vượt 50 mg/100 ml máu hoặc 0,25 mg/l khí thở</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_CON_1</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K6-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K6-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K6-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K6-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K6-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K6-c</canCuPhapLy>
 </owl:Class>
 
@@ -2470,18 +2473,18 @@
   <rdfs:subClassOf rdf:resource="#ViPhamNongDoCon"/>
   <rdfs:label xml:lang="vi">Ô tô: nồng độ cồn vượt 50–80 mg/100 ml máu hoặc 0,25–0,4 mg/l khí thở</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_CON_2</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K8-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K9-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K9-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K8-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K9-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K8-c</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_CON_3">
   <rdfs:subClassOf rdf:resource="#ViPhamNongDoCon"/>
   <rdfs:label xml:lang="vi">Ô tô: nồng độ cồn vượt 80 mg/100 ml máu hoặc 0,4 mg/l khí thở</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_CON_3</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K10-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K10-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K10-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K11-a</canCuPhapLy>
 </owl:Class>
@@ -2490,20 +2493,20 @@
   <rdfs:subClassOf rdf:resource="#ViPhamNongDoCon"/>
   <rdfs:label xml:lang="vi">Ô tô: không chấp hành yêu cầu kiểm tra nồng độ cồn</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_TU_CHOI_DO_CON</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K10-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K10-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K11-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K10-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K10-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-b</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_MA_TUY">
   <rdfs:subClassOf rdf:resource="#ViPhamMaTuy"/>
   <rdfs:label xml:lang="vi">Ô tô: trong cơ thể có chất ma túy</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_MA_TUY</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K11-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K10-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K11-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K10-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K10-c</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_TU_CHOI_MA_TUY">
@@ -2511,29 +2514,29 @@
   <rdfs:label xml:lang="vi">Ô tô: không chấp hành yêu cầu kiểm tra chất ma túy</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_TU_CHOI_MA_TUY</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K11-d</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-d</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K10-d</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K10-d</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-d</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_TD_05_10">
   <rdfs:subClassOf rdf:resource="#ViPhamTocDo"/>
   <rdfs:label xml:lang="vi">Ô tô: quá tốc độ từ 05 đến dưới 10 km/h</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_TD_05_10</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K3-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K3-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K3-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K3-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K3-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K3-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_TD_10_20">
   <rdfs:subClassOf rdf:resource="#ViPhamTocDo"/>
   <rdfs:label xml:lang="vi">Ô tô: quá tốc độ từ 10 đến 20 km/h</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_TD_10_20</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K5-i</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K5-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-i</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K5-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K5-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K5-i</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_TD_20_35">
@@ -2541,39 +2544,39 @@
   <rdfs:label xml:lang="vi">Ô tô: quá tốc độ trên 20 đến 35 km/h</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_TD_20_35</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K6-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K6-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K6-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K6-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K6-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_TD_TREN_35">
   <rdfs:subClassOf rdf:resource="#ViPhamTocDo"/>
   <rdfs:label xml:lang="vi">Ô tô: quá tốc độ trên 35 km/h</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_TD_TREN_35</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K7-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K7-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K7-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K7-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K7-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K7-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_DEN_DO">
   <rdfs:subClassOf rdf:resource="#ViPhamTinHieuHieuLenh"/>
   <rdfs:label xml:lang="vi">Ô tô: không chấp hành hiệu lệnh đèn tín hiệu (vượt đèn đỏ)</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_DEN_DO</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K9-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K5-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K5-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K9-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K9-b</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_HIEU_LENH_CSGT">
   <rdfs:subClassOf rdf:resource="#ViPhamTinHieuHieuLenh"/>
   <rdfs:label xml:lang="vi">Ô tô: không chấp hành hiệu lệnh, hướng dẫn của người điều khiển/kiểm soát giao thông</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_HIEU_LENH_CSGT</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K9-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K9-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K5-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K9-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K5-b</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_NGUOC_CHIEU">
@@ -2581,18 +2584,18 @@
   <rdfs:label xml:lang="vi">Ô tô: đi ngược chiều đường một chiều / đường cấm đi ngược chiều</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_NGUOC_CHIEU</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K9-d</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K5-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K9-d</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K9-d</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_NGUOC_CHIEU_CAO_TOC">
   <rdfs:subClassOf rdf:resource="#ViPhamPhanDuongLanDuong"/>
   <rdfs:label xml:lang="vi">Ô tô: đi ngược chiều / lùi xe trên đường cao tốc</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_NGUOC_CHIEU_CAO_TOC</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-dd</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K8-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K11-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K8-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K11-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K8-a</canCuPhapLy>
 </owl:Class>
 
@@ -2600,30 +2603,30 @@
   <rdfs:subClassOf rdf:resource="#ViPhamPhanDuongLanDuong"/>
   <rdfs:label xml:lang="vi">Ô tô: không đi bên phải; đi không đúng phần đường, làn đường quy định</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_SAI_PHAN_LAN</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K5-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K5-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K5-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K5-dd</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K5-b</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_CHUYEN_LAN">
   <rdfs:subClassOf rdf:resource="#ViPhamPhanDuongLanDuong"/>
   <rdfs:label xml:lang="vi">Ô tô: chuyển làn không đúng nơi cho phép hoặc không có tín hiệu báo trước</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_CHUYEN_LAN</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K2-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K2-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K2-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K2-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K2-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K2-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_DIEN_THOAI">
   <rdfs:subClassOf rdf:resource="#ViPhamSuDungThietBi"/>
   <rdfs:label xml:lang="vi">Ô tô: dùng tay sử dụng điện thoại khi điều khiển xe</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_DIEN_THOAI</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K5-h</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K4-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K4-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K5-h</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K4-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K5-h</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_DAY_AN_TOAN">
@@ -2631,20 +2634,20 @@
   <rdfs:label xml:lang="vi">Ô tô: người lái không thắt dây an toàn</rdfs:label>
   <rdfs:comment xml:lang="vi">V1/V2 viết 'dây an toàn', V3 viết 'dây đai an toàn'</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_DAY_AN_TOAN</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K3-p</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K3-k</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K3-k</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K3-p</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K3-k</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K3-p</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_LIEN_QUAN_TAI_NAN_KHONG_DUNG">
   <rdfs:subClassOf rdf:resource="#ViPhamLienQuanTaiNan"/>
   <rdfs:label xml:lang="vi">Ô tô: liên quan trực tiếp đến vụ tai nạn mà không dừng lại, không giữ nguyên hiện trường, không cứu giúp</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_LIEN_QUAN_TAI_NAN_KHONG_DUNG</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K2-dd</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K4-g</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K2-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K2-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K4-g</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K4-g</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_GAY_TAI_NAN_BO_TRON">
@@ -2652,10 +2655,10 @@
   <rdfs:label xml:lang="vi">Ô tô: gây tai nạn mà không dừng lại, bỏ trốn, không trình báo</rdfs:label>
   <rdfs:comment xml:lang="vi">V3 là cả khoản 8 (không chia điểm)</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_GAY_TAI_NAN_BO_TRON</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K8</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K8</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K8-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K8-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K8-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K8</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_LANG_LACH">
@@ -2663,10 +2666,10 @@
   <rdfs:label xml:lang="vi">Ô tô: lạng lách, đánh võng; chạy quá tốc độ đuổi nhau; dùng chân điều khiển vô lăng</rdfs:label>
   <rdfs:comment xml:lang="vi">V3 là cả khoản 12</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_LANG_LACH</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K7-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K12</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K12</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K7-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D6-K12</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K7-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D6-K12</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_LANG_LACH_KHONG_DUNG_XE">
@@ -2674,78 +2677,78 @@
   <rdfs:label xml:lang="vi">Ô tô: lạng lách/đánh võng mà không chấp hành hiệu lệnh dừng xe của người thi hành công vụ hoặc gây tai nạn</rdfs:label>
   <rdfs:comment xml:lang="vi">NĐ 168 không có quy định tương ứng; V3 tách thành khoản 13 Điều 6 (gây tai nạn) và khoản 10 Điều 12 (không chấp hành kiểm tra)</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_LANG_LACH_KHONG_DUNG_XE</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K9</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D5-K9</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D5-K9</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_CON_1">
   <rdfs:subClassOf rdf:resource="#ViPhamNongDoCon"/>
   <rdfs:label xml:lang="vi">Xe máy: có nồng độ cồn chưa vượt 50 mg/100 ml máu hoặc 0,25 mg/l khí thở</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_CON_1</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K6-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K6-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K6-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K6-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K6-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_CON_2">
   <rdfs:subClassOf rdf:resource="#ViPhamNongDoCon"/>
   <rdfs:label xml:lang="vi">Xe máy: nồng độ cồn vượt 50–80 mg/100 ml máu hoặc 0,25–0,4 mg/l khí thở</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_CON_2</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K8-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K7-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K8-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K7-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K8-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K8-b</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_CON_3">
   <rdfs:subClassOf rdf:resource="#ViPhamNongDoCon"/>
   <rdfs:label xml:lang="vi">Xe máy: nồng độ cồn vượt 80 mg/100 ml máu hoặc 0,4 mg/l khí thở</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_CON_3</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K8-e</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K9-d</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K8-e</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K9-d</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K9-d</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K8-e</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_TU_CHOI_DO_CON">
   <rdfs:subClassOf rdf:resource="#ViPhamNongDoCon"/>
   <rdfs:label xml:lang="vi">Xe máy: không chấp hành yêu cầu kiểm tra nồng độ cồn</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_TU_CHOI_DO_CON</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K9-dd</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K8-g</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K8-g</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K9-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K9-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K8-g</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_MA_TUY">
   <rdfs:subClassOf rdf:resource="#ViPhamMaTuy"/>
   <rdfs:label xml:lang="vi">Xe máy: trong cơ thể có chất ma túy</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_MA_TUY</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K9-e</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K8-h</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K9-e</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K8-h</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K9-e</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_TD_05_10">
   <rdfs:subClassOf rdf:resource="#ViPhamTocDo"/>
   <rdfs:label xml:lang="vi">Xe máy: quá tốc độ từ 05 đến dưới 10 km/h</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_TD_05_10</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K2-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K2-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K2-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K2-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K2-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K2-c</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_TD_10_20">
   <rdfs:subClassOf rdf:resource="#ViPhamTocDo"/>
   <rdfs:label xml:lang="vi">Xe máy: quá tốc độ từ 10 đến 20 km/h</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_TD_10_20</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K4-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K4-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K4-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K4-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K4-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K4-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_TD_TREN_20">
@@ -2753,8 +2756,8 @@
   <rdfs:label xml:lang="vi">Xe máy: quá tốc độ trên 20 km/h</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_TD_TREN_20</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K7-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K8-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K7-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K8-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K8-a</canCuPhapLy>
 </owl:Class>
 
@@ -2762,18 +2765,18 @@
   <rdfs:subClassOf rdf:resource="#ViPhamTinHieuHieuLenh"/>
   <rdfs:label xml:lang="vi">Xe máy: không chấp hành hiệu lệnh đèn tín hiệu (vượt đèn đỏ)</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_DEN_DO</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K4-e</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K4-e</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K7-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K7-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K4-e</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K4-e</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K7-c</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_HIEU_LENH_CSGT">
   <rdfs:subClassOf rdf:resource="#ViPhamTinHieuHieuLenh"/>
   <rdfs:label xml:lang="vi">Xe máy: không chấp hành hiệu lệnh, hướng dẫn của người điều khiển/kiểm soát giao thông</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_HIEU_LENH_CSGT</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K7-d</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K4-g</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K7-d</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K4-g</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K7-d</canCuPhapLy>
 </owl:Class>
@@ -2783,9 +2786,9 @@
   <rdfs:label xml:lang="vi">Xe máy: đi ngược chiều đường một chiều / đường cấm đi ngược chiều</rdfs:label>
   <rdfs:comment xml:lang="vi">V1 là cả khoản 5; V2 tách thành điểm a khoản 5 (sửa bởi NĐ 123)</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_NGUOC_CHIEU</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K7-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K7-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K5-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K7-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K5</canCuPhapLy>
 </owl:Class>
 
@@ -2795,18 +2798,18 @@
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_SAI_PHAN_LAN</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K3-g</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K3-d</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K3-d</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K3-g</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K3-d</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_CHUYEN_LAN">
   <rdfs:subClassOf rdf:resource="#ViPhamPhanDuongLanDuong"/>
   <rdfs:label xml:lang="vi">Xe máy: chuyển làn không đúng nơi được phép hoặc không có tín hiệu báo trước</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_CHUYEN_LAN</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K1-e</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K1-e</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K1-i</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K1-e</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K1-i</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K1-e</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_MU_BAO_HIEM">
@@ -2814,10 +2817,10 @@
   <rdfs:label xml:lang="vi">Xe máy: người lái không đội mũ bảo hiểm hoặc không cài quai đúng quy cách</rdfs:label>
   <rdfs:comment xml:lang="vi">V2: NĐ 123 bãi bỏ điểm i khoản 2 và bổ sung điểm n khoản 3 (tăng mức phạt)</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_MU_BAO_HIEM</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K3-n</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K2-i</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K2-h</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K2-h</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K2-i</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K3-n</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K2-h</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_CHO_NGUOI_KHONG_MU">
@@ -2825,10 +2828,10 @@
   <rdfs:label xml:lang="vi">Xe máy: chở người ngồi sau không đội mũ bảo hiểm</rdfs:label>
   <rdfs:comment xml:lang="vi">V2: NĐ 123 bãi bỏ điểm k khoản 2 và bổ sung điểm o khoản 3</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_CHO_NGUOI_KHONG_MU</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K2-i</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K3-o</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K2-k</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K2-i</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K2-i</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K2-k</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_DIEN_THOAI">
@@ -2836,39 +2839,39 @@
   <rdfs:label xml:lang="vi">Xe máy: sử dụng ô, điện thoại, thiết bị âm thanh khi điều khiển xe</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_DIEN_THOAI</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K4-h</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K4-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K4-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K4-h</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K4-dd</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_LIEN_QUAN_TAI_NAN_KHONG_DUNG">
   <rdfs:subClassOf rdf:resource="#ViPhamLienQuanTaiNan"/>
   <rdfs:label xml:lang="vi">Xe máy: liên quan trực tiếp đến vụ tai nạn mà không dừng lại, không giữ nguyên hiện trường, không cứu giúp</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_LIEN_QUAN_TAI_NAN_KHONG_DUNG</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K3-e</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K5-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K5-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K3-e</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K3-e</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_GAY_TAI_NAN_BO_TRON">
   <rdfs:subClassOf rdf:resource="#ViPhamLienQuanTaiNan"/>
   <rdfs:label xml:lang="vi">Xe máy: gây tai nạn mà không dừng lại, bỏ trốn, không trình báo</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_GAY_TAI_NAN_BO_TRON</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K9-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K8-dd</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K8-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K9-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K8-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K8-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K9-c</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_LANG_LACH">
   <rdfs:subClassOf rdf:resource="#ViPhamLaiXeNguyHiem"/>
   <rdfs:label xml:lang="vi">Xe máy: lạng lách, đánh võng trên đường bộ</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_LANG_LACH</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K9-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K8-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K8-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K8-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D7-K9-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D7-K9-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_LANG_LACH_KHONG_DUNG_XE">
@@ -2876,8 +2879,8 @@
   <rdfs:label xml:lang="vi">Xe máy: lạng lách/đánh võng... mà gây tai nạn hoặc không chấp hành hiệu lệnh dừng xe của người thi hành công vụ</rdfs:label>
   <rdfs:comment xml:lang="vi">NĐ 168 không có quy định tương ứng</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_LANG_LACH_KHONG_DUNG_XE</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K9</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D6-K9</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D6-K9</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_KHONG_CHAP_HANH_KIEM_TRA">
@@ -2903,10 +2906,10 @@
   <rdfs:label xml:lang="vi">Xe mô tô: không mang theo giấy phép lái xe</rdfs:label>
   <rdfs:comment xml:lang="vi">V3 chỉ áp dụng với người điều khiển xe KINH DOANH VẬN TẢI</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_KHONG_MANG_GPLX</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K2-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K2-d</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K2-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K2-d</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K2-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K2-d</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_KHONG_MANG_GPLX">
@@ -2914,9 +2917,9 @@
   <rdfs:label xml:lang="vi">Ô tô: không mang theo giấy phép lái xe</rdfs:label>
   <rdfs:comment xml:lang="vi">V3 chỉ áp dụng với người điều khiển xe KINH DOANH VẬN TẢI</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_KHONG_MANG_GPLX</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K3-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K3-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K3-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K3-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K3-a</canCuPhapLy>
 </owl:Class>
 
@@ -2925,8 +2928,8 @@
   <rdfs:label xml:lang="vi">Xe máy: không mang theo giấy đăng ký xe</rdfs:label>
   <rdfs:comment xml:lang="vi">V3 chỉ áp dụng với người điều khiển xe KINH DOANH VẬN TẢI</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_KHONG_MANG_DANG_KY</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K2-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K2-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K2-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K2-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K2-b</canCuPhapLy>
 </owl:Class>
@@ -2937,8 +2940,8 @@
   <rdfs:comment xml:lang="vi">V3 chỉ áp dụng với người điều khiển xe KINH DOANH VẬN TẢI</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_KHONG_MANG_DANG_KY</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K3-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K3-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K3-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K3-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K3-b</canCuPhapLy>
 </owl:Class>
 
@@ -2948,28 +2951,28 @@
   <rdfs:comment xml:lang="vi">V1/V2 gộp 'không có hoặc không mang'; V3 tách: không có (mọi người lái) / không mang (chỉ KDVT, điểm a khoản 2)</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_KHONG_BAO_HIEM</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K2-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K2-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K2-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K2-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K2-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_KHONG_BAO_HIEM">
   <rdfs:subClassOf rdf:resource="#ViPhamGiayToXe"/>
   <rdfs:label xml:lang="vi">Ô tô: không có (V1/V2: hoặc không mang) chứng nhận bảo hiểm TNDS bắt buộc còn hiệu lực</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_KHONG_BAO_HIEM</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K4-c</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K4-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K4-c</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K4-c</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K4-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K4-b</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_KHONG_DANG_KY">
   <rdfs:subClassOf rdf:resource="#ViPhamGiayToXe"/>
   <rdfs:label xml:lang="vi">Xe máy: điều khiển xe không có giấy (chứng nhận) đăng ký xe</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_KHONG_DANG_KY</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D17-K2-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D14-K2-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D14-K2-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D17-K2-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D17-K2-a</canCuPhapLy>
 </owl:Class>
 
@@ -2977,10 +2980,10 @@
   <rdfs:subClassOf rdf:resource="#ViPhamGiayToXe"/>
   <rdfs:label xml:lang="vi">Ô tô: điều khiển xe không có giấy (chứng nhận) đăng ký xe</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_KHONG_DANG_KY</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D16-K4-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D13-K4-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D16-K4-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D13-K4-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D16-K4-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D16-K4-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_KHONG_GPLX_NHO">
@@ -2988,10 +2991,10 @@
   <rdfs:label xml:lang="vi">Mô tô hai bánh dung tích nhỏ (V1/V2: dưới 175 cm3; V3: đến 125 cm3 / 11 kW): không có GPLX</rdfs:label>
   <rdfs:comment xml:lang="vi">Ngưỡng phân loại xe thay đổi giữa NĐ 100 và NĐ 168</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_KHONG_GPLX_NHO</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K5-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K5-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K5-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K5-a</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K5-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K5-a</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_XM_KHONG_GPLX_LON">
@@ -2999,9 +3002,9 @@
   <rdfs:label xml:lang="vi">Mô tô dung tích lớn (V1/V2: từ 175 cm3; V3: trên 125 cm3 / 11 kW), mô tô ba bánh: không có GPLX</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">XM_KHONG_GPLX_LON</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K7-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K7-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K7-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K7-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K7-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K7-b</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_OT_KHONG_GPLX">
@@ -3010,9 +3013,9 @@
   <rdfs:comment xml:lang="vi">NĐ 123 thay toàn bộ Điều 21: V1 ở khoản 8, V2 ở khoản 9</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OT_KHONG_GPLX</maHanhVi>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K9-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K9-b</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K8-b</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K9-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K8-b</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K9-b</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_CHUA_DU_TUOI_14_16">
@@ -3020,18 +3023,18 @@
   <rdfs:label xml:lang="vi">Người từ đủ 14 đến dưới 16 tuổi điều khiển xe mô tô, xe gắn máy hoặc ô tô</rdfs:label>
   <rdfs:comment xml:lang="vi">Hình thức: cảnh cáo</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CHUA_DU_TUOI_14_16</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K1</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K1</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K1</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K1</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K1</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_CHUA_DU_TUOI_16_18_MOTO">
   <rdfs:subClassOf rdf:resource="#ViPhamDoTuoi"/>
   <rdfs:label xml:lang="vi">Người từ đủ 16 đến dưới 18 tuổi điều khiển mô tô (V1–V3: từ 50 cm3; V3 thêm từ 04 kW; V4: mọi xe mô tô)</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CHUA_DU_TUOI_16_18_MOTO</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K4-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K4-a</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K4-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K4-a</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K4-a</canCuPhapLy>
 </owl:Class>
@@ -3040,10 +3043,10 @@
   <rdfs:subClassOf rdf:resource="#ViPhamDoTuoi"/>
   <rdfs:label xml:lang="vi">Người từ đủ 16 đến dưới 18 tuổi điều khiển ô tô</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CHUA_DU_TUOI_16_18_OTO</maHanhVi>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K6</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K6</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K6</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D21-K6</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D18-K6</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D18-K6</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D21-K6</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_CHU_XM_GIAO_XE">
@@ -3051,19 +3054,19 @@
   <rdfs:label xml:lang="vi">Chủ xe máy giao xe hoặc để người không đủ điều kiện điều khiển xe</rdfs:label>
   <rdfs:comment xml:lang="vi">V3 là cả khoản 10 Điều 32. Ví dụ suy luận gián tiếp: con 15 tuổi đi xe máy của bố → bố vi phạm</rdfs:comment>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CHU_XM_GIAO_XE</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D30-K5-dd</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D30-K5-dd</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D32-K10</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D32-K10</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D30-K5-dd</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D30-K5-dd</canCuPhapLy>
 </owl:Class>
 
 <owl:Class rdf:about="#HV_CHU_OT_GIAO_XE">
   <rdfs:subClassOf rdf:resource="#ViPhamCuaChuXe"/>
   <rdfs:label xml:lang="vi">Chủ xe ô tô giao xe hoặc để người không đủ điều kiện điều khiển xe</rdfs:label>
   <maHanhVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CHU_OT_GIAO_XE</maHanhVi>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D30-K8-h</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4:ND168-D32-K14-i</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3:ND168-D32-K14-i</canCuPhapLy>
-  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2:ND100-D30-K8-h</canCuPhapLy>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1:ND100-D30-K8-h</canCuPhapLy>
 </owl:Class>
 
@@ -3107,6 +3110,30 @@
   <rdfs:label xml:lang="vi">Luật Trật tự, an toàn giao thông đường bộ (36/2024/QH15)</rdfs:label>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="#L118">
+  <rdf:type rdf:resource="#Luat"/>
+  <soHieu rdf:datatype="http://www.w3.org/2001/XMLSchema#string">118/2025/QH15</soHieu>
+  <ngayBanHanh rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-10T00:00:00.000</ngayBanHanh>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">Luật sửa đổi, bổ sung một số điều của 10 luật có liên quan đến an ninh, trật tự (118/2025/QH15)</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#GTDB2008">
+  <rdf:type rdf:resource="#Luat"/>
+  <soHieu rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23/2008/QH12</soHieu>
+  <ngayBanHanh rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2008-11-13T00:00:00.000</ngayBanHanh>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2009-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">Luật Giao thông đường bộ (23/2008/QH12)</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TT31">
+  <rdf:type rdf:resource="#ThongTu"/>
+  <soHieu rdf:datatype="http://www.w3.org/2001/XMLSchema#string">31/2019/TT-BGTVT</soHieu>
+  <ngayBanHanh rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-08-29T00:00:00.000</ngayBanHanh>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-10-15T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">Thông tư quy định về tốc độ và khoảng cách an toàn của xe cơ giới, xe máy chuyên dùng tham gia giao thông đường bộ (31/2019/TT-BGTVT)</rdfs:label>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="#TT38">
   <rdf:type rdf:resource="#ThongTu"/>
   <soHieu rdf:datatype="http://www.w3.org/2001/XMLSchema#string">38/2024/TT-BGTVT</soHieu>
@@ -3134,8 +3161,8 @@
 
 <owl:NamedIndividual rdf:about="#V2">
   <rdf:type rdf:resource="#PhienBanPhapLy"/>
-  <gomVanBan rdf:resource="#ND123"/>
   <gomVanBan rdf:resource="#ND100"/>
+  <gomVanBan rdf:resource="#ND123"/>
   <maPhienBan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2</maPhienBan>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-01-01T00:00:00.000</hieuLucTu>
   <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-31T00:00:00.000</hieuLucDen>
@@ -3158,6 +3185,29 @@
   <maPhienBan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V4</maPhienBan>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-08-15T00:00:00.000</hieuLucTu>
   <rdfs:label xml:lang="vi">V4: NĐ 168/2024 hợp nhất sửa đổi của NĐ 238/2026</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2025">
+  <rdf:type rdf:resource="#PhienBanPhapLy"/>
+  <maPhienBan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT_2025</maPhienBan>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2025: Luật TTATGT 2024 nguyên bản</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026A">
+  <rdf:type rdf:resource="#PhienBanPhapLy"/>
+  <maPhienBan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT_2026A</maPhienBan>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-30T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2026A: Luật TTATGT + điểm a khoản 20 Điều 7 Luật 118/2025 (lùi hiệu lực khoản 3 Điều 10)</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B">
+  <rdf:type rdf:resource="#PhienBanPhapLy"/>
+  <maPhienBan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT_2026B</maPhienBan>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B: Luật TTATGT hợp nhất toàn bộ sửa đổi tại Điều 7 Luật 118/2025</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#V1_ND100-D16">
@@ -9936,180 +9986,796 @@
   <rdfs:label xml:lang="vi">V4 — điểm e khoản 9 Điều 7 NĐ 168/2024</rdfs:label>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#LTTATGT-D10">
+<owl:NamedIndividual rdf:about="#LTTATGT_2025_LTTATGT-D10">
   <rdf:type rdf:resource="#Dieu"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2025"/>
   <thuocVanBan rdf:resource="#LTTATGT"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D10</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 10 LTTATGT</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 10 Luật TTATGT 2024</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quy tắc chung</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">Điều 10 LTTATGT</rdfs:label>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2025 — Điều 10 Luật TTATGT 2024</rdfs:label>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#LTTATGT-D10-K3">
+<owl:NamedIndividual rdf:about="#LTTATGT_2025_LTTATGT-D10-K3">
   <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2025"/>
   <thuocVanBan rdf:resource="#LTTATGT"/>
-  <thuocDieuKhoanCha rdf:resource="#LTTATGT-D10"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2025_LTTATGT-D10"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D10-K3</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 3 Điều 10 LTTATGT</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 3 Điều 10 Luật TTATGT 2024</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Khi chở trẻ em dưới 10 tuổi và chiều cao dưới 1,35 mét trên xe ô tô không được cho trẻ em ngồi cùng hàng ghế với người lái xe, trừ loại xe ô tô chỉ có một hàng ghế; người lái xe phải sử dụng, hướng dẫn sử dụng thiết bị an toàn phù hợp cho trẻ em.</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-31T00:00:00.000</hieuLucDen>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Khoản 3 Điều 10 của Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2026.</canCuPhapLy>
-  <rdfs:label xml:lang="vi">khoản 3 Điều 10 LTTATGT</rdfs:label>
+  <rdfs:label xml:lang="vi">LTTATGT_2025 — khoản 3 Điều 10 Luật TTATGT 2024</rdfs:label>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#LTTATGT-D56">
+<owl:NamedIndividual rdf:about="#LTTATGT_2025_LTTATGT-D56">
   <rdf:type rdf:resource="#Dieu"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2025"/>
   <thuocVanBan rdf:resource="#LTTATGT"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D56</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 56 LTTATGT</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 56 Luật TTATGT 2024</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều kiện của người điều khiển phương tiện tham gia giao thông đường bộ</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">Điều 56 LTTATGT</rdfs:label>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2025 — Điều 56 Luật TTATGT 2024</rdfs:label>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#LTTATGT-D56-K1">
+<owl:NamedIndividual rdf:about="#LTTATGT_2025_LTTATGT-D56-K1">
   <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2025"/>
   <thuocVanBan rdf:resource="#LTTATGT"/>
-  <thuocDieuKhoanCha rdf:resource="#LTTATGT-D56"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2025_LTTATGT-D56"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D56-K1</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 56 LTTATGT</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 56 Luật TTATGT 2024</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người lái xe tham gia giao thông đường bộ phải đủ tuổi, sức khỏe theo quy định của pháp luật; có giấy phép lái xe đang còn điểm, còn hiệu lực phù hợp với loại xe đang điều khiển do cơ quan có thẩm quyền cấp, trừ người lái xe gắn máy quy định tại khoản 4 Điều này. Khi tham gia giao thông đường bộ, người lái xe phải mang theo các giấy tờ sau đây:</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 1 Điều 56 LTTATGT</rdfs:label>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2025 — khoản 1 Điều 56 Luật TTATGT 2024</rdfs:label>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#LTTATGT-D56-K4">
+<owl:NamedIndividual rdf:about="#LTTATGT_2025_LTTATGT-D56-K4">
   <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2025"/>
   <thuocVanBan rdf:resource="#LTTATGT"/>
-  <thuocDieuKhoanCha rdf:resource="#LTTATGT-D56"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2025_LTTATGT-D56"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D56-K4</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 4 Điều 56 LTTATGT</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 4 Điều 56 Luật TTATGT 2024</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người lái xe gắn máy tham gia giao thông đường bộ phải hiểu biết quy tắc giao thông đường bộ, có kỹ năng điều khiển phương tiện; đủ điều kiện về độ tuổi, sức khỏe theo quy định tại điểm a khoản 1 và khoản 2 Điều 59 của Luật này.</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 4 Điều 56 LTTATGT</rdfs:label>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2025 — khoản 4 Điều 56 Luật TTATGT 2024</rdfs:label>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#LTTATGT-D57">
+<owl:NamedIndividual rdf:about="#LTTATGT_2025_LTTATGT-D57">
   <rdf:type rdf:resource="#Dieu"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2025"/>
   <thuocVanBan rdf:resource="#LTTATGT"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D57</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 57 LTTATGT</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 57 Luật TTATGT 2024</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Giấy phép lái xe</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">Điều 57 LTTATGT</rdfs:label>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2025 — Điều 57 Luật TTATGT 2024</rdfs:label>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#LTTATGT-D57-K1">
+<owl:NamedIndividual rdf:about="#LTTATGT_2025_LTTATGT-D57-K1">
   <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2025"/>
   <thuocVanBan rdf:resource="#LTTATGT"/>
-  <thuocDieuKhoanCha rdf:resource="#LTTATGT-D57"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2025_LTTATGT-D57"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D57-K1</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 57 LTTATGT</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 57 Luật TTATGT 2024</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Giấy phép lái xe bao gồm các hạng sau đây:</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 1 Điều 57 LTTATGT</rdfs:label>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2025 — khoản 1 Điều 57 Luật TTATGT 2024</rdfs:label>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#LTTATGT-D57-K1-a">
+<owl:NamedIndividual rdf:about="#LTTATGT_2025_LTTATGT-D57-K1-a">
   <rdf:type rdf:resource="#Diem"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2025"/>
   <thuocVanBan rdf:resource="#LTTATGT"/>
-  <thuocDieuKhoanCha rdf:resource="#LTTATGT-D57-K1"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2025_LTTATGT-D57-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D57-K1-a</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm a khoản 1 Điều 57 LTTATGT</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm a khoản 1 Điều 57 Luật TTATGT 2024</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hạng A1 cấp cho người lái xe mô tô hai bánh có dung tích xi-lanh đến 125 cm3 hoặc có công suất động cơ điện đến 11 kW;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm a khoản 1 Điều 57 LTTATGT</rdfs:label>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2025 — điểm a khoản 1 Điều 57 Luật TTATGT 2024</rdfs:label>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#LTTATGT-D57-K1-b">
+<owl:NamedIndividual rdf:about="#LTTATGT_2025_LTTATGT-D57-K1-b">
   <rdf:type rdf:resource="#Diem"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2025"/>
   <thuocVanBan rdf:resource="#LTTATGT"/>
-  <thuocDieuKhoanCha rdf:resource="#LTTATGT-D57-K1"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2025_LTTATGT-D57-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D57-K1-b</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm b khoản 1 Điều 57 LTTATGT</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm b khoản 1 Điều 57 Luật TTATGT 2024</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hạng A cấp cho người lái xe mô tô hai bánh có dung tích xi-lanh trên 125 cm3 hoặc có công suất động cơ điện trên 11 kW và các loại xe quy định cho giấy phép lái xe hạng A1;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm b khoản 1 Điều 57 LTTATGT</rdfs:label>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2025 — điểm b khoản 1 Điều 57 Luật TTATGT 2024</rdfs:label>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#LTTATGT-D57-K1-d">
+<owl:NamedIndividual rdf:about="#LTTATGT_2025_LTTATGT-D57-K1-d">
   <rdf:type rdf:resource="#Diem"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2025"/>
   <thuocVanBan rdf:resource="#LTTATGT"/>
-  <thuocDieuKhoanCha rdf:resource="#LTTATGT-D57-K1"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2025_LTTATGT-D57-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D57-K1-d</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm d khoản 1 Điều 57 LTTATGT</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm d khoản 1 Điều 57 Luật TTATGT 2024</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hạng B cấp cho người lái xe ô tô chở người đến 08 chỗ (không kể chỗ của người lái xe); xe ô tô tải và ô tô chuyên dùng có khối lượng toàn bộ theo thiết kế đến 3.500 kg; các loại xe ô tô quy định cho giấy phép lái xe hạng B kéo rơ moóc có khối lượng toàn bộ theo thiết kế đến 750 kg;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm d khoản 1 Điều 57 LTTATGT</rdfs:label>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2025 — điểm d khoản 1 Điều 57 Luật TTATGT 2024</rdfs:label>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#LTTATGT-D59">
+<owl:NamedIndividual rdf:about="#LTTATGT_2025_LTTATGT-D59">
   <rdf:type rdf:resource="#Dieu"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2025"/>
   <thuocVanBan rdf:resource="#LTTATGT"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D59</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 59 LTTATGT</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 59 Luật TTATGT 2024</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tuổi, sức khỏe của người điều khiển phương tiện tham gia giao thông đường bộ</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">Điều 59 LTTATGT</rdfs:label>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2025 — Điều 59 Luật TTATGT 2024</rdfs:label>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#LTTATGT-D59-K1">
+<owl:NamedIndividual rdf:about="#LTTATGT_2025_LTTATGT-D59-K1">
   <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2025"/>
   <thuocVanBan rdf:resource="#LTTATGT"/>
-  <thuocDieuKhoanCha rdf:resource="#LTTATGT-D59"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2025_LTTATGT-D59"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D59-K1</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 59 LTTATGT</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 59 Luật TTATGT 2024</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Độ tuổi của người lái xe, người điều khiển xe máy chuyên dùng được quy định như sau:</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 1 Điều 59 LTTATGT</rdfs:label>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2025 — khoản 1 Điều 59 Luật TTATGT 2024</rdfs:label>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#LTTATGT-D59-K1-a">
+<owl:NamedIndividual rdf:about="#LTTATGT_2025_LTTATGT-D59-K1-a">
   <rdf:type rdf:resource="#Diem"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2025"/>
   <thuocVanBan rdf:resource="#LTTATGT"/>
-  <thuocDieuKhoanCha rdf:resource="#LTTATGT-D59-K1"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2025_LTTATGT-D59-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D59-K1-a</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm a khoản 1 Điều 59 LTTATGT</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm a khoản 1 Điều 59 Luật TTATGT 2024</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người đủ 16 tuổi trở lên được điều khiển xe gắn máy;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm a khoản 1 Điều 59 LTTATGT</rdfs:label>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2025 — điểm a khoản 1 Điều 59 Luật TTATGT 2024</rdfs:label>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#LTTATGT-D59-K1-b">
+<owl:NamedIndividual rdf:about="#LTTATGT_2025_LTTATGT-D59-K1-b">
   <rdf:type rdf:resource="#Diem"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2025"/>
   <thuocVanBan rdf:resource="#LTTATGT"/>
-  <thuocDieuKhoanCha rdf:resource="#LTTATGT-D59-K1"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2025_LTTATGT-D59-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D59-K1-b</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm b khoản 1 Điều 59 LTTATGT</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm b khoản 1 Điều 59 Luật TTATGT 2024</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người đủ 18 tuổi trở lên được cấp giấy phép lái xe hạng A1, A, B1, B, C1, được cấp chứng chỉ bồi dưỡng kiến thức pháp luật về giao thông đường bộ để điều khiển xe máy chuyên dùng tham gia giao thông đường bộ;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm b khoản 1 Điều 59 LTTATGT</rdfs:label>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2025 — điểm b khoản 1 Điều 59 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026A_LTTATGT-D10">
+  <rdf:type rdf:resource="#Dieu"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026A"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D10</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 10 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quy tắc chung</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-30T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2026A — Điều 10 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026A_LTTATGT-D10-K3">
+  <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026A"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026A_LTTATGT-D10"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D10-K3</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 3 Điều 10 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Khi chở trẻ em dưới 10 tuổi và chiều cao dưới 1,35 mét trên xe ô tô không được cho trẻ em ngồi cùng hàng ghế với người lái xe, trừ loại xe ô tô chỉ có một hàng ghế; người lái xe phải sử dụng, hướng dẫn sử dụng thiết bị an toàn phù hợp cho trẻ em.</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-30T00:00:00.000</hieuLucDen>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Khoản 3 Điều 10 của Luật này có hiệu lực thi hành từ ngày 01 tháng 7 năm 2026.</canCuPhapLy>
+  <rdfs:label xml:lang="vi">LTTATGT_2026A — khoản 3 Điều 10 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026A_LTTATGT-D56">
+  <rdf:type rdf:resource="#Dieu"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026A"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D56</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 56 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều kiện của người điều khiển phương tiện tham gia giao thông đường bộ</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-30T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2026A — Điều 56 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026A_LTTATGT-D56-K1">
+  <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026A"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026A_LTTATGT-D56"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D56-K1</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 56 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người lái xe tham gia giao thông đường bộ phải đủ tuổi, sức khỏe theo quy định của pháp luật; có giấy phép lái xe đang còn điểm, còn hiệu lực phù hợp với loại xe đang điều khiển do cơ quan có thẩm quyền cấp, trừ người lái xe gắn máy quy định tại khoản 4 Điều này. Khi tham gia giao thông đường bộ, người lái xe phải mang theo các giấy tờ sau đây:</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-30T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2026A — khoản 1 Điều 56 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026A_LTTATGT-D56-K4">
+  <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026A"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026A_LTTATGT-D56"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D56-K4</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 4 Điều 56 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người lái xe gắn máy tham gia giao thông đường bộ phải hiểu biết quy tắc giao thông đường bộ, có kỹ năng điều khiển phương tiện; đủ điều kiện về độ tuổi, sức khỏe theo quy định tại điểm a khoản 1 và khoản 2 Điều 59 của Luật này.</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-30T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2026A — khoản 4 Điều 56 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026A_LTTATGT-D57">
+  <rdf:type rdf:resource="#Dieu"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026A"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D57</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 57 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Giấy phép lái xe</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-30T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2026A — Điều 57 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026A_LTTATGT-D57-K1">
+  <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026A"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026A_LTTATGT-D57"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D57-K1</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 57 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Giấy phép lái xe bao gồm các hạng sau đây:</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-30T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2026A — khoản 1 Điều 57 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026A_LTTATGT-D57-K1-a">
+  <rdf:type rdf:resource="#Diem"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026A"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026A_LTTATGT-D57-K1"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D57-K1-a</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm a khoản 1 Điều 57 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hạng A1 cấp cho người lái xe mô tô hai bánh có dung tích xi-lanh đến 125 cm3 hoặc có công suất động cơ điện đến 11 kW;</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-30T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2026A — điểm a khoản 1 Điều 57 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026A_LTTATGT-D57-K1-b">
+  <rdf:type rdf:resource="#Diem"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026A"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026A_LTTATGT-D57-K1"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D57-K1-b</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm b khoản 1 Điều 57 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hạng A cấp cho người lái xe mô tô hai bánh có dung tích xi-lanh trên 125 cm3 hoặc có công suất động cơ điện trên 11 kW và các loại xe quy định cho giấy phép lái xe hạng A1;</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-30T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2026A — điểm b khoản 1 Điều 57 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026A_LTTATGT-D57-K1-d">
+  <rdf:type rdf:resource="#Diem"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026A"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026A_LTTATGT-D57-K1"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D57-K1-d</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm d khoản 1 Điều 57 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hạng B cấp cho người lái xe ô tô chở người đến 08 chỗ (không kể chỗ của người lái xe); xe ô tô tải và ô tô chuyên dùng có khối lượng toàn bộ theo thiết kế đến 3.500 kg; các loại xe ô tô quy định cho giấy phép lái xe hạng B kéo rơ moóc có khối lượng toàn bộ theo thiết kế đến 750 kg;</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-30T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2026A — điểm d khoản 1 Điều 57 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026A_LTTATGT-D59">
+  <rdf:type rdf:resource="#Dieu"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026A"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D59</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 59 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tuổi, sức khỏe của người điều khiển phương tiện tham gia giao thông đường bộ</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-30T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2026A — Điều 59 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026A_LTTATGT-D59-K1">
+  <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026A"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026A_LTTATGT-D59"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D59-K1</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 59 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Độ tuổi của người lái xe, người điều khiển xe máy chuyên dùng được quy định như sau:</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-30T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2026A — khoản 1 Điều 59 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026A_LTTATGT-D59-K1-a">
+  <rdf:type rdf:resource="#Diem"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026A"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026A_LTTATGT-D59-K1"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D59-K1-a</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm a khoản 1 Điều 59 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người đủ 16 tuổi trở lên được điều khiển xe gắn máy;</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-30T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2026A — điểm a khoản 1 Điều 59 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026A_LTTATGT-D59-K1-b">
+  <rdf:type rdf:resource="#Diem"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026A"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026A_LTTATGT-D59-K1"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D59-K1-b</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm b khoản 1 Điều 59 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người đủ 18 tuổi trở lên được cấp giấy phép lái xe hạng A1, A, B1, B, C1, được cấp chứng chỉ bồi dưỡng kiến thức pháp luật về giao thông đường bộ để điều khiển xe máy chuyên dùng tham gia giao thông đường bộ;</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-06-30T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">LTTATGT_2026A — điểm b khoản 1 Điều 59 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D10">
+  <rdf:type rdf:resource="#Dieu"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D10</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 10 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quy tắc chung</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — Điều 10 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D10-K3">
+  <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <duocSuaDoiBoi rdf:resource="#L118"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026B_LTTATGT-D10"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D10-K3</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 3 Điều 10 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Khi chở trẻ em dưới 10 tuổi và chiều cao dưới 1,35 mét trên xe ô tô, người lái xe không được cho trẻ em ngồi cùng hàng ghế, trừ xe ô tô chỉ có một hàng ghế; người lái xe phải sử dụng, hướng dẫn sử dụng thiết bị an toàn phù hợp cho trẻ em, trừ xe ô tô kinh doanh vận tải hành khách.</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Khoản 3 Điều 10 của Luật này có hiệu lực thi hành từ ngày 01 tháng 7 năm 2026.</canCuPhapLy>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — khoản 3 Điều 10 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D35">
+  <rdf:type rdf:resource="#Dieu"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D35</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 35 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều kiện phương tiện tham gia giao thông đường bộ</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — Điều 35 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D35-K2">
+  <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <duocSuaDoiBoi rdf:resource="#L118"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026B_LTTATGT-D35"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D35-K2</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 2 Điều 35 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Xe ô tô kinh doanh vận tải hàng hóa, xe ô tô kinh doanh vận tải hành khách dưới 08 chỗ (không kể chỗ của người lái xe), xe ô tô đầu kéo, xe cứu thương, xe vận tải nội bộ phải lắp thiết bị giám sát hành trình, thiết bị ghi nhận hình ảnh người lái xe. Xe ô tô kinh doanh vận tải hành khách từ 08 chỗ trở lên (không kể chỗ của người lái xe) phải lắp thiết bị giám sát hành trình, thiết bị ghi nhận hình ảnh người lái xe, thiết bị ghi nhận hình ảnh khoang chở khách.
+Việc xử lý dữ liệu thu được từ thiết bị ghi nhận hình ảnh người lái xe, thiết bị ghi nhận hình ảnh khoang chở khách thực hiện theo quy định của pháp luật về bảo vệ dữ liệu cá nhân và quy định khác của pháp luật có liên quan.</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quy định lắp thiết bị ghi nhận hình ảnh khoang chở khách đối với xe ô tô kinh doanh vận tải hành khách từ 08 chỗ trở lên (không kể chỗ của người lái xe) tại khoản 2 Điều 35 của Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2029 và thực hiện theo lộ trình do Chính phủ quy định.</canCuPhapLy>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quy định lắp thiết bị ghi nhận hình ảnh người lái xe đối với xe ô tô kinh doanh vận tải hành khách dưới 08 chỗ (không kể chỗ của người lái xe), xe ô tô kinh doanh vận tải hàng hóa (trừ xe ô tô đầu kéo), xe vận tải nội bộ tại khoản 2 Điều 35 của Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2028.</canCuPhapLy>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — khoản 2 Điều 35 Luật TTATGT 2024</rdfs:label>
+  <hieuLucMotPhan rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</hieuLucMotPhan>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D35-K2__P1">
+  <rdf:type rdf:resource="#PhanNoiDung"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026B_LTTATGT-D35-K2"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D35-K2#P1</maDieuKhoan>
+  <moTaPhamVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quy định lắp thiết bị ghi nhận hình ảnh người lái xe đối với xe ô tô kinh doanh vận tải hành khách dưới 08 chỗ (không kể chỗ của người lái xe), xe ô tô kinh doanh vận tải hàng hóa (trừ xe ô tô đầu kéo), xe vận tải nội bộ</moTaPhamVi>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2028-01-01T00:00:00.000</hieuLucTu>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quy định lắp thiết bị ghi nhận hình ảnh người lái xe đối với xe ô tô kinh doanh vận tải hành khách dưới 08 chỗ (không kể chỗ của người lái xe), xe ô tô kinh doanh vận tải hàng hóa (trừ xe ô tô đầu kéo), xe vận tải nội bộ tại khoản 2 Điều 35 của Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2028.</canCuPhapLy>
+  <rdfs:label xml:lang="vi">khoản 2 Điều 35 Luật TTATGT 2024 — Quy định lắp thiết bị ghi nhận hình ảnh người lái xe đối với xe ô tô kinh doanh </rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D35-K2__P2">
+  <rdf:type rdf:resource="#PhanNoiDung"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026B_LTTATGT-D35-K2"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D35-K2#P2</maDieuKhoan>
+  <moTaPhamVi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quy định lắp thiết bị ghi nhận hình ảnh khoang chở khách đối với xe ô tô kinh doanh vận tải hành khách từ 08 chỗ trở lên (không kể chỗ của người lái xe)</moTaPhamVi>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2029-01-01T00:00:00.000</hieuLucTu>
+  <hieuLucDieuKien rdf:datatype="http://www.w3.org/2001/XMLSchema#string">thực hiện theo lộ trình do Chính phủ quy định</hieuLucDieuKien>
+  <dieuKienDaDapUng rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</dieuKienDaDapUng>
+  <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quy định lắp thiết bị ghi nhận hình ảnh khoang chở khách đối với xe ô tô kinh doanh vận tải hành khách từ 08 chỗ trở lên (không kể chỗ của người lái xe) tại khoản 2 Điều 35 của Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2029 và thực hiện theo lộ trình do Chính phủ quy định.</canCuPhapLy>
+  <rdfs:label xml:lang="vi">khoản 2 Điều 35 Luật TTATGT 2024 — Quy định lắp thiết bị ghi nhận hình ảnh khoang chở khách đối với xe ô tô kinh do</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D56">
+  <rdf:type rdf:resource="#Dieu"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D56</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 56 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều kiện của người điều khiển phương tiện tham gia giao thông đường bộ</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — Điều 56 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D56-K1">
+  <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026B_LTTATGT-D56"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D56-K1</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 56 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người lái xe tham gia giao thông đường bộ phải đủ tuổi, sức khỏe theo quy định của pháp luật; có giấy phép lái xe đang còn điểm, còn hiệu lực phù hợp với loại xe đang điều khiển do cơ quan có thẩm quyền cấp, trừ người lái xe gắn máy quy định tại khoản 4 Điều này. Khi tham gia giao thông đường bộ, người lái xe phải mang theo các giấy tờ sau đây:</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — khoản 1 Điều 56 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D56-K4">
+  <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026B_LTTATGT-D56"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D56-K4</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 4 Điều 56 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người lái xe gắn máy tham gia giao thông đường bộ phải hiểu biết quy tắc giao thông đường bộ, có kỹ năng điều khiển phương tiện; đủ điều kiện về độ tuổi, sức khỏe theo quy định tại điểm a khoản 1 và khoản 2 Điều 59 của Luật này.</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — khoản 4 Điều 56 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D57">
+  <rdf:type rdf:resource="#Dieu"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D57</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 57 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Giấy phép lái xe</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — Điều 57 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D57-K1">
+  <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026B_LTTATGT-D57"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D57-K1</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 57 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Giấy phép lái xe bao gồm các hạng sau đây:</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — khoản 1 Điều 57 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D57-K1-a">
+  <rdf:type rdf:resource="#Diem"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026B_LTTATGT-D57-K1"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D57-K1-a</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm a khoản 1 Điều 57 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hạng A1 cấp cho người lái xe mô tô hai bánh có dung tích xi-lanh đến 125 cm3 hoặc có công suất động cơ điện đến 11 kW;</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — điểm a khoản 1 Điều 57 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D57-K1-b">
+  <rdf:type rdf:resource="#Diem"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026B_LTTATGT-D57-K1"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D57-K1-b</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm b khoản 1 Điều 57 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hạng A cấp cho người lái xe mô tô hai bánh có dung tích xi-lanh trên 125 cm3 hoặc có công suất động cơ điện trên 11 kW và các loại xe quy định cho giấy phép lái xe hạng A1;</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — điểm b khoản 1 Điều 57 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D57-K1-d">
+  <rdf:type rdf:resource="#Diem"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026B_LTTATGT-D57-K1"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D57-K1-d</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm d khoản 1 Điều 57 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hạng B cấp cho người lái xe ô tô chở người đến 08 chỗ (không kể chỗ của người lái xe); xe ô tô tải và ô tô chuyên dùng có khối lượng toàn bộ theo thiết kế đến 3.500 kg; các loại xe ô tô quy định cho giấy phép lái xe hạng B kéo rơ moóc có khối lượng toàn bộ theo thiết kế đến 750 kg;</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — điểm d khoản 1 Điều 57 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D59">
+  <rdf:type rdf:resource="#Dieu"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D59</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 59 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tuổi, sức khỏe của người điều khiển phương tiện tham gia giao thông đường bộ</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — Điều 59 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D59-K1">
+  <rdf:type rdf:resource="#Khoan"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026B_LTTATGT-D59"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D59-K1</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 59 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Độ tuổi của người lái xe, người điều khiển xe máy chuyên dùng được quy định như sau:</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — khoản 1 Điều 59 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D59-K1-a">
+  <rdf:type rdf:resource="#Diem"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026B_LTTATGT-D59-K1"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D59-K1-a</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm a khoản 1 Điều 59 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người đủ 16 tuổi trở lên được điều khiển xe gắn máy;</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — điểm a khoản 1 Điều 59 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LTTATGT_2026B_LTTATGT-D59-K1-b">
+  <rdf:type rdf:resource="#Diem"/>
+  <thuocPhienBan rdf:resource="#LTTATGT_2026B"/>
+  <thuocVanBan rdf:resource="#LTTATGT"/>
+  <thuocDieuKhoanCha rdf:resource="#LTTATGT_2026B_LTTATGT-D59-K1"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LTTATGT-D59-K1-b</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm b khoản 1 Điều 59 Luật TTATGT 2024</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người đủ 18 tuổi trở lên được cấp giấy phép lái xe hạng A1, A, B1, B, C1, được cấp chứng chỉ bồi dưỡng kiến thức pháp luật về giao thông đường bộ để điều khiển xe máy chuyên dùng tham gia giao thông đường bộ;</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-07-01T00:00:00.000</hieuLucTu>
+  <rdfs:label xml:lang="vi">LTTATGT_2026B — điểm b khoản 1 Điều 59 Luật TTATGT 2024</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#GTDB2008-D58">
+  <rdf:type rdf:resource="#Dieu"/>
+  <thuocVanBan rdf:resource="#GTDB2008"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GTDB2008-D58</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 58 Luật GTĐB 2008</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều kiện của người lái xe tham gia giao thông</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2009-07-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">Điều 58 Luật GTĐB 2008</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#GTDB2008-D58-K1">
+  <rdf:type rdf:resource="#Khoan"/>
+  <thuocVanBan rdf:resource="#GTDB2008"/>
+  <thuocDieuKhoanCha rdf:resource="#GTDB2008-D58"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GTDB2008-D58-K1</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 58 Luật GTĐB 2008</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người lái xe tham gia giao thông phải đủ độ tuổi, sức khoẻ quy định tại Điều 60 của Luật này và có giấy phép lái xe phù hợp với loại xe được phép điều khiển do cơ quan nhà nước có thẩm quyền cấp.
+Người tập lái xe ô tô khi tham gia giao thông phải thực hành trên xe tập lái và có giáo viên bảo trợ tay lái.</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2009-07-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">khoản 1 Điều 58 Luật GTĐB 2008</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#GTDB2008-D58-K2">
+  <rdf:type rdf:resource="#Khoan"/>
+  <thuocVanBan rdf:resource="#GTDB2008"/>
+  <thuocDieuKhoanCha rdf:resource="#GTDB2008-D58"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GTDB2008-D58-K2</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 2 Điều 58 Luật GTĐB 2008</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người lái xe khi điều khiển phương tiện phải mang theo các giấy tờ sau:</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2009-07-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">khoản 2 Điều 58 Luật GTĐB 2008</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#GTDB2008-D60">
+  <rdf:type rdf:resource="#Dieu"/>
+  <thuocVanBan rdf:resource="#GTDB2008"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GTDB2008-D60</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 60 Luật GTĐB 2008</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tuổi, sức khỏe của người lái xe</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2009-07-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">Điều 60 Luật GTĐB 2008</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#GTDB2008-D60-K1">
+  <rdf:type rdf:resource="#Khoan"/>
+  <thuocVanBan rdf:resource="#GTDB2008"/>
+  <thuocDieuKhoanCha rdf:resource="#GTDB2008-D60"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GTDB2008-D60-K1</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 60 Luật GTĐB 2008</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Độ tuổi của người lái xe quy định như sau:</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2009-07-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">khoản 1 Điều 60 Luật GTĐB 2008</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#GTDB2008-D60-K1-a">
+  <rdf:type rdf:resource="#Diem"/>
+  <thuocVanBan rdf:resource="#GTDB2008"/>
+  <thuocDieuKhoanCha rdf:resource="#GTDB2008-D60-K1"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GTDB2008-D60-K1-a</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm a khoản 1 Điều 60 Luật GTĐB 2008</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người đủ 16 tuổi trở lên được lái xe gắn máy có dung tích xi-lanh dưới 50 cm3;</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2009-07-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">điểm a khoản 1 Điều 60 Luật GTĐB 2008</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#GTDB2008-D60-K1-b">
+  <rdf:type rdf:resource="#Diem"/>
+  <thuocVanBan rdf:resource="#GTDB2008"/>
+  <thuocDieuKhoanCha rdf:resource="#GTDB2008-D60-K1"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GTDB2008-D60-K1-b</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm b khoản 1 Điều 60 Luật GTĐB 2008</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người đủ 18 tuổi trở lên được lái xe mô tô hai bánh, xe mô tô ba bánh có dung tích xi-lanh từ 50 cm3 trở lên và các loại xe có kết cấu tương tự; xe ô tô tải, máy kéo có trọng tải dưới 3.500 kg; xe ô tô chở người đến 9 chỗ ngồi;</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2009-07-01T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">điểm b khoản 1 Điều 60 Luật GTĐB 2008</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TT31-D6">
+  <rdf:type rdf:resource="#Dieu"/>
+  <thuocVanBan rdf:resource="#TT31"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TT31-D6</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 6 TT 31/2019/TT-BGTVT</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tốc độ tối đa cho phép xe cơ giới tham gia giao thông trong khu vực đông dân cư (trừ đường cao tốc)
+| Loại xe cơ giới đường bộ | Tốc độ tối đa (km/h) |
+| Loại xe cơ giới đường bộ | Đường đôi; đường một chiều có từ hai làn xe cơ giới trở lên | Đường hai chiều; đường một chiều có một làn xe cơ giới |
+| Các phương tiện xe cơ giới, trừ các xe được quy định tại Điều 8 Thông tư này | 60 | 50 |</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-10-15T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">Điều 6 TT 31/2019/TT-BGTVT</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TT31-D7">
+  <rdf:type rdf:resource="#Dieu"/>
+  <thuocVanBan rdf:resource="#TT31"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TT31-D7</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 7 TT 31/2019/TT-BGTVT</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tốc độ tối đa cho phép xe cơ giới tham gia giao thông ngoài khu vực đông dân cư (trừ đường cao tốc)
+| Loại xe cơ giới đường bộ | Tốc độ tối đa (km/h) |
+| Loại xe cơ giới đường bộ | Đường đôi; đường một chiều có từ hai làn xe cơ giới trở lên | Đường hai chiều; đường một chiều có một làn xe cơ giới |
+| Xe ô tô con, xe ô tô chở người đến 30 chỗ (trừ xe buýt); ô tô tải có trọng tải nhỏ hơn hoặc bằng 3,5 tấn | 90 | 80 |
+| Xe ô tô chở người trên 30 chỗ (trừ xe buýt); ô tô tải có trọng tải trên 3,5 tấn (trừ ô tô xi téc) | 80 | 70 |
+| Ô tô buýt; ô tô đầu kéo kéo sơ mi rơ moóc; xe mô tô; ô tô chuyên dùng (trừ ô tô trộn vữa, ô tô trộn bê tông) | 70 | 60 |
+| Ô tô kéo rơ moóc; ô tô kéo xe khác; ô tô trộn vữa, ô tô trộn bê tông, ô tô xi téc | 60 | 50 |</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-10-15T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">Điều 7 TT 31/2019/TT-BGTVT</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TT31-D8">
+  <rdf:type rdf:resource="#Dieu"/>
+  <thuocVanBan rdf:resource="#TT31"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TT31-D8</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 8 TT 31/2019/TT-BGTVT</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tốc độ tối đa cho phép đối với xe máy chuyên dùng, xe gắn máy (kể cả xe máy điện) và các loại xe tương tự trên đường bộ (trừ đường cao tốc)
+Đối với xe máy chuyên dùng, xe gắn máy (kể cả xe máy điện) và các loại xe tương tự khi tham gia giao thông tốc độ tối đa không quá 40 km/h.</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-10-15T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">Điều 8 TT 31/2019/TT-BGTVT</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TT31-D9">
+  <rdf:type rdf:resource="#Dieu"/>
+  <thuocVanBan rdf:resource="#TT31"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TT31-D9</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 9 TT 31/2019/TT-BGTVT</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tốc độ của các loại xe cơ giới, xe máy chuyên dùng trên đường cao tốc</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-10-15T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">Điều 9 TT 31/2019/TT-BGTVT</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TT31-D9-K1">
+  <rdf:type rdf:resource="#Khoan"/>
+  <thuocVanBan rdf:resource="#TT31"/>
+  <thuocDieuKhoanCha rdf:resource="#TT31-D9"/>
+  <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TT31-D9-K1</maDieuKhoan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 9 TT 31/2019/TT-BGTVT</trichDan>
+  <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tốc độ tối đa cho phép khai thác trên đường cao tốc không vượt quá 120 km/h.</noiDung>
+  <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
+  <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-10-15T00:00:00.000</hieuLucTu>
+  <hieuLucDen rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-31T00:00:00.000</hieuLucDen>
+  <rdfs:label xml:lang="vi">khoản 1 Điều 9 TT 31/2019/TT-BGTVT</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#TT38-D6">
   <rdf:type rdf:resource="#Dieu"/>
   <thuocVanBan rdf:resource="#TT38"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TT38-D6</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 6 TT38</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 6 TT 38/2024/TT-BGTVT</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tốc độ khai thác tối đa cho phép xe cơ giới tham gia giao thông trên đường bộ (trừ đường cao tốc)</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">Điều 6 TT38</rdfs:label>
+  <rdfs:label xml:lang="vi">Điều 6 TT 38/2024/TT-BGTVT</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#TT38-D6-K1">
@@ -10117,7 +10783,7 @@
   <thuocVanBan rdf:resource="#TT38"/>
   <thuocDieuKhoanCha rdf:resource="#TT38-D6"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TT38-D6-K1</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 6 TT38</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 6 TT 38/2024/TT-BGTVT</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tốc độ khai thác tối đa cho phép xe cơ giới tham gia giao thông trên đường bộ trong khu vực đông dân cư
 Bảng 1
 | Loại xe cơ giới đường bộ | Tốc độ khai thác tối đa (km/h) |
@@ -10125,7 +10791,7 @@ Bảng 1
 | Các loại xe cơ giới, trừ các xe được quy định tại Điều 7 và Điều 8 Thông tư này | 60 | 50 |</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 1 Điều 6 TT38</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 1 Điều 6 TT 38/2024/TT-BGTVT</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#TT38-D6-K2">
@@ -10133,7 +10799,7 @@ Bảng 1
   <thuocVanBan rdf:resource="#TT38"/>
   <thuocDieuKhoanCha rdf:resource="#TT38-D6"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TT38-D6-K2</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 2 Điều 6 TT38</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 2 Điều 6 TT 38/2024/TT-BGTVT</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tốc độ khai thác tối đa cho phép xe cơ giới tham gia giao thông trên đường bộ ngoài khu vực đông dân cư
 Bảng 2
 | Loại xe cơ giới đường bộ | Tốc độ khai thác tối đa (km/h) |
@@ -10144,30 +10810,30 @@ Bảng 2
 | Ô tô kéo rơ moóc; ô tô kéo xe khác; ô tô trộn vữa, ô tô trộn bê tông lưu động, ô tô xi téc, ô tô đầu kéo kéo sơ mi rơ moóc xi téc, ô tô kéo theo rơ moóc xi téc) | 60 | 50 |</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 2 Điều 6 TT38</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 2 Điều 6 TT 38/2024/TT-BGTVT</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#TT38-D7">
   <rdf:type rdf:resource="#Dieu"/>
   <thuocVanBan rdf:resource="#TT38"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TT38-D7</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 7 TT38</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 7 TT 38/2024/TT-BGTVT</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tốc độ khai thác tối đa cho phép đối với xe máy chuyên dùng, xe gắn máy và các loại xe tương tự tham gia giao thông trên đường bộ (trừ đường cao tốc)
 Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gia giao thông, tốc độ khai thác tối đa là 40 km/h.</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">Điều 7 TT38</rdfs:label>
+  <rdfs:label xml:lang="vi">Điều 7 TT 38/2024/TT-BGTVT</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#TT38-D8">
   <rdf:type rdf:resource="#Dieu"/>
   <thuocVanBan rdf:resource="#TT38"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TT38-D8</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 8 TT38</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 8 TT 38/2024/TT-BGTVT</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tốc độ khai thác tối đa cho phép đối với xe chở người bốn bánh có gắn động cơ, xe chở hàng bốn bánh có gắn động cơ tham gia giao thông trên đường bộ (trừ đường cao tốc)</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">Điều 8 TT38</rdfs:label>
+  <rdfs:label xml:lang="vi">Điều 8 TT 38/2024/TT-BGTVT</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#TT38-D8-K1">
@@ -10175,11 +10841,11 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#TT38"/>
   <thuocDieuKhoanCha rdf:resource="#TT38-D8"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TT38-D8-K1</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 8 TT38</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 8 TT 38/2024/TT-BGTVT</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Xe chở người bốn bánh có gắn động cơ khi tham gia giao thông trong phạm vi và thời gian cho phép hoạt động, tốc độ khai thác tối đa là 30 km/h.</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 1 Điều 8 TT38</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 1 Điều 8 TT 38/2024/TT-BGTVT</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#TT38-D8-K2">
@@ -10187,22 +10853,22 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#TT38"/>
   <thuocDieuKhoanCha rdf:resource="#TT38-D8"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TT38-D8-K2</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 2 Điều 8 TT38</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 2 Điều 8 TT 38/2024/TT-BGTVT</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Xe chở hàng bốn bánh có gắn động cơ khi tham gia giao thông trong phạm vi và thời gian cho phép hoạt động, tốc độ khai thác tối đa là 50 km/h.</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 2 Điều 8 TT38</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 2 Điều 8 TT 38/2024/TT-BGTVT</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#TT38-D9">
   <rdf:type rdf:resource="#Dieu"/>
   <thuocVanBan rdf:resource="#TT38"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TT38-D9</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 9 TT38</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 9 TT 38/2024/TT-BGTVT</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tốc độ khai thác tối đa, tốc độ khai thác tối thiểu cho phép đối với các loại xe cơ giới, xe máy chuyên dùng trên đường cao tốc</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">Điều 9 TT38</rdfs:label>
+  <rdfs:label xml:lang="vi">Điều 9 TT 38/2024/TT-BGTVT</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#TT38-D9-K2">
@@ -10210,11 +10876,11 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#TT38"/>
   <thuocDieuKhoanCha rdf:resource="#TT38-D9"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TT38-D9-K2</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 2 Điều 9 TT38</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 2 Điều 9 TT 38/2024/TT-BGTVT</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tốc độ khai thác tối đa cho phép trên đường cao tốc là 120 km/h.</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 2 Điều 9 TT38</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 2 Điều 9 TT 38/2024/TT-BGTVT</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#TT38-D9-K3">
@@ -10222,22 +10888,22 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#TT38"/>
   <thuocDieuKhoanCha rdf:resource="#TT38-D9"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TT38-D9-K3</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 3 Điều 9 TT38</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 3 Điều 9 TT 38/2024/TT-BGTVT</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tốc độ khai thác tối thiểu cho phép trên đường cao tốc là 60 km/h. Trường hợp đường cao tốc có tốc độ thiết kế 60 km/h thì tốc độ khai thác tối thiểu thực hiện theo phương án tổ chức giao thông được cấp có thẩm quyền phê duyệt.</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-01-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 3 Điều 9 TT38</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 3 Điều 9 TT 38/2024/TT-BGTVT</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D10">
   <rdf:type rdf:resource="#Dieu"/>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D10</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 10 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 10 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tình tiết tăng nặng</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">Điều 10 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">Điều 10 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D10-K1">
@@ -10245,11 +10911,11 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D10"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D10-K1</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 10 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 10 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Những tình tiết sau đây là tình tiết tăng nặng:</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 1 Điều 10 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 1 Điều 10 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D10-K1-a">
@@ -10257,11 +10923,11 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D10-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D10-K1-a</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm a khoản 1 Điều 10 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm a khoản 1 Điều 10 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vi phạm hành chính có tổ chức;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm a khoản 1 Điều 10 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">điểm a khoản 1 Điều 10 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D10-K1-b">
@@ -10269,11 +10935,11 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D10-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D10-K1-b</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm b khoản 1 Điều 10 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm b khoản 1 Điều 10 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vi phạm hành chính nhiều lần; tái phạm;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm b khoản 1 Điều 10 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">điểm b khoản 1 Điều 10 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D10-K1-c">
@@ -10281,11 +10947,11 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D10-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D10-K1-c</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm c khoản 1 Điều 10 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm c khoản 1 Điều 10 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Xúi giục, lôi kéo, sử dụng người chưa thành niên vi phạm; ép buộc người bị lệ thuộc vào mình về vật chất, tinh thần thực hiện hành vi vi phạm hành chính;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm c khoản 1 Điều 10 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">điểm c khoản 1 Điều 10 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D10-K1-d">
@@ -10293,11 +10959,11 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D10-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D10-K1-d</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm d khoản 1 Điều 10 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm d khoản 1 Điều 10 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sử dụng người biết rõ là đang bị tâm thần hoặc bệnh khác làm mất khả năng nhận thức hoặc khả năng điều khiển hành vi để vi phạm hành chính;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm d khoản 1 Điều 10 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">điểm d khoản 1 Điều 10 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D10-K1-dd">
@@ -10305,11 +10971,11 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D10-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D10-K1-dd</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm đ khoản 1 Điều 10 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm đ khoản 1 Điều 10 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lăng mạ, phỉ báng người đang thi hành công vụ; vi phạm hành chính có tính chất côn đồ;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm đ khoản 1 Điều 10 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">điểm đ khoản 1 Điều 10 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D10-K1-e">
@@ -10317,11 +10983,11 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D10-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D10-K1-e</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm e khoản 1 Điều 10 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm e khoản 1 Điều 10 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lợi dụng chức vụ, quyền hạn để vi phạm hành chính;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm e khoản 1 Điều 10 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">điểm e khoản 1 Điều 10 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D10-K1-g">
@@ -10329,11 +10995,11 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D10-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D10-K1-g</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm g khoản 1 Điều 10 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm g khoản 1 Điều 10 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lợi dụng hoàn cảnh chiến tranh, thiên tai, thảm họa, dịch bệnh hoặc những khó khăn đặc biệt khác của xã hội để vi phạm hành chính;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm g khoản 1 Điều 10 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">điểm g khoản 1 Điều 10 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D10-K1-h">
@@ -10341,11 +11007,11 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D10-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D10-K1-h</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm h khoản 1 Điều 10 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm h khoản 1 Điều 10 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vi phạm trong thời gian đang chấp hành hình phạt của bản án hình sự hoặc đang chấp hành quyết định áp dụng biện pháp xử lý vi phạm hành chính;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm h khoản 1 Điều 10 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">điểm h khoản 1 Điều 10 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D10-K1-i">
@@ -10353,11 +11019,11 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D10-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D10-K1-i</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm i khoản 1 Điều 10 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm i khoản 1 Điều 10 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tiếp tục thực hiện hành vi vi phạm hành chính mặc dù người có thẩm quyền đã yêu cầu chấm dứt hành vi đó;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm i khoản 1 Điều 10 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">điểm i khoản 1 Điều 10 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D10-K1-k">
@@ -10365,11 +11031,11 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D10-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D10-K1-k</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm k khoản 1 Điều 10 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm k khoản 1 Điều 10 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sau khi vi phạm đã có hành vi trốn tránh, che giấu vi phạm hành chính;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm k khoản 1 Điều 10 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">điểm k khoản 1 Điều 10 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D10-K1-l">
@@ -10377,11 +11043,11 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D10-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D10-K1-l</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm l khoản 1 Điều 10 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm l khoản 1 Điều 10 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vi phạm hành chính có quy mô lớn, số lượng hoặc trị giá hàng hóa lớn;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm l khoản 1 Điều 10 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">điểm l khoản 1 Điều 10 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D10-K1-m">
@@ -10389,11 +11055,11 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D10-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D10-K1-m</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm m khoản 1 Điều 10 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm m khoản 1 Điều 10 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vi phạm hành chính đối với nhiều người, trẻ em, người già, người khuyết tật, phụ nữ mang thai.</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm m khoản 1 Điều 10 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">điểm m khoản 1 Điều 10 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D10-K2">
@@ -10401,23 +11067,23 @@ Xe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gi
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D10"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D10-K2</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 2 Điều 10 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 2 Điều 10 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tình tiết quy định tại khoản 1 Điều này đã được quy định là hành vi vi phạm hành chính thì không được coi là tình tiết tăng nặng.</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 2 Điều 10 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 2 Điều 10 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D134">
   <rdf:type rdf:resource="#Dieu"/>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D134</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 134 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 134 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nguyên tắc xử lý
 Ngoài những nguyên tắc xử lý vi phạm hành chính quy định tại Điều 3 của Luật này, việc xử lý đối với người chưa thành niên còn được áp dụng các nguyên tắc sau đây:</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">Điều 134 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">Điều 134 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D134-K3">
@@ -10425,7 +11091,7 @@ Ngoài những nguyên tắc xử lý vi phạm hành chính quy định tại �
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D134"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D134-K3</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 3 Điều 134 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 3 Điều 134 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Việc áp dụng hình thức xử phạt, quyết định mức xử phạt đối với người chưa thành niên vi phạm hành chính phải nhẹ hơn so với người thành niên có cùng hành vi vi phạm hành chính.
 Trường hợp người từ đủ 14 tuổi đến dưới 16 tuổi vi phạm hành chính thì không áp dụng hình thức phạt tiền.
 Trường hợp người từ đủ 16 tuổi đến dưới 18 tuổi vi phạm hành chính bị phạt tiền thì mức tiền phạt không quá 1/2 mức tiền phạt áp dụng đối với người thành niên; bị buộc phải nộp một khoản tiền tương đương trị giá tang vật, phương tiện vi phạm hành chính vào ngân sách nhà nước theo quy định tại khoản 1 Điều 126 của Luật này thì số tiền nộp vào ngân sách nhà nước bằng 1/2 trị giá tang vật, phương tiện vi phạm hành chính. Trường hợp không có tiền nộp phạt hoặc không có khả năng thực hiện biện pháp khắc phục hậu quả thì cha mẹ hoặc người giám hộ phải thực hiện thay;</noiDung>
@@ -10433,18 +11099,18 @@ Trường hợp người từ đủ 16 tuổi đến dưới 18 tuổi vi phạm
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-01-01T00:00:00.000</hieuLucTu>
   <noiDungTruocDo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Không có trong dữ liệu — văn bản hợp nhất chỉ chứa câu chữ hiện hành; câu chữ áp dụng trước 2022-01-01 có thể khác.</noiDungTruocDo>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chú thích [271] văn bản hợp nhất: Khoản này được sửa đổi, bổ sung theo quy định tại khoản 68 Điều 1 của Luật số 67/2020/QH14 sửa đổi, bổ sung một số điều của Luật Xử lý vi phạm hành chính, có hiệu lực kể từ ngày 01 tháng 01 năm 2022.</canCuPhapLy>
-  <rdfs:label xml:lang="vi">khoản 3 Điều 134 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 3 Điều 134 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D23">
   <rdf:type rdf:resource="#Dieu"/>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D23</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 23 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 23 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Phạt tiền</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">Điều 23 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">Điều 23 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D23-K1">
@@ -10454,14 +11120,14 @@ Trường hợp người từ đủ 16 tuổi đến dưới 18 tuổi vi phạm
   <coKhungPhat rdf:resource="#KP_TC_LXLVPHC-D23-K1"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D23"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D23-K1</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 23 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 23 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mức phạt tiền trong xử phạt vi phạm hành chính từ 50.000 đồng đến 1.000.000.000 đồng đối với cá nhân, từ 100.000 đồng đến 2.000.000.000 đồng đối với tổ chức, trừ trường hợp quy định tại khoản 3 Điều 24 của Luật này.
 Đối với khu vực nội thành của thành phố thì mức phạt tiền có thể cao hơn, nhưng tối đa không quá 02 lần mức phạt chung áp dụng đối với cùng hành vi vi phạm trong các lĩnh vực giao thông đường bộ; bảo vệ môi trường; an ninh trật tự, an toàn xã hội.</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-01T00:00:00.000</hieuLucTu>
   <noiDungTruocDo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Không có trong dữ liệu — văn bản hợp nhất chỉ chứa câu chữ hiện hành; câu chữ áp dụng trước 2025-07-01 có thể khác.</noiDungTruocDo>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chú thích [27] văn bản hợp nhất: Cụm từ “trực thuộc trung ương” được bỏ theo quy định tại điểm a khoản 29 Điều 1 của Luật số 88/2025/QH15 sửa đổi, bổ sung một số điều của Luật Xử lý vi phạm hành chính, có hiệu lực kể từ ngày 01 tháng 7 năm 2025.</canCuPhapLy>
-  <rdfs:label xml:lang="vi">khoản 1 Điều 23 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 1 Điều 23 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#KP_LXLVPHC-D23-K1">
@@ -10469,7 +11135,7 @@ Trường hợp người từ đủ 16 tuổi đến dưới 18 tuổi vi phạm
   <mucToiThieu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50000</mucToiThieu>
   <mucToiDa rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1000000000</mucToiDa>
   <doiTuongApDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ca_nhan</doiTuongApDung>
-  <rdfs:label xml:lang="vi">50.000–1.000.000.000 đồng (LXLVPHC khoản 1 Điều 23 LXLVPHC)</rdfs:label>
+  <rdfs:label xml:lang="vi">50.000–1.000.000.000 đồng (LXLVPHC khoản 1 Điều 23 Luật XLVPHC)</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#KP_TC_LXLVPHC-D23-K1">
@@ -10484,25 +11150,25 @@ Trường hợp người từ đủ 16 tuổi đến dưới 18 tuổi vi phạm
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D23"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D23-K4</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 4 Điều 23 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 4 Điều 23 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mức tiền phạt cụ thể đối với một hành vi vi phạm hành chính là mức trung bình của khung tiền phạt được quy định đối với hành vi đó; nếu có tình tiết giảm nhẹ thì mức tiền phạt có thể giảm xuống nhưng không được thấp hơn mức tối thiểu của khung tiền phạt; nếu có tình tiết tăng nặng thì mức tiền phạt có thể tăng lên nhưng không được vượt quá mức tối đa của khung tiền phạt.
 Chính phủ quy định chi tiết khoản này.</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-01-01T00:00:00.000</hieuLucTu>
   <noiDungTruocDo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Không có trong dữ liệu — văn bản hợp nhất chỉ chứa câu chữ hiện hành; câu chữ áp dụng trước 2022-01-01 có thể khác.</noiDungTruocDo>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chú thích [30] văn bản hợp nhất: Khoản này được sửa đổi, bổ sung theo quy định tại khoản 9 Điều 1 của Luật số 67/2020/QH14 sửa đổi, bổ sung một số điều của Luật Xử lý vi phạm hành chính, có hiệu lực kể từ ngày 01 tháng 01 năm 2022.</canCuPhapLy>
-  <rdfs:label xml:lang="vi">khoản 4 Điều 23 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 4 Điều 23 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D3">
   <rdf:type rdf:resource="#Dieu"/>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D3</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 3 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 3 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nguyên tắc xử lý vi phạm hành chính</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">Điều 3 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">Điều 3 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D3-K1">
@@ -10510,11 +11176,11 @@ Chính phủ quy định chi tiết khoản này.</noiDung>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D3"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D3-K1</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 3 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 3 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nguyên tắc xử phạt vi phạm hành chính bao gồm:</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 1 Điều 3 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 1 Điều 3 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D3-K1-d">
@@ -10522,7 +11188,7 @@ Chính phủ quy định chi tiết khoản này.</noiDung>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D3-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D3-K1-d</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm d khoản 1 Điều 3 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm d khoản 1 Điều 3 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chỉ xử phạt vi phạm hành chính khi có hành vi vi phạm hành chính do pháp luật quy định.
 Một hành vi vi phạm hành chính chỉ bị xử phạt một lần.
 Nhiều người cùng thực hiện một hành vi vi phạm hành chính thì mỗi người vi phạm đều bị xử phạt về hành vi vi phạm hành chính đó.
@@ -10531,7 +11197,7 @@ Một người thực hiện nhiều hành vi vi phạm hành chính hoặc vi p
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-01-01T00:00:00.000</hieuLucTu>
   <noiDungTruocDo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Không có trong dữ liệu — văn bản hợp nhất chỉ chứa câu chữ hiện hành; câu chữ áp dụng trước 2022-01-01 có thể khác.</noiDungTruocDo>
   <canCuPhapLy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chú thích [7] văn bản hợp nhất: Điểm này được sửa đổi, bổ sung theo quy định tại khoản 2 Điều 1 của Luật số 67/2020/QH14 sửa đổi, bổ sung một số điều của Luật Xử lý vi phạm hành chính, có hiệu lực kể từ ngày 01 tháng 01 năm 2022.</canCuPhapLy>
-  <rdfs:label xml:lang="vi">điểm d khoản 1 Điều 3 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">điểm d khoản 1 Điều 3 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D3-K1-e">
@@ -10539,22 +11205,22 @@ Một người thực hiện nhiều hành vi vi phạm hành chính hoặc vi p
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D3-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D3-K1-e</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm e khoản 1 Điều 3 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm e khoản 1 Điều 3 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Đối với cùng một hành vi vi phạm hành chính thì mức phạt tiền đối với tổ chức bằng 02 lần mức phạt tiền đối với cá nhân.</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm e khoản 1 Điều 3 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">điểm e khoản 1 Điều 3 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D5">
   <rdf:type rdf:resource="#Dieu"/>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D5</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 5 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 5 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Đối tượng bị xử lý vi phạm hành chính</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">Điều 5 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">Điều 5 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D5-K1">
@@ -10562,11 +11228,11 @@ Một người thực hiện nhiều hành vi vi phạm hành chính hoặc vi p
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D5"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D5-K1</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 5 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 5 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Các đối tượng bị xử phạt vi phạm hành chính bao gồm:</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 1 Điều 5 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 1 Điều 5 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D5-K1-a">
@@ -10574,24 +11240,24 @@ Một người thực hiện nhiều hành vi vi phạm hành chính hoặc vi p
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D5-K1"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D5-K1-a</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm a khoản 1 Điều 5 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">điểm a khoản 1 Điều 5 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người từ đủ 14 tuổi đến dưới 16 tuổi bị xử phạt vi phạm hành chính về vi phạm hành chính do cố ý; người từ đủ 16 tuổi trở lên bị xử phạt vi phạm hành chính về mọi vi phạm hành chính.
 Người thuộc lực lượng Quân đội nhân dân, Công an nhân dân vi phạm hành chính thì bị xử lý như đối với công dân khác; trường hợp cần áp dụng hình thức phạt tước quyền sử dụng giấy phép, chứng chỉ hành nghề hoặc đình chỉ hoạt động có thời hạn liên quan đến quốc phòng, an ninh thì người xử phạt đề nghị cơ quan, đơn vị Quân đội nhân dân, Công an nhân dân có thẩm quyền xử lý;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">điểm a khoản 1 Điều 5 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">điểm a khoản 1 Điều 5 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D9">
   <rdf:type rdf:resource="#Dieu"/>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D9</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 9 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Điều 9 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tình tiết giảm nhẹ
 Những tình tiết sau đây là tình tiết giảm nhẹ:</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">Điều 9 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">Điều 9 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D9-K1">
@@ -10599,11 +11265,11 @@ Những tình tiết sau đây là tình tiết giảm nhẹ:</noiDung>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D9"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D9-K1</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 9 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 1 Điều 9 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người vi phạm hành chính đã có hành vi ngăn chặn, làm giảm bớt hậu quả của vi phạm hoặc tự nguyện khắc phục hậu quả, bồi thường thiệt hại;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 1 Điều 9 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 1 Điều 9 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D9-K2">
@@ -10611,11 +11277,11 @@ Những tình tiết sau đây là tình tiết giảm nhẹ:</noiDung>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D9"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D9-K2</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 2 Điều 9 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 2 Điều 9 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người vi phạm hành chính đã tự nguyện khai báo, thành thật hối lỗi; tích cực giúp đỡ cơ quan chức năng phát hiện vi phạm hành chính, xử lý vi phạm hành chính;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 2 Điều 9 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 2 Điều 9 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D9-K3">
@@ -10623,11 +11289,11 @@ Những tình tiết sau đây là tình tiết giảm nhẹ:</noiDung>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D9"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D9-K3</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 3 Điều 9 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 3 Điều 9 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vi phạm hành chính trong tình trạng bị kích động về tinh thần do hành vi trái pháp luật của người khác gây ra; vượt quá giới hạn phòng vệ chính đáng; vượt quá yêu cầu của tình thế cấp thiết;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 3 Điều 9 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 3 Điều 9 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D9-K4">
@@ -10635,11 +11301,11 @@ Những tình tiết sau đây là tình tiết giảm nhẹ:</noiDung>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D9"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D9-K4</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 4 Điều 9 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 4 Điều 9 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vi phạm hành chính do bị ép buộc hoặc bị lệ thuộc về vật chất hoặc tinh thần;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 4 Điều 9 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 4 Điều 9 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D9-K5">
@@ -10647,11 +11313,11 @@ Những tình tiết sau đây là tình tiết giảm nhẹ:</noiDung>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D9"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D9-K5</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 5 Điều 9 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 5 Điều 9 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Người vi phạm hành chính là phụ nữ mang thai, người già yếu, người có bệnh hoặc khuyết tật làm hạn chế khả năng nhận thức hoặc khả năng điều khiển hành vi của mình;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 5 Điều 9 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 5 Điều 9 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D9-K6">
@@ -10659,11 +11325,11 @@ Những tình tiết sau đây là tình tiết giảm nhẹ:</noiDung>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D9"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D9-K6</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 6 Điều 9 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 6 Điều 9 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vi phạm hành chính vì hoàn cảnh đặc biệt khó khăn mà không do mình gây ra;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 6 Điều 9 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 6 Điều 9 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D9-K7">
@@ -10671,11 +11337,11 @@ Những tình tiết sau đây là tình tiết giảm nhẹ:</noiDung>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D9"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D9-K7</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 7 Điều 9 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 7 Điều 9 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vi phạm hành chính do trình độ lạc hậu;</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 7 Điều 9 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 7 Điều 9 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#LXLVPHC-D9-K8">
@@ -10683,11 +11349,11 @@ Những tình tiết sau đây là tình tiết giảm nhẹ:</noiDung>
   <thuocVanBan rdf:resource="#LXLVPHC"/>
   <thuocDieuKhoanCha rdf:resource="#LXLVPHC-D9"/>
   <maDieuKhoan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LXLVPHC-D9-K8</maDieuKhoan>
-  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 8 Điều 9 LXLVPHC</trichDan>
+  <trichDan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">khoản 8 Điều 9 Luật XLVPHC</trichDan>
   <noiDung rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Những tình tiết giảm nhẹ khác do Chính phủ quy định.</noiDung>
   <trangThai rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</trangThai>
   <hieuLucTu rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-07-01T00:00:00.000</hieuLucTu>
-  <rdfs:label xml:lang="vi">khoản 8 Điều 9 LXLVPHC</rdfs:label>
+  <rdfs:label xml:lang="vi">khoản 8 Điều 9 Luật XLVPHC</rdfs:label>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#TTGN_1">

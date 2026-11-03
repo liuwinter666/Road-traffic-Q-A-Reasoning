@@ -94,7 +94,8 @@ thresholds:
   - {name: DungTichTu50cm3, group: NhomDungTichCongSuat, cls: PhuongTien, property: dungTichXiLanh,
      datatype: float, min_inclusive: 50, label: "Dung tích xi-lanh từ 50 cm3 trở lên",
      evidence: [{version: V1, id: ND100-D21-K4-a, phrase: "từ 50 cm3 trở lên"},
-                {version: V3, id: ND168-D18-K4-a, phrase: "từ 50 cm3 trở lên"}]}
+                {version: V3, id: ND168-D18-K4-a, phrase: "từ 50 cm3 trở lên"},
+                {version: GTDB2008, id: GTDB2008-D60-K1-b, phrase: "có dung tích xi-lanh từ 50 cm3 trở lên"}]}
   - {name: CongSuatTu4kW, group: NhomDungTichCongSuat, cls: PhuongTien, property: congSuatDongCoDien,
      datatype: float, min_inclusive: 4, label: "Công suất động cơ điện từ 04 kW trở lên",
      evidence: [{version: V3, id: ND168-D18-K4-a, phrase: "công suất động cơ điện từ 04 kW trở lên"}]}
@@ -162,10 +163,12 @@ thresholds_luat:
   - {name: NguoiTu16TuoiTroLen, group: NhomTuoi, cls: Nguoi, property: tuoi, datatype: int, min_inclusive: 16,
      label: "Người từ đủ 16 tuổi trở lên",
      evidence: [{version: LXLVPHC, id: LXLVPHC-D5-K1-a, phrase: "người từ đủ 16 tuổi trở lên bị xử phạt vi phạm hành chính về mọi vi phạm hành chính"},
-                {version: LTTATGT, id: LTTATGT-D59-K1-a, phrase: "Người đủ 16 tuổi trở lên được điều khiển xe gắn máy"}]}
+                {version: LTTATGT_2025, id: LTTATGT-D59-K1-a, phrase: "Người đủ 16 tuổi trở lên được điều khiển xe gắn máy"},
+                {version: GTDB2008, id: GTDB2008-D60-K1-a, phrase: "Người đủ 16 tuổi trở lên được lái xe gắn máy có dung tích xi-lanh dưới 50 cm3"}]}
   - {name: NguoiTu18TuoiTroLen, group: NhomTuoi, cls: Nguoi, property: tuoi, datatype: int, min_inclusive: 18,
      label: "Người từ đủ 18 tuổi trở lên (được cấp GPLX hạng A1, A, B1, B, C1)",
-     evidence: [{version: LTTATGT, id: LTTATGT-D59-K1-b, phrase: "Người đủ 18 tuổi trở lên được cấp giấy phép lái xe hạng A1, A, B1, B, C1"}]}
+     evidence: [{version: LTTATGT_2025, id: LTTATGT-D59-K1-b, phrase: "Người đủ 18 tuổi trở lên được cấp giấy phép lái xe hạng A1, A, B1, B, C1"},
+                {version: GTDB2008, id: GTDB2008-D60-K1-b, phrase: "Người đủ 18 tuổi trở lên được lái xe mô tô hai bánh, xe mô tô ba bánh có dung tích xi-lanh từ 50 cm3 trở lên"}]}
 
 # Điều khoản của văn bản bổ trợ được nạp vào ontology làm căn cứ (Phase 3 dùng cho luật và quyết định mức phạt)
 support_provisions:
@@ -174,6 +177,8 @@ support_provisions:
   LTTATGT: [LTTATGT-D56-K1, LTTATGT-D56-K4, LTTATGT-D57-K1-a, LTTATGT-D57-K1-b, LTTATGT-D57-K1-d,
             LTTATGT-D59-K1-a, LTTATGT-D59-K1-b]
   TT38: [TT38-D6-K1, TT38-D6-K2, TT38-D7, TT38-D8-K1, TT38-D8-K2, TT38-D9-K2, TT38-D9-K3]
+  GTDB2008: [GTDB2008-D58-K1, GTDB2008-D58-K2, GTDB2008-D60-K1-a, GTDB2008-D60-K1-b]
+  TT31: [TT31-D6, TT31-D7, TT31-D8, TT31-D9-K1]
 
 # Cá thể tình tiết: mỗi khoản/điểm con của `parent_id` là một cá thể của `class`
 tinh_tiet:

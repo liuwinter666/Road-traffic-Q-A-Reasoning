@@ -147,15 +147,109 @@ supporting_documents:
     effective_to: null
     evidence: "Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2025, trừ trường hợp quy định tại khoản 2 Điều này."
     verified: true
-    vai_tro: "Điều kiện người điều khiển (Điều 56), hạng GPLX (Điều 57), độ tuổi (Điều 59) — căn cứ 'người không đủ điều kiện' cho V3, V4"
-    thay_the: "Luật Giao thông đường bộ số 23/2008/QH12 (áp cho V1, V2) — KHÔNG có trong data/raw/"
-    sua_doi_chua_co: ["Luật số 118/2025/QH15 (được NĐ 238 dẫn là có sửa đổi Luật này) — chưa có trong data/raw/"]
+    vai_tro: "Điều kiện người điều khiển (Điều 56), hạng GPLX (Điều 57), độ tuổi (Điều 59) — áp cho vi phạm từ 01/01/2025"
+    thay_the: "Luật Giao thông đường bộ số 23/2008/QH12 (GTDB2008)"
     element_effectivity:
       - ids: [LTTATGT-D10-K3]
         pham_vi: toan_bo
         effective_from: 2026-01-01
         evidence: "Khoản 3 Điều 10 của Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2026."
         verified: true
+    # Luật 118/2025 sửa Luật này (Điều 7 Luật 118). Các lệnh có hai ngày hiệu lực khác nhau
+    # (khoản 2 Điều 11 Luật 118) nên có ba phiên bản:
+    versions:
+      LTTATGT_2025:
+        label: "Luật TTATGT 2024 nguyên bản"
+        effective_from: 2025-01-01
+        effective_to: 2025-12-31
+        build: {base: LTTATGT}
+      LTTATGT_2026A:
+        label: "Luật TTATGT + điểm a khoản 20 Điều 7 Luật 118/2025 (lùi hiệu lực khoản 3 Điều 10)"
+        effective_from: 2026-01-01
+        effective_to: 2026-06-30
+        build:
+          base_version: LTTATGT_2025
+          amendments: [{doc: L118, only: ["điểm a khoản 20 Điều 7 Luật 118/2025/QH15"]}]
+      LTTATGT_2026B:
+        label: "Luật TTATGT hợp nhất toàn bộ sửa đổi tại Điều 7 Luật 118/2025"
+        effective_from: 2026-07-01
+        effective_to: null
+        build:
+          base_version: LTTATGT_2025
+          amendments: [L118]
+        # Khoản 2a Điều 88 do điểm b khoản 20 Điều 7 Luật 118 bổ sung (hiệu lực cùng phiên bản này)
+        element_effectivity:
+          - ids: [LTTATGT-D35-K2]
+            pham_vi: mot_phan
+            mo_ta_pham_vi: "Quy định lắp thiết bị ghi nhận hình ảnh người lái xe đối với xe ô tô kinh doanh vận tải hành khách dưới 08 chỗ (không kể chỗ của người lái xe), xe ô tô kinh doanh vận tải hàng hóa (trừ xe ô tô đầu kéo), xe vận tải nội bộ"
+            effective_from: 2028-01-01
+            evidence_doc: L118
+            evidence: "Quy định lắp thiết bị ghi nhận hình ảnh người lái xe đối với xe ô tô kinh doanh vận tải hành khách dưới 08 chỗ (không kể chỗ của người lái xe), xe ô tô kinh doanh vận tải hàng hóa (trừ xe ô tô đầu kéo), xe vận tải nội bộ tại khoản 2 Điều 35 của Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2028."
+            verified: true
+          - ids: [LTTATGT-D35-K2]
+            pham_vi: mot_phan
+            mo_ta_pham_vi: "Quy định lắp thiết bị ghi nhận hình ảnh khoang chở khách đối với xe ô tô kinh doanh vận tải hành khách từ 08 chỗ trở lên (không kể chỗ của người lái xe)"
+            effective_from: 2029-01-01
+            hieu_luc_dieu_kien: "thực hiện theo lộ trình do Chính phủ quy định"
+            dieu_kien_da_dap_ung: false
+            evidence_doc: L118
+            evidence: "Quy định lắp thiết bị ghi nhận hình ảnh khoang chở khách đối với xe ô tô kinh doanh vận tải hành khách từ 08 chỗ trở lên (không kể chỗ của người lái xe) tại khoản 2 Điều 35 của Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2029 và thực hiện theo lộ trình do Chính phủ quy định."
+            verified: true
+
+  L118:
+    file: Luat_118.docx
+    so_hieu: "118/2025/QH15"
+    nhan: "Luật 118/2025/QH15"
+    loai: luat
+    type: amendment
+    ten: "Luật sửa đổi, bổ sung một số điều của 10 luật có liên quan đến an ninh, trật tự"
+    ngay_ban_hanh: 2025-12-10
+    amends: LTTATGT
+    amend_dieu: ["7"]          # Điều 7 sửa Luật TTATGT; các Điều khác sửa luật khác → bỏ qua
+    effective_from: 2026-07-01
+    evidence: "Luật này có hiệu lực thi hành từ ngày 01 tháng 7 năm 2026, trừ quy định tại khoản 2 Điều này."
+    evidence_khac: "Quy định tại điểm a khoản 20 Điều 7 của Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2026."
+    verified: true
+    element_effectivity:
+      - ids: [LTTATGT-D10-K3]
+        pham_vi: toan_bo
+        effective_from: 2026-07-01
+        evidence: "Khoản 3 Điều 10 của Luật này có hiệu lực thi hành từ ngày 01 tháng 7 năm 2026."
+        verified: true
+
+  GTDB2008:
+    file: GTDB_2008.docx
+    so_hieu: "23/2008/QH12"
+    loai: luat
+    ten: "Luật Giao thông đường bộ"
+    ngay_ban_hanh: 2008-11-13
+    effective_from: 2009-07-01
+    effective_to: 2024-12-31
+    evidence: "Luật này có hiệu lực thi hành từ ngày 01 tháng 7 năm 2009."
+    effective_to_evidence:
+      doc: LTTATGT
+      quote: "Luật Giao thông đường bộ số 23/2008/QH12 đã được sửa đổi, bổ sung một số điều theo Luật số 35/2018/QH14 và Luật số 44/2019/QH14 hết hiệu lực kể từ ngày Luật này có hiệu lực thi hành"
+    verified: true
+    vai_tro: "Điều kiện người lái xe (Điều 58), độ tuổi (Điều 60) — áp cho vi phạm đến 31/12/2024 (V1, V2)"
+    sua_doi_chua_co:
+      - "Luật số 35/2018/QH14 và Luật số 44/2019/QH14 (được khoản 3 Điều 88 Luật TTATGT nêu) — file data/raw/GTDB_2008.docx là bản gốc 2008, chưa gồm các sửa đổi này"
+
+  TT31:
+    file: TT_31.docx
+    so_hieu: "31/2019/TT-BGTVT"
+    loai: thong_tu
+    ten: "Thông tư quy định về tốc độ và khoảng cách an toàn của xe cơ giới, xe máy chuyên dùng tham gia giao thông đường bộ"
+    ngay_ban_hanh: 2019-08-29
+    effective_from: 2019-10-15
+    effective_to: 2024-12-31
+    evidence: "Thông tư này có hiệu lực kể từ ngày 15 tháng 10 năm 2019"
+    effective_to_evidence:
+      doc: TT38
+      quote: "Thông tư này có hiệu lực kể từ ngày 01 tháng 01 năm 2025 và thay thế Thông tư số 31/2019/TT-BGTVT"
+    verified: true
+    vai_tro: "Tốc độ tối đa khi không có biển báo (Điều 6–9) — áp cho vi phạm đến 31/12/2024 (V1, V2)"
+    sua_doi_chua_co:
+      - "Điều 15 Thông tư số 06/2023/TT-BGTVT (TT 38 'thay thế Điều 15 Thông tư số 06/2023/TT-BGTVT ... sửa đổi, bổ sung một số điều của các Thông tư ...') — có thể đã sửa TT 31 từ năm 2023; chưa có trong data/raw/"
 
   TT38:
     file: TT_38.docx
@@ -168,7 +262,7 @@ supporting_documents:
     evidence: "Thông tư này có hiệu lực kể từ ngày 01 tháng 01 năm 2025 và thay thế Thông tư số 31/2019/TT-BGTVT"
     verified: true
     vai_tro: "Tốc độ khai thác tối đa khi không có biển báo (Điều 6–9) — dùng để suy ra tocDoToiDaChoPhep"
-    thay_the: "Thông tư số 31/2019/TT-BGTVT (áp cho V1, V2) — KHÔNG có trong data/raw/"
+    thay_the: "Thông tư số 31/2019/TT-BGTVT (TT31)"
 
   LXLVPHC:
     file: VPHC.docx
@@ -182,3 +276,9 @@ supporting_documents:
     verified: true
     hop_nhat: true   # dùng chú thích [n] để xác định ngày hiệu lực của câu chữ hiện hành từng phần tử
     vai_tro: "Tình tiết giảm nhẹ/tăng nặng (Điều 9, 10), mức phạt cụ thể (khoản 4 Điều 23), đối tượng bị xử phạt (Điều 5), người chưa thành niên (Điều 134)"
+
+# Văn bản bổ trợ theo vai trò: hệ thống chọn văn bản (hoặc phiên bản của văn bản) có hiệu lực tại ngày vi phạm.
+support_roles:
+  dieu_kien_nguoi_lai: [GTDB2008, LTTATGT]
+  toc_do_toi_da: [TT31, TT38]
+  xu_ly_vphc: [LXLVPHC]

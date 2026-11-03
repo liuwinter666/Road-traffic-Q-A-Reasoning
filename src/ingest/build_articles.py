@@ -71,36 +71,84 @@ class Builder:
         self._parsed: dict[str, ParsedDoc] = {}
         self._built: dict[str, VersionBuild] = {}
 
+    def doc_meta(self, doc_key: str) -> dict:
+        return doc_meta(self.cfg, doc_key)
+
     def parsed(self, doc_key: str) -> ParsedDoc:
         if doc_key not in self._parsed:
-            meta = self.cfg["documents"].get(doc_key) or self.cfg["supporting_documents"][doc_key]
-            self._parsed[doc_key] = parse_file(doc_key, RAW_DIR / meta["file"])
+            self._parsed[doc_key] = parse_file(doc_key, RAW_DIR / self.doc_meta(doc_key)["file"])
         return self._parsed[doc_key]
 
     def build(self, vname: str) -> VersionBuild:
         if vname in self._built:
             return self._built[vname]
-        spec = self.cfg["versions"][vname]["build"]
+        spec = version_spec(self.cfg, vname)["build"]
         if "base" in spec:
             vb = VersionBuild(vname, self.parsed(spec["base"]), [spec["base"]])
         else:
             prev = self.build(spec["base_version"])
             vb = VersionBuild(vname, copy.deepcopy(prev.doc), list(prev.sources),
                               list(prev.consolidation))
-        for am_key in spec.get("amendments", []):
-            meta = self.cfg["documents"][am_key]
+        for am in spec.get("amendments", []):
+            # am: "ND123" hoặc {doc: L118, only: [ref lệnh, ...]} — chỉ áp một phần lệnh khi các lệnh
+            # của văn bản sửa đổi có ngày hiệu lực khác nhau
+            am_key, only = (am, None) if isinstance(am, str) else (am["doc"], am.get("only"))
+            meta = self.doc_meta(am_key)
             if meta.get("amends") != vb.doc.doc:
                 raise ValueError(f"{am_key} sửa {meta.get('amends')}, không phải {vb.doc.doc}")
-            label = f"NĐ {meta['so_hieu']}".replace("/NĐ-CP", "")
+            label = meta.get("nhan") or f"NĐ {meta['so_hieu']}".replace("/NĐ-CP", "")
             ad = meta["amend_dieu"]
             ad = [str(x) for x in ad] if isinstance(ad, list) else str(ad)
             instrs = extract_instructions(self.parsed(am_key), ad, label)
+            if only is not None:
+                missing = set(only) - {i.ref for i in instrs}
+                if missing:
+                    raise ValueError(f"{am_key}: không thấy lệnh {missing}")
+                instrs = [i for i in instrs if i.ref in only]
             c = Consolidator(vb.doc, label, self.overrides)
             vb.doc = c.run(instrs)
             vb.sources.append(am_key)
             vb.consolidation.append((am_key, c.results))
         self._built[vname] = vb
         return vb
+
+
+def doc_meta(cfg: dict, doc_key: str) -> dict:
+    """Thông tin văn bản trong `documents` hoặc `supporting_documents`."""
+    return cfg["documents"].get(doc_key) or cfg["supporting_documents"][doc_key]
+
+
+def all_versions(cfg: dict) -> dict[str, dict]:
+    """Mọi phiên bản: phiên bản nghị định (`versions`) và phiên bản văn bản bổ trợ có nhiều phiên bản.
+
+    Mỗi spec được gắn thêm `_doc` (khóa văn bản gốc) và `_kind` ("nghi_dinh" | "bo_tro").
+    """
+    out = {v: {**m, "_kind": "nghi_dinh"} for v, m in cfg["versions"].items()}
+    for key, meta in (cfg.get("supporting_documents") or {}).items():
+        for v, m in (meta.get("versions") or {}).items():
+            out[v] = {**m, "_kind": "bo_tro", "_doc": key}
+    return out
+
+
+def version_spec(cfg: dict, vname: str) -> dict:
+    return all_versions(cfg)[vname]
+
+
+def support_outputs(cfg: dict) -> dict[str, dict]:
+    """Khóa đầu ra support_<khóa>.jsonl → thông tin: văn bản bổ trợ một phiên bản dùng khóa văn bản,
+    văn bản có nhiều phiên bản dùng khóa phiên bản. Bỏ qua văn bản sửa đổi (type: amendment)."""
+    out = {}
+    for key, meta in (cfg.get("supporting_documents") or {}).items():
+        if meta.get("type") == "amendment":
+            continue
+        if meta.get("versions"):
+            for v, m in meta["versions"].items():
+                out[v] = {"doc": key, "version": v, "effective_from": m["effective_from"],
+                          "effective_to": m.get("effective_to"), "label": m.get("label", v)}
+        else:
+            out[key] = {"doc": key, "version": None, "effective_from": meta["effective_from"],
+                        "effective_to": meta.get("effective_to"), "label": meta.get("ten", key)}
+    return out
 
 
 def _effectivity_map(cfg: dict, sources: list[str], section: str = "documents") -> dict[str, list[dict]]:
@@ -263,16 +311,29 @@ def flatten_doc(doc: ParsedDoc, *, version: str | None, so_hieu: str, sources: l
     return records
 
 
+def _version_effectivity(cfg: dict, vb: VersionBuild) -> dict[str, list[dict]]:
+    """element_effectivity của các văn bản nguồn + của chính phiên bản (nếu khai báo ở cấp phiên bản)."""
+    eff = {}
+    for k in vb.sources:
+        for o in doc_meta(cfg, k).get("element_effectivity", []) or []:
+            for i in o["ids"]:
+                eff.setdefault(i, []).append(o)
+    for o in version_spec(cfg, vb.name).get("element_effectivity", []) or []:
+        for i in o["ids"]:
+            eff.setdefault(i, []).append(o)
+    return eff
+
+
 def flatten(vb: VersionBuild, cfg: dict) -> list[dict]:
-    """Bản ghi JSONL của một phiên bản nghị định."""
-    vmeta = cfg["versions"][vb.name]
-    return flatten_doc(vb.doc, version=vb.name, so_hieu=cfg["documents"][vb.doc.doc]["so_hieu"],
+    """Bản ghi JSONL của một phiên bản (nghị định hoặc văn bản bổ trợ có nhiều phiên bản)."""
+    vmeta = version_spec(cfg, vb.name)
+    return flatten_doc(vb.doc, version=vb.name, so_hieu=doc_meta(cfg, vb.doc.doc)["so_hieu"],
                        sources=vb.sources, v_from=_iso(vmeta["effective_from"]),
-                       v_to=_iso(vmeta.get("effective_to")), eff_map=_effectivity_map(cfg, vb.sources))
+                       v_to=_iso(vmeta.get("effective_to")), eff_map=_version_effectivity(cfg, vb))
 
 
 def flatten_support(key: str, cfg: dict, doc: ParsedDoc) -> list[dict]:
-    """Bản ghi JSONL của một văn bản bổ trợ (luật, thông tư)."""
+    """Bản ghi JSONL của một văn bản bổ trợ chỉ có một phiên bản (luật, thông tư)."""
     meta = cfg["supporting_documents"][key]
     return flatten_doc(doc, version=None, so_hieu=meta["so_hieu"], sources=[key],
                        v_from=_iso(meta["effective_from"]), v_to=_iso(meta.get("effective_to")),
@@ -314,14 +375,15 @@ def write_review(builder: Builder, cfg: dict, path: Path) -> None:
         L.append("- Không có.")
     L.append("")
 
-    seen = set()
-    for vname in cfg["versions"]:
-        vb = builder.build(vname)
-        for am_key, results in vb.consolidation:
-            if am_key in seen:
-                continue
-            seen.add(am_key)
-            meta = cfg["documents"][am_key]
+    # Mỗi văn bản sửa đổi báo cáo một lần, theo phiên bản áp nhiều lệnh nhất (áp toàn bộ)
+    best: dict[str, tuple[str, list]] = {}
+    for vname in all_versions(cfg):
+        for am_key, results in builder.build(vname).consolidation:
+            if am_key not in best or len(results) > len(best[am_key][1]):
+                best[am_key] = (vname, results)
+    for am_key, (vname, results) in best.items():
+        if True:
+            meta = doc_meta(cfg, am_key)
             n = {s: sum(r.status == s for r in results) for s in ("applied", "header", "review", "skipped")}
             L += [f"## 2. Hợp nhất {am_key} ({meta['so_hieu']}) vào {meta['amends']} → {vname}", "",
                   f"- Tổng số dòng lệnh: {len(results)}",
@@ -399,9 +461,10 @@ def main() -> None:
     for vname in cfg["versions"]:
         vb = builder.build(vname)
         write_jsonl(flatten(vb, cfg), PROCESSED_DIR / f"articles_{vname.lower()}.jsonl")
-    for key in cfg.get("supporting_documents") or {}:
-        write_jsonl(flatten_support(key, cfg, builder.parsed(key)),
-                    PROCESSED_DIR / f"support_{key.lower()}.jsonl")
+    for out_key, info in support_outputs(cfg).items():
+        recs = (flatten(builder.build(out_key), cfg) if info["version"]
+                else flatten_support(out_key, cfg, builder.parsed(out_key)))
+        write_jsonl(recs, PROCESSED_DIR / f"support_{out_key.lower()}.jsonl")
     write_review(builder, cfg, PROCESSED_DIR / "consolidation_review.md")
 
 

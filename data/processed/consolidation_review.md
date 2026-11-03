@@ -6,6 +6,8 @@ _Sinh tự động bởi `python -m src.ingest.build_articles` ngày 2026-11-03.
 
 - **ND123**: Đoạn 856: thay 1 ký tự Kirin giống Latin: 'р) Sửa đổi khoản 13 Điều 30 như sau:' -> 'p) Sửa đổi khoản 13 Điều 30 như sau:'
 - **ND123**: Đoạn 860: thay 1 ký tự Kirin giống Latin: 'с) Giao phương tiện hoặc để cho người là' -> 'c) Giao phương tiện hoặc để cho người là'
+- **L118**: Trùng khoản 4 Điều 5 tại đoạn 236
+- **L118**: Trùng khoản 5 Điều 5 tại đoạn 238
 
 ## 2. Hợp nhất ND123 (123/2021/NĐ-CP) vào ND100 → V2
 
@@ -255,6 +257,59 @@ Các lệnh *bổ sung cụm từ* được ghép tự động (có xử lý d�
 | 59 | khoản 16 Điều 19 NĐ 238/2026 | Bỏ cụm từ “trực thuộc trung ương” | ND168-D55 |
 | 60 | khoản 17 Điều 19 NĐ 238/2026 | Bãi bỏ | ND168-D32-K17-d, ND168-D32-K17-dd, ND168-D32-K17-e, ND168-D32-K17-g |
 
+## 2. Hợp nhất L118 (118/2025/QH15) vào LTTATGT → LTTATGT_2026B
+
+- Tổng số dòng lệnh: 39
+- Đã tự áp: **31**
+- Tiêu đề nhóm (không cần áp): 8
+- Bỏ qua theo duyệt tay: 0
+- **Cần duyệt tay: 0**
+
+### 2.1. Lệnh CHƯA áp — cần duyệt tay
+
+Không có.
+### 2.2. Đã áp nhưng nên kiểm tra lại
+
+Các lệnh *bổ sung cụm từ* được ghép tự động (có xử lý dấu câu); nên đối chiếu với nguyên văn.
+
+- Không có.
+
+### 2.3. Nhật ký áp đầy đủ
+
+| # | Lệnh | Thao tác | Đơn vị bị ảnh hưởng |
+|---|---|---|---|
+| 1 | điểm a khoản 1 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D7-K1-c, LTTATGT-D7-K1-d |
+| 2 | điểm b khoản 1 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D7-K1-h |
+| 3 | khoản 2 Điều 7 Luật 118/2025/QH15 | Thay ['18'] và bổ sung ['18a'] | LTTATGT-D9-K18, LTTATGT-D9-K18a |
+| 4 | khoản 3 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D10-K3 |
+| 5 | khoản 4 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D27-K3-a, LTTATGT-D27-K3-b |
+| 6 | điểm a khoản 5 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D34-K4 |
+| 7 | điểm b khoản 5 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D34-K6 |
+| 8 | khoản 6 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D35-K2, LTTATGT-D35-K3 |
+| 9 | khoản 7 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D41-K7 |
+| 10 | điểm a khoản 8 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D42-K4 |
+| 11 | điểm b khoản 8 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D42-K5-e |
+| 12 | khoản 9 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D43-K1 |
+| 13 | khoản 10 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D52-K9 |
+| 14 | khoản 11 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D57-K9 |
+| 15 | điểm a khoản 12 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D60-K3-e |
+| 16 | điểm b khoản 12 Điều 7 Luật 118/2025/QH15 | Thay ['7', '8'] và bổ sung ['9'] | LTTATGT-D60-K7, LTTATGT-D60-K8, LTTATGT-D60-K9 |
+| 17 | điểm a khoản 13 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D61-K4 |
+| 18 | điểm b khoản 13 Điều 7 Luật 118/2025/QH15 | Thay ['6', '7'] và bổ sung ['8'] | LTTATGT-D61-K6, LTTATGT-D61-K7, LTTATGT-D61-K8 |
+| 19 | điểm a khoản 14 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D62-K5-b |
+| 20 | điểm b khoản 14 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D62-K6 |
+| 21 | khoản 15 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D64-K1 |
+| 22 | khoản 16 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D67-K3 |
+| 23 | khoản 17 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D71 |
+| 24 | khoản 18 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D75-K4-c |
+| 25 | khoản 19 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D87-K2, LTTATGT-D87-K3 |
+| 26 | điểm a khoản 20 Điều 7 Luật 118/2025/QH15 | Thay đơn vị | LTTATGT-D88-K2 |
+| 27 | điểm b khoản 20 Điều 7 Luật 118/2025/QH15 | Bổ sung khoản ['2a'] | LTTATGT-D88-K2a |
+| 28 | khoản 21 Điều 7 Luật 118/2025/QH15 | Thay cụm từ “Bộ Giao thông vận tải” bằng “Bộ Xây dựng” | LTTATGT-D11-K13, LTTATGT-D12-K4, LTTATGT-D42-K5, LTTATGT-D49-K1-d, LTTATGT-D53-K7, LTTATGT-D63-K4 |
+| 29 | điểm a khoản 22 Điều 7 Luật 118/2025/QH15 | Bỏ cụm từ “, Bộ Lao động, Thương binh và Xã hội,” | LTTATGT-D6-K3 |
+| 30 | điểm b khoản 22 Điều 7 Luật 118/2025/QH15 | Bỏ cụm từ “trực thuộc trung ương” | LTTATGT-D75-K3 |
+| 31 | khoản 23 Điều 7 Luật 118/2025/QH15 | Bãi bỏ | LTTATGT-D62-K7 |
+
 ## 3. Hiệu lực riêng theo phần tử / phần nội dung
 
 - ND168 ND168-D6-K3-m, ND168-D26-K4-e, ND168-D27-K1-b (toàn bộ): từ `2026-01-01`
@@ -262,12 +317,17 @@ Các lệnh *bổ sung cụm từ* được ghép tự động (có xử lý d�
 - ND238 ND168-D20-K5-l, ND168-D21-K3-b, ND168-D32-K9a-b (một phần nội dung): từ `2028-01-01`
 - ND238 ND168-D20-K5-n, ND168-D26-K7-k, ND168-D26-K7-l (toàn bộ): từ `2029-01-01`; **có điều kiện**: theo quy định của pháp luật về thiết bị ghi nhận hình ảnh khoang chở khách trên phương tiện giao thông đường bộ
 - LTTATGT LTTATGT-D10-K3 (toàn bộ): từ `2026-01-01`
+- L118 LTTATGT-D10-K3 (toàn bộ): từ `2026-07-01`
 
 ## 4. Văn bản bổ trợ và văn bản được thay thế nhưng chưa có
 
-- **LTTATGT** (36/2024/QH15): hiệu lực từ 2025-01-01. Điều kiện người điều khiển (Điều 56), hạng GPLX (Điều 57), độ tuổi (Điều 59) — căn cứ 'người không đủ điều kiện' cho V3, V4
-  - Thay thế: Luật Giao thông đường bộ số 23/2008/QH12 (áp cho V1, V2) — KHÔNG có trong data/raw/
-  - Sửa đổi chưa có: Luật số 118/2025/QH15 (được NĐ 238 dẫn là có sửa đổi Luật này) — chưa có trong data/raw/ **TODO_VERIFY**
+- **LTTATGT** (36/2024/QH15): hiệu lực từ 2025-01-01. Điều kiện người điều khiển (Điều 56), hạng GPLX (Điều 57), độ tuổi (Điều 59) — áp cho vi phạm từ 01/01/2025
+  - Thay thế: Luật Giao thông đường bộ số 23/2008/QH12 (GTDB2008)
+- **L118** (118/2025/QH15): hiệu lực từ 2026-07-01. 
+- **GTDB2008** (23/2008/QH12): hiệu lực từ 2009-07-01. Điều kiện người lái xe (Điều 58), độ tuổi (Điều 60) — áp cho vi phạm đến 31/12/2024 (V1, V2)
+  - Sửa đổi chưa có: Luật số 35/2018/QH14 và Luật số 44/2019/QH14 (được khoản 3 Điều 88 Luật TTATGT nêu) — file data/raw/GTDB_2008.docx là bản gốc 2008, chưa gồm các sửa đổi này **TODO_VERIFY**
+- **TT31** (31/2019/TT-BGTVT): hiệu lực từ 2019-10-15. Tốc độ tối đa khi không có biển báo (Điều 6–9) — áp cho vi phạm đến 31/12/2024 (V1, V2)
+  - Sửa đổi chưa có: Điều 15 Thông tư số 06/2023/TT-BGTVT (TT 38 'thay thế Điều 15 Thông tư số 06/2023/TT-BGTVT ... sửa đổi, bổ sung một số điều của các Thông tư ...') — có thể đã sửa TT 31 từ năm 2023; chưa có trong data/raw/ **TODO_VERIFY**
 - **TT38** (38/2024/TT-BGTVT): hiệu lực từ 2025-01-01. Tốc độ khai thác tối đa khi không có biển báo (Điều 6–9) — dùng để suy ra tocDoToiDaChoPhep
-  - Thay thế: Thông tư số 31/2019/TT-BGTVT (áp cho V1, V2) — KHÔNG có trong data/raw/
+  - Thay thế: Thông tư số 31/2019/TT-BGTVT (TT31)
 - **LXLVPHC** (15/2012/QH13): hiệu lực từ 2013-07-01. Tình tiết giảm nhẹ/tăng nặng (Điều 9, 10), mức phạt cụ thể (khoản 4 Điều 23), đối tượng bị xử phạt (Điều 5), người chưa thành niên (Điều 134)

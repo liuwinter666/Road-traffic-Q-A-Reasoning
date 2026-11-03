@@ -147,3 +147,34 @@ def trang_thai_hieu_luc(rec: dict, ngay: date) -> TrangThaiHieuLuc:
         return TrangThaiHieuLuc(rid, ngay, MOT_PHAN,
                                 f"Chỉ có hiệu lực một phần. Phần CHƯA có hiệu lực — {chua}", doan)
     return TrangThaiHieuLuc(rid, ngay, chinh.ma, chinh.giai_thich, doan)
+
+
+@dataclass
+class VanBanBoTro:
+    """Văn bản (hoặc phiên bản văn bản) bổ trợ được chọn cho một vai trò tại ngày vi phạm."""
+
+    vai_tro: str
+    khoa: str | None            # khóa đầu ra support_<khoa>.jsonl; None nếu không có văn bản phù hợp
+    van_ban: str | None
+    ghi_chu: str
+
+
+def chon_van_ban_bo_tro(vai_tro: str, ngay: date, cfg: dict | None = None) -> VanBanBoTro:
+    """Chọn văn bản bổ trợ có hiệu lực tại ``ngay`` cho vai trò trong ``support_roles``
+    (vd. ``toc_do_toi_da`` → TT31 trước 2025, TT38 từ 2025; ``dieu_kien_nguoi_lai`` → GTDB2008 / LTTATGT_*)."""
+    from src.ingest.build_articles import support_outputs
+
+    cfg = cfg or load_sources()
+    outs = support_outputs(cfg)
+    for doc_key in cfg["support_roles"][vai_tro]:
+        for out_key, info in outs.items():
+            if info["doc"] != doc_key:
+                continue
+            tu, den = _d(info["effective_from"]), _d(info["effective_to"])
+            if tu <= ngay and (den is None or ngay <= den):
+                meta = cfg["supporting_documents"][doc_key]
+                return VanBanBoTro(vai_tro, out_key, doc_key,
+                                   f"{info['label']} ({meta['so_hieu']}), hiệu lực {_fmt(tu)}"
+                                   f"{' – ' + _fmt(den) if den else ' đến nay'}.")
+    return VanBanBoTro(vai_tro, None, None,
+                       f"Không có văn bản nào cho vai trò '{vai_tro}' có hiệu lực ngày {_fmt(ngay)} trong dữ liệu.")

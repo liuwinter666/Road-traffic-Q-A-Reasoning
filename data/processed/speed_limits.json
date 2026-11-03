@@ -1,120 +1,209 @@
 {
-  "nguon": "TT38",
-  "so_hieu": "38/2024/TT-BGTVT",
-  "hieu_luc_tu": "2025-01-01",
-  "hieu_luc_den": null,
-  "nhom": [
+  "nguon": [
     {
-      "ten": "Xe ô tô chở người đến 28 chỗ (trừ xe buýt); ô tô tải đến 3,5 tấn",
-      "classes": [
-        "OTo",
-        "XeOToChoNguoi",
-        "XeTuongTuOTo"
+      "nguon": "TT31",
+      "so_hieu": "31/2019/TT-BGTVT",
+      "hieu_luc_tu": "2019-10-15",
+      "hieu_luc_den": "2024-12-31",
+      "nhom": [
+        {
+          "ten": "Xe ô tô con, xe ô tô chở người đến 30 chỗ (trừ xe buýt); ô tô tải đến 3,5 tấn",
+          "classes": [
+            "OTo",
+            "XeOToChoNguoi",
+            "XeTuongTuOTo"
+          ],
+          "ghi_chu": "TT 31 ghi 'đến 30 chỗ' (TT 38 ghi 'đến 28 chỗ')",
+          "trong_khu_dong_dan_cu": {
+            "duong_doi": 60,
+            "duong_hai_chieu": 50,
+            "can_cu": {
+              "id": "TT31-D6",
+              "nguyen_van": "Các phương tiện xe cơ giới, trừ các xe được quy định tại Điều 8 Thông tư này | 60 | 50"
+            }
+          },
+          "ngoai_khu_dong_dan_cu": {
+            "duong_doi": 90,
+            "duong_hai_chieu": 80,
+            "can_cu": {
+              "id": "TT31-D7",
+              "nguyen_van": "Xe ô tô con, xe ô tô chở người đến 30 chỗ (trừ xe buýt); ô tô tải có trọng tải nhỏ hơn hoặc bằng 3,5 tấn | 90 | 80"
+            }
+          }
+        },
+        {
+          "ten": "Xe mô tô",
+          "classes": [
+            "XeMoTo",
+            "XeMoToHaiBanh",
+            "XeMoToBaBanh",
+            "XeTuongTuXeMoTo"
+          ],
+          "ghi_chu": null,
+          "trong_khu_dong_dan_cu": {
+            "duong_doi": 60,
+            "duong_hai_chieu": 50,
+            "can_cu": {
+              "id": "TT31-D6",
+              "nguyen_van": "Các phương tiện xe cơ giới, trừ các xe được quy định tại Điều 8 Thông tư này | 60 | 50"
+            }
+          },
+          "ngoai_khu_dong_dan_cu": {
+            "duong_doi": 70,
+            "duong_hai_chieu": 60,
+            "can_cu": {
+              "id": "TT31-D7",
+              "nguyen_van": "Ô tô buýt; ô tô đầu kéo kéo sơ mi rơ moóc; xe mô tô; ô tô chuyên dùng (trừ ô tô trộn vữa, ô tô trộn bê tông) | 70 | 60"
+            }
+          }
+        },
+        {
+          "ten": "Xe gắn máy (kể cả xe máy điện) và các loại xe tương tự",
+          "classes": [
+            "XeGanMay",
+            "XeMayDien",
+            "XeTuongTuXeGanMay"
+          ],
+          "ghi_chu": null,
+          "moi_loai_duong": {
+            "gia_tri": 40,
+            "can_cu": {
+              "id": "TT31-D8",
+              "nguyen_van": "Tốc độ tối đa cho phép đối với xe máy chuyên dùng, xe gắn máy (kể cả xe máy điện) và các loại xe tương tự trên đường bộ (trừ đường cao tốc)\nĐối với xe máy chuyên dùng, xe gắn máy (kể cả xe máy điện) và các loại xe tương tự khi tham gia giao thông tốc độ tối đa không quá 40 km/h."
+            }
+          }
+        }
       ],
-      "ghi_chu": "Ô tô chở người trên 28 chỗ, ô tô tải trên 3,5 tấn có giới hạn khác (hàng 2 Bảng 2) — cần hỏi số chỗ/tải trọng",
-      "trong_khu_dong_dan_cu": {
-        "duong_doi": 60,
-        "duong_hai_chieu": 50,
-        "can_cu": {
-          "id": "TT38-D6-K1",
-          "nguyen_van": "Các loại xe cơ giới, trừ các xe được quy định tại Điều 7 và Điều 8 Thông tư này | 60 | 50"
-        }
-      },
-      "ngoai_khu_dong_dan_cu": {
-        "duong_doi": 90,
-        "duong_hai_chieu": 80,
-        "can_cu": {
-          "id": "TT38-D6-K2",
-          "nguyen_van": "Xe ô tô chở người đến 28 chỗ không kể chỗ của người lái xe (trừ xe buýt); ô tô tải có trọng tải không lớn hơn 3,5 tấn | 90 | 80"
-        }
+      "cao_toc": {
+        "toi_da": {
+          "gia_tri": 120,
+          "can_cu": {
+            "id": "TT31-D9-K1",
+            "nguyen_van": "Tốc độ tối đa cho phép khai thác trên đường cao tốc không vượt quá 120 km/h."
+          }
+        },
+        "ghi_chu": "Phải tuân thủ tốc độ tối đa, tối thiểu ghi trên biển báo (khoản 2 Điều 9 TT 31)"
       }
     },
     {
-      "ten": "Xe mô tô",
-      "classes": [
-        "XeMoTo",
-        "XeMoToHaiBanh",
-        "XeMoToBaBanh",
-        "XeTuongTuXeMoTo"
+      "nguon": "TT38",
+      "so_hieu": "38/2024/TT-BGTVT",
+      "hieu_luc_tu": "2025-01-01",
+      "hieu_luc_den": null,
+      "nhom": [
+        {
+          "ten": "Xe ô tô chở người đến 28 chỗ (trừ xe buýt); ô tô tải đến 3,5 tấn",
+          "classes": [
+            "OTo",
+            "XeOToChoNguoi",
+            "XeTuongTuOTo"
+          ],
+          "ghi_chu": "Ô tô chở người trên 28 chỗ, ô tô tải trên 3,5 tấn có giới hạn khác (hàng 2 Bảng 2) — cần hỏi số chỗ/tải trọng",
+          "trong_khu_dong_dan_cu": {
+            "duong_doi": 60,
+            "duong_hai_chieu": 50,
+            "can_cu": {
+              "id": "TT38-D6-K1",
+              "nguyen_van": "Các loại xe cơ giới, trừ các xe được quy định tại Điều 7 và Điều 8 Thông tư này | 60 | 50"
+            }
+          },
+          "ngoai_khu_dong_dan_cu": {
+            "duong_doi": 90,
+            "duong_hai_chieu": 80,
+            "can_cu": {
+              "id": "TT38-D6-K2",
+              "nguyen_van": "Xe ô tô chở người đến 28 chỗ không kể chỗ của người lái xe (trừ xe buýt); ô tô tải có trọng tải không lớn hơn 3,5 tấn | 90 | 80"
+            }
+          }
+        },
+        {
+          "ten": "Xe mô tô",
+          "classes": [
+            "XeMoTo",
+            "XeMoToHaiBanh",
+            "XeMoToBaBanh",
+            "XeTuongTuXeMoTo"
+          ],
+          "ghi_chu": null,
+          "trong_khu_dong_dan_cu": {
+            "duong_doi": 60,
+            "duong_hai_chieu": 50,
+            "can_cu": {
+              "id": "TT38-D6-K1",
+              "nguyen_van": "Các loại xe cơ giới, trừ các xe được quy định tại Điều 7 và Điều 8 Thông tư này | 60 | 50"
+            }
+          },
+          "ngoai_khu_dong_dan_cu": {
+            "duong_doi": 70,
+            "duong_hai_chieu": 60,
+            "can_cu": {
+              "id": "TT38-D6-K2",
+              "nguyen_van": "Xe buýt; ô tô đầu kéo kéo sơ mi rơ moóc (trừ ô tô đầu kéo kéo sơ mi rơ moóc xi téc); xe mô tô; ô tô chuyên dùng (trừ ô tô trộn vữa, ô tô trộn bê tông lưu động) | 70 | 60"
+            }
+          }
+        },
+        {
+          "ten": "Xe gắn máy và các loại xe tương tự",
+          "classes": [
+            "XeGanMay",
+            "XeMayDien",
+            "XeTuongTuXeGanMay"
+          ],
+          "ghi_chu": null,
+          "moi_loai_duong": {
+            "gia_tri": 40,
+            "can_cu": {
+              "id": "TT38-D7",
+              "nguyen_van": "Tốc độ khai thác tối đa cho phép đối với xe máy chuyên dùng, xe gắn máy và các loại xe tương tự tham gia giao thông trên đường bộ (trừ đường cao tốc)\nXe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gia giao thông, tốc độ khai thác tối đa là 40 km/h."
+            }
+          }
+        },
+        {
+          "ten": "Xe chở người bốn bánh có gắn động cơ",
+          "classes": [
+            "XeChoNguoiBonBanhCoGanDongCo"
+          ],
+          "ghi_chu": null,
+          "moi_loai_duong": {
+            "gia_tri": 30,
+            "can_cu": {
+              "id": "TT38-D8-K1",
+              "nguyen_van": "Xe chở người bốn bánh có gắn động cơ khi tham gia giao thông trong phạm vi và thời gian cho phép hoạt động, tốc độ khai thác tối đa là 30 km/h."
+            }
+          }
+        },
+        {
+          "ten": "Xe chở hàng bốn bánh có gắn động cơ",
+          "classes": [
+            "XeChoHangBonBanhCoGanDongCo"
+          ],
+          "ghi_chu": null,
+          "moi_loai_duong": {
+            "gia_tri": 50,
+            "can_cu": {
+              "id": "TT38-D8-K2",
+              "nguyen_van": "Xe chở hàng bốn bánh có gắn động cơ khi tham gia giao thông trong phạm vi và thời gian cho phép hoạt động, tốc độ khai thác tối đa là 50 km/h."
+            }
+          }
+        }
       ],
-      "ghi_chu": null,
-      "trong_khu_dong_dan_cu": {
-        "duong_doi": 60,
-        "duong_hai_chieu": 50,
-        "can_cu": {
-          "id": "TT38-D6-K1",
-          "nguyen_van": "Các loại xe cơ giới, trừ các xe được quy định tại Điều 7 và Điều 8 Thông tư này | 60 | 50"
-        }
-      },
-      "ngoai_khu_dong_dan_cu": {
-        "duong_doi": 70,
-        "duong_hai_chieu": 60,
-        "can_cu": {
-          "id": "TT38-D6-K2",
-          "nguyen_van": "Xe buýt; ô tô đầu kéo kéo sơ mi rơ moóc (trừ ô tô đầu kéo kéo sơ mi rơ moóc xi téc); xe mô tô; ô tô chuyên dùng (trừ ô tô trộn vữa, ô tô trộn bê tông lưu động) | 70 | 60"
-        }
-      }
-    },
-    {
-      "ten": "Xe gắn máy và các loại xe tương tự",
-      "classes": [
-        "XeGanMay",
-        "XeMayDien",
-        "XeTuongTuXeGanMay"
-      ],
-      "ghi_chu": null,
-      "moi_loai_duong": {
-        "gia_tri": 40,
-        "can_cu": {
-          "id": "TT38-D7",
-          "nguyen_van": "Tốc độ khai thác tối đa cho phép đối với xe máy chuyên dùng, xe gắn máy và các loại xe tương tự tham gia giao thông trên đường bộ (trừ đường cao tốc)\nXe máy chuyên dùng, xe gắn máy và các loại xe tương tự khi tham gia giao thông, tốc độ khai thác tối đa là 40 km/h."
-        }
-      }
-    },
-    {
-      "ten": "Xe chở người bốn bánh có gắn động cơ",
-      "classes": [
-        "XeChoNguoiBonBanhCoGanDongCo"
-      ],
-      "ghi_chu": null,
-      "moi_loai_duong": {
-        "gia_tri": 30,
-        "can_cu": {
-          "id": "TT38-D8-K1",
-          "nguyen_van": "Xe chở người bốn bánh có gắn động cơ khi tham gia giao thông trong phạm vi và thời gian cho phép hoạt động, tốc độ khai thác tối đa là 30 km/h."
-        }
-      }
-    },
-    {
-      "ten": "Xe chở hàng bốn bánh có gắn động cơ",
-      "classes": [
-        "XeChoHangBonBanhCoGanDongCo"
-      ],
-      "ghi_chu": null,
-      "moi_loai_duong": {
-        "gia_tri": 50,
-        "can_cu": {
-          "id": "TT38-D8-K2",
-          "nguyen_van": "Xe chở hàng bốn bánh có gắn động cơ khi tham gia giao thông trong phạm vi và thời gian cho phép hoạt động, tốc độ khai thác tối đa là 50 km/h."
-        }
+      "cao_toc": {
+        "toi_da": {
+          "gia_tri": 120,
+          "can_cu": {
+            "id": "TT38-D9-K2",
+            "nguyen_van": "Tốc độ khai thác tối đa cho phép trên đường cao tốc là 120 km/h."
+          }
+        },
+        "toi_thieu": {
+          "gia_tri": 60,
+          "can_cu": {
+            "id": "TT38-D9-K3",
+            "nguyen_van": "Tốc độ khai thác tối thiểu cho phép trên đường cao tốc là 60 km/h."
+          }
+        },
+        "ghi_chu": "Đường cao tốc phải đặt biển báo tốc độ (khoản 1 Điều 9 TT 38); ưu tiên số trên biển báo"
       }
     }
-  ],
-  "cao_toc": {
-    "toi_da": {
-      "gia_tri": 120,
-      "can_cu": {
-        "id": "TT38-D9-K2",
-        "nguyen_van": "Tốc độ khai thác tối đa cho phép trên đường cao tốc là 120 km/h."
-      }
-    },
-    "toi_thieu": {
-      "gia_tri": 60,
-      "can_cu": {
-        "id": "TT38-D9-K3",
-        "nguyen_van": "Tốc độ khai thác tối thiểu cho phép trên đường cao tốc là 60 km/h."
-      }
-    },
-    "ghi_chu": "Đường cao tốc phải đặt biển báo tốc độ (khoản 1 Điều 9); ưu tiên số trên biển báo"
-  }
+  ]
 }

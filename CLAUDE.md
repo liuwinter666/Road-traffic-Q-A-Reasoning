@@ -5,7 +5,7 @@
 - Phase 1: parser + hợp nhất V1/V2/V3 + đề xuất 60 hành vi MVP — XONG (đã thêm V4 = NĐ 238)
 - Phase 2: ontology traffic_law.owl + docs/ontology_design.md — XONG
 - Bổ sung sau Phase 2: hiệu lực tới cấp phần nội dung + có điều kiện (temporal.py), văn bản bổ trợ
-  LTTATGT/TT38/LXLVPHC, 0 lệnh hợp nhất treo — ĐANG REVIEW
+  GTDB2008/LTTATGT(+L118)/TT31/TT38/LXLVPHC, 0 lệnh hợp nhất treo — ĐANG REVIEW
 - Tiếp theo: Phase 3 (luật SWRL, rule_registry, reasoner, penalty_decision)
 - Gốc project = thư mục `DoAn/` (tương ứng `traffic-law-expert/` trong đặc tả).
 - Tên file dữ liệu thô: `data/raw/ND_100.docx`, `ND_123.docx`, `ND_168.docx`.
@@ -34,8 +34,10 @@
 - `config/mvp_behaviors.yaml`: mã hành vi → id điều khoản từng phiên bản (+ cụm từ kiểm chứng); refs ngắn hơn số phiên bản thì phiên bản sau kế thừa id.
 - `config/ontology_concepts.yaml`: ngưỡng pháp lý (lớp định nghĩa OWL, kèm evidence), lớp hợp, dấu hiệu sự kiện boolean.
 - Phiên bản: V1 NĐ100, V2 NĐ100+123, V3 NĐ168, V4 NĐ168+238 (từ 15/8/2026). default_version: current.
-- Văn bản bổ trợ (`supporting_documents`): LTTATGT (TT_ATGT.docx), TT38 (TT_38.docx), LXLVPHC (VPHC.docx, bản hợp nhất,
-  chú thích [n] → ngày hiệu lực câu chữ) → data/processed/support_<key>.jsonl.
+- Văn bản bổ trợ (`supporting_documents`): GTDB2008, LTTATGT (+ L118 sửa → phiên bản LTTATGT_2025/_2026A/_2026B),
+  TT31, TT38, LXLVPHC (bản hợp nhất, chú thích [n] → ngày hiệu lực câu chữ) → data/processed/support_<khóa>.jsonl.
+  Chọn theo ngày vi phạm: `support_roles` + `temporal.chon_van_ban_bo_tro(vai_tro, ngay)`.
+- Văn bản sửa đổi có lệnh hiệu lực khác ngày: phiên bản trung gian dùng `amendments: [{doc: X, only: [ref lệnh]}]`.
 - Hiệu lực: `element_effectivity` (pham_vi toan_bo|mot_phan, hieu_luc_dieu_kien) → bản ghi có `hieu_luc_chi_tiet`;
   điều kiện chưa xác nhận ⇒ coi là CHƯA có hiệu lực. Đánh giá bằng `src/kb/temporal.trang_thai_hieu_luc`.
 - Nguyên tắc hợp nhất: văn bản sửa chữ nào thì theo chữ đó (quyết định áp ở config/consolidation_overrides.yaml).
