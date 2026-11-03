@@ -1,0 +1,89 @@
+# Khai báo văn bản nguồn và các phiên bản pháp lý.
+#
+# Thêm văn bản mới (ví dụ NĐ 238/2026 sửa NĐ 168) KHÔNG cần sửa code:
+#   1. Chép file vào data/raw/
+#   2. Thêm mục vào `documents` (type: amendment, amends: ND168, amend_dieu: <số Điều chứa lệnh sửa>)
+#   3. Thêm phiên bản V4 vào `versions` với build.base_version: V3 và build.amendments
+#   4. Sửa `effective_to` của V3
+#   5. Chạy: python -m src.ingest.build_articles
+#
+# Mọi ngày tháng ở đây phải có `evidence` trích nguyên văn từ văn bản trong data/raw/.
+# Mục nào chưa kiểm chứng từ văn bản thì đánh dấu verified: false (TODO_VERIFY).
+
+documents:
+  ND100:
+    file: ND_100.docx
+    so_hieu: "100/2019/NĐ-CP"
+    ten: "Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ và đường sắt"
+    ngay_ban_hanh: 2019-12-30
+    type: base
+    effective_from: 2020-01-01
+    evidence: "Điều 84 khoản 1: Nghị định này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2020."
+    verified: true
+
+  ND123:
+    file: ND_123.docx
+    so_hieu: "123/2021/NĐ-CP"
+    ten: "Nghị định sửa đổi, bổ sung một số điều của các Nghị định quy định xử phạt VPHC trong lĩnh vực hàng hải; giao thông đường bộ, đường sắt; hàng không dân dụng"
+    ngay_ban_hanh: 2021-12-28
+    type: amendment
+    amends: ND100
+    amend_dieu: "2"          # Điều 2 của NĐ 123 sửa NĐ 100; các Điều 1, 3 sửa NĐ khác -> bỏ qua
+    effective_from: 2022-01-01
+    evidence: "Điều 4: Nghị định này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2022."
+    verified: true
+
+  ND168:
+    file: ND_168.docx
+    so_hieu: "168/2024/NĐ-CP"
+    ten: "Nghị định quy định xử phạt vi phạm hành chính về trật tự, an toàn giao thông trong lĩnh vực giao thông đường bộ; trừ điểm, phục hồi điểm giấy phép lái xe"
+    ngay_ban_hanh: 2024-12-26
+    type: base
+    effective_from: 2025-01-01
+    evidence: "Điều 53 khoản 1: Nghị định này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2025, trừ quy định tại khoản 2 Điều này."
+    verified: true
+    # Ngoại lệ hiệu lực theo từng điểm (Điều 53 khoản 2)
+    element_effective_overrides:
+      - ids: [ND168-D6-K3-m, ND168-D26-K4-e, ND168-D27-K1-b]
+        effective_from: 2026-01-01
+        evidence: "Điều 53 khoản 2: Quy định tại điểm m khoản 3 Điều 6, điểm e khoản 4 Điều 26, điểm b khoản 1 Điều 27 của Nghị định này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2026"
+        verified: true
+      - ids: [ND168-D32-K1-b]
+        effective_from: null   # không xác định được từ 3 văn bản đã có
+        evidence: "Điều 53 khoản 2: quy định tại điểm b khoản 1 Điều 32 của Nghị định này có hiệu lực thi hành theo quy định của pháp luật bảo vệ môi trường về kiểm định khí thải xe mô tô, xe gắn máy."
+        verified: false        # TODO_VERIFY: cần văn bản pháp luật BVMT
+
+# Phiên bản pháp lý. Khoảng hiệu lực là [effective_from, effective_to] (bao gồm hai đầu).
+# build.base: văn bản gốc; build.base_version: kế thừa phiên bản trước; build.amendments: áp lần lượt.
+# scope_dieu: (tùy chọn) chỉ giữ các Điều này trong file articles_v*.jsonl; bỏ trống = giữ tất cả.
+versions:
+  V1:
+    label: "NĐ 100/2019 nguyên bản"
+    effective_from: 2020-01-01
+    effective_to: 2021-12-31
+    build:
+      base: ND100
+  V2:
+    label: "NĐ 100/2019 hợp nhất sửa đổi của NĐ 123/2021"
+    effective_from: 2022-01-01
+    effective_to: 2024-12-31
+    build:
+      base_version: V1
+      amendments: [ND123]
+  V3:
+    label: "NĐ 168/2024"
+    effective_from: 2025-01-01
+    effective_to: null
+    build:
+      base: ND168
+
+default_version: V3
+
+# Văn bản đã biết là tồn tại nhưng CHƯA có trong data/raw/. Dùng để cảnh báo khi
+# thời điểm vi phạm rơi vào khoảng hiệu lực của chúng.
+pending_documents:
+  - so_hieu: "238/2026/NĐ-CP"
+    amends: ND168
+    effective_from: 2026-08-15
+    source: "Người dùng cung cấp trong đặc tả; chưa có văn bản để đối chiếu"
+    verified: false   # TODO_VERIFY

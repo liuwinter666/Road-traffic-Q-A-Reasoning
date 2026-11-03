@@ -1,7 +1,8 @@
 # CLAUDE.md — Hướng dẫn cho Claude Code trong project này
 
 ## Trạng thái hiện tại
-- Phase 0: khởi tạo repo, môi trường, kiểm tra reasoner — ĐANG REVIEW
+- Phase 0: khởi tạo repo, môi trường, kiểm tra reasoner — XONG
+- Phase 1: parser + hợp nhất V1/V2/V3 + đề xuất 60 hành vi MVP — ĐANG REVIEW
 - Gốc project = thư mục `DoAn/` (tương ứng `traffic-law-expert/` trong đặc tả).
 - Tên file dữ liệu thô: `data/raw/ND_100.docx`, `ND_123.docx`, `ND_168.docx`.
 
@@ -17,6 +18,15 @@
 - Kích hoạt venv: `.venv\Scripts\activate` (PowerShell) hoặc `source .venv/Scripts/activate` (Git Bash)
 - Kiểm tra môi trường: `python -m scripts.check_env`
 - Test: `pytest`
+- Sinh lại articles_v*.jsonl + consolidation_review.md: `python -m src.ingest.build_articles`
+- Kiểm chứng + sinh bảng hành vi MVP: `python -m src.ingest.mvp_report` (→ docs/mvp_behaviors.md)
+
+## Dữ liệu pháp lý
+- `config/legal_sources.yaml`: văn bản, phiên bản V1/V2/V3, ngoại lệ hiệu lực theo phần tử, văn bản chưa có (NĐ 238).
+- `config/consolidation_overrides.yaml`: quyết định duyệt tay cho lệnh hợp nhất không tự áp được.
+- `config/mvp_behaviors.yaml`: mã hành vi → id điều khoản từng phiên bản (+ cụm từ kiểm chứng).
+- Id phần tử: `ND168-D7-K10-a`; chữ `đ` viết `dd` trong id. V2 dùng id của NĐ 100 (văn bản gốc).
+- Bản ghi JSONL có `status` (active|bai_bo), `history`, `history_inherited`, `khung_phat` (trích từ văn bản).
 
 ## Ghi chú kỹ thuật
 - HermiT không hỗ trợ SWRL built-in (`swrlb:greaterThan`...). Khi dùng HermiT dự phòng,

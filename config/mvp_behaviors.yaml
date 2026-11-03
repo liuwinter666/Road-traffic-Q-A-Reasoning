@@ -1,0 +1,152 @@
+# Danh sách hành vi MVP (ĐỀ XUẤT — chờ duyệt).
+#
+# refs: [V1, V2, V3] — id phần tử trong data/processed/articles_v*.jsonl; null = không có quy định tương ứng.
+# check: cụm từ phải xuất hiện nguyên văn trong nội dung của MỌI id được dẫn (để phát hiện ánh xạ sai).
+# check_v3: (tùy chọn) cụm từ kiểm chứng riêng cho V3 khi cách viết khác V1/V2.
+# Mức phạt KHÔNG ghi ở đây; script `python -m src.ingest.mvp_report` tự trích từ văn bản.
+
+behaviors:
+  # ===================== XE Ô TÔ =====================
+  - {code: OT_CON_1, nhom: nong_do_con, xe: oto, ten: "Ô tô: có nồng độ cồn chưa vượt 50 mg/100 ml máu hoặc 0,25 mg/l khí thở",
+     refs: [ND100-D5-K6-c, ND100-D5-K6-c, ND168-D6-K6-c], check: "chưa vượt quá 0,25 miligam/1 lít khí thở"}
+  - {code: OT_CON_2, nhom: nong_do_con, xe: oto, ten: "Ô tô: nồng độ cồn vượt 50–80 mg/100 ml máu hoặc 0,25–0,4 mg/l khí thở",
+     refs: [ND100-D5-K8-c, ND100-D5-K8-c, ND168-D6-K9-a], check: "vượt quá 0,25 miligam đến 0,4 miligam/1 lít khí thở"}
+  - {code: OT_CON_3, nhom: nong_do_con, xe: oto, ten: "Ô tô: nồng độ cồn vượt 80 mg/100 ml máu hoặc 0,4 mg/l khí thở",
+     refs: [ND100-D5-K10-a, ND100-D5-K10-a, ND168-D6-K11-a], check: "vượt quá 0,4 miligam/1 lít khí thở"}
+  - {code: OT_TU_CHOI_DO_CON, nhom: nong_do_con, xe: oto, ten: "Ô tô: không chấp hành yêu cầu kiểm tra nồng độ cồn",
+     refs: [ND100-D5-K10-b, ND100-D5-K10-b, ND168-D6-K11-b], check: "Không chấp hành yêu cầu kiểm tra về nồng độ cồn"}
+  - {code: OT_MA_TUY, nhom: ma_tuy, xe: oto, ten: "Ô tô: trong cơ thể có chất ma túy",
+     refs: [ND100-D5-K10-c, ND100-D5-K10-c, ND168-D6-K11-c], check: "trong cơ thể có chất ma túy"}
+  - {code: OT_TU_CHOI_MA_TUY, nhom: ma_tuy, xe: oto, ten: "Ô tô: không chấp hành yêu cầu kiểm tra chất ma túy",
+     refs: [ND100-D5-K10-d, ND100-D5-K10-d, ND168-D6-K11-d], check: "Không chấp hành yêu cầu kiểm tra về chất ma túy"}
+  - {code: OT_TD_05_10, nhom: toc_do, xe: oto, ten: "Ô tô: quá tốc độ từ 05 đến dưới 10 km/h",
+     refs: [ND100-D5-K3-a, ND100-D5-K3-a, ND168-D6-K3-a], check: "quá tốc độ quy định từ 05 km/h đến dưới 10 km/h"}
+  - {code: OT_TD_10_20, nhom: toc_do, xe: oto, ten: "Ô tô: quá tốc độ từ 10 đến 20 km/h",
+     refs: [ND100-D5-K5-i, ND100-D5-K5-i, ND168-D6-K5-dd], check: "quá tốc độ quy định từ 10 km/h đến 20 km/h"}
+  - {code: OT_TD_20_35, nhom: toc_do, xe: oto, ten: "Ô tô: quá tốc độ trên 20 đến 35 km/h",
+     refs: [ND100-D5-K6-a, ND100-D5-K6-a, ND168-D6-K6-a], check: "quá tốc độ quy định trên 20 km/h đến 35 km/h"}
+  - {code: OT_TD_TREN_35, nhom: toc_do, xe: oto, ten: "Ô tô: quá tốc độ trên 35 km/h",
+     refs: [ND100-D5-K7-c, ND100-D5-K7-c, ND168-D6-K7-a], check: "quá tốc độ quy định trên 35 km/h"}
+  - {code: OT_DEN_DO, nhom: tin_hieu, xe: oto, ten: "Ô tô: không chấp hành hiệu lệnh đèn tín hiệu (vượt đèn đỏ)",
+     refs: [ND100-D5-K5-a, ND100-D5-K5-a, ND168-D6-K9-b], check: "Không chấp hành hiệu lệnh của đèn tín hiệu giao thông"}
+  - {code: OT_HIEU_LENH_CSGT, nhom: tin_hieu, xe: oto, ten: "Ô tô: không chấp hành hiệu lệnh, hướng dẫn của người điều khiển/kiểm soát giao thông",
+     refs: [ND100-D5-K5-b, ND100-D5-K5-b, ND168-D6-K9-c], check: "hướng dẫn của người điều khiển giao thông hoặc người kiểm soát giao thông"}
+  - {code: OT_NGUOC_CHIEU, nhom: phan_lan, xe: oto, ten: "Ô tô: đi ngược chiều đường một chiều / đường cấm đi ngược chiều",
+     refs: [ND100-D5-K5-c, ND100-D5-K5-c, ND168-D6-K9-d], check: "Đi ngược chiều của đường một chiều"}
+  - {code: OT_NGUOC_CHIEU_CAO_TOC, nhom: phan_lan, xe: oto, ten: "Ô tô: đi ngược chiều / lùi xe trên đường cao tốc",
+     refs: [ND100-D5-K8-a, ND100-D5-K8-a, ND168-D6-K11-dd], check: "đi ngược chiều trên đường cao tốc"}
+  - {code: OT_SAI_PHAN_LAN, nhom: phan_lan, xe: oto, ten: "Ô tô: không đi bên phải; đi không đúng phần đường, làn đường quy định",
+     refs: [ND100-D5-K5-dd, ND100-D5-K5-dd, ND168-D6-K5-b], check: "đi không đúng phần đường hoặc làn đường quy định"}
+  - {code: OT_CHUYEN_LAN, nhom: phan_lan, xe: oto, ten: "Ô tô: chuyển làn không đúng nơi cho phép hoặc không có tín hiệu báo trước",
+     refs: [ND100-D5-K2-a, ND100-D5-K2-a, ND168-D6-K2-a], check: "Chuyển làn đường không đúng nơi cho phép hoặc không có tín hiệu báo trước"}
+  - {code: OT_DIEN_THOAI, nhom: thiet_bi, xe: oto, ten: "Ô tô: dùng tay sử dụng điện thoại khi điều khiển xe",
+     refs: [ND100-D5-K4-a, ND100-D5-K4-a, ND168-D6-K5-h], check: "điện thoại"}
+  - {code: OT_DAY_AN_TOAN, nhom: an_toan, xe: oto, ten: "Ô tô: người lái không thắt dây an toàn",
+     refs: [ND100-D5-K3-p, ND100-D5-K3-p, ND168-D6-K3-k], check: "Không thắt dây", note: "V1/V2 viết 'dây an toàn', V3 viết 'dây đai an toàn'"}
+  - {code: OT_LIEN_QUAN_TAI_NAN_KHONG_DUNG, nhom: tai_nan, xe: oto, ten: "Ô tô: liên quan trực tiếp đến vụ tai nạn mà không dừng lại, không giữ nguyên hiện trường, không cứu giúp",
+     refs: [ND100-D5-K2-dd, ND100-D5-K2-dd, ND168-D6-K4-g], check: "liên quan trực tiếp đến vụ tai nạn giao thông mà không dừng"}
+  - {code: OT_GAY_TAI_NAN_BO_TRON, nhom: tai_nan, xe: oto, ten: "Ô tô: gây tai nạn mà không dừng lại, bỏ trốn, không trình báo",
+     refs: [ND100-D5-K8-b, ND100-D5-K8-b, ND168-D6-K8], check: "gây tai nạn giao thông không dừng",
+     note: "V3 là cả khoản 8 (không chia điểm)"}
+  - {code: OT_LANG_LACH, nhom: lai_nguy_hiem, xe: oto, ten: "Ô tô: lạng lách, đánh võng; chạy quá tốc độ đuổi nhau; dùng chân điều khiển vô lăng",
+     refs: [ND100-D5-K7-b, ND100-D5-K7-b, ND168-D6-K12], check: "lạng lách, đánh võng", note: "V3 là cả khoản 12"}
+  - {code: OT_LANG_LACH_KHONG_DUNG_XE, nhom: cong_vu, xe: oto, ten: "Ô tô: lạng lách/đánh võng mà không chấp hành hiệu lệnh dừng xe của người thi hành công vụ hoặc gây tai nạn",
+     refs: [ND100-D5-K9, ND100-D5-K9, null], check: "không chấp hành hiệu lệnh dừng xe của người thi hành công vụ",
+     note: "NĐ 168 không có quy định tương ứng; V3 tách thành khoản 13 Điều 6 (gây tai nạn) và khoản 10 Điều 12 (không chấp hành kiểm tra)"}
+
+  # ===================== XE MÔ TÔ, XE GẮN MÁY =====================
+  - {code: XM_CON_1, nhom: nong_do_con, xe: xe_may, ten: "Xe máy: có nồng độ cồn chưa vượt 50 mg/100 ml máu hoặc 0,25 mg/l khí thở",
+     refs: [ND100-D6-K6-c, ND100-D6-K6-c, ND168-D7-K6-a], check: "chưa vượt quá 0,25 miligam/1 lít khí thở"}
+  - {code: XM_CON_2, nhom: nong_do_con, xe: xe_may, ten: "Xe máy: nồng độ cồn vượt 50–80 mg/100 ml máu hoặc 0,25–0,4 mg/l khí thở",
+     refs: [ND100-D6-K7-c, ND100-D6-K7-c, ND168-D7-K8-b], check: "vượt quá 0,25 miligam đến 0,4 miligam/1 lít khí thở"}
+  - {code: XM_CON_3, nhom: nong_do_con, xe: xe_may, ten: "Xe máy: nồng độ cồn vượt 80 mg/100 ml máu hoặc 0,4 mg/l khí thở",
+     refs: [ND100-D6-K8-e, ND100-D6-K8-e, ND168-D7-K9-d], check: "vượt quá 0,4 miligam/1 lít khí thở"}
+  - {code: XM_TU_CHOI_DO_CON, nhom: nong_do_con, xe: xe_may, ten: "Xe máy: không chấp hành yêu cầu kiểm tra nồng độ cồn",
+     refs: [ND100-D6-K8-g, ND100-D6-K8-g, ND168-D7-K9-dd], check: "Không chấp hành yêu cầu kiểm tra về nồng độ cồn"}
+  - {code: XM_MA_TUY, nhom: ma_tuy, xe: xe_may, ten: "Xe máy: trong cơ thể có chất ma túy",
+     refs: [ND100-D6-K8-h, ND100-D6-K8-h, ND168-D7-K9-e], check: "trong cơ thể có chất ma túy"}
+  - {code: XM_TD_05_10, nhom: toc_do, xe: xe_may, ten: "Xe máy: quá tốc độ từ 05 đến dưới 10 km/h",
+     refs: [ND100-D6-K2-c, ND100-D6-K2-c, ND168-D7-K2-b], check: "quá tốc độ quy định từ 05 km/h đến dưới 10 km/h"}
+  - {code: XM_TD_10_20, nhom: toc_do, xe: xe_may, ten: "Xe máy: quá tốc độ từ 10 đến 20 km/h",
+     refs: [ND100-D6-K4-a, ND100-D6-K4-a, ND168-D7-K4-a], check: "quá tốc độ quy định từ 10 km/h đến 20 km/h"}
+  - {code: XM_TD_TREN_20, nhom: toc_do, xe: xe_may, ten: "Xe máy: quá tốc độ trên 20 km/h",
+     refs: [ND100-D6-K7-a, ND100-D6-K7-a, ND168-D7-K8-a], check: "quá tốc độ quy định trên 20 km/h"}
+  - {code: XM_DEN_DO, nhom: tin_hieu, xe: xe_may, ten: "Xe máy: không chấp hành hiệu lệnh đèn tín hiệu (vượt đèn đỏ)",
+     refs: [ND100-D6-K4-e, ND100-D6-K4-e, ND168-D7-K7-c], check: "Không chấp hành hiệu lệnh của đèn tín hiệu giao thông"}
+  - {code: XM_HIEU_LENH_CSGT, nhom: tin_hieu, xe: xe_may, ten: "Xe máy: không chấp hành hiệu lệnh, hướng dẫn của người điều khiển/kiểm soát giao thông",
+     refs: [ND100-D6-K4-g, ND100-D6-K4-g, ND168-D7-K7-d], check: "hướng dẫn của người điều khiển giao thông hoặc người kiểm soát giao thông"}
+  - {code: XM_NGUOC_CHIEU, nhom: phan_lan, xe: xe_may, ten: "Xe máy: đi ngược chiều đường một chiều / đường cấm đi ngược chiều",
+     refs: [ND100-D6-K5, ND100-D6-K5-a, ND168-D7-K7-a], check: "ngược chiều của đường một chiều",
+     note: "V1 là cả khoản 5; V2 tách thành điểm a khoản 5 (sửa bởi NĐ 123)"}
+  - {code: XM_SAI_PHAN_LAN, nhom: phan_lan, xe: xe_may, ten: "Xe máy: không đi bên phải; đi không đúng phần đường, làn đường quy định",
+     refs: [ND100-D6-K3-g, ND100-D6-K3-g, ND168-D7-K3-d], check: "đi không đúng phần đường, làn đường quy định"}
+  - {code: XM_CHUYEN_LAN, nhom: phan_lan, xe: xe_may, ten: "Xe máy: chuyển làn không đúng nơi được phép hoặc không có tín hiệu báo trước",
+     refs: [ND100-D6-K1-i, ND100-D6-K1-i, ND168-D7-K1-e], check: "Chuyển làn đường không đúng nơi", check_v3: "Chuyển làn đường không đúng nơi cho phép"}
+  - {code: XM_MU_BAO_HIEM, nhom: an_toan, xe: xe_may, ten: "Xe máy: người lái không đội mũ bảo hiểm hoặc không cài quai đúng quy cách",
+     refs: [ND100-D6-K2-i, ND100-D6-K3-n, ND168-D7-K2-h], check: "Không đội “mũ bảo hiểm cho người đi mô tô, xe máy”",
+     note: "V2: NĐ 123 bãi bỏ điểm i khoản 2 và bổ sung điểm n khoản 3 (tăng mức phạt)"}
+  - {code: XM_CHO_NGUOI_KHONG_MU, nhom: an_toan, xe: xe_may, ten: "Xe máy: chở người ngồi sau không đội mũ bảo hiểm",
+     refs: [ND100-D6-K2-k, ND100-D6-K3-o, ND168-D7-K2-i], check: "Chở người ngồi trên xe không đội “mũ bảo hiểm",
+     note: "V2: NĐ 123 bãi bỏ điểm k khoản 2 và bổ sung điểm o khoản 3"}
+  - {code: XM_DIEN_THOAI, nhom: thiet_bi, xe: xe_may, ten: "Xe máy: sử dụng ô, điện thoại, thiết bị âm thanh khi điều khiển xe",
+     refs: [ND100-D6-K4-h, ND100-D6-K4-h, ND168-D7-K4-dd], check: "điện thoại"}
+  - {code: XM_LIEN_QUAN_TAI_NAN_KHONG_DUNG, nhom: tai_nan, xe: xe_may, ten: "Xe máy: liên quan trực tiếp đến vụ tai nạn mà không dừng lại, không giữ nguyên hiện trường, không cứu giúp",
+     refs: [ND100-D6-K3-e, ND100-D6-K3-e, ND168-D7-K5-a], check: "liên quan trực tiếp đến vụ tai nạn giao thông mà không dừng"}
+  - {code: XM_GAY_TAI_NAN_BO_TRON, nhom: tai_nan, xe: xe_may, ten: "Xe máy: gây tai nạn mà không dừng lại, bỏ trốn, không trình báo",
+     refs: [ND100-D6-K8-dd, ND100-D6-K8-dd, ND168-D7-K9-c], check: "gây tai nạn giao thông không dừng"}
+  - {code: XM_LANG_LACH, nhom: lai_nguy_hiem, xe: xe_may, ten: "Xe máy: lạng lách, đánh võng trên đường bộ",
+     refs: [ND100-D6-K8-b, ND100-D6-K8-b, ND168-D7-K9-a], check: "lạng lách"}
+  - {code: XM_LANG_LACH_KHONG_DUNG_XE, nhom: cong_vu, xe: xe_may, ten: "Xe máy: lạng lách/đánh võng... mà gây tai nạn hoặc không chấp hành hiệu lệnh dừng xe của người thi hành công vụ",
+     refs: [ND100-D6-K9, ND100-D6-K9, null], check: "không chấp hành hiệu lệnh dừng xe của người thi hành công vụ",
+     note: "NĐ 168 không có quy định tương ứng"}
+
+  # ===================== NGƯỜI THI HÀNH CÔNG VỤ =====================
+  - {code: KHONG_CHAP_HANH_KIEM_TRA, nhom: cong_vu, xe: chung, ten: "Không chấp hành yêu cầu kiểm tra, kiểm soát của người thi hành công vụ về TTATGT",
+     refs: [null, null, ND168-D12-K10], check: "không chấp hành yêu cầu kiểm tra, kiểm soát của người thi hành công vụ",
+     note: "Chỉ có ở NĐ 168. TODO_VERIFY: V1/V2 không tìm thấy quy định chung trong NĐ 100/123"}
+  - {code: CHONG_DOI_CONG_VU, nhom: cong_vu, xe: chung, ten: "Xúc phạm, đe dọa, cản trở, chống đối người thi hành công vụ về TTATGT",
+     refs: [null, null, ND168-D12-K14-a], check: "chống đối người thi hành công vụ",
+     note: "Chỉ có ở NĐ 168. TODO_VERIFY: với V1/V2 hành vi này thuộc văn bản khác chưa có trong data/raw/"}
+
+  # ===================== GIẤY TỜ, GPLX, ĐỘ TUỔI =====================
+  - {code: XM_KHONG_MANG_GPLX, nhom: giay_to, xe: xe_may, ten: "Xe mô tô: không mang theo giấy phép lái xe",
+     refs: [ND100-D21-K2-c, ND100-D21-K2-c, ND168-D18-K2-d], check: "không mang theo",
+     note: "V3 chỉ áp dụng với người điều khiển xe KINH DOANH VẬN TẢI"}
+  - {code: OT_KHONG_MANG_GPLX, nhom: giay_to, xe: oto, ten: "Ô tô: không mang theo giấy phép lái xe",
+     refs: [ND100-D21-K3-a, ND100-D21-K3-a, ND168-D18-K3-a], check: "không mang theo",
+     note: "V3 chỉ áp dụng với người điều khiển xe KINH DOANH VẬN TẢI"}
+  - {code: XM_KHONG_MANG_DANG_KY, nhom: giay_to, xe: xe_may, ten: "Xe máy: không mang theo giấy đăng ký xe",
+     refs: [ND100-D21-K2-b, ND100-D21-K2-b, ND168-D18-K2-c], check: "không mang theo",
+     note: "V3 chỉ áp dụng với người điều khiển xe KINH DOANH VẬN TẢI"}
+  - {code: OT_KHONG_MANG_DANG_KY, nhom: giay_to, xe: oto, ten: "Ô tô: không mang theo giấy đăng ký xe",
+     refs: [ND100-D21-K3-b, ND100-D21-K3-b, ND168-D18-K3-b], check: "không mang theo",
+     note: "V3 chỉ áp dụng với người điều khiển xe KINH DOANH VẬN TẢI"}
+  - {code: XM_KHONG_BAO_HIEM, nhom: giay_to, xe: xe_may, ten: "Xe máy: không có (V1/V2: hoặc không mang) chứng nhận bảo hiểm TNDS bắt buộc còn hiệu lực",
+     refs: [ND100-D21-K2-a, ND100-D21-K2-a, ND168-D18-K2-b], check: "bảo hiểm",
+     note: "V1/V2 gộp 'không có hoặc không mang'; V3 tách: không có (mọi người lái) / không mang (chỉ KDVT, điểm a khoản 2)"}
+  - {code: OT_KHONG_BAO_HIEM, nhom: giay_to, xe: oto, ten: "Ô tô: không có (V1/V2: hoặc không mang) chứng nhận bảo hiểm TNDS bắt buộc còn hiệu lực",
+     refs: [ND100-D21-K4-b, ND100-D21-K4-b, ND168-D18-K4-c], check: "bảo hiểm"}
+  - {code: XM_KHONG_DANG_KY, nhom: giay_to, xe: xe_may, ten: "Xe máy: điều khiển xe không có giấy (chứng nhận) đăng ký xe",
+     refs: [ND100-D17-K2-a, ND100-D17-K2-a, ND168-D14-K2-a], check: "Điều khiển xe không có"}
+  - {code: OT_KHONG_DANG_KY, nhom: giay_to, xe: oto, ten: "Ô tô: điều khiển xe không có giấy (chứng nhận) đăng ký xe",
+     refs: [ND100-D16-K4-a, ND100-D16-K4-a, ND168-D13-K4-a], check: "Điều khiển xe không có"}
+  - {code: XM_KHONG_GPLX_NHO, nhom: gplx, xe: xe_may, ten: "Mô tô hai bánh dung tích nhỏ (V1/V2: dưới 175 cm3; V3: đến 125 cm3 / 11 kW): không có GPLX",
+     refs: [ND100-D21-K5-a, ND100-D21-K5-a, ND168-D18-K5-a], check: "Không có", note: "Ngưỡng phân loại xe thay đổi giữa NĐ 100 và NĐ 168"}
+  - {code: XM_KHONG_GPLX_LON, nhom: gplx, xe: xe_may, ten: "Mô tô dung tích lớn (V1/V2: từ 175 cm3; V3: trên 125 cm3 / 11 kW), mô tô ba bánh: không có GPLX",
+     refs: [ND100-D21-K7-b, ND100-D21-K7-b, ND168-D18-K7-b], check: "Không có"}
+  - {code: OT_KHONG_GPLX, nhom: gplx, xe: oto, ten: "Ô tô: không có giấy phép lái xe",
+     refs: [ND100-D21-K8-b, ND100-D21-K9-b, ND168-D18-K9-b], check: "Không có",
+     note: "NĐ 123 thay toàn bộ Điều 21: V1 ở khoản 8, V2 ở khoản 9"}
+  - {code: CHUA_DU_TUOI_14_16, nhom: do_tuoi, xe: chung, ten: "Người từ đủ 14 đến dưới 16 tuổi điều khiển xe mô tô, xe gắn máy hoặc ô tô",
+     refs: [ND100-D21-K1, ND100-D21-K1, ND168-D18-K1], check: "từ đủ 14 tuổi đến dưới 16 tuổi", note: "Hình thức: cảnh cáo"}
+  - {code: CHUA_DU_TUOI_16_18_MOTO, nhom: do_tuoi, xe: xe_may, ten: "Người từ đủ 16 đến dưới 18 tuổi điều khiển mô tô từ 50 cm3 (V3: hoặc từ 04 kW)",
+     refs: [ND100-D21-K4-a, ND100-D21-K4-a, ND168-D18-K4-a], check: "từ đủ 16 tuổi đến dưới 18 tuổi"}
+  - {code: CHUA_DU_TUOI_16_18_OTO, nhom: do_tuoi, xe: oto, ten: "Người từ đủ 16 đến dưới 18 tuổi điều khiển ô tô",
+     refs: [ND100-D21-K6, ND100-D21-K6, ND168-D18-K6], check: "từ đủ 16 tuổi đến dưới 18 tuổi"}
+
+  # ===================== CHỦ XE (suy luận gián tiếp) =====================
+  - {code: CHU_XM_GIAO_XE, nhom: chu_xe, xe: xe_may, ten: "Chủ xe máy giao xe hoặc để người không đủ điều kiện điều khiển xe",
+     refs: [ND100-D30-K5-dd, ND100-D30-K5-dd, ND168-D32-K10], check: "để cho người không đủ điều kiện",
+     note: "V3 là cả khoản 10 Điều 32. Ví dụ suy luận gián tiếp: con 15 tuổi đi xe máy của bố → bố vi phạm"}
+  - {code: CHU_OT_GIAO_XE, nhom: chu_xe, xe: oto, ten: "Chủ xe ô tô giao xe hoặc để người không đủ điều kiện điều khiển xe",
+     refs: [ND100-D30-K8-h, ND100-D30-K8-h, ND168-D32-K14-i], check: "để cho người không đủ điều kiện"}

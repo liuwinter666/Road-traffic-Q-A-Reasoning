@@ -1,0 +1,15 @@
+# Quyết định thủ công cho các lệnh sửa đổi mà consolidate.py không tự áp được.
+# Khóa `ref` phải khớp đúng chuỗi "Lệnh" trong data/processed/consolidation_review.md.
+#
+# action:
+#   replace_all  – (lệnh thay/bỏ cụm từ) thay TẤT CẢ các lần xuất hiện trong đơn vị đích
+#   skip         – bỏ qua lệnh, ghi nhận là đã duyệt
+#   set_text     – gán nguyên văn cho đơn vị: cần thêm `id` và `text`
+#
+# Ví dụ:
+# - ref: "điểm s khoản 34 Điều 2 NĐ 123/2021"
+#   action: replace_all
+#   reviewer: "<tên người duyệt>"
+#   note: "Thay từ áp dụng cho mọi lần xuất hiện trong điểm được dẫn"
+
+overrides: []
