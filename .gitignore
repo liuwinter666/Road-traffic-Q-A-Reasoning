@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Secrets
+.env
+
+# Cache / index sinh ra
+.cache/
+data/index/
+*.faiss
+*.sqlite3
+
+# Ontology tạm do reasoner sinh
+ontology/_tmp/
+
+# IDE / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# Word lock files
+~$*
