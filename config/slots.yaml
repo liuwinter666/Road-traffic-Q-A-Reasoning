@@ -60,6 +60,6 @@ cau_hoi:
     cau_hoi: "Người được giao xe bao nhiêu tuổi và có giấy phép lái xe phù hợp không?"
     ly_do: "Lỗi của chủ xe phụ thuộc người được giao xe có đủ điều kiện điều khiển hay không"
   xac_nhan:
-    uu_tien: 9
-    cau_hoi: "Mình hiểu là: {mo_ta}. Đúng không?"
-    ly_do: "Ánh xạ có độ tin cậy thấp, cần xác nhận"
+    uu_tien: 0
+    cau_hoi: "Từ lời bạn kể, mình hiểu là: {mo_ta}. Đúng không?"
+    ly_do: "Ánh xạ hoặc sự kiện suy ra có độ tin cậy chưa đủ cao, cần bạn xác nhận"

@@ -24,6 +24,16 @@ python -m scripts.build_all  # sinh dữ liệu tri thức, ontology, luật (~6
 pytest
 ```
 
+## Chạy thử (CLI)
+```powershell
+python -m scripts.chat                       # hội thoại nhiều lượt (/moi: vụ mới, /hoso: xem hồ sơ, /thoat)
+python -m scripts.chat -m "Tối qua thấy CSGT vẫy thì em rồ ga chạy luôn, không đội mũ" -m "xe máy 110 phân khối"
+python -m scripts.chat --ngay 2023-06-01 -m "Tôi lái ô tô, đo nồng độ cồn 0,3 mg/lít khí thở"
+```
+Tùy chọn: `--ngay` (ngày vi phạm), `--hom-nay` (cố định ngày hôm nay để chạy lại cho kết quả giống nhau),
+`--khong-suy-ra` (tắt suy ra sự kiện gián tiếp), `--json`, `--chi-tiet`. Lần đầu nhánh embedding cần tải
+model `BAAI/bge-m3` (~2 GB).
+
 ## Cấu hình LLM
 
 LLM chỉ dùng để hiểu ngôn ngữ (trích cụm từ, diễn đạt lại câu trả lời) — **không** quyết định điều khoản hay

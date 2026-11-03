@@ -12,18 +12,18 @@ Nguyên tắc:
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from functools import lru_cache
 from datetime import date
 
 import yaml
 
 from src.config import ROOT_DIR
 from src.extraction.schema import HoSoVuViec
-from src.kb.temporal import chon_phien_ban, chon_van_ban_bo_tro
+from src.kb.temporal import chon_phien_ban
+from src.kb.toc_do import tra_toc_do_toi_da
 
 SLOTS_FILE = ROOT_DIR / "config" / "slots.yaml"
 XE_MO_TO = {"NhomXeMoTo", "XeMoTo", "XeMoToHaiBanh", "XeMoToBaBanh", "XeTuongTuXeMoTo"}
-XE_TOC_DO_MOI_DUONG = {"XeGanMay", "XeMayDien", "XeTuongTuXeGanMay", "XeChoNguoiBonBanhCoGanDongCo",
-                       "XeChoHangBonBanhCoGanDongCo"}
 KHONG_PHU_THUOC_XE = {"ChongDoiNguoiThiHanhCongVu", "KhongChapHanhYeuCauKiemTra"}
 GIAY_TO = {"KhongCoGPLX", "KhongMangTheoGPLX", "KhongCoDangKyXe", "KhongMangTheoDangKyXe",
            "KhongCoBaoHiemTNDS", "KhongMangTheoBaoHiemTNDS"}
@@ -50,26 +50,53 @@ def _cfg() -> dict:
     return yaml.safe_load(SLOTS_FILE.read_text(encoding="utf-8"))
 
 
+@lru_cache(maxsize=1)
+def _quan_sat() -> list[dict]:
+    """Lớp dấu hiệu định nghĩa bằng giá trị boolean (config/ontology_concepts.yaml → observations)."""
+    cfg = yaml.safe_load((ROOT_DIR / "config" / "ontology_concepts.yaml").read_text(encoding="utf-8"))
+    return [o for o in cfg["observations"] if "some" not in o]
+
+
+@lru_cache(maxsize=1)
+def _nhan() -> dict[str, str]:
+    cfg = yaml.safe_load((ROOT_DIR / "config" / "ontology_concepts.yaml").read_text(encoding="utf-8"))
+    out = {o["name"]: o["label"] for o in cfg["observations"]}
+    out.update({t["fact"]: t["label"] for t in cfg["tinh_tiet_facts"]})
+    return out
+
+
+def nhan_node(node: str) -> str:
+    """Nhãn tiếng Việt của node (dấu hiệu / tình tiết) để hỏi người dùng — không lộ tên nội bộ."""
+    return _nhan().get(node, node).lower()
+
+
+def cho_xac_nhan_lien_ket(hs: HoSoVuViec) -> list:
+    """Dấu hiệu/tình tiết liên kết bằng embedding, chưa được người dùng xác nhận."""
+    return [d for d in hs.dau_hieu if d.phuong_phap == "embedding" and not d.phu_dinh and d.kieu != "goi_y"]
+
+
+def nodes_hieu_luc(hs: HoSoVuViec) -> set[str]:
+    """Dấu hiệu đã liên kết + dấu hiệu được thỏa bởi sự kiện boolean trong hồ sơ (kể cả sự kiện suy ra đã chấp
+    nhận) — để câu hỏi không lặp lại điều fact_inducer đã xác định."""
+    out = set(hs.nodes())
+    for o in _quan_sat():
+        if all(hs.su_kien.get(k) == v for k, v in o["values"].items()):
+            out.add(o["name"])
+    return out
+
+
 def co_the_suy_ra_toc_do_toi_da(hs: HoSoVuViec, ngay: date) -> tuple[bool, str | None]:
-    """(có tra được bảng tốc độ không, trường còn thiếu để tra) — dựa trên thông tư có hiệu lực tại ``ngay``."""
-    if chon_van_ban_bo_tro("toc_do_toi_da", ngay).khoa is None:
-        return False, "toc_do_toi_da"
-    if hs.loai_xe in XE_TOC_DO_MOI_DUONG:
-        return True, None
-    if "DuongCaoToc" in hs.loai_duong:
-        return False, "toc_do_toi_da"          # cao tốc phải có biển báo — hỏi số trên biển
-    if hs.loai_xe is None:
-        return False, "loai_xe"
-    if hs.khu_dong_dan_cu is None or hs.duong_doi is None:
-        return False, "dac_diem_duong"
-    return True, None
+    """(có tra được bảng tốc độ không, trường còn thiếu để tra) — cùng hàm tra với fact_builder
+    (``src/kb/toc_do.py``), theo thông tư có hiệu lực tại ``ngay``."""
+    tc = tra_toc_do_toi_da(hs.loai_xe, ngay, hs.khu_dong_dan_cu, hs.duong_doi, hs.loai_duong)
+    return tc.tra_duoc, tc.thieu
 
 
 def kiem_tra(hs: HoSoVuViec, hom_nay: date | None = None) -> KetQuaSlot:
     """Danh sách câu hỏi làm rõ (rỗng nếu đủ thông tin để suy luận)."""
     cfg = _cfg()
     today = hom_nay or date.today()
-    nodes, hints = hs.nodes(), hs.goi_y()
+    nodes, hints = nodes_hieu_luc(hs), hs.goi_y()
     need: dict[str, str] = {}               # trường → câu hỏi (có thể đã định dạng)
     ghi_chu: list[str] = []
 
@@ -135,15 +162,25 @@ def kiem_tra(hs: HoSoVuViec, hom_nay: date | None = None) -> KetQuaSlot:
     if hs.chu_xe_giao_xe and hs.tuoi_nguoi_lai is None and "coGPLX" not in hs.su_kien:
         need["nguoi_lai_duoc_giao_xe"] = ""
 
-    # Liên kết bằng embedding → xác nhận
-    for d in hs.dau_hieu:
-        if d.phuong_phap == "embedding" and not d.phu_dinh:
-            need.setdefault("xac_nhan", f"'{d.goc}' nghĩa là {d.node}")
-
     qs = []
     for truong, extra in need.items():
         c = cfg["cau_hoi"][truong]
         text = c["cau_hoi"].format(mo_ta=extra) if extra else c["cau_hoi"]
         qs.append(CauHoi(truong, text, c["ly_do"], c["uu_tien"]))
+
+    # Xác nhận: liên kết bằng embedding (dấu hiệu/tình tiết — gợi ý "_..." chỉ dùng để chọn câu hỏi nên không cần
+    # xác nhận), sự kiện suy ra có độ tin cậy vừa phải. Gộp thành MỘT câu hỏi, hỏi riêng một lượt (trước các câu
+    # khác) để câu trả lời "có"/"không" áp đúng cho đúng những mục đã hỏi.
+    muc = [f"“{d.goc}” nghĩa là {nhan_node(d.node)}" for d in cho_xac_nhan_lien_ket(hs)]
+    nhom: dict[str, list] = {}
+    for sk in hs.su_kien_suy_ra:
+        if sk.trang_thai == "cho_xac_nhan":
+            nhom.setdefault(sk.bang_chung, []).append(sk)
+    muc += [f"{'; '.join(x.mo_ta() for x in ds)} (từ “{bc}”)" for bc, ds in nhom.items()]
+    if muc:
+        c = cfg["cau_hoi"]["xac_nhan"]
+        text = muc[0] if len(muc) == 1 else " ".join(f"({i}) {m};" for i, m in enumerate(muc, 1)).rstrip(";")
+        return KetQuaSlot(False, [CauHoi("xac_nhan", c["cau_hoi"].format(mo_ta=text), c["ly_do"], 0)], v, ghi_chu)
+
     qs.sort(key=lambda q: q.uu_tien)
     return KetQuaSlot(not qs, qs[: cfg["so_cau_hoi_toi_da"]], v, ghi_chu)

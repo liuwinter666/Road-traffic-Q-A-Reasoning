@@ -1,0 +1,27 @@
+# Cấu hình fact_inducer (src/inference/fact_inducer.py) — suy ra sự kiện gián tiếp bằng LLM.
+# Danh mục thuộc tính được phép suy ra: lấy tự động từ ontology (thuộc tính dữ liệu boolean có miền
+# HanhViDieuKhienXe hoặc HanhVi, kèm nhãn tiếng Việt). Loại trừ thêm ở `khong_suy_ra`.
+
+# Ngưỡng độ tin cậy (LLM tự đánh giá; dùng để quyết định hỏi lại, KHÔNG dùng làm xác suất):
+nguong_chap_nhan: 0.8     # ≥ ngưỡng: dùng ngay làm sự kiện (ghi rõ "suy ra" trong truy vết)
+nguong_hoi_lai: 0.5       # [hoi_lai, chap_nhan): hỏi người dùng xác nhận; dưới: bỏ
+
+# Đoạn bằng chứng phải khớp lời người dùng ít nhất tỉ lệ này (theo từ, bỏ dấu) — chống bằng chứng bịa
+ty_le_khop_bang_chung: 0.8
+
+# Thuộc tính không cho LLM suy ra (phải do người dùng nói thẳng hoặc trả lời câu hỏi)
+khong_suy_ra:
+  - gplxDangBiTuoc        # tình trạng pháp lý của GPLX — không suy được từ lời kể
+
+# Thuộc tính luôn phải hỏi lại người dùng dù độ tin cậy cao (khái niệm pháp lý có điều kiện thời hạn,
+# lời kể thường không đủ để khẳng định — vd. "tái phạm" theo Luật XLVPHC)
+luon_hoi_lai:
+  - taiPham
+  - viPhamNhieuLan
+
+# Định nghĩa pháp lý đính kèm prompt để LLM hiểu đúng thuật ngữ của thuộc tính (trích NGUYÊN VĂN từ văn bản bổ
+# trợ có hiệu lực tại ngày vi phạm — chọn qua support_roles; không viết định nghĩa bằng lời của hệ thống).
+dinh_nghia:
+  - thuoc_tinh: [coHieuLenhNguoiDieuKhienGT]
+    vai_tro: dinh_nghia_nguoi_dieu_khien_gt
+    id: {GTDB2008: GTDB2008-D3-K25, LTTATGT: LTTATGT-D2-K10}

@@ -54,7 +54,7 @@ class Settings(BaseSettings):
     # Embedding / RAG
     embedding_model: str = "BAAI/bge-m3"
     embedding_device: str = "cpu"
-    entity_link_threshold: float = Field(0.65, ge=0.0, le=1.0)
+    entity_link_threshold: float = Field(0.80, ge=0.0, le=1.0)   # đo: evaluation/calib_entity_link.py
     entity_link_embedding: bool = True   # bật embedding dự phòng khi từ điển đồng nghĩa không khớp
     vector_store: Literal["faiss", "chroma"] = "faiss"
 

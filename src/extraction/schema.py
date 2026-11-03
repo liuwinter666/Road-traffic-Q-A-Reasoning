@@ -70,6 +70,27 @@ class DauHieu(BaseModel):
     phu_dinh: bool = False
 
 
+class SuKienSuyRa(BaseModel):
+    """Sự kiện gián tiếp do fact_inducer (LLM) suy ra, sau khi kiểm tra tất định."""
+
+    thuoc_tinh: str                           # thuộc tính boolean của ontology (vd. chapHanhHieuLenh)
+    gia_tri: bool
+    do_tin_cay: float
+    bang_chung: str                           # trích nguyên văn lời người dùng
+    giai_thich: str = ""
+    nhan: str = ""                            # nhãn tiếng Việt của thuộc tính (từ ontology)
+    # chap_nhan | cho_xac_nhan | xac_nhan (người dùng đồng ý) | tu_choi (người dùng bác) |
+    # tin_cay_thap | khong_can_cu (bằng chứng không có trong lời người dùng) | xung_dot (trái sự kiện trực tiếp)
+    trang_thai: str = "chap_nhan"
+
+    @property
+    def dang_ap_dung(self) -> bool:
+        return self.trang_thai in ("chap_nhan", "xac_nhan")
+
+    def mo_ta(self) -> str:
+        return f"{self.nhan or self.thuoc_tinh}: {'có' if self.gia_tri else 'không'}"
+
+
 class HoSoVuViec(BaseModel):
     """Hồ sơ một vụ việc, cập nhật qua nhiều lượt hội thoại."""
 
@@ -96,6 +117,7 @@ class HoSoVuViec(BaseModel):
     gia_dinh: list[str] = Field(default_factory=list)
     khong_lien_ket: list[str] = Field(default_factory=list)   # cụm không ánh xạ được vào ontology
     cum_tu_loai_bo: list[str] = Field(default_factory=list)   # cụm LLM trả về nhưng không có trong lời người dùng
+    su_kien_suy_ra: list[SuKienSuyRa] = Field(default_factory=list)   # từ fact_inducer (kèm trạng thái)
 
     @property
     def ngay_vi_pham(self) -> date | None:
@@ -118,6 +140,10 @@ class HoSoVuViec(BaseModel):
                 data[k] += [d for d in v if (d["node"], d["goc"]) not in seen]
             elif k in ("su_kien", "nguon"):
                 data[k] = {**data[k], **v}
+            elif k == "su_kien_suy_ra":
+                gop = {x["thuoc_tinh"]: x for x in data[k]}
+                gop.update({x["thuoc_tinh"]: x for x in v})
+                data[k] = list(gop.values())
             elif v is not None:
                 data[k] = v
         return HoSoVuViec.model_validate(data)

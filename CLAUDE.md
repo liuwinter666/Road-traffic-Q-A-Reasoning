@@ -10,6 +10,7 @@
 - Phase 4: lớp LLM (Gemini chính + Ollama dự phòng; cache, retry 429, giới hạn RPM), normalizer, entity linker,
   synonyms.json, slot checker, llm_extractor, kiểm chứng cụm từ (grounding) — XONG
 - Quyết định đã chốt: không rõ ngày vi phạm → `default_version: current` (phiên bản hiệu lực hôm nay, không cố định V3).
+- Phase 5: fact_inducer (LLM suy ra sự kiện gián tiếp + kiểm tra tất định), fact_builder, pipeline đầu-cuối, CLI — ĐANG REVIEW
 - Gốc project = thư mục `DoAn/` (tương ứng `traffic-law-expert/` trong đặc tả).
 - Tên file dữ liệu thô: `data/raw/ND_100.docx`, `ND_123.docx`, `ND_168.docx`.
 
@@ -24,6 +25,8 @@
 ## Lệnh thường dùng
 - Kích hoạt venv: `.venv\Scripts\activate` (PowerShell) hoặc `source .venv/Scripts/activate` (Git Bash)
 - Kiểm tra môi trường: `python -m scripts.check_env`; kiểm tra LLM: `python -m scripts.check_llm [--list]`
+- Chạy hệ thống từ CLI: `python -m scripts.chat` (hội thoại) hoặc `python -m scripts.chat -m "..." -m "..."`
+  (tùy chọn `--ngay YYYY-MM-DD`, `--hom-nay`, `--khong-suy-ra`, `--json`, `--chi-tiet`)
 - Test: `pytest`
 - Sinh lại articles_v*.jsonl + consolidation_review.md: `python -m src.ingest.build_articles`
 - Kiểm chứng + sinh bảng hành vi MVP: `python -m src.ingest.mvp_report` (→ docs/mvp_behaviors.md)
@@ -239,3 +242,14 @@ Bắt đầu với **Phase 0**.
   người dùng, không đối chiếu câu hỏi hệ thống. Tắt cho ablation: `LLMExtractor(kiem_chung_cum_tu=False)`.
 - Ollama trên máy dev chạy CPU (~50 s/lần trích xuất với qwen2.5:7b): timeout riêng `OLLAMA_TIMEOUT_S`, không retry
   khi hết giờ; schema đặt trong system prompt để tái dùng KV-cache. Không dùng Ollama cho đánh giá hàng loạt.
+
+## Pipeline (Phase 5)
+- `src/inference/pipeline.py`: `Pipeline.xu_ly(PhienLamViec, tin_nhan, ngay_vi_pham=None)` → `KetQuaLuot`
+  (can_hoi | ket_luan | khong_phat_hien). Trạng thái nhiều lượt trong `PhienLamViec` (hồ sơ Pydantic + lời kể + câu hỏi vừa hỏi).
+- fact_inducer: danh mục thuộc tính = thuộc tính boolean của ontology (HanhViDieuKhienXe/HanhVi), lấy tự động;
+  ngưỡng/ngoại lệ ở `config/fact_inducer.yaml`; bằng chứng phải có trong lời người dùng; sự kiện trực tiếp luôn thắng.
+  Định nghĩa pháp lý đính kèm prompt lấy NGUYÊN VĂN theo ngày (support_roles `dinh_nghia_nguoi_dieu_khien_gt`).
+- Xác nhận: mọi mục chờ xác nhận gộp thành MỘT câu hỏi (`xac_nhan`), hỏi riêng một lượt; "có/không" áp cho đúng các mục đó.
+- Tốc độ tối đa khi không có biển: `src/kb/toc_do.py` (dùng chung cho slot_checker và fact_builder).
+- Ngưỡng embedding entity linker 0.80 (đo bằng `python -m evaluation.calib_entity_link`; 0.65 cho nhiều liên kết sai).
+- `src/inference/report.py`: trình bày tất định (Phase 6 thay bằng verbalizer có kiểm tra chống bịa).
