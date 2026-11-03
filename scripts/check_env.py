@@ -15,7 +15,7 @@ from src.config import RAW_DIR
 
 REQUIRED_MODULES = [
     "pydantic", "pydantic_settings", "yaml", "docx", "pdfplumber", "owlready2",
-    "anthropic", "sentence_transformers", "faiss", "fastapi", "streamlit",
+    "google.genai", "sentence_transformers", "faiss", "fastapi", "streamlit",
     "graphviz", "pandas", "pytest",
 ]
 

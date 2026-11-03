@@ -1,0 +1,16 @@
+# Phân loại "xe máy" (người dùng nói chung chung) thành xe gắn máy / xe mô tô theo dung tích hoặc công suất,
+# theo luật có hiệu lực tại ngày vi phạm (support_roles.phan_loai_xe). Test kiểm tra `trich` có nguyên văn.
+# so_sanh: "<" (dưới) hoặc "<=" (không lớn hơn) — khác nhau giữa hai luật: xe đúng 50 cm3 là mô tô theo
+# Luật GTĐB 2008 nhưng là xe gắn máy theo Luật TTATGT.
+
+theo_van_ban:
+  GTDB2008:
+    dung_tich: {nguong: 50, so_sanh: "<", id: GTDB2008-D60-K1-a,
+                trich: "xe gắn máy có dung tích xi-lanh dưới 50 cm3"}
+    cong_suat: {nguong: 4, so_sanh: "<=", id: ND100-D3-K1-d, nguon: V1,
+                trich: "Xe máy điện là xe gắn máy được dẫn động bằng động cơ điện có công suất lớn nhất không lớn hơn 4 kW"}
+  LTTATGT:
+    dung_tich: {nguong: 50, so_sanh: "<=", id: LTTATGT-D34-K1-g, nguon: LTTATGT_2025,
+                trich: "nếu động cơ dẫn động là động cơ nhiệt thì dung tích làm việc hoặc dung tích tương đương không lớn hơn 50 cm3"}
+    cong_suat: {nguong: 4, so_sanh: "<=", id: LTTATGT-D34-K1-g, nguon: LTTATGT_2025,
+                trich: "nếu động cơ dẫn động là động cơ điện thì công suất của động cơ không lớn hơn 04 kW"}

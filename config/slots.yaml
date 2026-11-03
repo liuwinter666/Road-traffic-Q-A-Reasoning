@@ -1,0 +1,65 @@
+# Câu hỏi làm rõ của slot_checker (src/extraction/slot_checker.py). Logic chọn câu hỏi ở code;
+# file này chỉ chứa câu chữ và thứ tự ưu tiên (số nhỏ hỏi trước). So_cau_hoi_toi_da: số câu mỗi lượt.
+so_cau_hoi_toi_da: 3
+
+cau_hoi:
+  mo_ta_hanh_vi:
+    uu_tien: 1
+    cau_hoi: "Bạn mô tả giúp hành vi cụ thể đã xảy ra (ví dụ: vượt đèn đỏ, chạy quá tốc độ, có uống rượu bia...)?"
+    ly_do: "Chưa nhận ra hành vi nào trong mô tả"
+  loai_xe:
+    uu_tien: 2
+    cau_hoi: "Bạn điều khiển loại xe gì (xe máy, xe máy điện, ô tô...)?"
+    ly_do: "Mức phạt khác nhau theo loại phương tiện"
+  ngay_chinh_xac:
+    uu_tien: 3
+    cau_hoi: "Vi phạm xảy ra chính xác vào ngày nào?"
+    ly_do: "Khoảng thời gian bạn nêu nằm vắt qua hai giai đoạn áp dụng văn bản khác nhau"
+  nong_do_con:
+    uu_tien: 4
+    cau_hoi: "Kết quả đo nồng độ cồn là bao nhiêu (ghi rõ mg/lít khí thở hay mg/100 ml máu)? Nếu bạn từ chối đo, hãy cho biết."
+    ly_do: "Mức phạt về nồng độ cồn phụ thuộc kết quả đo"
+  don_vi_nong_do:
+    uu_tien: 4
+    cau_hoi: "Kết quả nồng độ cồn đo theo mg/lít khí thở hay mg/100 ml máu?"
+    ly_do: "Không xác định được đơn vị của kết quả đo"
+  toc_do_thuc_te:
+    uu_tien: 5
+    cau_hoi: "Xe của bạn chạy với tốc độ bao nhiêu km/h (theo biên bản hoặc thiết bị đo)?"
+    ly_do: "Mức phạt quá tốc độ phụ thuộc mức vượt"
+  toc_do_toi_da:
+    uu_tien: 5
+    cau_hoi: "Tốc độ tối đa trên biển báo ở đoạn đường đó là bao nhiêu km/h? Nếu không có biển, đường đó trong hay ngoài khu đông dân cư, là đường đôi (có dải phân cách giữa) hay đường hai chiều?"
+    ly_do: "Cần tốc độ giới hạn để tính mức vượt"
+  dac_diem_duong:
+    uu_tien: 5
+    cau_hoi: "Đoạn đường đó trong hay ngoài khu đông dân cư, và là đường đôi (có dải phân cách giữa) hay đường hai chiều?"
+    ly_do: "Không có biển báo — cần đặc điểm đường để xác định tốc độ tối đa theo thông tư"
+  dung_tich:
+    uu_tien: 6
+    cau_hoi: "Xe của bạn có dung tích xi-lanh bao nhiêu cm3 (phân khối)? Nếu là xe điện, công suất động cơ bao nhiêu kW?"
+    ly_do: "Hạng giấy phép lái xe / quy định về độ tuổi phụ thuộc dung tích hoặc công suất xe"
+  tuoi_nguoi_lai:
+    uu_tien: 6
+    cau_hoi: "Người điều khiển xe bao nhiêu tuổi?"
+    ly_do: "Quy định về độ tuổi và cách xử phạt người chưa thành niên phụ thuộc tuổi"
+  loai_giay_to:
+    uu_tien: 7
+    cau_hoi: "Giấy tờ nào bị thiếu (giấy phép lái xe, đăng ký xe, bảo hiểm)? Bạn không có hay chỉ quên mang theo?"
+    ly_do: "Không có và không mang theo bị xử lý khác nhau"
+  kinh_doanh_van_tai:
+    uu_tien: 7
+    cau_hoi: "Lúc đó bạn có đang chạy xe kinh doanh vận tải (chở khách, giao hàng thuê, xe công nghệ) không?"
+    ly_do: "Từ 2025, lỗi không mang theo giấy tờ chỉ áp dụng với xe kinh doanh vận tải"
+  tai_nan:
+    uu_tien: 8
+    cau_hoi: "Bạn có gây ra va chạm/tai nạn không? Sau đó bạn có dừng lại, giữ nguyên hiện trường và hỗ trợ người bị nạn không?"
+    ly_do: "Cần biết vai trò trong vụ tai nạn và hành vi sau tai nạn"
+  nguoi_lai_duoc_giao_xe:
+    uu_tien: 8
+    cau_hoi: "Người được giao xe bao nhiêu tuổi và có giấy phép lái xe phù hợp không?"
+    ly_do: "Lỗi của chủ xe phụ thuộc người được giao xe có đủ điều kiện điều khiển hay không"
+  xac_nhan:
+    uu_tien: 9
+    cau_hoi: "Mình hiểu là: {mo_ta}. Đúng không?"
+    ly_do: "Ánh xạ có độ tin cậy thấp, cần xác nhận"

@@ -6,7 +6,9 @@
 - Phase 2: ontology traffic_law.owl + docs/ontology_design.md — XONG
 - Bổ sung sau Phase 2: hiệu lực tới cấp phần nội dung + có điều kiện (temporal.py), văn bản bổ trợ
   GTDB2008/LTTATGT(+L118)/TT31/TT38/LXLVPHC, 0 lệnh hợp nhất treo — XONG
-- Phase 3: luật SWRL (303), rule_registry, sanctions, reasoner (HermiT), penalty — ĐANG REVIEW (docs/rules_design.md)
+- Phase 3: luật SWRL (303), rule_registry, sanctions, reasoner (HermiT), penalty — XONG (docs/rules_design.md)
+- Phase 4: lớp LLM (Gemini chính + Ollama dự phòng; cache, retry 429, giới hạn RPM), normalizer, entity linker,
+  synonyms.json, slot checker, llm_extractor (test bằng mock) — ĐANG REVIEW
 - Gốc project = thư mục `DoAn/` (tương ứng `traffic-law-expert/` trong đặc tả).
 - Tên file dữ liệu thô: `data/raw/ND_100.docx`, `ND_123.docx`, `ND_168.docx`.
 
@@ -20,7 +22,7 @@
 
 ## Lệnh thường dùng
 - Kích hoạt venv: `.venv\Scripts\activate` (PowerShell) hoặc `source .venv/Scripts/activate` (Git Bash)
-- Kiểm tra môi trường: `python -m scripts.check_env`
+- Kiểm tra môi trường: `python -m scripts.check_env`; kiểm tra LLM: `python -m scripts.check_llm [--list]`
 - Test: `pytest`
 - Sinh lại articles_v*.jsonl + consolidation_review.md: `python -m src.ingest.build_articles`
 - Kiểm chứng + sinh bảng hành vi MVP: `python -m src.ingest.mvp_report` (→ docs/mvp_behaviors.md)
@@ -223,3 +225,11 @@ Làm theo từng phase. **Hết mỗi phase thì dừng lại**, báo cáo ngắ
 Quy ước code: type hints, docstring tiếng Việt, log rõ ràng, không hard-code API key, prompt LLM để trong `src/llm/prompts/` dạng file riêng có version. Commit theo từng phase.
 
 Bắt đầu với **Phase 0**.
+
+## LLM (Phase 4)
+- KHÔNG dùng Anthropic. Provider: `gemini` (GEMINI_API_KEY, GEMINI_MODEL) | `ollama` (OLLAMA_BASE_URL, OLLAMA_MODEL).
+- Interface: `get_llm_client().generate(...)` / `.generate_structured(prompt, PydanticModel, system=...)`.
+- Prompt có version: `src/llm/prompts/<id>_v<n>.md` (front-matter + `## system` / `## user`), nạp bằng `load_prompt`.
+- LLM chỉ chép cụm từ bề mặt (TrichXuatLLM); chuẩn hóa/ánh xạ là tất định (normalizer, entity_linker, synonyms.json);
+  sự kiện kéo theo của node lấy từ ontology_concepts.yaml; phân loại xe máy theo dung tích ở config/phan_loai_xe.yaml
+  (khác nhau giữa Luật GTĐB 2008 "dưới 50 cm3" và Luật TTATGT "không lớn hơn 50 cm3").

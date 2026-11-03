@@ -1,0 +1,508 @@
+{
+  "_meta": {
+    "mo_ta": "Từ điển đồng nghĩa cách nói thông thường → node ontology (entity_linker.py). Chỉ chứa ngôn ngữ, không chứa nội dung pháp lý: sự kiện (thuộc tính) của mỗi node dấu hiệu lấy từ config/ontology_concepts.yaml.",
+    "kieu": {
+      "xe": "lớp phương tiện trong ontology",
+      "duong": "lớp loại đường",
+      "dac_diem_duong": "đặc điểm đường dùng để tra tốc độ tối đa (không phải lớp ontology)",
+      "dau_hieu": "lớp dấu hiệu sự kiện (observations) — kéo theo giá trị boolean",
+      "tinh_tiet": "sự kiện làm phát sinh tình tiết (tinh_tiet_facts)",
+      "goi_y": "gợi ý cần hỏi thêm, không kết luận gì (tiền tố _)"
+    },
+    "phien_ban": 1
+  },
+  "xe": {
+    "OTo": [
+      "ô tô",
+      "oto",
+      "ôtô",
+      "xe ô tô",
+      "xe hơi",
+      "xe con",
+      "ô tô con",
+      "xe 4 bánh",
+      "xe bốn bánh",
+      "xe 4 chỗ",
+      "xe 5 chỗ",
+      "xe 7 chỗ",
+      "xe bán tải",
+      "xe suv",
+      "xe sedan",
+      "xế hộp",
+      "xe du lịch"
+    ],
+    "XeOToTai": [
+      "xe tải",
+      "ô tô tải",
+      "xe ben",
+      "xe container",
+      "xe công-ten-nơ",
+      "xe tải nhẹ"
+    ],
+    "XeOToChoNguoi": [
+      "xe khách",
+      "xe buýt",
+      "xe bus",
+      "xe 16 chỗ",
+      "xe 29 chỗ",
+      "xe 45 chỗ"
+    ],
+    "NhomXeMoTo": [
+      "xe máy",
+      "xe gắn máy",
+      "xe mô tô",
+      "xe moto",
+      "xe số",
+      "xe tay ga",
+      "xe ga"
+    ],
+    "XeMoToHaiBanh": [
+      "mô tô",
+      "mô tô hai bánh",
+      "moto",
+      "xe côn tay",
+      "xe phân khối lớn",
+      "xe pkl",
+      "xe sh",
+      "xe exciter",
+      "xe winner",
+      "sh",
+      "exciter",
+      "winner",
+      "wave",
+      "vision",
+      "air blade",
+      "airblade",
+      "dream",
+      "sirius",
+      "future",
+      "lead",
+      "vario",
+      "jupiter",
+      "raider",
+      "satria",
+      "xe côn"
+    ],
+    "XeMoToBaBanh": [
+      "xe ba bánh",
+      "mô tô ba bánh",
+      "xe lôi",
+      "xe ba gác máy"
+    ],
+    "XeGanMay": [
+      "xe 50 phân",
+      "xe 50cc",
+      "xe dưới 50 phân",
+      "xe máy 50cc"
+    ],
+    "XeMayDien": [
+      "xe máy điện",
+      "xe điện hai bánh",
+      "xe máy chạy điện"
+    ],
+    "XeDapDien": [
+      "xe đạp điện"
+    ],
+    "XeDap": [
+      "xe đạp"
+    ],
+    "XeChoNguoiBonBanhCoGanDongCo": [
+      "xe điện bốn bánh chở khách",
+      "xe điện du lịch",
+      "xe điện chở khách",
+      "xe chở người bốn bánh có gắn động cơ"
+    ],
+    "XeChoHangBonBanhCoGanDongCo": [
+      "xe điện bốn bánh chở hàng",
+      "xe chở hàng bốn bánh có gắn động cơ"
+    ]
+  },
+  "duong": {
+    "DuongCaoToc": [
+      "cao tốc",
+      "đường cao tốc",
+      "đường cao tốc"
+    ],
+    "DuongMotChieu": [
+      "đường một chiều",
+      "đường 1 chiều",
+      "phố một chiều"
+    ],
+    "KhuDanCu": [
+      "trong khu dân cư",
+      "khu dân cư",
+      "khu đông dân cư",
+      "trong khu đông dân cư",
+      "nội thành",
+      "nội thị",
+      "trong phố",
+      "trong thành phố"
+    ],
+    "NgoaiKhuDanCu": [
+      "ngoài khu dân cư",
+      "ngoài khu đông dân cư",
+      "ngoại thành",
+      "đường ngoài thành phố"
+    ]
+  },
+  "dac_diem_duong": {
+    "duong_doi": [
+      "đường đôi",
+      "có dải phân cách",
+      "có giải phân cách",
+      "đường có dải phân cách giữa",
+      "đường hai làn mỗi chiều",
+      "đường một chiều nhiều làn"
+    ],
+    "duong_hai_chieu": [
+      "đường hai chiều",
+      "đường 2 chiều",
+      "không có dải phân cách",
+      "đường một làn"
+    ]
+  },
+  "dau_hieu": {
+    "KhongChapHanhDenTinHieu": [
+      "vượt đèn đỏ",
+      "chạy đèn đỏ",
+      "vượt đèn",
+      "không dừng đèn đỏ",
+      "đèn đỏ vẫn đi",
+      "đèn đỏ vẫn chạy",
+      "vượt tín hiệu đèn",
+      "vượt đèn tín hiệu",
+      "không chấp hành đèn tín hiệu"
+    ],
+    "KhongChapHanhHieuLenhNguoiDieuKhienGT": [
+      "không chấp hành hiệu lệnh",
+      "không chấp hành hiệu lệnh của cảnh sát",
+      "không theo hiệu lệnh csgt",
+      "không dừng khi csgt ra hiệu",
+      "csgt vẫy không dừng",
+      "phớt lờ hiệu lệnh"
+    ],
+    "KhongChapHanhHieuLenhDungXe": [
+      "không chấp hành hiệu lệnh dừng xe",
+      "bị yêu cầu dừng xe nhưng không dừng",
+      "csgt ra hiệu dừng xe nhưng vẫn chạy"
+    ],
+    "KhongChapHanhYeuCauKiemTra": [
+      "không chấp hành yêu cầu kiểm tra",
+      "không cho kiểm tra",
+      "không xuất trình giấy tờ khi được yêu cầu"
+    ],
+    "ChongDoiNguoiThiHanhCongVu": [
+      "chống đối",
+      "chống người thi hành công vụ",
+      "cản trở người thi hành công vụ",
+      "xô đẩy csgt",
+      "đánh csgt",
+      "chống đối cảnh sát",
+      "đe dọa csgt"
+    ],
+    "DiNguocChieu": [
+      "đi ngược chiều",
+      "chạy ngược chiều",
+      "đi vào đường ngược chiều",
+      "đi ngược đường một chiều",
+      "lấn sang chiều ngược lại đi ngược"
+    ],
+    "DiSaiPhanDuongLanDuong": [
+      "đi sai làn",
+      "chạy sai làn",
+      "đi không đúng làn",
+      "đi sai phần đường",
+      "lấn làn",
+      "đi vào làn ô tô",
+      "đi vào làn xe buýt",
+      "đi vào làn xe máy",
+      "không đi bên phải"
+    ],
+    "ChuyenLanSaiQuyDinh": [
+      "chuyển làn không xi nhan",
+      "chuyển làn không bật xi nhan",
+      "chuyển làn sai",
+      "chuyển làn ẩu",
+      "chuyển làn không có tín hiệu",
+      "đánh lái chuyển làn đột ngột",
+      "chuyển làn qua vạch liền"
+    ],
+    "DungTaySuDungDienThoai": [
+      "nghe điện thoại",
+      "dùng điện thoại",
+      "nhắn tin khi lái",
+      "cầm điện thoại",
+      "bấm điện thoại",
+      "gọi điện khi lái xe",
+      "xem điện thoại"
+    ],
+    "KhongDoiMuBaoHiem": [
+      "không đội mũ bảo hiểm",
+      "không đội mũ",
+      "không đội nón bảo hiểm",
+      "không đội nón",
+      "đội mũ không cài quai",
+      "không cài quai mũ",
+      "mũ không cài quai"
+    ],
+    "ChoNguoiKhongDoiMuBaoHiem": [
+      "người ngồi sau không đội mũ",
+      "chở người không đội mũ",
+      "người ngồi sau không đội nón",
+      "chở bạn không đội mũ",
+      "người đi cùng không đội mũ"
+    ],
+    "KhongThatDayAnToan": [
+      "không thắt dây an toàn",
+      "không cài dây an toàn",
+      "không thắt dây"
+    ],
+    "LienQuanTaiNanKhongDungLai": [
+      "liên quan đến tai nạn nhưng bỏ đi",
+      "chứng kiến tai nạn liên quan mà không dừng"
+    ],
+    "GayTaiNanBoTron": [
+      "gây tai nạn rồi bỏ trốn",
+      "gây tai nạn bỏ chạy",
+      "đâm người rồi bỏ chạy",
+      "tông người rồi bỏ chạy",
+      "tông xe rồi bỏ chạy",
+      "va chạm rồi bỏ đi",
+      "bỏ trốn sau tai nạn",
+      "gây tai nạn bỏ trốn",
+      "đâm người bỏ chạy",
+      "tông người bỏ chạy"
+    ],
+    "CoGayTaiNan": [
+      "gây tai nạn",
+      "gây ra tai nạn",
+      "đâm vào người",
+      "tông vào xe khác",
+      "đâm vào xe khác",
+      "làm người khác bị thương"
+    ],
+    "LangLachDanhVong": [
+      "lạng lách",
+      "đánh võng",
+      "lạng lách đánh võng",
+      "bốc đầu",
+      "chạy kiểu đánh võng",
+      "lượn lách"
+    ],
+    "CoMaTuyTrongCoThe": [
+      "dương tính với ma túy",
+      "dương tính ma túy",
+      "sử dụng ma túy",
+      "có ma túy trong người",
+      "phê ma túy",
+      "dùng ma túy"
+    ],
+    "TuChoiKiemTraNongDoCon": [
+      "không thổi nồng độ cồn",
+      "từ chối thổi",
+      "không chịu thổi",
+      "từ chối đo nồng độ cồn",
+      "không chấp hành kiểm tra nồng độ cồn",
+      "không chịu kiểm tra nồng độ cồn"
+    ],
+    "TuChoiKiemTraMaTuy": [
+      "từ chối xét nghiệm ma túy",
+      "không chịu test ma túy",
+      "từ chối kiểm tra ma túy"
+    ],
+    "KhongCoGPLX": [
+      "không có bằng lái",
+      "không có bằng",
+      "chưa có bằng lái",
+      "chưa có bằng",
+      "không có giấy phép lái xe",
+      "chưa thi bằng",
+      "bằng lái bị thu hồi"
+    ],
+    "KhongMangTheoGPLX": [
+      "quên bằng lái",
+      "không mang bằng lái",
+      "để quên bằng",
+      "không mang theo bằng",
+      "không mang giấy phép lái xe"
+    ],
+    "KhongCoDangKyXe": [
+      "không có đăng ký xe",
+      "không có cà vẹt",
+      "xe không có giấy tờ",
+      "chưa đăng ký xe",
+      "không có giấy đăng ký"
+    ],
+    "KhongMangTheoDangKyXe": [
+      "quên đăng ký xe",
+      "quên cà vẹt",
+      "không mang cà vẹt",
+      "không mang đăng ký xe",
+      "không mang giấy đăng ký"
+    ],
+    "KhongCoBaoHiemTNDS": [
+      "không có bảo hiểm",
+      "bảo hiểm hết hạn",
+      "không mua bảo hiểm",
+      "chưa mua bảo hiểm xe"
+    ],
+    "KhongMangTheoBaoHiemTNDS": [
+      "quên bảo hiểm",
+      "không mang bảo hiểm",
+      "không mang theo bảo hiểm"
+    ],
+    "XeKinhDoanhVanTai": [
+      "chạy grab",
+      "chạy xe ôm",
+      "xe ôm công nghệ",
+      "chạy taxi",
+      "chở khách thuê",
+      "giao hàng thuê",
+      "chạy dịch vụ",
+      "kinh doanh vận tải",
+      "xe công nghệ",
+      "chạy be",
+      "chạy gojek"
+    ],
+    "XeKhongKinhDoanhVanTai": [
+      "xe cá nhân",
+      "đi việc riêng",
+      "không chạy dịch vụ"
+    ]
+  },
+  "tinh_tiet": {
+    "taiPham": [
+      "tái phạm",
+      "đã bị phạt lỗi này rồi",
+      "bị phạt lần hai",
+      "lại vi phạm lỗi cũ"
+    ],
+    "viPhamNhieuLan": [
+      "vi phạm nhiều lần",
+      "nhiều lần vi phạm"
+    ],
+    "langMaNguoiThiHanhCongVu": [
+      "chửi csgt",
+      "lăng mạ csgt",
+      "xúc phạm cảnh sát",
+      "chửi bới cảnh sát"
+    ],
+    "tiepTucViPhamSauYeuCauChamDut": [
+      "vẫn tiếp tục dù đã bị nhắc",
+      "bị yêu cầu dừng nhưng vẫn tiếp tục"
+    ],
+    "tronTranhCheGiauViPham": [
+      "che biển số",
+      "trốn tránh",
+      "che giấu vi phạm",
+      "bỏ trốn"
+    ],
+    "thanhThatHoiLoi": [
+      "thành thật hối lỗi",
+      "đã nhận lỗi",
+      "xin lỗi và nhận lỗi",
+      "thành khẩn khai báo",
+      "tự nguyện khai báo"
+    ],
+    "tuNguyenKhacPhucHauQua": [
+      "đã bồi thường",
+      "tự nguyện bồi thường",
+      "khắc phục hậu quả",
+      "đưa nạn nhân đi viện"
+    ],
+    "phuNuMangThaiGiaYeuBenhTat": [
+      "đang mang thai",
+      "đang có bầu",
+      "người già yếu",
+      "bị bệnh"
+    ],
+    "hoanCanhDacBietKhoKhan": [
+      "hoàn cảnh khó khăn",
+      "hoàn cảnh đặc biệt khó khăn"
+    ]
+  },
+  "goi_y": {
+    "_CO_CON": [
+      "uống rượu",
+      "uống bia",
+      "đi nhậu",
+      "nhậu",
+      "say rượu",
+      "có cồn",
+      "nồng độ cồn",
+      "thổi nồng độ",
+      "uống mấy lon",
+      "uống vài chén",
+      "rượu bia",
+      "có hơi men",
+      "bia",
+      "rượu",
+      "uống bia",
+      "lon bia",
+      "chén rượu",
+      "ly rượu",
+      "say xỉn",
+      "xỉn"
+    ],
+    "_TOC_DO": [
+      "chạy nhanh",
+      "quá tốc độ",
+      "vượt tốc độ",
+      "bị bắn tốc độ",
+      "chạy quá tốc",
+      "phóng nhanh",
+      "tốc độ cao"
+    ],
+    "_TAI_NAN": [
+      "va chạm",
+      "tai nạn",
+      "đâm xe",
+      "tông xe",
+      "quẹt xe",
+      "té ngã"
+    ],
+    "_GIAY_TO": [
+      "không có giấy tờ",
+      "không mang giấy tờ",
+      "quên giấy tờ",
+      "thiếu giấy tờ"
+    ],
+    "_NGUOI_TRE": [
+      "học sinh",
+      "con tôi",
+      "con trai tôi",
+      "con gái tôi",
+      "cháu tôi",
+      "em tôi",
+      "chưa đủ tuổi",
+      "chưa đủ 18",
+      "vị thành niên"
+    ],
+    "_GIAO_XE": [
+      "mượn xe",
+      "cho mượn xe",
+      "lấy xe của bố",
+      "lấy xe của mẹ",
+      "đi xe của bố",
+      "đi xe của mẹ",
+      "cho con đi xe",
+      "giao xe cho"
+    ],
+    "_BO_CHAY": [
+      "bỏ chạy",
+      "rồ ga chạy",
+      "rồ ga bỏ chạy",
+      "phóng đi",
+      "quay đầu bỏ chạy",
+      "tăng ga chạy"
+    ],
+    "_CSGT": [
+      "csgt",
+      "cảnh sát giao thông",
+      "công an",
+      "cảnh sát",
+      "chốt",
+      "trạm kiểm soát"
+    ]
+  }
+}

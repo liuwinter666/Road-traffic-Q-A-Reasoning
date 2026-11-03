@@ -34,20 +34,25 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    # LLM
-    llm_provider: Literal["anthropic", "openai"] = "anthropic"
-    anthropic_api_key: str = ""
-    anthropic_model: str = "claude-sonnet-5-5"
-    openai_api_key: str = ""
-    openai_model: str = ""
+    # LLM — provider: gemini (chính, gói miễn phí) | ollama (dự phòng, chạy local)
+    llm_provider: str = "gemini"
+    gemini_api_key: str = ""
+    gemini_model: str = "gemini-3.5-flash-lite"
+    ollama_base_url: str = "http://localhost:11434"
+    ollama_model: str = "qwen2.5:7b"
     llm_temperature: float = 0.0
     llm_max_tokens: int = 4096
     llm_timeout_s: float = 60.0
+    llm_max_rpm: int = 10              # giới hạn request/phút (gói miễn phí có hạn mức theo phút)
+    llm_max_retries: int = 5           # số lần thử lại khi 429 / lỗi tạm thời
+    llm_backoff_base_s: float = 2.0    # backoff = base * 2^lần (nếu máy chủ không gợi ý retryDelay)
+    llm_cache: bool = True             # cache phản hồi ra .cache/llm/
 
     # Embedding / RAG
     embedding_model: str = "BAAI/bge-m3"
     embedding_device: str = "cpu"
     entity_link_threshold: float = Field(0.65, ge=0.0, le=1.0)
+    entity_link_embedding: bool = True   # bật embedding dự phòng khi từ điển đồng nghĩa không khớp
     vector_store: Literal["faiss", "chroma"] = "faiss"
 
     # Reasoner

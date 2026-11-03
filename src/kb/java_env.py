@@ -1,6 +1,7 @@
 """Dò tìm Java và cấu hình owlready2 để gọi Pellet/HermiT.
 
-Thứ tự ưu tiên: biến `JAVA_EXE` trong `.env` → `%JAVA_HOME%/bin/java` → `java` trong PATH.
+Thứ tự ưu tiên: biến `JAVA_EXE` trong `.env` → `%JAVA_HOME%/bin/java` → `java` trong PATH →
+JDK portable trong `%USERPROFILE%/.jdks/` (bản mới nhất).
 """
 
 from __future__ import annotations
@@ -34,7 +35,14 @@ def find_java() -> str | None:
             if cand.is_file():
                 return str(cand)
 
-    return shutil.which("java")
+    if found := shutil.which("java"):
+        return found
+    # JDK portable cài trong %USERPROFILE%/.jdks (cách cài của project) — chọn bản mới nhất
+    for cand in sorted(Path.home().glob(".jdks/jdk-*/bin/java*"), reverse=True):
+        if cand.name in ("java.exe", "java"):
+            logger.debug("JAVA_EXE trống — dùng JDK tìm thấy tại {}", cand)
+            return str(cand)
+    return None
 
 
 def java_version(java_path: str) -> str:
