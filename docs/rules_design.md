@@ -130,9 +130,17 @@ Khi căn cứ của Luật XLVPHC chưa có câu chữ tại ngày vi phạm (b�
 * `test_penalty.py`: trích dẫn có thật; mức trung bình; giảm nhẹ; 16–18 và 14–16 tuổi; nhiều hành vi trừ điểm; tịch
   thu khi tái phạm mà không tính trùng tình tiết; ghi chú hiệu lực cho vi phạm năm 2021.
 
-## 6. TODO_VERIFY
+## 6. TODO_VERIFY và quyết định đã duyệt
 
-* Mức tăng/giảm theo tình tiết: chờ văn bản hướng dẫn chi tiết khoản 4 Điều 23 Luật XLVPHC.
-* Lỗi "giao xe cho người không đủ điều kiện" hiện chỉ suy ra "không đủ điều kiện" từ tuổi và GPLX. Các điều kiện khác ở Điều 56 Luật TTATGT (sức khỏe, GPLX còn điểm…) chưa mô hình.
-* Người 14–16 tuổi chỉ bị xử phạt khi vi phạm **do cố ý**. Hệ thống không suy ra được yếu tố lỗi, nên câu trả lời phải nêu điều kiện này.
-* Hành vi trong khoản dẫn "Tịch thu phương tiện… sau đây:" mà không dẫn chiếu điều khoản khác (vd. điểm a, b khoản 11 Điều 7 NĐ 168: buông hai tay…) nằm ngoài MVP, chưa có luật.
+* **Còn mở** — mức tăng/giảm theo tình tiết: khoản 4 Điều 23 Luật XLVPHC chỉ quy định biên (không thấp hơn mức
+  tối thiểu, không vượt mức tối đa) và giao "Chính phủ quy định chi tiết khoản này". Danh sách tình tiết (Điều 9,
+  10) đã được đối chiếu khớp nguyên văn với tài liệu người dùng cung cấp ngày 04/11/2026, nhưng tài liệu đó không
+  có quy định về mức điều chỉnh. Hệ thống tiếp tục dùng quy ước ở mục 4 và ghi rõ là quy ước trong câu trả lời.
+  Khoản 1 Điều 4 NĐ 120/2021/NĐ-CP (người đang nuôi con dưới 36 tháng tuổi) chỉ áp khi quyết định biện pháp giáo
+  dục tại xã, phường, đặc khu — không thuộc xử phạt tiền, không đưa vào.
+* **Đã duyệt (04/11/2026)** — "người không đủ điều kiện điều khiển xe" chỉ suy ra từ tuổi và GPLX; các điều
+  kiện khác của Điều 56 Luật TTATGT (sức khỏe, GPLX còn điểm…) nằm ngoài MVP.
+* **Đã duyệt (04/11/2026)** — người 14–16 tuổi chỉ bị xử phạt khi vi phạm do cố ý; hệ thống không suy ra yếu tố
+  lỗi và nêu điều kiện này trong câu trả lời.
+* Hành vi trong khoản dẫn "Tịch thu phương tiện… sau đây:" mà không dẫn chiếu điều khoản khác (vd. điểm a, b
+  khoản 11 Điều 7 NĐ 168: buông hai tay…) nằm ngoài MVP, chưa có luật.
