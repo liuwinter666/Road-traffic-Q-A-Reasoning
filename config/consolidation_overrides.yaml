@@ -1,15 +1,48 @@
 # Quyết định thủ công cho các lệnh sửa đổi mà consolidate.py không tự áp được.
 # Khóa `ref` phải khớp đúng chuỗi "Lệnh" trong data/processed/consolidation_review.md.
 #
+# Nguyên tắc (chủ nhiệm đồ án, 03/11/2026): văn bản sửa đổi sửa chữ nào thì hệ thống theo chữ đó;
+# nhóm không có quyền giữ chữ cũ. Các quyết định dưới đây chỉ làm rõ CÁCH áp, không đổi NỘI DUNG lệnh.
+#
 # action:
 #   replace_all  – (lệnh thay/bỏ cụm từ) thay TẤT CẢ các lần xuất hiện trong đơn vị đích
+#   split        – lệnh ghép nhiều cụm từ trong một câu: `parts` là các lệnh đơn viết lại đúng nguyên văn
 #   skip         – bỏ qua lệnh, ghi nhận là đã duyệt
 #   set_text     – gán nguyên văn cho đơn vị: cần thêm `id` và `text`
-#
-# Ví dụ:
-# - ref: "điểm s khoản 34 Điều 2 NĐ 123/2021"
-#   action: replace_all
-#   reviewer: "<tên người duyệt>"
-#   note: "Thay từ áp dụng cho mọi lần xuất hiện trong điểm được dẫn"
+# Tùy chọn: match_case: false (khớp không phân biệt hoa/thường), allow_missing: true (đích không chứa
+#   cụm từ thì bỏ qua đích đó và ghi chú, thay vì dừng cả lệnh).
 
-overrides: []
+overrides:
+  # ---------------- NĐ 123/2021 → V2 ----------------
+  - ref: "điểm s khoản 34 Điều 2 NĐ 123/2021"
+    action: replace_all
+    reviewer: "Chủ nhiệm đồ án"
+    note: "Điểm l khoản 3 Điều 4 NĐ 100 có 3 lần 'tháo dỡ'; NĐ 123 thay cụm từ tại điểm này nên thay cả 3. Chỉ ảnh hưởng V2."
+
+  # ---------------- NĐ 238/2026 → V4 ----------------
+  - ref: "khoản 11 Điều 19 NĐ 238/2026"
+    action: replace_all
+    reviewer: "Chủ nhiệm đồ án"
+    note: "Thay mọi lần 'giấy chứng nhận kiểm định' tại các đơn vị được dẫn."
+
+  - ref: "khoản 16 Điều 19 NĐ 238/2026"
+    action: replace_all
+    match_case: false
+    reviewer: "Chủ nhiệm đồ án"
+    note: "NĐ 238 viết 'trực thuộc trung ương', NĐ 168 Điều 55 viết 'trực thuộc Trung ương' — cùng cụm từ, khác hoa/thường."
+
+  - ref: "khoản 8 Điều 19 NĐ 238/2026"
+    action: split
+    reviewer: "Chủ nhiệm đồ án"
+    note: "Một câu chứa hai lệnh bổ sung cụm từ cùng tại điểm h khoản 3 Điều 47."
+    parts:
+      - 'Bổ sung cụm từ "Điều 20 (điểm l khoản 5, điểm đ khoản 6), Điều 21 (điểm b khoản 3, điểm c khoản 5)," vào trước cụm từ "Điều 29" tại điểm h khoản 3 Điều 47'
+      - 'Bổ sung cụm từ "; khoản 9a" vào sau cụm từ "điểm n khoản 7" tại điểm h khoản 3 Điều 47'
+
+  - ref: "khoản 12 Điều 19 NĐ 238/2026"
+    action: split
+    reviewer: "Chủ nhiệm đồ án"
+    note: "Một câu chứa hai lệnh bỏ cụm từ tại hai đơn vị khác nhau của Điều 32."
+    parts:
+      - 'Bỏ cụm từ "giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường" tại điểm b, điểm d khoản 7 Điều 32'
+      - 'Bỏ cụm từ "điểm e, điểm g khoản 7;" tại điểm đ khoản 18 Điều 32'

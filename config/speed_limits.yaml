@@ -1,0 +1,34 @@
+# Ánh xạ loại xe (lớp ontology) → quy định tốc độ khai thác tối đa khi KHÔNG có biển báo.
+# Nguồn: Thông tư 38/2024/TT-BGTVT (support TT38), hiệu lực từ 01/01/2025 → chỉ dùng cho V3, V4.
+# V1, V2: Thông tư 31/2019/TT-BGTVT không có trong data/raw/ → hệ thống phải hỏi tốc độ ghi trên biển báo.
+#
+# Con số KHÔNG ghi ở đây: `python -m src.ingest.speed_limits` đọc từ bảng/câu trong văn bản theo:
+#   table: {id, row_phrase}  — hàng bảng chứa row_phrase trong phần tử id (Bảng 1, Bảng 2 ở Điều 6)
+#   text:  {id, phrase}      — câu có dạng "... tốc độ khai thác tối đa là N km/h" trong phần tử id
+# Cột bảng: duong_doi = "Đường đôi; đường một chiều có từ hai làn xe cơ giới trở lên"
+#           duong_hai_chieu = "Đường hai chiều; đường một chiều có một làn xe cơ giới"
+
+source: TT38
+nhom:
+  - ten: "Xe ô tô chở người đến 28 chỗ (trừ xe buýt); ô tô tải đến 3,5 tấn"
+    classes: [OTo, XeOToChoNguoi, XeTuongTuOTo]
+    trong_khu_dong_dan_cu: {table: {id: TT38-D6-K1, row_phrase: "Các loại xe cơ giới, trừ các xe được quy định tại Điều 7 và Điều 8"}}
+    ngoai_khu_dong_dan_cu: {table: {id: TT38-D6-K2, row_phrase: "Xe ô tô chở người đến 28 chỗ"}}
+    ghi_chu: "Ô tô chở người trên 28 chỗ, ô tô tải trên 3,5 tấn có giới hạn khác (hàng 2 Bảng 2) — cần hỏi số chỗ/tải trọng"
+  - ten: "Xe mô tô"
+    classes: [XeMoTo, XeMoToHaiBanh, XeMoToBaBanh, XeTuongTuXeMoTo]
+    trong_khu_dong_dan_cu: {table: {id: TT38-D6-K1, row_phrase: "Các loại xe cơ giới, trừ các xe được quy định tại Điều 7 và Điều 8"}}
+    ngoai_khu_dong_dan_cu: {table: {id: TT38-D6-K2, row_phrase: "xe mô tô"}}
+  - ten: "Xe gắn máy và các loại xe tương tự"
+    classes: [XeGanMay, XeMayDien, XeTuongTuXeGanMay]
+    moi_loai_duong: {text: {id: TT38-D7, phrase: "xe gắn máy và các loại xe tương tự khi tham gia giao thông, tốc độ khai thác tối đa là"}}
+  - ten: "Xe chở người bốn bánh có gắn động cơ"
+    classes: [XeChoNguoiBonBanhCoGanDongCo]
+    moi_loai_duong: {text: {id: TT38-D8-K1, phrase: "Xe chở người bốn bánh có gắn động cơ"}}
+  - ten: "Xe chở hàng bốn bánh có gắn động cơ"
+    classes: [XeChoHangBonBanhCoGanDongCo]
+    moi_loai_duong: {text: {id: TT38-D8-K2, phrase: "Xe chở hàng bốn bánh có gắn động cơ"}}
+cao_toc:
+  toi_da: {text: {id: TT38-D9-K2, phrase: "Tốc độ khai thác tối đa cho phép trên đường cao tốc là"}}
+  toi_thieu: {text: {id: TT38-D9-K3, phrase: "Tốc độ khai thác tối thiểu cho phép trên đường cao tốc là"}}
+  ghi_chu: "Đường cao tốc phải đặt biển báo tốc độ (khoản 1 Điều 9); ưu tiên số trên biển báo"

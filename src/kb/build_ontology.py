@@ -160,12 +160,15 @@ def build_tbox(onto) -> types.SimpleNamespace:
         # ---------- Văn bản, điều khoản, phiên bản ----------
         class VanBan(Thing): pass
         class NghiDinh(VanBan): pass
+        class Luat(VanBan): pass
+        class ThongTu(VanBan): pass
         class PhienBanPhapLy(Thing): pass
         class DieuKhoan(Thing): pass
         class Dieu(DieuKhoan): pass
         class Khoan(DieuKhoan): pass
         class Diem(DieuKhoan): pass
-        AllDisjoint([Dieu, Khoan, Diem])
+        class PhanNoiDung(DieuKhoan): pass  # một phần nội dung của điều/khoản/điểm có hiệu lực riêng
+        AllDisjoint([Dieu, Khoan, Diem, PhanNoiDung])
 
         # ---------- Chế tài ----------
         class KhungPhat(Thing): pass
@@ -237,7 +240,7 @@ def build_tbox(onto) -> types.SimpleNamespace:
             range = [BienPhapKhac]
         # Quy tắc
         class canCuDieuKhoan(ObjectProperty):  # noqa: N801
-            domain = [QuyTac]; range = [DieuKhoan]
+            range = [DieuKhoan]  # dùng cho QuyTac, TinhTiet, ...
         class apDungChoPhienBan(ObjectProperty):  # noqa: N801
             domain = [QuyTac]; range = [PhienBanPhapLy]
 
@@ -314,6 +317,12 @@ def build_tbox(onto) -> types.SimpleNamespace:
         dprop("noiDung", DieuKhoan, str, vi="Nguyên văn nội dung")
         dprop("trangThai", DieuKhoan, str, vi="active | bai_bo")
         dprop("hieuLucChuaXacDinh", DieuKhoan, bool, vi="Ngày hiệu lực chưa xác định được từ văn bản")
+        dprop("hieuLucDieuKien", DieuKhoan, str,
+              vi="Điều kiện hiệu lực phụ thuộc văn bản khác (chưa đáp ứng ⇒ coi là chưa có hiệu lực)")
+        dprop("dieuKienDaDapUng", DieuKhoan, bool, vi="Điều kiện hiệu lực đã được xác nhận là đáp ứng")
+        dprop("hieuLucMotPhan", DieuKhoan, bool, vi="Phần tử có phần nội dung có hiệu lực riêng")
+        dprop("moTaPhamVi", PhanNoiDung, str, vi="Mô tả phần nội dung")
+        dprop("noiDungTruocDo", DieuKhoan, str, vi="Ghi chú về câu chữ áp dụng trước ngày hiệu lực hiện hành")
         dprop("mucToiThieu", KhungPhat, int, vi="Mức phạt tối thiểu (VND)")
         dprop("mucToiDa", KhungPhat, int, vi="Mức phạt tối đa (VND)")
         dprop("doiTuongApDung", KhungPhat, str, vi="ca_nhan | to_chuc")
@@ -350,6 +359,8 @@ def build_tbox(onto) -> types.SimpleNamespace:
         "NhomDungTichCongSuat": "Nhóm dung tích xi-lanh / công suất",
         "TinhTiet": "Tình tiết", "TinhTietTangNang": "Tình tiết tăng nặng", "TinhTietGiamNhe": "Tình tiết giảm nhẹ",
         "VanBan": "Văn bản quy phạm", "NghiDinh": "Nghị định", "PhienBanPhapLy": "Phiên bản pháp lý",
+        "Luat": "Luật", "ThongTu": "Thông tư",
+        "PhanNoiDung": "Phần nội dung (của điều/khoản/điểm) có hiệu lực riêng",
         "DieuKhoan": "Điều khoản", "Dieu": "Điều", "Khoan": "Khoản", "Diem": "Điểm",
         "KhungPhat": "Khung phạt tiền", "HinhThucXuPhat": "Hình thức xử phạt", "PhatCanhCao": "Phạt cảnh cáo",
         "HinhThucBoSung": "Hình thức xử phạt bổ sung", "TuocGPLX": "Tước quyền sử dụng GPLX",
@@ -389,13 +400,14 @@ def _facets(spec: dict) -> dict:
 def build_defined_classes(onto, cfg: dict) -> None:
     """Sinh lớp ngưỡng (ràng buộc kiểu dữ liệu), lớp hợp và lớp dấu hiệu sự kiện."""
     with onto:
-        for t in cfg["thresholds"]:
+        for t in cfg["thresholds"] + (cfg.get("thresholds_luat") or []):
             base, prop = onto[t["cls"]], onto[t["property"]]
             dt_ = ConstrainedDatatype(PY_TYPES[t["datatype"]], **_facets(t))
             c = types.new_class(t["name"], (onto[t["group"]],))
             c.equivalent_to = [base & prop.some(dt_)]
             label(c, t["label"])
-            c.canCuPhapLy = [f"{e['version']}:{e['id']} — “{e['phrase']}”" for e in t["evidence"]]
+            c.canCuPhapLy = [f"{e['version']}:{e['id']} — “{e['phrase']}”" + (" (suy ra)" if e.get("suy_ra") else "")
+                             for e in t["evidence"]]
         for u in cfg["unions"]:
             c = types.new_class(u["name"], (onto[u["group"]],))
             c.equivalent_to = [Or([onto[x] for x in u["of"]])]
@@ -449,18 +461,35 @@ def _date(s) -> dt.datetime:
     return dt.datetime(d.year, d.month, d.day)
 
 
+def _load_records(key: str, versions: list[str]) -> dict[str, dict]:
+    """Bản ghi của một phiên bản (articles_v*.jsonl) hoặc văn bản bổ trợ (support_*.jsonl)."""
+    name = f"articles_{key.lower()}" if key in versions else f"support_{key.lower()}"
+    with (PROCESSED_DIR / f"{name}.jsonl").open(encoding="utf-8") as f:
+        return {r["id"]: r for r in map(json.loads, f)}
+
+
+def _special_effectivity(r: dict) -> bool:
+    """Phần tử có hiệu lực riêng (một phần nội dung, có điều kiện, hoặc khác ngày của phiên bản)."""
+    return bool(r.get("hieu_luc_mot_phan") or r.get("hieu_luc_dieu_kien") or r["effective_from"] is None
+                or any(s["can_cu"] and not s["can_cu"].startswith("Chú thích [")
+                       for s in r.get("hieu_luc_chi_tiet") or []))
+
+
 def build_abox(onto, sources: dict, behaviors: list[dict], concepts: dict) -> dict[str, int]:
-    """Tạo cá thể văn bản, phiên bản, điều khoản (MVP) và khung phạt."""
+    """Tạo cá thể văn bản, phiên bản, điều khoản (MVP + phần tử có hiệu lực riêng + văn bản bổ trợ),
+    phần nội dung có hiệu lực riêng, khung phạt và tình tiết."""
     versions = list(sources["versions"])
-    stats = {"van_ban": 0, "phien_ban": 0, "dieu_khoan": 0, "khung_phat": 0}
+    support = sources.get("supporting_documents") or {}
+    stats = {"van_ban": 0, "phien_ban": 0, "dieu_khoan": 0, "phan_noi_dung": 0, "khung_phat": 0, "tinh_tiet": 0}
     with onto:
         docs = {}
-        for key, m in sources["documents"].items():
-            d = onto.NghiDinh(key)
+        for key, m in list(sources["documents"].items()) + list(support.items()):
+            cls = {"luat": onto.Luat, "thong_tu": onto.ThongTu}.get(m.get("loai"), onto.NghiDinh)
+            d = cls(key)
             d.soHieu = m["so_hieu"]
             d.ngayBanHanh = _date(m["ngay_ban_hanh"])
             d.hieuLucTu = _date(m["effective_from"])
-            label(d, f"Nghị định {m['so_hieu']}", m.get("ten"))
+            label(d, f"{m.get('ten', key)} ({m['so_hieu']})")
             docs[key] = d
             stats["van_ban"] += 1
         pbs = {}
@@ -473,7 +502,7 @@ def build_abox(onto, sources: dict, behaviors: list[dict], concepts: dict) -> di
             label(pb, f"{v}: {m['label']}")
             pbs[v] = pb
             stats["phien_ban"] += 1
-        # nguồn văn bản của từng phiên bản
+
         def srcs(v):
             b = sources["versions"][v]["build"]
             base = srcs(b["base_version"]) if "base_version" in b else [b["base"]]
@@ -481,34 +510,46 @@ def build_abox(onto, sources: dict, behaviors: list[dict], concepts: dict) -> di
         for v in versions:
             pbs[v].gomVanBan = [docs[k] for k in srcs(v)]
 
-        # Tập id cần đưa vào ontology theo phiên bản
-        wanted: dict[str, set[str]] = {v: set() for v in versions}
+        # Tập id cần đưa vào ontology theo nguồn (phiên bản hoặc văn bản bổ trợ)
+        keys = versions + list(support)
+        wanted: dict[str, set[str]] = {k: set() for k in keys}
         for b in behaviors:
             refs = list(b["refs"]) + [b["refs"][-1]] * (len(versions) - len(b["refs"]))
             for v, r in zip(versions, refs):
                 if r:
                     wanted[v].add(r)
-        for t in concepts["thresholds"]:
+        for t in concepts["thresholds"] + (concepts.get("thresholds_luat") or []):
             for e in t["evidence"]:
                 wanted[e["version"]].add(e["id"])
+        for key, ids in (concepts.get("support_provisions") or {}).items():
+            wanted[key].update(ids)
+        recs_by_key = {k: _load_records(k, versions) for k in keys}
+        for spec in concepts.get("tinh_tiet") or []:  # căn cứ của từng tình tiết
+            wanted[spec["source"]].update(rid for rid, r in recs_by_key[spec["source"]].items()
+                                          if r["parent_id"] == spec["parent_id"])
+        for k in keys:  # phần tử có hiệu lực riêng — đưa vào làm ví dụ hiệu lực theo phần nội dung
+            wanted[k].update(rid for rid, r in recs_by_key[k].items() if _special_effectivity(r))
 
-        for v in versions:
-            arts = {r["id"]: r for r in map(json.loads, (PROCESSED_DIR / f"articles_{v.lower()}.jsonl")
-                                             .open(encoding="utf-8"))}
+        def iri(k, rid):
+            return prov_iri(k, rid) if k in versions else rid
+
+        for k in keys:
+            arts = recs_by_key[k]
             closure = set()
-            for rid in wanted[v]:
+            for rid in wanted[k]:
                 r = arts[rid]
                 while r is not None:
                     closure.add(r["id"])
                     r = arts.get(r["parent_id"]) if r["parent_id"] else None
             for rid in sorted(closure):
                 r = arts[rid]
-                ind = onto[LEVEL_CLASS[r["level"]]](prov_iri(v, rid))
+                ind = onto[LEVEL_CLASS[r["level"]]](iri(k, rid))
                 ind.maDieuKhoan = rid
                 ind.trichDan = cite(r)
                 ind.noiDung = r["text"]
                 ind.trangThai = r["status"]
-                ind.thuocPhienBan = pbs[v]
+                if k in versions:
+                    ind.thuocPhienBan = pbs[k]
                 ind.thuocVanBan = [docs[r["doc"]]]
                 if r["effective_from"]:
                     ind.hieuLucTu = _date(r["effective_from"])
@@ -516,29 +557,71 @@ def build_abox(onto, sources: dict, behaviors: list[dict], concepts: dict) -> di
                     ind.hieuLucChuaXacDinh = True
                 if r["effective_to"]:
                     ind.hieuLucDen = _date(r["effective_to"])
-                if r["history"] or r["history_inherited"]:
-                    ind.duocSuaDoiBoi = [docs[k] for k in r["nguon_hop_nhat"][1:]]
-                label(ind, f"{v} — {cite(r)}")
+                if r.get("hieu_luc_dieu_kien"):
+                    ind.hieuLucDieuKien = r["hieu_luc_dieu_kien"]
+                    ind.dieuKienDaDapUng = bool(r["hieu_luc_chi_tiet"][0].get("dieu_kien_da_dap_ung"))
+                if r.get("noi_dung_truoc_do"):
+                    ind.noiDungTruocDo = r["noi_dung_truoc_do"]
+                notes = [s["can_cu"] for s in r.get("hieu_luc_chi_tiet") or [] if s["can_cu"]]
+                if notes:
+                    ind.canCuPhapLy = notes
+                if k in versions and (r["history"] or r["history_inherited"]):
+                    ind.duocSuaDoiBoi = [docs[x] for x in r["nguon_hop_nhat"][1:]]
+                label(ind, f"{k} — {cite(r)}" if k in versions else cite(r))
                 stats["dieu_khoan"] += 1
+                # Phần nội dung có hiệu lực riêng (cấp dưới điểm)
+                if r.get("hieu_luc_mot_phan"):
+                    ind.hieuLucMotPhan = True
+                    for n, sg in enumerate(x for x in r["hieu_luc_chi_tiet"] if x["pham_vi"] == "mot_phan"):
+                        pn = onto.PhanNoiDung(f"{iri(k, rid)}__P{n + 1}")
+                        pn.maDieuKhoan = f"{rid}#P{n + 1}"
+                        pn.moTaPhamVi = sg["mo_ta_pham_vi"]
+                        pn.thuocDieuKhoanCha = ind
+                        if k in versions:
+                            pn.thuocPhienBan = pbs[k]
+                        if sg["tu"]:
+                            pn.hieuLucTu = _date(sg["tu"])
+                        else:
+                            pn.hieuLucChuaXacDinh = True
+                        if sg.get("hieu_luc_dieu_kien"):
+                            pn.hieuLucDieuKien = sg["hieu_luc_dieu_kien"]
+                            pn.dieuKienDaDapUng = bool(sg.get("dieu_kien_da_dap_ung"))
+                        pn.canCuPhapLy = [sg["can_cu"]]
+                        label(pn, f"{cite(r)} — {sg['mo_ta_pham_vi'][:80]}")
+                        stats["phan_noi_dung"] += 1
                 kp = r["khung_phat"]
                 if r["level"] == "khoan" and kp:
-                    k = onto.KhungPhat(f"KP_{prov_iri(v, rid)}")
-                    k.mucToiThieu, k.mucToiDa = kp["ca_nhan"]
-                    k.doiTuongApDung = "ca_nhan"
-                    label(k, f"{kp['ca_nhan'][0]:,}–{kp['ca_nhan'][1]:,} đồng ({v} {cite(r)})".replace(",", "."))
-                    ind.coKhungPhat = [k]
+                    kf = onto.KhungPhat(f"KP_{iri(k, rid)}")
+                    kf.mucToiThieu, kf.mucToiDa = kp["ca_nhan"]
+                    kf.doiTuongApDung = "ca_nhan"
+                    label(kf, f"{kp['ca_nhan'][0]:,}–{kp['ca_nhan'][1]:,} đồng ({k} {cite(r)})".replace(",", "."))
+                    ind.coKhungPhat = [kf]
                     stats["khung_phat"] += 1
                     if kp.get("to_chuc"):
-                        k2 = onto.KhungPhat(f"KP_TC_{prov_iri(v, rid)}")
+                        k2 = onto.KhungPhat(f"KP_TC_{iri(k, rid)}")
                         k2.mucToiThieu, k2.mucToiDa = kp["to_chuc"]
                         k2.doiTuongApDung = "to_chuc"
                         ind.coKhungPhat.append(k2)
                         stats["khung_phat"] += 1
-            # quan hệ cha – con
             for rid in closure:
                 pid = arts[rid]["parent_id"]
                 if pid:
-                    onto[prov_iri(v, rid)].thuocDieuKhoanCha = onto[prov_iri(v, pid)]
+                    onto[iri(k, rid)].thuocDieuKhoanCha = onto[iri(k, pid)]
+
+        # Tình tiết giảm nhẹ / tăng nặng từ Luật XLVPHC (mỗi khoản/điểm liệt kê là một cá thể)
+        for spec in concepts.get("tinh_tiet") or []:
+            arts = recs_by_key[spec["source"]]
+            items = [r for r in arts.values() if r["parent_id"] == spec["parent_id"]]
+            for r in items:
+                code = f"{spec['prefix']}_{(r['diem'] or r['khoan']).replace('đ', 'dd')}"
+                cls = onto[spec["class"]]
+                tt = cls(code)
+                label(tt, r["text"].rstrip(";.")[:150], r["text"])
+                tt.canCuDieuKhoan = [onto[iri(spec["source"], r["id"])]]
+                tt.canCuPhapLy = [f"{spec['source']}:{r['id']}"]
+                if r["text"].startswith("Những tình tiết") and "khác do Chính phủ quy định" in r["text"]:
+                    tt.ghiChu = ["Tình tiết mở — do Chính phủ quy định, không liệt kê trong Luật"]
+                stats["tinh_tiet"] += 1
     return stats
 
 

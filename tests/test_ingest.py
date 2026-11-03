@@ -119,9 +119,9 @@ def test_versions_contiguous(cfg):
 
 def test_evidence_quotes_exist_in_source(cfg):
     """Mọi câu trích `evidence` phải có trong văn bản gốc (bỏ tiền tố 'Điều X khoản Y: ')."""
-    for key, meta in cfg["documents"].items():
+    for key, meta in list(cfg["documents"].items()) + list(cfg["supporting_documents"].items()):
         text = "\n".join(read_paragraphs(RAW_DIR / meta["file"]))
-        quotes = [meta["evidence"]] + [o["evidence"] for o in meta.get("element_effective_overrides") or []]
+        quotes = [meta["evidence"]] + [o["evidence"] for o in meta.get("element_effectivity") or []]
         for q in quotes:
             body = re.sub(r"^[^:]+:\s*", "", q)
             assert body in text, f"{key}: không thấy trích dẫn: {body[:80]}"
@@ -132,7 +132,7 @@ def test_v3_element_override(records):
     assert v3["ND168-D6-K3-m"]["effective_from"] == "2026-01-01"
     assert v3["ND168-D6-K3-a"]["effective_from"] == "2025-01-01"
     assert v3["ND168-D32-K1-b"]["effective_from"] is None
-    assert v3["ND168-D32-K1-b"]["effective_verified"] is False
+    assert "bảo vệ môi trường" in v3["ND168-D32-K1-b"]["hieu_luc_dieu_kien"]
 
 
 # ---------------- V4 (NĐ 238 sửa NĐ 168) ----------------
@@ -140,7 +140,8 @@ def test_v3_element_override(records):
 def test_v4_consolidation(records, builder):
     v3, v4 = records["V3"], records["V4"]
     results = builder.build("V4").consolidation[-1][1]
-    assert sum(r.status == "review" for r in results) == 5
+    # không dùng quyết định duyệt tay: còn 4 lệnh (2 lệnh ghép, 2 lệnh cụm từ nhiều lần/khác hoa thường)
+    assert sum(r.status == "review" for r in results) == 4
     # bổ sung khoản 1a vào TRƯỚC khoản 1
     ids = [i for i in v4 if i.startswith("ND168-D6-K") and i.count("-") == 2]
     assert ids[:2] == ["ND168-D6-K1a", "ND168-D6-K1"]
@@ -153,6 +154,57 @@ def test_v4_consolidation(records, builder):
 
 def test_v4_element_override_scoped(records):
     # ngoại lệ hiệu lực do NĐ 238 đặt ra chỉ áp cho V4, không áp cho V3
-    assert records["V4"]["ND168-D20-K5-l"]["effective_from"] == "2028-01-01"
+    r4 = records["V4"]["ND168-D20-K5-l"]
+    assert r4["hieu_luc_mot_phan"] and r4["effective_from"] == "2026-08-15"
+    assert [x["tu"] for x in r4["hieu_luc_chi_tiet"]] == ["2026-08-15", "2028-01-01"]
+    assert not records["V3"]["ND168-D20-K5-l"]["hieu_luc_mot_phan"]
     assert records["V3"]["ND168-D20-K5-l"]["effective_from"] == "2025-01-01"
     assert records["V4"]["ND168-D6-K1a"]["effective_from"] == "2026-08-15"
+
+
+
+def test_overrides_resolve_all_reviews(cfg):
+    """Với quyết định duyệt tay trong config/consolidation_overrides.yaml, không còn lệnh nào treo."""
+    import yaml
+
+    from src.ingest.build_articles import OVERRIDES_FILE
+
+    ov = yaml.safe_load(OVERRIDES_FILE.read_text(encoding="utf-8"))["overrides"]
+    b = Builder(cfg, overrides=ov)
+    for v in ("V2", "V4"):
+        results = b.build(v).consolidation[-1][1]
+        assert [r.instr.ref for r in results if r.status == "review"] == []
+    v2 = {r["id"]: r for r in flatten(b.build("V2"), cfg)}
+    assert "tháo dỡ" not in v2["ND100-D4-K3-l"]["text"]          # NĐ 123 thay cả 3 lần, chỉ ở V2
+    v4 = {r["id"]: r for r in flatten(b.build("V4"), cfg)}
+    assert "trực thuộc Trung ương" not in v4["ND168-D55"]["text"]
+    assert "Điều 20 (điểm l khoản 5, điểm đ khoản 6)" in v4["ND168-D47-K3-h"]["text"]
+    assert v4["ND168-D50-K3-a"]["text"].split("\n")[1].startswith("Trường hợp Chủ tịch Ủy ban nhân dân cấp xã")
+
+
+# ---------------- văn bản hợp nhất (chú thích) ----------------
+
+def test_consolidated_law_footnotes():
+    doc = parse_file("LXLVPHC", RAW_DIR / "VPHC.docx")
+    assert len(doc.footnotes) == 278
+    k = doc.find_dieu("23").find_khoan("4")
+    assert k.notes == [30] and "[30]" not in k.text
+    assert doc.find_dieu("2").find_khoan("5").text.startswith("Tái phạm")   # "5.[5] Tái phạm" nhận đúng khoản
+
+
+def test_footnote_effectivity():
+    import json
+
+    from src.config import PROCESSED_DIR
+
+    with (PROCESSED_DIR / "support_lxlvphc.jsonl").open(encoding="utf-8") as f:
+        recs = {r["id"]: r for r in map(json.loads, f)}
+    assert recs["LXLVPHC-D23-K4"]["effective_from"] == "2022-01-01"     # sửa bởi Luật 67/2020
+    assert recs["LXLVPHC-D9-K1"]["effective_from"] == "2013-07-01"      # chưa sửa đổi
+    assert recs["LXLVPHC-D134-K3"]["chu_thich"][0]["van_ban"].startswith("Luật số 67/2020/QH14")
+
+
+def test_docx_tables_read_in_order():
+    doc = parse_file("TT38", RAW_DIR / "TT_38.docx")
+    k2 = doc.find_dieu("6").find_khoan("2").text
+    assert "Bảng 2" in k2 and "| Xe ô tô chở người đến 28 chỗ" in k2

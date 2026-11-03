@@ -1,0 +1,340 @@
+- id: P001
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 17 khoản 2: Sửa đổi, bổ sung đoạn thứ hai điểm a khoản 3 [Điều 50]'
+  vi_tri: ND168-D50-K3-a (đoạn 2)
+  truoc: Trường hợp Chủ tịch Ủy ban nhân dân cấp huyện, Chủ tịch Ủy ban nhân dân cấp tỉnh ra quyết định xử phạt vi phạm hành chính đối với hành vi vi phạm có trừ điểm giấy phép lái xe thì Trưởng Công an cấp huyện hoặc Trưởng phòng Cảnh sát giao thông Công an cấp tỉnh có trách nhiệm cập nhật dữ liệu trừ điểm giấy phép lái xe vào Cơ sở dữ liệu về xử lý vi phạm hành chính về trật tự, an toàn giao thông đường bộ;
+  sau: Trường hợp Chủ tịch Ủy ban nhân dân cấp xã, Chủ tịch Ủy ban nhân dân cấp tỉnh ra quyết định xử phạt vi phạm hành chính đối với hành vi vi phạm có trừ điểm giấy phép lái xe thì Trưởng phòng Cảnh sát giao thông Công an cấp tỉnh có trách nhiệm cập nhật dữ liệu trừ điểm giấy phép lái xe vào Cơ sở dữ liệu về xử lý vi phạm hành chính về trật tự, an toàn giao thông đường bộ;
+  ghi_chu: 'Điểm a có 2 đoạn: đoạn 1 bắt đầu "a) Ngay sau khi...", đoạn 2 bắt đầu "Trường hợp...". Chỉ thay đoạn 2, đoạn 1 giữ nguyên.'
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P002
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 8: Bổ sung cụm từ "Điều 20 (điểm l khoản 5, điểm đ khoản 6), Điều 21 (điểm b khoản 3, điểm c khoản 5)," vào trước cụm từ "Điều 29", cụm từ "; khoản 9a" vào sau cụm từ "điểm n khoản 7" tại điểm h khoản 3 Điều 47.'
+  vi_tri: ND168-D47-K3-h
+  truoc: h) Các hành vi vi phạm quy định về lắp, sử dụng thiết bị giám sát hành trình, thiết bị ghi nhận hình ảnh người lái xe trên xe ô tô quy định tại Điều 29 (khoản 1, khoản 3), Điều 30 (khoản 1, khoản 2) và các hành vi vi phạm tương ứng quy định tại Điều 32 (điểm m, điểm n khoản 7), trong trường hợp chủ phương tiện là người trực tiếp điều khiển phương tiện thì bị xử phạt theo quy định tại các điểm, khoản tương ứng của Điều 32 của Nghị định này;
+  sau: h) Các hành vi vi phạm quy định về lắp, sử dụng thiết bị giám sát hành trình, thiết bị ghi nhận hình ảnh người lái xe trên xe ô tô quy định tại Điều 20 (điểm l khoản 5, điểm đ khoản 6), Điều 21 (điểm b khoản 3, điểm c khoản 5), Điều 29 (khoản 1, khoản 3), Điều 30 (khoản 1, khoản 2) và các hành vi vi phạm tương ứng quy định tại Điều 32 (điểm m, điểm n khoản 7; khoản 9a), trong trường hợp chủ phương tiện là người trực tiếp điều khiển phương tiện thì bị xử phạt theo quy định tại các điểm, khoản tương ứng của Điều 32 của Nghị định này;
+  ghi_chu: Lệnh ghép 2 thao tác. "Điều 29" chỉ xuất hiện 1 lần trong điểm h; "điểm n khoản 7" cũng 1 lần. Không có mơ hồ.
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P003
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 12 (vế 1): Bỏ cụm từ "giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ  môi trường" tại điểm b, điểm d khoản 7 Điều 32'
+  vi_tri: ND168-D32-K7-b
+  truoc: b) Không làm thủ tục thu hồi chứng nhận đăng ký xe; biển số xe; giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường theo quy định;
+  sau: b) Không làm thủ tục thu hồi chứng nhận đăng ký xe; biển số xe theo quy định;
+  ghi_chu: 'Bỏ cụm từ theo nghĩa đen sẽ còn "biển số xe;  theo quy định;" (thừa dấu ; và khoảng trắng). Bản SAU đã dọn dấu câu, CẦN DUYỆT. Lưu ý: văn bản NĐ 238 có 2 dấu cách giữa "vệ" và "môi" nên so khớp phải chuẩn hóa khoảng trắng.'
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P004
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 12 (vế 1): như P003, tại điểm d khoản 7 Điều 32'
+  vi_tri: ND168-D32-K7-d
+  truoc: d) Khai báo không đúng sự thật hoặc sử dụng các giấy tờ, tài liệu giả để được cấp lại biển số xe, chứng nhận đăng ký xe, giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường nhưng chưa đến mức bị truy cứu trách nhiệm hình sự;
+  sau: d) Khai báo không đúng sự thật hoặc sử dụng các giấy tờ, tài liệu giả để được cấp lại biển số xe, chứng nhận đăng ký xe nhưng chưa đến mức bị truy cứu trách nhiệm hình sự;
+  ghi_chu: Bỏ luôn dấu phẩy đứng trước cụm từ để câu liền mạch ("...chứng nhận đăng ký xe nhưng chưa đến mức..."). CẦN DUYỆT.
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P005
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 12 (vế 2): Bỏ cụm từ "điểm e, điểm g khoản 7;" tại điểm đ khoản 18 Điều 32'
+  vi_tri: ND168-D32-K18-đ
+  truoc: đ) Thực hiện hành vi quy định tại khoản 5, khoản 6 Điều này trong trường hợp chở vượt trên 50% số người quy định được phép chở của phương tiện còn bị tước quyền sử dụng phù hiệu từ 01 tháng đến 03 tháng (nếu có). Thực hiện hành vi quy định tại điểm e, điểm g khoản 7; điểm a, điểm b khoản 11; điểm a, điểm b, điểm c, điểm đ khoản 13; điểm a, điểm b, điểm c, điểm d, điểm đ, điểm e, điểm g khoản 14; khoản 15; khoản 16 Điều này còn bị tước quyền sử dụng phù hiệu từ 01 tháng đến 03 tháng (nếu có).
+  sau: đ) Thực hiện hành vi quy định tại khoản 5, khoản 6 Điều này trong trường hợp chở vượt trên 50% số người quy định được phép chở của phương tiện còn bị tước quyền sử dụng phù hiệu từ 01 tháng đến 03 tháng (nếu có). Thực hiện hành vi quy định tại điểm a, điểm b khoản 11; điểm a, điểm b, điểm c, điểm đ khoản 13; điểm a, điểm b, điểm c, điểm d, điểm đ, điểm e, điểm g khoản 14; khoản 15; khoản 16 Điều này còn bị tước quyền sử dụng phù hiệu từ 01 tháng đến 03 tháng (nếu có).
+  ghi_chu: Cụm từ xuất hiện đúng 1 lần.
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P006
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 16: Bỏ cụm từ "trực thuộc trung ương" tại Điều 55'
+  vi_tri: ND168-D55
+  truoc: Các Bộ trưởng, Thủ trưởng cơ quan ngang bộ, Thủ trưởng cơ quan thuộc Chính phủ, Chủ tịch Ủy ban nhân dân các tỉnh, thành phố trực thuộc Trung ương và các cơ quan, đơn vị có liên quan chịu trách nhiệm thi hành Nghị định này./.
+  sau: Các Bộ trưởng, Thủ trưởng cơ quan ngang bộ, Thủ trưởng cơ quan thuộc Chính phủ, Chủ tịch Ủy ban nhân dân các tỉnh, thành phố và các cơ quan, đơn vị có liên quan chịu trách nhiệm thi hành Nghị định này./.
+  ghi_chu: NĐ 168 viết hoa "Trung ương" nên so khớp phân biệt hoa thường thất bại. Cụm "trực thuộc trung ương" ở Điều 44 khoản 3 (dòng Chánh Thanh tra) KHÔNG thuộc phạm vi lệnh, giữ nguyên.
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P007
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm q khoản 3 Điều 3'
+  vi_tri: ND168-D3-K3-q
+  truoc: q) Buộc thực hiện điều chỉnh thùng xe theo đúng quy định hiện hành, đăng kiểm lại và điều chỉnh lại khối lượng hàng hóa cho phép chuyên chở được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường theo quy định hiện hành trước khi đưa phương tiện ra tham gia giao thông;
+  sau: q) Buộc thực hiện điều chỉnh thùng xe theo đúng quy định hiện hành, đăng kiểm lại và điều chỉnh lại khối lượng hàng hóa cho phép chuyên chở được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường theo quy định hiện hành trước khi đưa phương tiện ra tham gia giao thông;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P008
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm r khoản 3 Điều 3'
+  vi_tri: ND168-D3-K3-r
+  truoc: r) Buộc làm thủ tục đổi, thu hồi, cấp mới, cấp chứng nhận đăng ký xe, biển số xe, giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường theo quy định;
+  sau: r) Buộc làm thủ tục đổi, thu hồi, cấp mới, cấp chứng nhận đăng ký xe, biển số xe, chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường theo quy định;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P009
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm d khoản 3 Điều 13'
+  vi_tri: ND168-D13-K3-d
+  truoc: d) Điều khiển xe ô tô kinh doanh vận tải hành khách lắp thêm hoặc tháo bớt ghế, giường nằm hoặc có kích thước khoang chở hành lý (hầm xe) không đúng với thông số kỹ thuật được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe.
+  sau: d) Điều khiển xe ô tô kinh doanh vận tải hành khách lắp thêm hoặc tháo bớt ghế, giường nằm hoặc có kích thước khoang chở hành lý (hầm xe) không đúng với thông số kỹ thuật được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe.
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P010
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm b khoản 4 Điều 13'
+  vi_tri: ND168-D13-K4-b
+  truoc: b) Điều khiển xe ô tô tải (kể cả rơ moóc và sơ mi rơ moóc) có kích thước thùng xe không đúng với thông số kỹ thuật được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe;
+  sau: b) Điều khiển xe ô tô tải (kể cả rơ moóc và sơ mi rơ moóc) có kích thước thùng xe không đúng với thông số kỹ thuật được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P011
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm c khoản 3 Điều 18'
+  vi_tri: ND168-D18-K3-c
+  truoc: c) Người điều khiển xe ô tô, xe chở người bốn bánh có gắn động cơ, xe chở hàng bốn bánh có gắn động cơ, rơ moóc, sơ mi rơ moóc và các loại xe tương tự xe ô tô kinh doanh vận tải không mang theo giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường đối với loại xe có quy định phải kiểm định.
+  sau: c) Người điều khiển xe ô tô, xe chở người bốn bánh có gắn động cơ, xe chở hàng bốn bánh có gắn động cơ, rơ moóc, sơ mi rơ moóc và các loại xe tương tự xe ô tô kinh doanh vận tải không mang theo chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường đối với loại xe có quy định phải kiểm định.
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P012
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm a khoản 2 Điều 21'
+  vi_tri: ND168-D21-K2-a
+  truoc: a) Điều khiển xe (kể cả rơ moóc và sơ mi rơ moóc) chở hàng vượt trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 10% đến 30% (trừ xe xi téc chở chất lỏng), trên 20% đến 30% đối với xe xi téc chở chất lỏng;
+  sau: a) Điều khiển xe (kể cả rơ moóc và sơ mi rơ moóc) chở hàng vượt trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 10% đến 30% (trừ xe xi téc chở chất lỏng), trên 20% đến 30% đối với xe xi téc chở chất lỏng;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P013
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm d khoản 2 Điều 21'
+  vi_tri: ND168-D21-K2-d
+  truoc: d) Điều khiển xe kéo theo rơ moóc, sơ mi rơ moóc mà khối lượng toàn bộ (bao gồm khối lượng bản thân rơ moóc, sơ mi rơ moóc và khối lượng hàng chuyên chở) của rơ moóc, sơ mi rơ moóc vượt khối lượng cho phép kéo theo được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 10% đến 30%;
+  sau: d) Điều khiển xe kéo theo rơ moóc, sơ mi rơ moóc mà khối lượng toàn bộ (bao gồm khối lượng bản thân rơ moóc, sơ mi rơ moóc và khối lượng hàng chuyên chở) của rơ moóc, sơ mi rơ moóc vượt khối lượng cho phép kéo theo được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 10% đến 30%;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P014
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm a khoản 5 Điều 21'
+  vi_tri: ND168-D21-K5-a
+  truoc: a) Điều khiển xe (kể cả rơ moóc và sơ mi rơ moóc) chở hàng vượt trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 30% đến 50%;
+  sau: a) Điều khiển xe (kể cả rơ moóc và sơ mi rơ moóc) chở hàng vượt trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 30% đến 50%;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P015
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm d khoản 5 Điều 21'
+  vi_tri: ND168-D21-K5-d
+  truoc: d) Điều khiển xe kéo theo rơ moóc, sơ mi rơ moóc mà khối lượng toàn bộ (bao gồm khối lượng bản thân rơ moóc, sơ mi rơ moóc và khối lượng hàng chuyên chở) của rơ moóc, sơ mi rơ moóc vượt khối lượng cho phép kéo theo được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 30% đến 50%.
+  sau: d) Điều khiển xe kéo theo rơ moóc, sơ mi rơ moóc mà khối lượng toàn bộ (bao gồm khối lượng bản thân rơ moóc, sơ mi rơ moóc và khối lượng hàng chuyên chở) của rơ moóc, sơ mi rơ moóc vượt khối lượng cho phép kéo theo được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 30% đến 50%.
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P016
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm a khoản 6 Điều 21'
+  vi_tri: ND168-D21-K6-a
+  truoc: a) Điều khiển xe (kể cả rơ moóc và sơ mi rơ moóc) chở hàng vượt trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 50% đến 100%;
+  sau: a) Điều khiển xe (kể cả rơ moóc và sơ mi rơ moóc) chở hàng vượt trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 50% đến 100%;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P017
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm b khoản 6 Điều 21'
+  vi_tri: ND168-D21-K6-b
+  truoc: b) Điều khiển xe kéo theo rơ moóc, sơ mi rơ moóc mà khối lượng toàn bộ (bao gồm khối lượng bản thân rơ moóc, sơ mi rơ moóc và khối lượng hàng chuyên chở) của rơ moóc, sơ mi rơ moóc vượt khối lượng cho phép kéo theo được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 50% đến 100%;
+  sau: b) Điều khiển xe kéo theo rơ moóc, sơ mi rơ moóc mà khối lượng toàn bộ (bao gồm khối lượng bản thân rơ moóc, sơ mi rơ moóc và khối lượng hàng chuyên chở) của rơ moóc, sơ mi rơ moóc vượt khối lượng cho phép kéo theo được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 50% đến 100%;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P018
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm a khoản 7 Điều 21'
+  vi_tri: ND168-D21-K7-a
+  truoc: a) Điều khiển xe (kể cả rơ moóc và sơ mi rơ moóc) chở hàng vượt trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 100% đến 150%;
+  sau: a) Điều khiển xe (kể cả rơ moóc và sơ mi rơ moóc) chở hàng vượt trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 100% đến 150%;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P019
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm b khoản 7 Điều 21'
+  vi_tri: ND168-D21-K7-b
+  truoc: b) Điều khiển xe kéo theo rơ moóc, sơ mi rơ moóc mà khối lượng toàn bộ (bao gồm khối lượng bản thân rơ moóc, sơ mi rơ moóc và khối lượng hàng chuyên chở) của rơ moóc, sơ mi rơ moóc vượt khối lượng cho phép kéo theo được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 100% đến 150%.
+  sau: b) Điều khiển xe kéo theo rơ moóc, sơ mi rơ moóc mà khối lượng toàn bộ (bao gồm khối lượng bản thân rơ moóc, sơ mi rơ moóc và khối lượng hàng chuyên chở) của rơ moóc, sơ mi rơ moóc vượt khối lượng cho phép kéo theo được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 100% đến 150%.
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P020
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm a khoản 8 Điều 21'
+  vi_tri: ND168-D21-K8-a
+  truoc: a) Điều khiển xe (kể cả rơ moóc và sơ mi rơ moóc) chở hàng vượt trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 150%;
+  sau: a) Điều khiển xe (kể cả rơ moóc và sơ mi rơ moóc) chở hàng vượt trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 150%;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P021
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm b khoản 8 Điều 21'
+  vi_tri: ND168-D21-K8-b
+  truoc: b) Điều khiển xe kéo theo rơ moóc, sơ mi rơ moóc mà khối lượng toàn bộ (bao gồm khối lượng bản thân rơ moóc, sơ mi rơ moóc và khối lượng hàng chuyên chở) của rơ moóc, sơ mi rơ moóc vượt khối lượng cho phép kéo theo được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 150%;
+  sau: b) Điều khiển xe kéo theo rơ moóc, sơ mi rơ moóc mà khối lượng toàn bộ (bao gồm khối lượng bản thân rơ moóc, sơ mi rơ moóc và khối lượng hàng chuyên chở) của rơ moóc, sơ mi rơ moóc vượt khối lượng cho phép kéo theo được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 150%;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P022
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm a khoản 1 Điều 26'
+  vi_tri: ND168-D26-K1-a
+  truoc: a) Xếp hàng hóa lên mỗi xe ô tô (kể cả rơ moóc và sơ mi rơ moóc) vượt quá trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 10% đến 50% (trừ xe xi téc chở chất lỏng), trên 20% đến 50% đối với xe xi téc chở chất lỏng;
+  sau: a) Xếp hàng hóa lên mỗi xe ô tô (kể cả rơ moóc và sơ mi rơ moóc) vượt quá trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 10% đến 50% (trừ xe xi téc chở chất lỏng), trên 20% đến 50% đối với xe xi téc chở chất lỏng;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P023
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại khoản 3 Điều 26'
+  vi_tri: ND168-D26-K3
+  truoc: 3. Phạt tiền từ 2.000.000 đồng đến 3.000.000 đồng đối với cá nhân, từ 4.000.000 đồng đến 6.000.000 đồng đối với tổ chức thực hiện hành vi vi phạm xếp hàng hóa lên mỗi xe ô tô (kể cả rơ moóc và sơ mi rơ moóc) vượt quá trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 50% đến 100%.
+  sau: 3. Phạt tiền từ 2.000.000 đồng đến 3.000.000 đồng đối với cá nhân, từ 4.000.000 đồng đến 6.000.000 đồng đối với tổ chức thực hiện hành vi vi phạm xếp hàng hóa lên mỗi xe ô tô (kể cả rơ moóc và sơ mi rơ moóc) vượt quá trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 50% đến 100%.
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P024
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại khoản 5 Điều 26'
+  vi_tri: ND168-D26-K5
+  truoc: 5. Phạt tiền từ 4.000.000 đồng đến 5.000.000 đồng đối với cá nhân, từ 8.000.000 đồng đến 10.000.000 đồng đối với tổ chức xếp hàng hóa lên mỗi xe ô tô (kể cả rơ moóc và sơ mi rơ moóc) vượt quá trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 100%.
+  sau: 5. Phạt tiền từ 4.000.000 đồng đến 5.000.000 đồng đối với cá nhân, từ 8.000.000 đồng đến 10.000.000 đồng đối với tổ chức xếp hàng hóa lên mỗi xe ô tô (kể cả rơ moóc và sơ mi rơ moóc) vượt quá trọng tải (khối lượng hàng chuyên chở) cho phép tham gia giao thông được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe trên 100%.
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P025
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm b khoản 1 Điều 32'
+  vi_tri: ND168-D32-K1-b
+  truoc: b) Đưa phương tiện không có giấy chứng nhận kiểm định khí thải xe mô tô, xe gắn máy hoặc có nhưng đã hết hạn sử dụng hoặc sử dụng giấy chứng nhận kiểm định khí thải xe mô tô, xe gắn máy không do cơ quan có thẩm quyền cấp.
+  sau: b) Đưa phương tiện không có chứng nhận kiểm định khí thải xe mô tô, xe gắn máy hoặc có nhưng đã hết hạn sử dụng hoặc sử dụng chứng nhận kiểm định khí thải xe mô tô, xe gắn máy không do cơ quan có thẩm quyền cấp.
+  ghi_chu: Thay 2 lần trong phần tử này.
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P026
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm d khoản 11 Điều 32'
+  vi_tri: ND168-D32-K11-d
+  truoc: d) Đưa xe ô tô kinh doanh vận tải hành khách lắp thêm hoặc tháo bớt ghế, giường nằm hoặc có kích thước khoang chở hành lý (hầm xe) không đúng với thông số kỹ thuật được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe tham gia giao thông;
+  sau: d) Đưa xe ô tô kinh doanh vận tải hành khách lắp thêm hoặc tháo bớt ghế, giường nằm hoặc có kích thước khoang chở hành lý (hầm xe) không đúng với thông số kỹ thuật được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe tham gia giao thông;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P027
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm h khoản 14 Điều 32'
+  vi_tri: ND168-D32-K14-h
+  truoc: h) Đưa xe ô tô tải (kể cả rơ moóc và sơ mi rơ moóc) có kích thước thùng xe không đúng với thông số kỹ thuật được ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe tham gia giao thông;
+  sau: h) Đưa xe ô tô tải (kể cả rơ moóc và sơ mi rơ moóc) có kích thước thùng xe không đúng với thông số kỹ thuật được ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe tham gia giao thông;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P028
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm c khoản 18 Điều 32'
+  vi_tri: ND168-D32-K18-c
+  truoc: c) Thực hiện hành vi quy định tại điểm e khoản 7, điểm b khoản 11, điểm a khoản 13, khoản 15, điểm b khoản 16 Điều này mà phương tiện đó có thùng xe, khối lượng hàng hóa cho phép chuyên chở không đúng theo quy định hiện hành thì còn bị tước quyền sử dụng giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường và tem kiểm định của phương tiện từ 01 tháng đến 03 tháng;
+  sau: c) Thực hiện hành vi quy định tại điểm e khoản 7, điểm b khoản 11, điểm a khoản 13, khoản 15, điểm b khoản 16 Điều này mà phương tiện đó có thùng xe, khối lượng hàng hóa cho phép chuyên chở không đúng theo quy định hiện hành thì còn bị tước quyền sử dụng chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường và tem kiểm định của phương tiện từ 01 tháng đến 03 tháng;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P029
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm d khoản 18 Điều 32'
+  vi_tri: ND168-D32-K18-d
+  truoc: d) Thực hiện hành vi quy định tại điểm d khoản 11, điểm h khoản 14, điểm c khoản 16 Điều này bị tước quyền sử dụng giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường và tem kiểm định của phương tiện từ 01 tháng đến 03 tháng;
+  sau: d) Thực hiện hành vi quy định tại điểm d khoản 11, điểm h khoản 14, điểm c khoản 16 Điều này bị tước quyền sử dụng chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường và tem kiểm định của phương tiện từ 01 tháng đến 03 tháng;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P030
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm đ khoản 19 Điều 32'
+  vi_tri: ND168-D32-K19-đ
+  truoc: đ) Thực hiện hành vi quy định tại điểm e khoản 7, điểm b khoản 11, điểm a khoản 13, khoản 15, điểm b khoản 16 Điều này mà phương tiện đó có thùng xe, khối lượng hàng hóa cho phép chuyên chở không đúng theo quy định hiện hành thì còn bị buộc thực hiện điều chỉnh thùng xe theo đúng quy định hiện hành, đăng kiểm lại và điều chỉnh lại khối lượng hàng hóa cho phép chuyên chở ghi trong giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường theo quy định hiện hành trước khi đưa phương tiện ra tham gia giao thông;
+  sau: đ) Thực hiện hành vi quy định tại điểm e khoản 7, điểm b khoản 11, điểm a khoản 13, khoản 15, điểm b khoản 16 Điều này mà phương tiện đó có thùng xe, khối lượng hàng hóa cho phép chuyên chở không đúng theo quy định hiện hành thì còn bị buộc thực hiện điều chỉnh thùng xe theo đúng quy định hiện hành, đăng kiểm lại và điều chỉnh lại khối lượng hàng hóa cho phép chuyên chở ghi trong chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường theo quy định hiện hành trước khi đưa phương tiện ra tham gia giao thông;
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P031
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm g khoản 19 Điều 32'
+  vi_tri: ND168-D32-K19-g
+  truoc: g) Thực hiện hành vi vi phạm quy định tại điểm b khoản 3; điểm b, điểm c, điểm h khoản 7; điểm d, điểm đ khoản 8; điểm a khoản 12 Điều này buộc làm thủ tục đổi, thu hồi, cấp mới, cấp chứng nhận đăng ký xe, biển số xe, giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường theo quy định (trừ trường hợp bị tịch thu phương tiện);
+  sau: g) Thực hiện hành vi vi phạm quy định tại điểm b khoản 3; điểm b, điểm c, điểm h khoản 7; điểm d, điểm đ khoản 8; điểm a khoản 12 Điều này buộc làm thủ tục đổi, thu hồi, cấp mới, cấp chứng nhận đăng ký xe, biển số xe, chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường theo quy định (trừ trường hợp bị tịch thu phương tiện);
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P032
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại khoản 20 Điều 32'
+  vi_tri: ND168-D32-K20
+  truoc: 20. Ngoài việc bị áp dụng hình thức xử phạt, cá nhân, tổ chức thực hiện hành vi vi phạm quy định tại điểm a, điểm d khoản 7; điểm a, điểm e khoản 8; điểm đ khoản 9 Điều này bị thu hồi hồ sơ đăng ký xe bị tẩy xóa, sửa chữa hoặc giả mạo; giấy tờ, tài liệu giả để được cấp lại biển số xe, chứng nhận đăng ký xe, giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường; chứng nhận đăng ký xe (hoặc bản sao chứng nhận đăng ký xe có chứng thực kèm theo bản gốc giấy biên nhận của tổ chức tín dụng, chi nhánh ngân hàng nước ngoài trong trường hợp tổ chức tín dụng, chi nhánh ngân hàng nước ngoài giữ bản gốc chứng nhận đăng ký xe) không do cơ quan có thẩm quyền cấp hoặc không đúng với số khung, số động cơ (số máy); giấy chứng nhận, tem kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe không do cơ quan có thẩm quyền cấp.
+  sau: 20. Ngoài việc bị áp dụng hình thức xử phạt, cá nhân, tổ chức thực hiện hành vi vi phạm quy định tại điểm a, điểm d khoản 7; điểm a, điểm e khoản 8; điểm đ khoản 9 Điều này bị thu hồi hồ sơ đăng ký xe bị tẩy xóa, sửa chữa hoặc giả mạo; giấy tờ, tài liệu giả để được cấp lại biển số xe, chứng nhận đăng ký xe, chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường; chứng nhận đăng ký xe (hoặc bản sao chứng nhận đăng ký xe có chứng thực kèm theo bản gốc giấy biên nhận của tổ chức tín dụng, chi nhánh ngân hàng nước ngoài trong trường hợp tổ chức tín dụng, chi nhánh ngân hàng nước ngoài giữ bản gốc chứng nhận đăng ký xe) không do cơ quan có thẩm quyền cấp hoặc không đúng với số khung, số động cơ (số máy); giấy chứng nhận, tem kiểm định an toàn kỹ thuật và bảo vệ môi trường của xe không do cơ quan có thẩm quyền cấp.
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P033
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại điểm a khoản 4 Điều 40'
+  vi_tri: ND168-D40-K4-a
+  truoc: 'a) Kiểm định, cấp giấy chứng nhận kiểm định cho xe cơ giới, xe máy chuyên dùng, kiểm định khí thải xe mô tô, xe gắn máy không đúng quy định, tiêu chuẩn, quy chuẩn kỹ thuật; '
+  sau: 'a) Kiểm định, cấp chứng nhận kiểm định cho xe cơ giới, xe máy chuyên dùng, kiểm định khí thải xe mô tô, xe gắn máy không đúng quy định, tiêu chuẩn, quy chuẩn kỹ thuật; '
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet
+- id: P034
+  phien_ban: V4
+  van_ban_sua: ND238_2026
+  lenh_goc: 'ND238 Điều 19 khoản 11: Thay thế cụm từ "giấy chứng nhận kiểm định" bằng cụm từ "chứng nhận kiểm định" tại khoản 3 Điều 48'
+  vi_tri: ND168-D48-K3
+  truoc: '3. Đối với trường hợp tại thời điểm kiểm tra, người điều khiển phương tiện không xuất trình được một, một số hoặc tất cả các giấy tờ (giấy phép lái xe, chứng nhận đăng ký xe (hoặc bản sao chứng nhận đăng ký xe có chứng thực kèm theo bản gốc giấy biên nhận còn hiệu lực của tổ chức tín dụng, chi nhánh ngân hàng nước ngoài trong trường hợp tổ chức tín dụng, chi nhánh ngân hàng nước ngoài giữ bản gốc chứng nhận đăng ký xe), giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường) theo quy định (bản giấy hoặc thông tin của các giấy tờ được tích hợp trong tài khoản định danh điện tử) thì xử lý như sau:'
+  sau: '3. Đối với trường hợp tại thời điểm kiểm tra, người điều khiển phương tiện không xuất trình được một, một số hoặc tất cả các giấy tờ (giấy phép lái xe, chứng nhận đăng ký xe (hoặc bản sao chứng nhận đăng ký xe có chứng thực kèm theo bản gốc giấy biên nhận còn hiệu lực của tổ chức tín dụng, chi nhánh ngân hàng nước ngoài trong trường hợp tổ chức tín dụng, chi nhánh ngân hàng nước ngoài giữ bản gốc chứng nhận đăng ký xe), chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường) theo quy định (bản giấy hoặc thông tin của các giấy tờ được tích hợp trong tài khoản định danh điện tử) thì xử lý như sau:'
+  ghi_chu: ''
+  anh_huong_mvp: false
+  trang_thai: cho_duyet

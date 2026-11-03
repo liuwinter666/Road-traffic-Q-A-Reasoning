@@ -22,7 +22,9 @@ def onto():
 
 
 def articles(v: str) -> dict[str, dict]:
-    with (PROCESSED_DIR / f"articles_{v.lower()}.jsonl").open(encoding="utf-8") as f:
+    """Bản ghi theo phiên bản (V1..) hoặc văn bản bổ trợ (LXLVPHC, LTTATGT, TT38)."""
+    name = f"articles_{v.lower()}" if v.startswith("V") else f"support_{v.lower()}"
+    with (PROCESSED_DIR / f"{name}.jsonl").open(encoding="utf-8") as f:
         return {r["id"]: r for r in map(json.loads, f)}
 
 
@@ -64,7 +66,7 @@ def test_provision_individuals(onto):
 def test_threshold_evidence_in_source():
     """Cụm từ căn cứ của mọi ngưỡng phải có nguyên văn trong phần tử được dẫn."""
     cache: dict[str, dict] = {}
-    for t in CONCEPTS["thresholds"]:
+    for t in CONCEPTS["thresholds"] + CONCEPTS["thresholds_luat"]:
         for e in t["evidence"]:
             arts = cache.setdefault(e["version"], articles(e["version"]))
             assert e["phrase"] in arts[e["id"]]["full_text"], f"{t['name']}: {e}"
@@ -121,7 +123,8 @@ def _assert_classification(onto, c):
     assert "KhongChapHanhHieuLenhNguoiDieuKhienGT" not in _types(a["h_csgt_ok"])
     assert "DiNguocChieuTrenCaoToc" in _types(a["h_nguoc_ct"])
     assert "KhongMangTheoGPLX" in _types(a["h_gplx"])
-    assert "NguoiTu14Den16Tuoi" in _types(c["n15"]) and "NhomTuoi" not in _types(c["n18"])
+    assert "NguoiTu14Den16Tuoi" in _types(c["n15"]) and "NguoiTu16Den18Tuoi" not in _types(c["n18"])
+    assert "NguoiTu18TuoiTroLen" in _types(c["n18"]) and "NguoiTu18TuoiTroLen" not in _types(c["n15"])
     assert {"DungTichDuoi175cm3", "DungTichTren125cm3"} <= _types(c["xe_150"])
 
 
@@ -165,3 +168,22 @@ def test_disjoint_vehicle_inconsistency():
     with pytest.raises(OwlReadyInconsistentOntologyError):
         with onto:
             sync_reasoner_pellet(world, debug=0)
+
+
+
+def test_conditional_and_partial_effectivity(onto):
+    """Hiệu lực tới cấp phần nội dung và hiệu lực có điều kiện được mô hình trong ontology."""
+    d = onto["V4_ND168-D20-K5-l"]
+    assert d.hieuLucMotPhan is True
+    parts = [p for p in onto.PhanNoiDung.instances() if p.thuocDieuKhoanCha == d]
+    assert len(parts) == 1 and parts[0].hieuLucTu.year == 2028 and "dưới 08 chỗ" in parts[0].moTaPhamVi
+    n = onto["V4_ND168-D20-K5-n"]
+    assert n.hieuLucTu.year == 2029 and "khoang chở khách" in n.hieuLucDieuKien and n.dieuKienDaDapUng is False
+    assert onto["V3_ND168-D32-K1-b"].hieuLucChuaXacDinh is True
+
+
+def test_tinh_tiet_individuals(onto):
+    gn, tn = list(onto.TinhTietGiamNhe.instances()), list(onto.TinhTietTangNang.instances())
+    assert len(gn) == 8 and len(tn) == 12
+    assert onto.TTTN_b.canCuDieuKhoan == [onto["LXLVPHC-D10-K1-b"]] and "tái phạm" in onto.TTTN_b.label[0]
+    assert onto["LXLVPHC-D23-K4"].hieuLucTu.year == 2022 and onto["LXLVPHC-D23-K4"].noiDungTruocDo

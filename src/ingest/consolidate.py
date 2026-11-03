@@ -273,6 +273,8 @@ RE_PH_INSERT = re.compile(
     rf"^Bổ sung cụm từ {Q.format(n='new')} vào (?P<pos>trước|sau) cụm từ {Q.format(n='anchor')}"
     r" tại (?P<tg>.+?)[;.]?\s*$")
 RE_PH_DELETE = re.compile(rf"^(?:[Bb]ỏ|[Bb]ãi bỏ) cụm từ {Q.format(n='old')} tại (?P<tg>.+?)[;.]?\s*$")
+ORDINALS = {"nhất": 1, "hai": 2, "ba": 3, "tư": 4, "năm": 5, "sáu": 6}
+RE_DOAN_THU = re.compile(r"đoạn thứ (nhất|hai|ba|tư|năm|sáu)")
 RE_HEADER = re.compile(r"(một số|các) (điểm|khoản|điều|từ, cụm từ)|sau đây:?\s*$|như sau:\s*$")
 
 
@@ -308,6 +310,16 @@ class Consolidator:
             r = ApplyResult(instr, "skipped", f"Bỏ qua theo quyết định duyệt tay: {ov.get('note', '')}")
             self.results.append(r)
             return r
+        if ov and ov["action"] == "split":
+            # Lệnh ghép nhiều cụm từ: người duyệt viết lại thành các lệnh đơn đúng nguyên văn
+            rs = []
+            for part in ov["parts"]:
+                sub = Instruction(instr.ref, instr.para, part, context=instr.context)
+                r = self._apply_inline(sub, part)
+                if r is None:
+                    return self._review(instr, f"split: không nhận dạng được phần '{part[:60]}'")
+                rs.append(r)
+            return rs[-1]
         text = instr.text.strip()
         # sửa lỗi chính tả trong văn bản gốc: "Sửa đổi l khoản 5" (thiếu chữ "điểm")
         text = re.sub(r"^Sửa đổi ([a-zđ]) khoản", r"Sửa đổi điểm \1 khoản", text)
@@ -357,6 +369,8 @@ class Consolidator:
             return self._review(instr, f"Không xác định được đơn vị đích từ '{tg}'")
         level = "diem" if targets[0].diem else ("khoan" if targets[0].khoan else "dieu")
         part = targets[0].part
+        if m := RE_DOAN_THU.search(tg):
+            return self._replace_paragraph(instr, targets[0], ORDINALS[m.group(1)], content)
         if part in ("lead", "title"):
             return self._replace_part(instr, targets[0], content)
         new_units = parse_units(content, level)
@@ -378,6 +392,21 @@ class Consolidator:
             container[container.index(old)] = new
             ids.append(unit_id(self.doc.doc, t))
         return self._ok(instr, "Thay đơn vị", ids)
+
+    def _replace_paragraph(self, instr: Instruction, t: Target, n: int, content: list[str]) -> ApplyResult:
+        """Thay đoạn thứ ``n`` (đếm từ 1) trong nội dung của một điểm/khoản."""
+        unit, _ = locate(self.doc, t)
+        if unit is None:
+            return self._review(instr, f"Không tìm thấy {t.label()}")
+        paras = unit.text.split("\n")
+        if len(paras) < n:
+            return self._review(instr, f"{t.label()} chỉ có {len(paras)} đoạn, không có đoạn thứ {n}")
+        if len(content) != 1:
+            return self._review(instr, "Nội dung thay thế đoạn phải là một đoạn")
+        paras[n - 1] = content[0]
+        unit.text = "\n".join(paras)
+        self._note(unit, instr, f"Sửa đổi đoạn thứ {n}")
+        return self._ok(instr, f"Thay đoạn thứ {n} của {t.label()}", [unit_id(self.doc.doc, t)])
 
     def _replace_part(self, instr: Instruction, t: Target, content: list[str]) -> ApplyResult:
         old, _ = locate(self.doc, t)
@@ -451,27 +480,42 @@ class Consolidator:
         if not targets or any(t.dieu is None for t in targets):
             return self._review(instr, f"Không xác định được đơn vị đích từ '{tg}'")
         # Kiểm tra trước toàn bộ, chỉ áp khi mọi đích đều rõ ràng
+        ov = self.overrides.get(instr.ref, {})
+        replace_all = ov.get("replace_all", ov.get("action") == "replace_all")
         plan = []
+        missing = []
         for t in targets:
             unit, _ = locate(self.doc, t)
             if unit is None:
                 return self._review(instr, f"Không tìm thấy {t.label()}")
             fields = _text_fields(unit, t)
-            hits = [(obj, attr) for obj, attr in fields if old in getattr(obj, attr)]
-            n = sum(getattr(o, a).count(old) for o, a in hits)
-            replace_all = self.overrides.get(instr.ref, {}).get("action") == "replace_all"
+            old_t = old
+            if ov.get("match_case") is False:
+                # Văn bản sửa đổi viết khác hoa/thường so với văn bản gốc: lấy đúng chuỗi trong văn bản gốc
+                for obj, attr in fields:
+                    if m := re.search(re.escape(old), getattr(obj, attr), flags=re.I):
+                        old_t = m.group(0)
+                        break
+            hits = [(obj, attr) for obj, attr in fields if old_t in getattr(obj, attr)]
+            n = sum(getattr(o, a).count(old_t) for o, a in hits)
+            if n == 0 and ov.get("allow_missing"):
+                missing.append(t.label())
+                continue
             if n == 0 or (n > 1 and not replace_all):
                 return self._review(
-                    instr, f"Cụm từ “{old}” xuất hiện {n} lần tại {t.label()} (cần đúng 1 lần)")
-            plan.extend((t, h) for h in (hits if replace_all else hits[:1]))
+                    instr, f"Cụm từ “{old_t}” xuất hiện {n} lần tại {t.label()} (cần đúng 1 lần)")
+            plan.extend((t, old_t, h) for h in (hits if replace_all else hits[:1]))
         ids = []
-        for t, (obj, attr) in plan:
+        for t, old_t, (obj, attr) in plan:
             before = getattr(obj, attr)
-            after = _apply_phrase(before, old, new)
+            after = _apply_phrase(before, old_t, new)
             setattr(obj, attr, after)
-            obj.history.append(f"{_phrase_desc(action, old, new)} bởi {instr.ref}")
+            obj.history.append(f"{_phrase_desc(action, old_t, new)} bởi {instr.ref}")
             ids.append(unit_id(self.doc.doc, t))
-        return self._ok(instr, _phrase_desc(action, old, new), ids)
+        detail = _phrase_desc(action, old, new)
+        if missing:
+            detail += f" (không có cụm từ tại: {', '.join(missing)})"
+        return self._ok(instr, detail, list(dict.fromkeys(ids)))
 
     def _set_text(self, o: dict) -> None:
         t = target_from_id(o["id"])

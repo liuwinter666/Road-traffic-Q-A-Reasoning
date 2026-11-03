@@ -30,9 +30,11 @@ data/processed/articles_v*.jsonl┘
   một `World` riêng.
 * IRI gốc: `http://www.semanticweb.org/traffic-law-vn/ontology#`.
 
-Số liệu hiện tại: **192 lớp** (64 lớp lõi, 27 lớp ngưỡng/hợp, 27 lớp dấu hiệu sự kiện, 14 nhóm vi phạm,
-60 lớp hành vi `HV_*`), **25 thuộc tính đối tượng, 58 thuộc tính dữ liệu, 3 annotation**,
-**363 cá thể điều khoản** (26 Điều, 126 Khoản, 211 Điểm, tính theo 4 phiên bản), **132 khung phạt**.
+Số liệu hiện tại: **198 lớp** (67 lớp lõi, 30 lớp ngưỡng/hợp, 27 lớp dấu hiệu sự kiện, 14 nhóm vi phạm,
+60 lớp hành vi `HV_*`), **25 thuộc tính đối tượng, 63 thuộc tính dữ liệu, 3 annotation**,
+**453 cá thể điều khoản** (46 Điều, 162 Khoản, 245 Điểm — theo 4 phiên bản nghị định và 3 văn bản bổ trợ),
+**3 phần nội dung có hiệu lực riêng**, **150 khung phạt**, **20 tình tiết** (8 giảm nhẹ, 12 tăng nặng),
+**7 văn bản** (4 nghị định, 2 luật, 1 thông tư).
 
 ## 3. Cấu trúc lớp
 
@@ -60,8 +62,8 @@ flowchart LR
   ViPhamNongDoCon --> HV_OT_CON_1 & HV_XM_CON_2 & HVx["…60 lớp HV_*"]
 
   TinhTiet --> TinhTietTangNang & TinhTietGiamNhe
-  VanBan --> NghiDinh
-  DieuKhoan --> Dieu & Khoan & Diem
+  VanBan --> NghiDinh & Luat & ThongTu
+  DieuKhoan --> Dieu & Khoan & Diem & PhanNoiDung
   HinhThucXuPhat --> PhatCanhCao & HinhThucBoSung
   HinhThucBoSung --> TuocGPLX & TichThuPhuongTien & TichThuTangVat
   BienPhapKhac --> TruDiemGPLX & TamGiuPhuongTien & BienPhapKhacPhucHauQua
@@ -182,6 +184,33 @@ flowchart LR
   văn đầy đủ vẫn ở `articles_v*.jsonl` cho RAG.
 * Khung phạt `KP_V3_ND168-D6-K9` gắn vào khoản; nếu khoản có mức riêng cho tổ chức thì có thêm `KP_TC_…`.
 
+### 7.1. Hiệu lực tới cấp phần nội dung, hiệu lực có điều kiện
+
+* Phần tử có hiệu lực riêng do văn bản quy định (Điều 53 NĐ 168, Điều 18 NĐ 238, Điều 88 Luật TTATGT) được
+  khai báo ở `element_effectivity` trong `config/legal_sources.yaml` và luôn được nạp vào ontology.
+* `hieuLucDieuKien` + `dieuKienDaDapUng = false`: hiệu lực còn phụ thuộc văn bản khác ⇒ hệ thống coi là chưa có
+  hiệu lực, kể cả khi đã qua ngày ghi trong văn bản.
+* Khi chỉ một phần nội dung của điểm có hiệu lực riêng, phần đó là cá thể `PhanNoiDung` (vd.
+  `V4_ND168-D20-K5-l__P1`: phần về thiết bị ghi hình người lái của xe dưới 08 chỗ, từ 01/01/2028) gắn với
+  điểm qua `thuocDieuKhoanCha`; điểm có `hieuLucMotPhan = true`.
+* Đánh giá tại một ngày: `src/kb/temporal.py`. Ví dụ đầy đủ cho báo cáo: `docs/report/vi_du_hieu_luc_co_dieu_kien.md`.
+
+### 7.2. Văn bản bổ trợ
+
+| Khóa | Văn bản | Hiệu lực | Dùng cho |
+|---|---|---|---|
+| `LTTATGT` | Luật Trật tự, an toàn GTĐB 36/2024/QH15 | từ 01/01/2025 (khoản 3 Điều 10 từ 01/01/2026) | điều kiện người lái (Điều 56), hạng GPLX (Điều 57), độ tuổi (Điều 59) |
+| `TT38` | Thông tư 38/2024/TT-BGTVT | từ 01/01/2025 | tốc độ tối đa khi không có biển báo → `data/processed/speed_limits.json` |
+| `LXLVPHC` | Luật Xử lý VPHC (hợp nhất 90/VBHN-VPQH) | gốc 01/07/2013; câu chữ từng phần tử theo chú thích | tình tiết (Điều 9, 10), mức phạt cụ thể (khoản 4 Điều 23), đối tượng (Điều 5), người chưa thành niên (Điều 134) |
+
+* Cá thể điều khoản bổ trợ dùng id làm tên (`LXLVPHC-D23-K4`), không có tiền tố phiên bản.
+* Với văn bản hợp nhất, ngày hiệu lực câu chữ hiện hành của từng phần tử lấy từ chú thích `[n]`; trước ngày
+  đó, `noiDungTruocDo` ghi rõ câu chữ cũ không có trong dữ liệu.
+* Tình tiết: mỗi khoản Điều 9 → một cá thể `TinhTietGiamNhe` (`TTGN_1`…`TTGN_8`), mỗi điểm khoản 1 Điều 10 →
+  một cá thể `TinhTietTangNang` (`TTTN_a`…`TTTN_m`), có `canCuDieuKhoan` trỏ tới điều khoản.
+* Ngưỡng tuổi mới (`thresholds_luat`): `NguoiChuaDu14Tuoi` (suy ra từ phạm vi Điều 5 Luật XLVPHC),
+  `NguoiTu16TuoiTroLen`, `NguoiTu18TuoiTroLen` (Điều 59 Luật TTATGT).
+
 ## 8. Định hướng cho luật SWRL (Phase 3)
 
 Luật **không dùng built-in**, chỉ nối lớp đã phân loại với phiên bản và điều khoản:
@@ -213,10 +242,10 @@ dựng lại được chuỗi: sự kiện → lớp định nghĩa → quy tắ
 
 ## 10. TODO_VERIFY
 
-* `NguoiKhongDuDieuKienDieuKhienXe`: điều kiện đầy đủ nằm ở Luật Giao thông đường bộ / Luật Trật tự, an toàn
-  giao thông đường bộ (được dẫn trong khoản 5 Điều 30 NĐ 100, khoản 10 Điều 32 NĐ 168) — chưa có trong `data/raw/`.
-  Phase 3 chỉ suy ra lớp này từ các vi phạm về tuổi và GPLX có trong nghị định.
-* Tốc độ tối đa cho phép theo loại đường không có trong 4 nghị định; hệ thống yêu cầu người dùng cung cấp
-  (biển báo) hoặc hỏi lại.
-* `TinhTietTangNang` / `TinhTietGiamNhe` mới có lớp, chưa có cá thể — căn cứ ở Luật Xử lý vi phạm hành chính
-  (chưa có trong `data/raw/`).
+* `NguoiKhongDuDieuKienDieuKhienXe`: V3, V4 có căn cứ Điều 56, 59 Luật TTATGT. V1, V2 dẫn khoản 1 Điều 58 Luật
+  Giao thông đường bộ 2008 — **chưa có trong `data/raw/`**.
+* Tốc độ tối đa khi không có biển báo: V3, V4 dùng TT 38/2024; V1, V2 thuộc TT 31/2019 — **chưa có**, hệ thống
+  phải hỏi tốc độ trên biển báo.
+* Luật TTATGT đã được sửa bởi Luật 118/2025/QH15 (theo phần căn cứ của NĐ 238) — văn bản sửa đổi chưa có.
+* Luật XLVPHC chỉ có bản hợp nhất 2026: với vi phạm trước ngày câu chữ hiện hành có hiệu lực (vd. khoản 4
+  Điều 23 trước 01/01/2022), hệ thống báo thiếu dữ liệu câu chữ tại thời điểm đó.

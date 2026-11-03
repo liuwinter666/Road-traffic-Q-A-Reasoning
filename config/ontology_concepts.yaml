@@ -150,3 +150,32 @@ observations:
   - {name: KhongMangTheoBaoHiemTNDS, cls: HanhViDieuKhienXe, values: {coBaoHiemTNDS: true, mangTheoBaoHiemTNDS: false}, label: "Có nhưng không mang theo bảo hiểm TNDS"}
   - {name: XeKinhDoanhVanTai, cls: HanhViDieuKhienXe, values: {kinhDoanhVanTai: true}, label: "Điều khiển xe kinh doanh vận tải"}
   - {name: XeKhongKinhDoanhVanTai, cls: HanhViDieuKhienXe, values: {kinhDoanhVanTai: false}, label: "Điều khiển xe không kinh doanh vận tải"}
+
+# ---------------------------------------------------------------------------
+# Ngưỡng tuổi theo luật (văn bản bổ trợ). `version` = khóa văn bản bổ trợ khi căn cứ không phải nghị định.
+# suy_ra: true = ranh giới suy ra từ phạm vi quy định (không có câu nguyên văn nêu trực tiếp).
+# ---------------------------------------------------------------------------
+thresholds_luat:
+  - {name: NguoiChuaDu14Tuoi, group: NhomTuoi, cls: Nguoi, property: tuoi, datatype: int, max_exclusive: 14,
+     label: "Người chưa đủ 14 tuổi (không thuộc đối tượng bị xử phạt VPHC)",
+     evidence: [{version: LXLVPHC, id: LXLVPHC-D5-K1-a, phrase: "Người từ đủ 14 tuổi đến dưới 16 tuổi bị xử phạt vi phạm hành chính về vi phạm hành chính do cố ý", suy_ra: true}]}
+  - {name: NguoiTu16TuoiTroLen, group: NhomTuoi, cls: Nguoi, property: tuoi, datatype: int, min_inclusive: 16,
+     label: "Người từ đủ 16 tuổi trở lên",
+     evidence: [{version: LXLVPHC, id: LXLVPHC-D5-K1-a, phrase: "người từ đủ 16 tuổi trở lên bị xử phạt vi phạm hành chính về mọi vi phạm hành chính"},
+                {version: LTTATGT, id: LTTATGT-D59-K1-a, phrase: "Người đủ 16 tuổi trở lên được điều khiển xe gắn máy"}]}
+  - {name: NguoiTu18TuoiTroLen, group: NhomTuoi, cls: Nguoi, property: tuoi, datatype: int, min_inclusive: 18,
+     label: "Người từ đủ 18 tuổi trở lên (được cấp GPLX hạng A1, A, B1, B, C1)",
+     evidence: [{version: LTTATGT, id: LTTATGT-D59-K1-b, phrase: "Người đủ 18 tuổi trở lên được cấp giấy phép lái xe hạng A1, A, B1, B, C1"}]}
+
+# Điều khoản của văn bản bổ trợ được nạp vào ontology làm căn cứ (Phase 3 dùng cho luật và quyết định mức phạt)
+support_provisions:
+  LXLVPHC: [LXLVPHC-D3-K1-d, LXLVPHC-D3-K1-e, LXLVPHC-D5-K1-a, LXLVPHC-D23-K1, LXLVPHC-D23-K4,
+            LXLVPHC-D134-K3, LXLVPHC-D10-K2]
+  LTTATGT: [LTTATGT-D56-K1, LTTATGT-D56-K4, LTTATGT-D57-K1-a, LTTATGT-D57-K1-b, LTTATGT-D57-K1-d,
+            LTTATGT-D59-K1-a, LTTATGT-D59-K1-b]
+  TT38: [TT38-D6-K1, TT38-D6-K2, TT38-D7, TT38-D8-K1, TT38-D8-K2, TT38-D9-K2, TT38-D9-K3]
+
+# Cá thể tình tiết: mỗi khoản/điểm con của `parent_id` là một cá thể của `class`
+tinh_tiet:
+  - {source: LXLVPHC, parent_id: LXLVPHC-D9, class: TinhTietGiamNhe, prefix: TTGN}
+  - {source: LXLVPHC, parent_id: LXLVPHC-D10-K1, class: TinhTietTangNang, prefix: TTTN}

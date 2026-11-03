@@ -42,16 +42,20 @@ documents:
     effective_from: 2025-01-01
     evidence: "Điều 53 khoản 1: Nghị định này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2025, trừ quy định tại khoản 2 Điều này."
     verified: true
-    # Ngoại lệ hiệu lực theo từng điểm (Điều 53 khoản 2)
-    element_effective_overrides:
+    # Hiệu lực riêng theo phần tử (Điều 53 khoản 2). Xem chú thích "element_effectivity" ở cuối file.
+    element_effectivity:
       - ids: [ND168-D6-K3-m, ND168-D26-K4-e, ND168-D27-K1-b]
+        pham_vi: toan_bo
         effective_from: 2026-01-01
         evidence: "Điều 53 khoản 2: Quy định tại điểm m khoản 3 Điều 6, điểm e khoản 4 Điều 26, điểm b khoản 1 Điều 27 của Nghị định này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2026"
         verified: true
       - ids: [ND168-D32-K1-b]
-        effective_from: null   # không xác định được từ 3 văn bản đã có
+        pham_vi: toan_bo
+        effective_from: null
+        hieu_luc_dieu_kien: "theo quy định của pháp luật bảo vệ môi trường về kiểm định khí thải xe mô tô, xe gắn máy"
+        dieu_kien_da_dap_ung: false
         evidence: "Điều 53 khoản 2: quy định tại điểm b khoản 1 Điều 32 của Nghị định này có hiệu lực thi hành theo quy định của pháp luật bảo vệ môi trường về kiểm định khí thải xe mô tô, xe gắn máy."
-        verified: false        # TODO_VERIFY: cần văn bản pháp luật BVMT
+        verified: true
 
   ND238:
     file: ND_238.docx
@@ -65,18 +69,22 @@ documents:
     effective_from: 2026-08-15
     evidence: "Điều 20 khoản 1: Nghị định này có hiệu lực thi hành từ ngày 15 tháng 8 năm 2026."
     verified: true
-    # Ngoại lệ hiệu lực do NĐ 238 bổ sung vào Điều 53 NĐ 168 (Điều 18 NĐ 238).
-    # Chỉ áp cho các phiên bản có NĐ 238 trong nguồn hợp nhất.
-    element_effective_overrides:
+    # Hiệu lực riêng do NĐ 238 bổ sung vào Điều 53 NĐ 168 (Điều 18 NĐ 238).
+    # Chỉ áp cho các phiên bản có NĐ 238 trong nguồn hợp nhất (V4 trở đi).
+    element_effectivity:
       - ids: [ND168-D20-K5-l, ND168-D21-K3-b, ND168-D32-K9a-b]
+        pham_vi: mot_phan
+        mo_ta_pham_vi: "Phần quy định về thiết bị ghi nhận hình ảnh người lái xe đối với xe ô tô kinh doanh vận tải hành khách dưới 08 chỗ (không kể chỗ của người lái xe), xe ô tô kinh doanh vận tải hàng hóa (trừ xe ô tô đầu kéo), xe vận tải nội bộ"
         effective_from: 2028-01-01
-        partial: true   # chỉ phần quy định về thiết bị ghi hình người lái của một số loại xe
-        evidence: "điểm l khoản 5 Điều 20, điểm b khoản 3 Điều 21, điểm b khoản 9a Điều 32 của Nghị định này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2028"
+        evidence: "Quy định xử phạt vi phạm hành chính liên quan đến thiết bị ghi nhận hình ảnh người lái xe đối với xe ô tô kinh doanh vận tải hành khách dưới 08 chỗ (không kể chỗ của người lái xe), xe ô tô kinh doanh vận tải hàng hóa (trừ xe ô tô đầu kéo), xe vận tải nội bộ tại điểm l khoản 5 Điều 20, điểm b khoản 3 Điều 21, điểm b khoản 9a Điều 32 của Nghị định này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2028"
         verified: true
       - ids: [ND168-D20-K5-n, ND168-D26-K7-k, ND168-D26-K7-l]
+        pham_vi: toan_bo
         effective_from: 2029-01-01
-        evidence: "điểm n khoản 5 Điều 20; điểm k, điểm l khoản 7 Điều 26 của Nghị định này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2029 và theo quy định của pháp luật về thiết bị ghi nhận hình ảnh khoang chở khách"
-        verified: false   # TODO_VERIFY: còn phụ thuộc pháp luật về thiết bị ghi hình khoang khách
+        hieu_luc_dieu_kien: "theo quy định của pháp luật về thiết bị ghi nhận hình ảnh khoang chở khách trên phương tiện giao thông đường bộ"
+        dieu_kien_da_dap_ung: false
+        evidence: "Quy định xử phạt vi phạm hành chính liên quan đến thiết bị ghi nhận hình ảnh khoang chở khách tại điểm n khoản 5 Điều 20; điểm k, điểm l khoản 7 Điều 26 của Nghị định này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2029 và theo quy định của pháp luật về thiết bị ghi nhận hình ảnh khoang chở khách trên phương tiện giao thông đường bộ"
+        verified: true
 
 # Phiên bản pháp lý. Khoảng hiệu lực là [effective_from, effective_to] (bao gồm hai đầu).
 # build.base: văn bản gốc; build.base_version: kế thừa phiên bản trước; build.amendments: áp lần lượt.
@@ -115,3 +123,62 @@ default_version: current
 # Văn bản đã biết là tồn tại nhưng CHƯA có trong data/raw/. Dùng để cảnh báo khi
 # thời điểm vi phạm rơi vào khoảng hiệu lực của chúng.
 pending_documents: []
+
+# ---------------------------------------------------------------------------
+# element_effectivity — hiệu lực tới cấp phần tử, kể cả một phần nội dung của phần tử:
+#   pham_vi: toan_bo | mot_phan
+#   mo_ta_pham_vi: (mot_phan) mô tả phần nội dung có hiệu lực riêng; phần còn lại theo phiên bản
+#   effective_from: ngày bắt đầu hiệu lực; null = chưa xác định được ngày
+#   hieu_luc_dieu_kien: hiệu lực còn phụ thuộc văn bản khác. Hệ thống coi là CHƯA có hiệu lực
+#       (kể cả khi đã qua effective_from) cho tới khi dieu_kien_da_dap_ung: true kèm căn cứ.
+#   evidence: trích nguyên văn quy định về hiệu lực (test kiểm tra có trong văn bản nguồn)
+# ---------------------------------------------------------------------------
+
+# Văn bản bổ trợ: không thuộc chuỗi phiên bản nghị định xử phạt, có khoảng hiệu lực riêng.
+# Sinh ra data/processed/support_<key>.jsonl; id phần tử dạng <KEY>-D56-K1-a.
+supporting_documents:
+  LTTATGT:
+    file: TT_ATGT.docx
+    so_hieu: "36/2024/QH15"
+    loai: luat
+    ten: "Luật Trật tự, an toàn giao thông đường bộ"
+    ngay_ban_hanh: 2024-06-27
+    effective_from: 2025-01-01
+    effective_to: null
+    evidence: "Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2025, trừ trường hợp quy định tại khoản 2 Điều này."
+    verified: true
+    vai_tro: "Điều kiện người điều khiển (Điều 56), hạng GPLX (Điều 57), độ tuổi (Điều 59) — căn cứ 'người không đủ điều kiện' cho V3, V4"
+    thay_the: "Luật Giao thông đường bộ số 23/2008/QH12 (áp cho V1, V2) — KHÔNG có trong data/raw/"
+    sua_doi_chua_co: ["Luật số 118/2025/QH15 (được NĐ 238 dẫn là có sửa đổi Luật này) — chưa có trong data/raw/"]
+    element_effectivity:
+      - ids: [LTTATGT-D10-K3]
+        pham_vi: toan_bo
+        effective_from: 2026-01-01
+        evidence: "Khoản 3 Điều 10 của Luật này có hiệu lực thi hành từ ngày 01 tháng 01 năm 2026."
+        verified: true
+
+  TT38:
+    file: TT_38.docx
+    so_hieu: "38/2024/TT-BGTVT"
+    loai: thong_tu
+    ten: "Thông tư quy định về tốc độ và khoảng cách an toàn của xe cơ giới, xe máy chuyên dùng tham gia giao thông trên đường bộ"
+    ngay_ban_hanh: 2024-11-15
+    effective_from: 2025-01-01
+    effective_to: null
+    evidence: "Thông tư này có hiệu lực kể từ ngày 01 tháng 01 năm 2025 và thay thế Thông tư số 31/2019/TT-BGTVT"
+    verified: true
+    vai_tro: "Tốc độ khai thác tối đa khi không có biển báo (Điều 6–9) — dùng để suy ra tocDoToiDaChoPhep"
+    thay_the: "Thông tư số 31/2019/TT-BGTVT (áp cho V1, V2) — KHÔNG có trong data/raw/"
+
+  LXLVPHC:
+    file: VPHC.docx
+    so_hieu: "15/2012/QH13"
+    loai: luat
+    ten: "Luật Xử lý vi phạm hành chính (văn bản hợp nhất số 90/VBHN-VPQH ngày 30/3/2026)"
+    ngay_ban_hanh: 2012-06-20
+    effective_from: 2013-07-01
+    effective_to: null
+    evidence: "Luật Xử lý vi phạm hành chính số 15/2012/QH13 ngày 20 tháng 6 năm 2012 của Quốc hội, có hiệu lực kể từ ngày 01 tháng 7 năm 2013"
+    verified: true
+    hop_nhat: true   # dùng chú thích [n] để xác định ngày hiệu lực của câu chữ hiện hành từng phần tử
+    vai_tro: "Tình tiết giảm nhẹ/tăng nặng (Điều 9, 10), mức phạt cụ thể (khoản 4 Điều 23), đối tượng bị xử phạt (Điều 5), người chưa thành niên (Điều 134)"

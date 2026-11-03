@@ -3,7 +3,10 @@
 ## Trạng thái hiện tại
 - Phase 0: khởi tạo repo, môi trường, kiểm tra reasoner — XONG
 - Phase 1: parser + hợp nhất V1/V2/V3 + đề xuất 60 hành vi MVP — XONG (đã thêm V4 = NĐ 238)
-- Phase 2: ontology traffic_law.owl + docs/ontology_design.md — ĐANG REVIEW
+- Phase 2: ontology traffic_law.owl + docs/ontology_design.md — XONG
+- Bổ sung sau Phase 2: hiệu lực tới cấp phần nội dung + có điều kiện (temporal.py), văn bản bổ trợ
+  LTTATGT/TT38/LXLVPHC, 0 lệnh hợp nhất treo — ĐANG REVIEW
+- Tiếp theo: Phase 3 (luật SWRL, rule_registry, reasoner, penalty_decision)
 - Gốc project = thư mục `DoAn/` (tương ứng `traffic-law-expert/` trong đặc tả).
 - Tên file dữ liệu thô: `data/raw/ND_100.docx`, `ND_123.docx`, `ND_168.docx`.
 
@@ -22,6 +25,8 @@
 - Sinh lại articles_v*.jsonl + consolidation_review.md: `python -m src.ingest.build_articles`
 - Kiểm chứng + sinh bảng hành vi MVP: `python -m src.ingest.mvp_report` (→ docs/mvp_behaviors.md)
 - Sinh ontology: `python -m src.kb.build_ontology` (→ ontology/traffic_law.owl, KHÔNG sửa tay file .owl)
+- Bảng tốc độ TT 38: `python -m src.ingest.speed_limits` (→ data/processed/speed_limits.json)
+- Thứ tự sinh lại toàn bộ: build_articles → speed_limits → mvp_report → build_ontology
 
 ## Dữ liệu pháp lý
 - `config/legal_sources.yaml`: văn bản, phiên bản V1/V2/V3, ngoại lệ hiệu lực theo phần tử, văn bản chưa có (NĐ 238).
@@ -29,6 +34,11 @@
 - `config/mvp_behaviors.yaml`: mã hành vi → id điều khoản từng phiên bản (+ cụm từ kiểm chứng); refs ngắn hơn số phiên bản thì phiên bản sau kế thừa id.
 - `config/ontology_concepts.yaml`: ngưỡng pháp lý (lớp định nghĩa OWL, kèm evidence), lớp hợp, dấu hiệu sự kiện boolean.
 - Phiên bản: V1 NĐ100, V2 NĐ100+123, V3 NĐ168, V4 NĐ168+238 (từ 15/8/2026). default_version: current.
+- Văn bản bổ trợ (`supporting_documents`): LTTATGT (TT_ATGT.docx), TT38 (TT_38.docx), LXLVPHC (VPHC.docx, bản hợp nhất,
+  chú thích [n] → ngày hiệu lực câu chữ) → data/processed/support_<key>.jsonl.
+- Hiệu lực: `element_effectivity` (pham_vi toan_bo|mot_phan, hieu_luc_dieu_kien) → bản ghi có `hieu_luc_chi_tiet`;
+  điều kiện chưa xác nhận ⇒ coi là CHƯA có hiệu lực. Đánh giá bằng `src/kb/temporal.trang_thai_hieu_luc`.
+- Nguyên tắc hợp nhất: văn bản sửa chữ nào thì theo chữ đó (quyết định áp ở config/consolidation_overrides.yaml).
 - Id phần tử: `ND168-D7-K10-a`; chữ `đ` viết `dd` trong id. V2 dùng id của NĐ 100 (văn bản gốc).
 - Bản ghi JSONL có `status` (active|bai_bo), `history`, `history_inherited`, `khung_phat` (trích từ văn bản).
 

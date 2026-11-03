@@ -73,7 +73,7 @@ class Builder:
 
     def parsed(self, doc_key: str) -> ParsedDoc:
         if doc_key not in self._parsed:
-            meta = self.cfg["documents"][doc_key]
+            meta = self.cfg["documents"].get(doc_key) or self.cfg["supporting_documents"][doc_key]
             self._parsed[doc_key] = parse_file(doc_key, RAW_DIR / meta["file"])
         return self._parsed[doc_key]
 
@@ -103,17 +103,18 @@ class Builder:
         return vb
 
 
-def _overrides_map(cfg: dict, sources: list[str]) -> dict[str, dict]:
-    """id phần tử → {effective_from, evidence, verified} từ element_effective_overrides.
+def _effectivity_map(cfg: dict, sources: list[str], section: str = "documents") -> dict[str, list[dict]]:
+    """id phần tử → danh sách mục ``element_effectivity`` (theo thứ tự văn bản trong ``sources``).
 
-    Chỉ lấy ngoại lệ của các văn bản nằm trong ``sources`` (nguồn hợp nhất của phiên bản);
-    văn bản sau ghi đè văn bản trước.
+    Chỉ lấy hiệu lực riêng do các văn bản nằm trong ``sources`` đặt ra (vd. ngoại lệ của NĐ 238
+    chỉ áp cho V4), nên phiên bản cũ không bị gán nhầm ngày của văn bản sau.
     """
-    out = {}
+    out: dict[str, list[dict]] = {}
     for doc_key in sources:
-        for o in cfg["documents"][doc_key].get("element_effective_overrides", []) or []:
+        meta = cfg.get(section, {}).get(doc_key) or cfg["documents"].get(doc_key) or {}
+        for o in meta.get("element_effectivity", []) or []:
             for i in o["ids"]:
-                out[i] = o
+                out.setdefault(i, []).append(o)
     return out
 
 
@@ -121,13 +122,78 @@ def _iso(d) -> str | None:
     return d.isoformat() if isinstance(d, date) else d
 
 
-def flatten(vb: VersionBuild, cfg: dict) -> list[dict]:
-    """Chuyển cây văn bản của một phiên bản thành danh sách bản ghi JSONL."""
-    vmeta = cfg["versions"][vb.name]
-    docs = cfg["documents"]
-    base_key = vb.doc.doc
-    v_from, v_to = _iso(vmeta["effective_from"]), _iso(vmeta.get("effective_to"))
-    eff_over = _overrides_map(cfg, vb.sources)
+def build_segments(v_from: str | None, v_to: str | None, entries: list[dict]) -> dict:
+    """Dựng mô hình hiệu lực của một phần tử từ khoảng hiệu lực mặc định và các mục element_effectivity.
+
+    Trả về dict gồm ``effective_from`` (ngày có hiệu lực của phần nội dung chính, None nếu chưa xác
+    định), ``hieu_luc_dieu_kien`` (điều kiện phụ thuộc văn bản khác của toàn bộ phần tử) và
+    ``hieu_luc_chi_tiet`` — danh sách đoạn hiệu lực, mỗi đoạn ứng với toàn bộ hoặc một phần nội dung.
+    """
+    segs = [{"pham_vi": "toan_bo", "mo_ta_pham_vi": None, "tu": v_from, "den": v_to,
+             "hieu_luc_dieu_kien": None, "dieu_kien_da_dap_ung": None, "can_cu": None, "verified": True}]
+    for o in entries:
+        ef = _iso(o.get("effective_from"))
+        tu = (max(v_from, ef) if v_from else ef) if ef else None
+        seg = {"tu": tu, "den": v_to, "hieu_luc_dieu_kien": o.get("hieu_luc_dieu_kien"),
+               "dieu_kien_da_dap_ung": o.get("dieu_kien_da_dap_ung") if o.get("hieu_luc_dieu_kien") else None,
+               "can_cu": o["evidence"], "verified": o.get("verified", True)}
+        if o.get("pham_vi", "toan_bo") == "toan_bo":
+            segs = [{"pham_vi": "toan_bo", "mo_ta_pham_vi": None, **seg}]
+        else:
+            for x in segs:
+                if x["pham_vi"] == "toan_bo":
+                    x["pham_vi"] = "phan_con_lai"
+                    x["mo_ta_pham_vi"] = "Phần nội dung còn lại"
+            segs.append({"pham_vi": "mot_phan", "mo_ta_pham_vi": o.get("mo_ta_pham_vi"), **seg})
+    main = next((x for x in segs if x["pham_vi"] in ("toan_bo", "phan_con_lai")), segs[0])
+    return {
+        "effective_from": main["tu"],
+        "effective_to": v_to,
+        "hieu_luc_dieu_kien": main["hieu_luc_dieu_kien"],
+        "hieu_luc_mot_phan": any(x["pham_vi"] == "mot_phan" for x in segs),
+        "hieu_luc_chi_tiet": segs,
+        "effective_verified": all(x["verified"] for x in segs),
+        "effective_note": "; ".join(x["can_cu"] for x in segs if x["can_cu"]) or None,
+    }
+
+
+# ---------------- Chú thích văn bản hợp nhất ----------------
+
+RE_FN_DATE = re.compile(r"có hiệu lực (?:thi hành )?(?:kể )?từ ngày (\d{1,2}) tháng (\d{1,2}) năm (\d{4})")
+RE_FN_LAW = re.compile(r"(Luật[^,;]*? số \d+/\d{4}/QH\d+)")
+
+
+def classify_footnote(text: str) -> dict:
+    """Phân loại chú thích của văn bản hợp nhất và trích văn bản sửa đổi, ngày hiệu lực."""
+    first = text.split("\n")[0]
+    if "được bãi bỏ" in first:
+        loai = "bai_bo"
+    elif re.match(r"^(Khoản|Điểm|Điều|Đoạn|Mục|Chương|Tên điều|Tên)\b", first) and "được bổ sung" in first \
+            and "sửa đổi" not in first:
+        loai = "bo_sung_don_vi"
+    elif re.match(r"^(Khoản|Điểm|Điều|Đoạn|Mục|Chương|Tên điều|Tên)\b", first):
+        loai = "sua_doi_don_vi"
+    elif first.startswith(("Cụm từ", "Từ ")):
+        loai = "cum_tu"
+    else:
+        loai = "khac"
+    m = RE_FN_DATE.search(first)
+    law = RE_FN_LAW.search(first)
+    return {"loai": loai, "hieu_luc_tu": f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}" if m else None,
+            "van_ban": law.group(1) if law else None, "noi_dung": first}
+
+
+STRUCTURAL = ("sua_doi_don_vi", "bo_sung_don_vi", "bai_bo")
+
+
+# ---------------- Làm phẳng cây văn bản ----------------
+
+
+def flatten_doc(doc: ParsedDoc, *, version: str | None, so_hieu: str, sources: list[str],
+                v_from: str | None, v_to: str | None, eff_map: dict[str, list[dict]]) -> list[dict]:
+    """Chuyển cây văn bản thành danh sách bản ghi JSONL (dùng chung cho phiên bản và văn bản bổ trợ)."""
+    base_key = doc.doc
+    fn = {n: classify_footnote(t) for n, t in doc.footnotes.items()}
     records = []
 
     def rec(level, d, k=None, p=None) -> dict:
@@ -141,21 +207,33 @@ def flatten(vb: VersionBuild, cfg: dict) -> list[dict]:
         if p:
             full.append(f"{p.so}) {p.text}")
         status = "bai_bo" if any(u.status == "bai_bo" for u in (d, k, p) if u) else "active"
-        ef, note, verified = v_from, None, True
-        if uid in eff_over:
-            o = eff_over[uid]
-            ef_o = _iso(o["effective_from"])
-            ef = max(ef, ef_o) if ef_o else None
-            note, verified = o["evidence"], o.get("verified", True)
-            if o.get("partial"):
-                note = "[Chỉ một phần nội dung] " + note
+        eff = build_segments(v_from, v_to, eff_map.get(uid, []))
+        # Chú thích của văn bản hợp nhất: câu chữ hiện hành có hiệu lực từ ngày của văn bản sửa đổi
+        notes = [dict(chu_thich=n, **fn[n]) for n in unit.notes if n in fn]
+        notes += [dict(chu_thich=n, ke_thua=True, **fn[n]) for u in (d, k) if u is not None and u is not unit
+                  for n in u.notes if n in fn and fn[n]["loai"] in STRUCTURAL]
+        dated = [x for x in notes if x["hieu_luc_tu"] and x["loai"] != "khac"]
+        if dated:
+            last = max(dated, key=lambda x: x["hieu_luc_tu"])
+            if any(x["loai"] == "bai_bo" for x in dated):
+                status = "bai_bo"
+                eff["bai_bo_tu"] = max(x["hieu_luc_tu"] for x in dated if x["loai"] == "bai_bo")
+                eff["noi_dung_truoc_do"] = ("Không có trong dữ liệu — văn bản hợp nhất chỉ ghi '(được bãi bỏ)'; "
+                                           f"nội dung áp dụng trước {eff['bai_bo_tu']} không có.")
+            elif eff["effective_from"] and last["hieu_luc_tu"] > eff["effective_from"]:
+                eff["effective_from"] = last["hieu_luc_tu"]
+                eff["hieu_luc_chi_tiet"][0]["tu"] = last["hieu_luc_tu"]
+                eff["hieu_luc_chi_tiet"][0]["can_cu"] = (
+                    f"Chú thích [{last['chu_thich']}] văn bản hợp nhất: {last['noi_dung']}")
+                eff["noi_dung_truoc_do"] = ("Không có trong dữ liệu — văn bản hợp nhất chỉ chứa câu chữ hiện hành; "
+                                           f"câu chữ áp dụng trước {last['hieu_luc_tu']} có thể khác.")
         fine = extract_fine(k.text) if k else None
         return {
             "id": uid,
-            "version": vb.name,
+            "version": version,
             "doc": base_key,
-            "so_hieu": docs[base_key]["so_hieu"],
-            "nguon_hop_nhat": vb.sources,
+            "so_hieu": so_hieu,
+            "nguon_hop_nhat": sources,
             "level": level,
             "dieu": d.so,
             "khoan": k.so if k else None,
@@ -172,19 +250,33 @@ def flatten(vb: VersionBuild, cfg: dict) -> list[dict]:
             # Lịch sử sửa đổi cấu trúc của đơn vị cha (vd. cả khoản bị thay) áp cho đơn vị con
             "history_inherited": [h for u in (d, k) if u is not None and u is not unit
                                   for h in u.history if h.startswith(("Sửa đổi bởi", "Bổ sung bởi"))],
-            "effective_from": ef,
-            "effective_to": v_to,
-            "effective_note": note,
-            "effective_verified": verified,
+            "chu_thich": notes,
+            **eff,
         }
 
-    for d in vb.doc.dieu:
+    for d in doc.dieu:
         records.append(rec("dieu", d))
         for k in d.khoan:
             records.append(rec("khoan", d, k))
             for p in k.diem:
                 records.append(rec("diem", d, k, p))
     return records
+
+
+def flatten(vb: VersionBuild, cfg: dict) -> list[dict]:
+    """Bản ghi JSONL của một phiên bản nghị định."""
+    vmeta = cfg["versions"][vb.name]
+    return flatten_doc(vb.doc, version=vb.name, so_hieu=cfg["documents"][vb.doc.doc]["so_hieu"],
+                       sources=vb.sources, v_from=_iso(vmeta["effective_from"]),
+                       v_to=_iso(vmeta.get("effective_to")), eff_map=_effectivity_map(cfg, vb.sources))
+
+
+def flatten_support(key: str, cfg: dict, doc: ParsedDoc) -> list[dict]:
+    """Bản ghi JSONL của một văn bản bổ trợ (luật, thông tư)."""
+    meta = cfg["supporting_documents"][key]
+    return flatten_doc(doc, version=None, so_hieu=meta["so_hieu"], sources=[key],
+                       v_from=_iso(meta["effective_from"]), v_to=_iso(meta.get("effective_to")),
+                       eff_map=_effectivity_map(cfg, [key], "supporting_documents"))
 
 
 def write_jsonl(records: list[dict], path: Path) -> None:
@@ -271,15 +363,24 @@ def write_review(builder: Builder, cfg: dict, path: Path) -> None:
                          f"{', '.join(r.changed_ids)} |")
             L.append("")
 
-    L += ["## 3. Hiệu lực theo từng phần tử và văn bản chưa có", ""]
-    for key, meta in cfg["documents"].items():
-        for o in meta.get("element_effective_overrides", []) or []:
-            flag = "" if o.get("verified", True) else " **TODO_VERIFY**"
-            L.append(f"- {key} {', '.join(o['ids'])}: hiệu lực từ `{o['effective_from']}`{flag} "
-                     f"— _{o['evidence']}_")
+    L += ["## 3. Hiệu lực riêng theo phần tử / phần nội dung", ""]
+    for sec in ("documents", "supporting_documents"):
+        for key, meta in (cfg.get(sec) or {}).items():
+            for o in meta.get("element_effectivity", []) or []:
+                flag = "" if o.get("verified", True) else " **TODO_VERIFY**"
+                pv = "một phần nội dung" if o.get("pham_vi") == "mot_phan" else "toàn bộ"
+                cond = f"; **có điều kiện**: {o['hieu_luc_dieu_kien']}" if o.get("hieu_luc_dieu_kien") else ""
+                L.append(f"- {key} {', '.join(o['ids'])} ({pv}): từ `{o['effective_from'] or 'chưa xác định'}`{cond}{flag}")
+    L.append("")
+    L += ["## 4. Văn bản bổ trợ và văn bản được thay thế nhưng chưa có", ""]
+    for key, meta in (cfg.get("supporting_documents") or {}).items():
+        L.append(f"- **{key}** ({meta['so_hieu']}): hiệu lực từ {meta['effective_from']}. {meta.get('vai_tro', '')}")
+        if meta.get("thay_the"):
+            L.append(f"  - Thay thế: {meta['thay_the']}")
+        for x in meta.get("sua_doi_chua_co") or []:
+            L.append(f"  - Sửa đổi chưa có: {x} **TODO_VERIFY**")
     for p in cfg.get("pending_documents", []) or []:
-        L.append(f"- Văn bản **{p['so_hieu']}** (sửa {p['amends']}, hiệu lực {p['effective_from']}) "
-                 f"chưa có trong data/raw/. Nguồn: {p['source']}. **TODO_VERIFY**")
+        L.append(f"- Văn bản **{p['so_hieu']}** chưa có trong data/raw/. **TODO_VERIFY**")
     L.append("")
     path.write_text("\n".join(L), encoding="utf-8")
     logger.info("Ghi báo cáo duyệt -> {}", path.relative_to(ROOT_DIR))
@@ -298,6 +399,9 @@ def main() -> None:
     for vname in cfg["versions"]:
         vb = builder.build(vname)
         write_jsonl(flatten(vb, cfg), PROCESSED_DIR / f"articles_{vname.lower()}.jsonl")
+    for key in cfg.get("supporting_documents") or {}:
+        write_jsonl(flatten_support(key, cfg, builder.parsed(key)),
+                    PROCESSED_DIR / f"support_{key.lower()}.jsonl")
     write_review(builder, cfg, PROCESSED_DIR / "consolidation_review.md")
 
 

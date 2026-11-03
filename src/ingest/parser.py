@@ -20,6 +20,9 @@ from loguru import logger
 DIEM_LETTERS = "a b c d đ e g h i k l m n o p q r s t u ư v x y".split()
 
 RE_CHUONG = re.compile(r"^Chương\s+([IVXLC]+)\b")
+RE_PHAN = re.compile(r"^Phần thứ\s+\w+")
+RE_NOTE = re.compile(r"\[(\d+)\]")
+RE_FOOTNOTE = re.compile(r"^\[(\d+)\]\s*(.*)$")
 RE_MUC = re.compile(r"^Mục\s+(\d+)\.\s*(.*)$")
 RE_DIEU = re.compile(r"^Điều\s+(\d+[a-zđ]?)\.\s*(.*)$")
 RE_KHOAN = re.compile(r"^(\d+[a-zđ]?)\.\s+(.*)$")
@@ -52,6 +55,7 @@ class Diem:
     para: int
     status: str = "active"  # active | bai_bo
     history: list[str] = field(default_factory=list)
+    notes: list[int] = field(default_factory=list)  # số chú thích [n] (văn bản hợp nhất)
 
 
 @dataclass
@@ -64,6 +68,7 @@ class Khoan:
     diem: list[Diem] = field(default_factory=list)
     status: str = "active"
     history: list[str] = field(default_factory=list)
+    notes: list[int] = field(default_factory=list)
 
     def find_diem(self, so: str) -> Diem | None:
         return next((d for d in self.diem if d.so == so), None)
@@ -82,6 +87,7 @@ class Dieu:
     khoan: list[Khoan] = field(default_factory=list)
     status: str = "active"
     history: list[str] = field(default_factory=list)
+    notes: list[int] = field(default_factory=list)
 
     def find_khoan(self, so: str) -> Khoan | None:
         return next((k for k in self.khoan if k.so == so), None)
@@ -95,6 +101,7 @@ class ParsedDoc:
     paragraphs: list[str]
     dieu: list[Dieu] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
+    footnotes: dict[int, str] = field(default_factory=dict)  # chú thích của văn bản hợp nhất
 
     def find_dieu(self, so: str) -> Dieu | None:
         return next((d for d in self.dieu if d.so == so), None)
@@ -108,8 +115,7 @@ def read_paragraphs(path: Path) -> list[str]:
     if path.suffix.lower() == ".docx":
         import docx
 
-        d = docx.Document(str(path))
-        paras = [p.text for p in d.paragraphs]
+        paras = _docx_lines(docx.Document(str(path)))
     elif path.suffix.lower() == ".pdf":
         import pdfplumber
 
@@ -120,6 +126,38 @@ def read_paragraphs(path: Path) -> list[str]:
     else:
         raise ValueError(f"Không hỗ trợ định dạng {path.suffix}")
     return [normalize_ws(p) for p in paras if p and p.strip()]
+
+
+SKIP_TABLE_MARKERS = ("CỘNG HÒA XÃ HỘI CHỦ NGHĨA", "Nơi nhận")
+
+
+def _docx_lines(d) -> list[str]:
+    """Đọc thân DOCX theo đúng thứ tự, gồm cả bảng.
+
+    Mỗi hàng của bảng thành một dòng ``| ô 1 | ô 2 | ...`` (gộp ô trùng do merge). Bỏ qua bảng
+    quốc hiệu/số hiệu ở đầu và bảng "Nơi nhận"/chữ ký ở cuối văn bản.
+    """
+    from docx.table import Table
+    from docx.text.paragraph import Paragraph
+
+    lines: list[str] = []
+    for el in d.element.body.iterchildren():
+        tag = el.tag.rsplit("}", 1)[-1]
+        if tag == "p":
+            lines.append(Paragraph(el, d).text)
+        elif tag == "tbl":
+            t = Table(el, d)
+            text = " ".join(c.text for r in t.rows for c in r.cells)
+            if any(m in text for m in SKIP_TABLE_MARKERS):
+                continue
+            for r in t.rows:
+                cells: list[str] = []
+                for c in r.cells:
+                    v = normalize_ws(c.text.replace("\n", " "))
+                    if not cells or cells[-1] != v:
+                        cells.append(v)
+                lines.append("| " + " | ".join(cells) + " |")
+    return lines
 
 
 # Chữ Kirin trông giống chữ Latin (lỗi gõ trong văn bản nguồn, vd. "р)" thay cho "p)" ở NĐ 123)
@@ -154,8 +192,13 @@ def quote_balance(s: str) -> int:
     return bal
 
 
-def parse_paragraphs(doc: str, paras: list[str], quiet: bool = False) -> ParsedDoc:
-    """Dựng cây Điều/Khoản/Điểm từ danh sách đoạn. ``quiet=True`` để không log thống kê."""
+def parse_paragraphs(doc: str, paras: list[str], quiet: bool = False,
+                     strip_notes: bool = False) -> ParsedDoc:
+    """Dựng cây Điều/Khoản/Điểm từ danh sách đoạn. ``quiet=True`` để không log thống kê.
+
+    ``strip_notes=True`` (văn bản hợp nhất): bỏ dấu chú thích ``[n]`` khỏi nội dung và ghi số
+    chú thích vào ``notes`` của đơn vị chứa nó.
+    """
     out = ParsedDoc(doc=doc, paragraphs=paras)
     chuong = muc = ""
     cur_dieu: Dieu | None = None
@@ -173,6 +216,10 @@ def parse_paragraphs(doc: str, paras: list[str], quiet: bool = False) -> ParsedD
             cur_dieu.intro = (cur_dieu.intro + "\n" + text).strip()
 
     for i, line in enumerate(paras):
+        line_notes: list[int] = []
+        if strip_notes:
+            line_notes = [int(x) for x in RE_NOTE.findall(line)]
+            line = normalize_ws(RE_NOTE.sub("", line))
         quoted = depth > 0 or line.startswith(OPEN_Q) or line.startswith('"')
         if quoted:
             append_cont(line)
@@ -181,6 +228,9 @@ def parse_paragraphs(doc: str, paras: list[str], quiet: bool = False) -> ParsedD
             expect_chuong_title = False
         elif m := RE_CHUONG.match(line):
             chuong, muc = f"Chương {m.group(1)}", ""
+            expect_chuong_title = True
+        elif RE_PHAN.match(line) and depth == 0:
+            chuong, muc = line, ""
             expect_chuong_title = True
         elif m := RE_MUC.match(line):
             muc = f"Mục {m.group(1)}. {m.group(2)}"
@@ -205,6 +255,10 @@ def parse_paragraphs(doc: str, paras: list[str], quiet: bool = False) -> ParsedD
             cur_khoan.diem.append(cur_diem)
         else:
             append_cont(line)
+        if line_notes:
+            unit = cur_diem or cur_khoan or cur_dieu
+            if unit is not None:
+                unit.notes.extend(line_notes)
         depth = max(0, depth + quote_balance(line))
 
     log = logger.debug if quiet else logger.info
@@ -224,11 +278,36 @@ def parse_file(doc: str, path: Path) -> ParsedDoc:
         if n:
             notes.append(f"Đoạn {i}: thay {n} ký tự Kirin giống Latin: '{raw[:40]}' -> '{fixed[:40]}'")
         paras.append(fixed)
-    out = parse_paragraphs(doc, paras)
+    body, footnotes = split_footnotes(paras)
+    out = parse_paragraphs(doc, body, strip_notes=bool(footnotes))
+    out.footnotes = footnotes
     for note in notes:
         logger.warning("{}: {}", doc, note)
     out.warnings = notes + out.warnings
     return out
+
+
+def split_footnotes(paras: list[str]) -> tuple[list[str], dict[int, str]]:
+    """Tách phần chú thích cuối văn bản hợp nhất (các đoạn bắt đầu ``[1] ...``, ``[2] ...``).
+
+    Phần chú thích bắt đầu ở đoạn ``[1] ...`` đầu tiên nằm sau Điều đầu tiên. Văn bản không có
+    phần này thì trả về nguyên danh sách và dict rỗng.
+    """
+    first_dieu = next((i for i, x in enumerate(paras) if RE_DIEU.match(x)), None)
+    if first_dieu is None:
+        return paras, {}
+    start = next((i for i in range(first_dieu, len(paras)) if paras[i].startswith("[1] ")), None)
+    if start is None:
+        return paras, {}
+    notes: dict[int, str] = {}
+    cur = None
+    for line in paras[start:]:
+        if m := RE_FOOTNOTE.match(line):
+            cur = int(m.group(1))
+            notes[cur] = m.group(2)
+        elif cur is not None:
+            notes[cur] += "\n" + line
+    return paras[:start], notes
 
 
 def parse_units(lines: list[str], level: str) -> list:
