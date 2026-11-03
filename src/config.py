@@ -57,6 +57,8 @@ class Settings(BaseSettings):
     entity_link_threshold: float = Field(0.80, ge=0.0, le=1.0)   # đo: evaluation/calib_entity_link.py
     entity_link_embedding: bool = True   # bật embedding dự phòng khi từ điển đồng nghĩa không khớp
     vector_store: Literal["faiss", "chroma"] = "faiss"
+    rag_nguong: float = 0.65            # cosine tối thiểu cho gợi ý "quy định có thể liên quan" (bge-m3)
+    rag_cach_dau: float = 0.08          # bỏ gợi ý kém kết quả tốt nhất quá mức này
 
     # Reasoner
     java_exe: str = ""

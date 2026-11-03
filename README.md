@@ -31,7 +31,14 @@ python -m scripts.chat -m "Tối qua thấy CSGT vẫy thì em rồ ga chạy lu
 python -m scripts.chat --ngay 2023-06-01 -m "Tôi lái ô tô, đo nồng độ cồn 0,3 mg/lít khí thở"
 ```
 Tùy chọn: `--ngay` (ngày vi phạm), `--hom-nay` (cố định ngày hôm nay để chạy lại cho kết quả giống nhau),
-`--khong-suy-ra` (tắt suy ra sự kiện gián tiếp), `--json`, `--chi-tiet`. Lần đầu nhánh embedding cần tải
+`--khong-suy-ra` (tắt suy ra sự kiện gián tiếp), `--khong-dien-dat` (không dùng LLM viết câu trả lời),
+`--json`, `--chi-tiet` (in thêm bản tất định và kết quả kiểm tra chống bịa).
+
+Câu trả lời do LLM viết lại CHỈ từ chuỗi suy luận, rồi được kiểm tra tự động: mọi điều khoản, văn bản, số tiền,
+số điểm, thời hạn nhắc tới phải có trong chuỗi suy luận; không đạt thì hệ thống dùng bản trình bày tự động.
+
+Gợi ý "quy định có thể liên quan" (khi không phát hiện vi phạm) cần chỉ mục RAG — dựng một lần:
+`python -m src.explanation.retriever --build` (mô hình bge-m3 trên CPU: có thể mất hàng chục phút). Lần đầu nhánh embedding cần tải
 model `BAAI/bge-m3` (~2 GB).
 
 ## Cấu hình LLM

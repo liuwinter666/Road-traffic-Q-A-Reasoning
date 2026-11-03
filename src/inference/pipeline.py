@@ -71,6 +71,10 @@ class KetQuaLuot:
     quyet_dinh: object | None = None                          # kb.penalty.QuyetDinh
     ghi_chu: list[str] = field(default_factory=list)
     thoi_gian_s: dict[str, float] = field(default_factory=dict)
+    trace: object | None = None                               # explanation.tracer.Trace
+    tra_loi: str = ""                                         # câu trả lời cuối (verbalizer hoặc tất định)
+    dien_dat: object | None = None                            # explanation.verbalizer.KetQuaDienDat
+    lien_quan: list = field(default_factory=list)             # gợi ý RAG khi không phát hiện vi phạm
 
 
 class Pipeline:
@@ -78,10 +82,14 @@ class Pipeline:
 
     def __init__(self, client: LLMClient | None = None, extractor: LLMExtractor | None = None,
                  inducer: FactInducer | None = None, reasoner=None, dung_fact_inducer: bool = True,
-                 hom_nay: date | None = None):
+                 hom_nay: date | None = None, verbalizer=None, dung_dien_dat: bool = True, retriever=None,
+                 dung_goi_y_lien_quan: bool = True):
         self._client = client
         self._extractor, self._inducer, self._reasoner = extractor, inducer, reasoner
+        self._verbalizer, self._retriever = verbalizer, retriever
         self.dung_fact_inducer = dung_fact_inducer
+        self.dung_dien_dat = dung_dien_dat
+        self.dung_goi_y_lien_quan = dung_goi_y_lien_quan
         self.hom_nay = hom_nay
 
     # Khởi tạo lười: chạy test/CLI chỉ dựng tầng cần dùng
@@ -102,6 +110,22 @@ class Pipeline:
         if self._inducer is None:
             self._inducer = FactInducer(client=self.client)
         return self._inducer
+
+    @property
+    def verbalizer(self):
+        if self._verbalizer is None:
+            from src.explanation.verbalizer import Verbalizer
+
+            self._verbalizer = Verbalizer(client=self.client)
+        return self._verbalizer
+
+    @property
+    def retriever(self):
+        if self._retriever is None:
+            from src.explanation.retriever import retriever_mac_dinh
+
+            self._retriever = retriever_mac_dinh()
+        return self._retriever
 
     @property
     def reasoner(self):
@@ -156,7 +180,11 @@ class Pipeline:
         slot = kiem_tra(hs, today)
         phien.cau_hoi_truoc = slot.cau_hoi
         if not slot.du_thong_tin:
-            return KetQuaLuot("can_hoi", hs, slot.cau_hoi, ghi_chu=canh_bao + slot.ghi_chu, thoi_gian_s=tg)
+            from src.inference.report import trinh_bay
+
+            kq = KetQuaLuot("can_hoi", hs, slot.cau_hoi, ghi_chu=canh_bao + slot.ghi_chu, thoi_gian_s=tg)
+            kq.tra_loi = trinh_bay(kq)
+            return kq
 
         # 5. Sự kiện → cá thể → suy luận → quyết định
         from src.kb.penalty import quyet_dinh
@@ -170,7 +198,36 @@ class Pipeline:
         trang_thai = "ket_luan" if kq.hanh_vi or kq.nguoi_khong_du_dieu_kien else "khong_phat_hien"
         logger.info("Lượt {}: {} — {} hành vi ({:.1f}s suy luận)", phien.so_luot, trang_thai, len(kq.hanh_vi),
                     tg["suy_luan"])
-        return KetQuaLuot(trang_thai, hs, [], du_lieu, kq, qd, ghi_chu, tg)
+        out = KetQuaLuot(trang_thai, hs, [], du_lieu, kq, qd, ghi_chu, tg)
+        self._giai_thich(out, phien)
+        return out
+
+    def _giai_thich(self, out: KetQuaLuot, phien: PhienLamViec) -> None:
+        """6–7. Trace → (gợi ý RAG nếu không phát hiện) → câu trả lời (verbalizer có kiểm tra, hoặc tất định)."""
+        from src.explanation.tracer import dung_trace
+        from src.explanation.verbalizer import KetQuaDienDat
+        from src.inference.report import trinh_bay
+
+        t0 = time.perf_counter()
+        out.trace = dung_trace(out)
+        if out.trang_thai == "khong_phat_hien" and self.dung_goi_y_lien_quan and phien.loi_ke:
+            try:
+                out.lien_quan = self.retriever.tim(" ".join(phien.loi_ke), out.suy_luan.phien_ban, k=3)
+            except Exception as e:  # noqa: BLE001 — gợi ý tra cứu là phụ, lỗi không chặn câu trả lời
+                logger.warning("Không tìm được quy định liên quan: {}", e)
+        out.thoi_gian_s["giai_thich"] = time.perf_counter() - t0
+        du_phong = trinh_bay(out)
+        if self.dung_dien_dat:
+            t0 = time.perf_counter()
+            out.dien_dat = self.verbalizer.dien_dat(out.trace, du_phong)
+            out.thoi_gian_s["dien_dat"] = time.perf_counter() - t0
+        else:
+            out.dien_dat = KetQuaDienDat(du_phong, "tat_dinh")
+        out.tra_loi = out.dien_dat.van_ban
+        if out.lien_quan and out.dien_dat.nguon == "llm":
+            from src.inference.report import goi_y_lien_quan
+
+            out.tra_loi += "\n\n" + goi_y_lien_quan(out.lien_quan)
 
     @staticmethod
     def _ap_dung_xac_nhan(hs: HoSoVuViec, dong_y: bool) -> None:

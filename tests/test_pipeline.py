@@ -127,8 +127,11 @@ class FakeLLM(LLMClient):
         self.calls: list[str] = []
 
     def _call(self, prompt, system, json_schema, schema_model):
-        name = schema_model.__name__
+        name = schema_model.__name__ if schema_model else "text"
         self.calls.append(name)
+        if schema_model is None:                       # generate(): danh sách câu trả lời theo thứ tự gọi
+            ds = self.tra_loi.get("text", [""])
+            return ds[min(self.calls.count("text"), len(ds)) - 1]
         bang = self.tra_loi.get(name, {})
         khop = [k for k in bang if k in prompt]
         return json.dumps(bang[max(khop, key=prompt.rindex)] if khop else {}, ensure_ascii=False)
@@ -155,7 +158,9 @@ def reasoner():
 
 
 def _pipeline(tmp_path, reasoner, tra_loi, **kw):
+    """Pipeline với LLM giả; mặc định tắt verbalizer (LLM) và gợi ý RAG (embedding) — test riêng ở test_explanation."""
     fake = FakeLLM(tra_loi, tmp_path)
+    kw = {"dung_dien_dat": False, "dung_goi_y_lien_quan": False, **kw}
     return Pipeline(client=fake, extractor=LLMExtractor(client=fake, linker=EntityLinker(embedder=None)),
                     reasoner=reasoner, hom_nay=T, **kw), fake
 

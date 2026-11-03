@@ -1,21 +1,24 @@
 """Trình bày kết quả một lượt thành văn bản (tất định, không dùng LLM).
 
-Phase 6 thay phần diễn đạt bằng verbalizer (LLM viết lại CHỈ từ trace, có kiểm tra chống bịa điều khoản);
-bản này vẫn dùng làm đầu ra CLI, làm "đáp án" cho kiểm tra của verbalizer và cho đánh giá.
+Bản này là phương án dự phòng của verbalizer (LLM lỗi hoặc không qua kiểm tra chống bịa) và là đầu ra khi tắt
+diễn đạt bằng LLM (``--khong-dien-dat``); chuỗi suy luận lấy từ tracer.
 Thứ tự theo mục 8 đặc tả: hành vi → căn cứ → khung phạt → mức đề xuất + lý do → hình thức bổ sung/trừ điểm →
 chuỗi suy luận → lưu ý.
 """
 
 from __future__ import annotations
 
-from src.inference.pipeline import KetQuaLuot
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from src.inference.pipeline import KetQuaLuot
 
 TEN_CHE_TAI = {"tuoc_gplx": "Tước quyền sử dụng GPLX", "tru_diem": "Trừ điểm GPLX",
                "tich_thu_phuong_tien": "Tịch thu phương tiện", "tich_thu": "Tịch thu", "thu_hoi": "Thu hồi"}
 TRANG_THAI_CHE_TAI = {"ap_dung": "áp dụng", "ap_dung_do_thoa_dieu_kien": "áp dụng (đã thỏa điều kiện)",
                       "neu_thoa_dieu_kien": "nếu thỏa điều kiện", "khong_ap_dung": "không áp dụng"}
 NGUON = {"truc_tiep": "bạn nêu", "suy_ra": "suy ra từ lời kể", "xac_nhan": "bạn đã xác nhận",
-         "tra_bang": "tra bảng tốc độ của thông tư"}
+         "tra_bang": "tra bảng tốc độ của thông tư", "tinh_toan": "tính toán", "xep_loai": "xếp loại theo luật"}
 
 
 def _tien(x: int | None) -> str:
@@ -90,17 +93,21 @@ def trinh_bay(kq: KetQuaLuot, chi_tiet: bool = False) -> str:
     for p in sl.nguoi_khong_du_dieu_kien:
         out.append(f"Người không đủ điều kiện điều khiển xe: {p['nguoi']} (quy tắc {', '.join(p['quy_tac'])})")
 
-    # Chuỗi suy luận: sự kiện đầu vào và nguồn
+    # Chuỗi suy luận (tracer): sự kiện → điều kiện → quy tắc → hành vi → điều khoản
+    if kq.trace is not None and (dong := kq.trace.dong_suy_luan()):
+        out.append("\nChuỗi suy luận:")
+        out += [f"  - {d}" for d in dong]
     out.append("\nSự kiện dùng để suy luận:")
-    case = dl.case
-    out.append(f"  - Phương tiện: {case['xe']}" + (f" {case['xe_tt']}" if case.get("xe_tt") else ""))
-    if case.get("nguoi"):
-        out.append(f"  - Người điều khiển: {case['nguoi']}")
-    for k, v in case["su_kien"].items():
-        nguon = NGUON.get(dl.nguon_su_kien.get(k, "truc_tiep"), "")
-        out.append(f"  - {k} = {v}" + (f" ({nguon})" if nguon else ""))
-    if case.get("duong"):
-        out.append(f"  - Đường: {', '.join(case['duong'])}")
+    if kq.trace is not None:
+        for n in kq.trace.su_kien:
+            nguon = NGUON.get(n.nguon or "", "")
+            out.append(f"  - {n.mo_ta}" + (f" ({nguon})" if nguon else ""))
+    else:
+        case = dl.case
+        out.append(f"  - Phương tiện: {case['xe']}" + (f" {case['xe_tt']}" if case.get("xe_tt") else ""))
+        for k, v in case["su_kien"].items():
+            nguon = NGUON.get(dl.nguon_su_kien.get(k, "truc_tiep"), "")
+            out.append(f"  - {k} = {v}" + (f" ({nguon})" if nguon else ""))
     suy_ra = [s for s in kq.ho_so.su_kien_suy_ra if s.dang_ap_dung]
     if suy_ra:
         out.append("Sự kiện suy ra (LLM nêu, hệ thống kiểm tra bằng chứng):")
@@ -110,11 +117,21 @@ def trinh_bay(kq: KetQuaLuot, chi_tiet: bool = False) -> str:
             if s.giai_thich and (chi_tiet or "định nghĩa:" in s.giai_thich):
                 out.append(f"      {s.giai_thich}")
 
-    notes = list(dict.fromkeys(kq.ghi_chu + qd.ghi_chu))
+    notes = kq.trace.ghi_chu if kq.trace is not None else list(dict.fromkeys(kq.ghi_chu + qd.ghi_chu))
     if notes:
         out.append("\nLưu ý:")
         out += [f"  - {n}" for n in notes]
     if kq.ho_so.cum_tu_loai_bo and chi_tiet:
         out.append("  - Bỏ qua (không có trong lời bạn): " + "; ".join(kq.ho_so.cum_tu_loai_bo))
     out.append("  - Kết quả chỉ mang tính tham khảo, không thay thế quyết định của người có thẩm quyền.")
+    if kq.lien_quan:
+        out.append("\n" + goi_y_lien_quan(kq.lien_quan))
     return "\n".join(out)
+
+
+def goi_y_lien_quan(ds: list) -> str:
+    """Khối gợi ý tra cứu (RAG) — ghi rõ không phải kết luận."""
+    dong = ["Quy định có thể liên quan (gợi ý tra cứu theo nội dung, hệ thống CHƯA mô hình hóa nên không kết luận):"]
+    for b, s in ds:
+        dong.append(f"  - {b.trich_dan}: “{_rut_gon(b.text, 200)}”")
+    return "\n".join(dong)

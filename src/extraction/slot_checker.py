@@ -15,6 +15,8 @@ from dataclasses import dataclass, field
 from functools import lru_cache
 from datetime import date
 
+import re
+
 import yaml
 
 from src.config import ROOT_DIR
@@ -110,8 +112,12 @@ def kiem_tra(hs: HoSoVuViec, hom_nay: date | None = None) -> KetQuaSlot:
         ghi_chu.append(pb_tu.ghi_chu)
     ngay = hs.ngay_vi_pham or hs.ngay_tu or today
 
+    # Hành vi đã được kể nhưng không ánh xạ được (ngoài phạm vi MVP) cũng tính là "đã mô tả": không hỏi lại mãi,
+    # để pipeline trả "không phát hiện" kèm gợi ý tra cứu
+    hanh_vi_ngoai_pham_vi = [x for x in hs.khong_lien_ket if not re.match(r"^(loại xe|đường|nồng độ cồn): ", x)]
     co_su_kien = bool(nodes) or any(x is not None for x in (
-        hs.nong_do_con_khi_tho, hs.nong_do_con_mau, hs.toc_do_thuc_te)) or bool(hs.su_kien)
+        hs.nong_do_con_khi_tho, hs.nong_do_con_mau, hs.toc_do_thuc_te)) or bool(hs.su_kien) \
+        or bool(hanh_vi_ngoai_pham_vi)
     if not co_su_kien:
         need["mo_ta_hanh_vi"] = ""
 

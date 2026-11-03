@@ -50,6 +50,12 @@ class SentenceTransformerEmbedder:
         return self._model.encode(texts, normalize_embeddings=True)
 
 
+@lru_cache(maxsize=1)
+def embedder_mac_dinh() -> SentenceTransformerEmbedder:
+    """Một model embedding dùng chung cho entity linker và retriever (bge-m3 ~2 GB RAM — không nạp hai lần)."""
+    return SentenceTransformerEmbedder()
+
+
 # Hư từ, số, lượng từ bỏ qua ở lượt khớp thứ hai ("uống 3 lon bia" ~ "uống bia",
 # "gây tai nạn rồi bỏ chạy" ~ "gây tai nạn bỏ chạy", "đi chiếc SH" ~ "đi sh")
 FILLERS = {"rồi", "thì", "và", "mà", "xong", "liền", "luôn", "cái", "chiếc", "đã", "vẫn", "cứ",
@@ -99,7 +105,7 @@ class EntityLinker:
             raise ValueError(f"synonyms.json có node dấu hiệu không có trong ontology_concepts: {unknown}")
         s = get_settings()
         self.threshold = s.entity_link_threshold if threshold is None else threshold
-        self.embedder = SentenceTransformerEmbedder() if embedder == "auto" and s.entity_link_embedding else \
+        self.embedder = embedder_mac_dinh() if embedder == "auto" and s.entity_link_embedding else \
             (None if embedder == "auto" else embedder)
         self._emb_cache: dict[str, object] = {}
 

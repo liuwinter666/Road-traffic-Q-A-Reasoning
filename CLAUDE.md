@@ -10,7 +10,8 @@
 - Phase 4: lớp LLM (Gemini chính + Ollama dự phòng; cache, retry 429, giới hạn RPM), normalizer, entity linker,
   synonyms.json, slot checker, llm_extractor, kiểm chứng cụm từ (grounding) — XONG
 - Quyết định đã chốt: không rõ ngày vi phạm → `default_version: current` (phiên bản hiệu lực hôm nay, không cố định V3).
-- Phase 5: fact_inducer (LLM suy ra sự kiện gián tiếp + kiểm tra tất định), fact_builder, pipeline đầu-cuối, CLI — ĐANG REVIEW
+- Phase 5: fact_inducer (LLM suy ra sự kiện gián tiếp + kiểm tra tất định), fact_builder, pipeline đầu-cuối, CLI — XONG
+- Phase 6: tracer, retriever (tra nguyên văn theo id + FAISS), verbalizer + kiểm tra chống bịa — ĐANG REVIEW
 - Gốc project = thư mục `DoAn/` (tương ứng `traffic-law-expert/` trong đặc tả).
 - Tên file dữ liệu thô: `data/raw/ND_100.docx`, `ND_123.docx`, `ND_168.docx`.
 
@@ -25,8 +26,10 @@
 ## Lệnh thường dùng
 - Kích hoạt venv: `.venv\Scripts\activate` (PowerShell) hoặc `source .venv/Scripts/activate` (Git Bash)
 - Kiểm tra môi trường: `python -m scripts.check_env`; kiểm tra LLM: `python -m scripts.check_llm [--list]`
+- Dựng chỉ mục RAG (bge-m3, lần đầu lâu trên CPU): `python -m src.explanation.retriever --build`;
+  tra nguyên văn: `python -m src.explanation.retriever --id ND168-D7-K8-b --phien-ban V4`
 - Chạy hệ thống từ CLI: `python -m scripts.chat` (hội thoại) hoặc `python -m scripts.chat -m "..." -m "..."`
-  (tùy chọn `--ngay YYYY-MM-DD`, `--hom-nay`, `--khong-suy-ra`, `--json`, `--chi-tiet`)
+  (tùy chọn `--ngay YYYY-MM-DD`, `--hom-nay`, `--khong-suy-ra`, `--khong-dien-dat`, `--json`, `--chi-tiet`)
 - Test: `pytest`
 - Sinh lại articles_v*.jsonl + consolidation_review.md: `python -m src.ingest.build_articles`
 - Kiểm chứng + sinh bảng hành vi MVP: `python -m src.ingest.mvp_report` (→ docs/mvp_behaviors.md)
@@ -253,3 +256,16 @@ Bắt đầu với **Phase 0**.
 - Tốc độ tối đa khi không có biển: `src/kb/toc_do.py` (dùng chung cho slot_checker và fact_builder).
 - Ngưỡng embedding entity linker 0.80 (đo bằng `python -m evaluation.calib_entity_link`; 0.65 cho nhiều liên kết sai).
 - `src/inference/report.py`: trình bày tất định (Phase 6 thay bằng verbalizer có kiểm tra chống bịa).
+
+## Giải thích (Phase 6)
+- `src/explanation/tracer.py`: `dung_trace(KetQuaLuot)` → `Trace` — đi ngược thân luật SWRL (registry) qua lớp ngưỡng /
+  hợp / dấu hiệu (ontology_concepts.yaml) tới sự kiện đầu vào + nguồn; bằng chứng ngưỡng ưu tiên chính điều khoản kết
+  luận. Nhãn lớp được `sach()` bỏ ghi chú kỹ thuật trong ngoặc (tránh dẫn nhầm "NĐ 100" cho vụ V4).
+  `Trace.can_cu_hop_le()/so_tien_hop_le()/ma_quy_tac()` = danh sách được phép xuất hiện trong câu trả lời; `do_thi()` cho UI.
+- `src/explanation/retriever.py`: `lay(id, phien_ban, ngay)` tất định (đường chính để dẫn chứng); `Retriever.tim()` FAISS
+  chỉ để GỢI Ý "quy định có thể liên quan" khi không phát hiện vi phạm (hành vi ngoài MVP) — không phải kết luận.
+  Vector cache theo hash nội dung ở `data/index/` (gitignored); chỉ nhúng nội dung khoản/điểm.
+- `src/explanation/verbalizer.py`: LLM viết từ `trace_cho_llm(trace)` (prompt `verbalize_v1`); `kiem_tra()` đối chiếu
+  tham chiếu điều khoản, văn bản (chặn văn bản không thuộc phiên bản), số tiền, số điểm, số tháng, mã R…, độ đầy đủ;
+  sai → thử lại 1 lần kèm lỗi → vẫn sai/LLM lỗi → bản tất định (`report.trinh_bay`).
+- Hành vi kể ra nhưng không ánh xạ được (ngoài MVP) không bị hỏi lại "mô tả hành vi" — trả "không phát hiện" + gợi ý.
