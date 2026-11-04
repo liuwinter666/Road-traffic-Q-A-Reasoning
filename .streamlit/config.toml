@@ -1,0 +1,9 @@
+# Cấu hình Streamlit của project (đọc khi chạy từ thư mục DoAn).
+# headless: không hiện câu hỏi "Email:" lần chạy đầu (câu hỏi này chặn server khởi động) và không tự mở trình duyệt
+# — scripts/run_app.py tự mở trình duyệt khi giao diện đã sẵn sàng.
+[server]
+headless = true
+address = "127.0.0.1"          # chỉ máy này truy cập được (không mở ra mạng LAN)
+
+[browser]
+gatherUsageStats = false
