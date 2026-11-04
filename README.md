@@ -24,6 +24,16 @@ python -m scripts.build_all  # sinh dữ liệu tri thức, ontology, luật (~6
 pytest
 ```
 
+## Giao diện web
+```powershell
+python -m scripts.run_app        # bật API (http://localhost:8000/docs) + giao diện (http://localhost:8501)
+```
+Hoặc chỉ giao diện: `streamlit run app/streamlit_app.py` (tự chạy hệ thống trong cùng tiến trình nếu API chưa bật).
+Cột trái là khung chat (hỏi nhiều lượt, hệ thống hỏi lại khi thiếu thông tin). Cột phải:
+**Sự kiện** (sửa giá trị hệ thống đã hiểu rồi bấm *Chạy lại suy luận*), **Cây suy luận**, **Điều khoản** (nguyên văn
+theo phiên bản áp dụng), **Chi tiết** (phiên bản pháp lý, mức đề xuất, kết quả kiểm tra chống bịa). Thanh bên có ô chọn
+ngày vi phạm và nút *Vụ việc mới*. Lần gửi đầu mất khoảng 1 phút để nạp mô hình và Java.
+
 ## Chạy thử (CLI)
 ```powershell
 python -m scripts.chat                       # hội thoại nhiều lượt (/moi: vụ mới, /hoso: xem hồ sơ, /thoat)

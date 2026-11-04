@@ -11,7 +11,8 @@
   synonyms.json, slot checker, llm_extractor, kiểm chứng cụm từ (grounding) — XONG
 - Quyết định đã chốt: không rõ ngày vi phạm → `default_version: current` (phiên bản hiệu lực hôm nay, không cố định V3).
 - Phase 5: fact_inducer (LLM suy ra sự kiện gián tiếp + kiểm tra tất định), fact_builder, pipeline đầu-cuối, CLI — XONG
-- Phase 6: tracer, retriever (tra nguyên văn theo id + FAISS), verbalizer + kiểm tra chống bịa — ĐANG REVIEW
+- Phase 6: tracer, retriever (tra nguyên văn theo id + FAISS), verbalizer + kiểm tra chống bịa — XONG
+- Phase 7: dialogue manager, FastAPI, giao diện Streamlit hai cột — ĐANG REVIEW
 - Gốc project = thư mục `DoAn/` (tương ứng `traffic-law-expert/` trong đặc tả).
 - Tên file dữ liệu thô: `data/raw/ND_100.docx`, `ND_123.docx`, `ND_168.docx`.
 
@@ -28,6 +29,8 @@
 - Kiểm tra môi trường: `python -m scripts.check_env`; kiểm tra LLM: `python -m scripts.check_llm [--list]`
 - Dựng chỉ mục RAG (bge-m3, lần đầu lâu trên CPU): `python -m src.explanation.retriever --build`;
   tra nguyên văn: `python -m src.explanation.retriever --id ND168-D7-K8-b --phien-ban V4`
+- Giao diện web: `python -m scripts.run_app` (API :8000 + Streamlit :8501) hoặc `streamlit run app/streamlit_app.py`
+  (tự chạy pipeline trong tiến trình nếu API chưa bật); API riêng: `uvicorn src.api.main:app --port 8000` (/docs)
 - Chạy hệ thống từ CLI: `python -m scripts.chat` (hội thoại) hoặc `python -m scripts.chat -m "..." -m "..."`
   (tùy chọn `--ngay YYYY-MM-DD`, `--hom-nay`, `--khong-suy-ra`, `--khong-dien-dat`, `--json`, `--chi-tiet`)
 - Test: `pytest`
@@ -269,3 +272,13 @@ Bắt đầu với **Phase 0**.
   tham chiếu điều khoản, văn bản (chặn văn bản không thuộc phiên bản), số tiền, số điểm, số tháng, mã R…, độ đầy đủ;
   sai → thử lại 1 lần kèm lỗi → vẫn sai/LLM lỗi → bản tất định (`report.trinh_bay`).
 - Hành vi kể ra nhưng không ánh xạ được (ngoài MVP) không bị hỏi lại "mô tả hành vi" — trả "không phát hiện" + gợi ý.
+
+## Hội thoại, API, giao diện (Phase 7)
+- `src/dialogue/manager.py`: `DialogueManager` — phiên trong bộ nhớ (TTL 180 phút), `gui()` (lệnh `/moi`), `sua_ho_so()`
+  (sửa bảng sự kiện → `Pipeline.chay_lai`, KHÔNG gọi LLM trích xuất; nguồn `nguoi_dung_sua` thắng sự kiện LLM suy ra),
+  `dat_ngay()`. Một khóa chung bao lượt xử lý (owlready2/Java không an toàn song song).
+- `src/dialogue/serialize.py`: `ket_qua_json(KetQuaLuot)` dùng chung cho API, giao diện, CLI `--json`.
+- `src/api/main.py`: /suc-khoe, /danh-muc, /phien (POST/GET/DELETE), /phien/{id}/tin-nhan, PATCH /phien/{id}/ho-so,
+  PUT /phien/{id}/ngay, POST /phien/{id}/moi, /dieu-khoan/{id}. Lỗi: 404 phiên, 422 dữ liệu, 503 LLM.
+- `app/streamlit_app.py`: APP_BACKEND=auto|api|truc_tiep; tab Sự kiện (form + data_editor), Cây suy luận (Graphviz
+  từ `Trace.do_thi()`), Điều khoản (nguyên văn theo phiên bản), Chi tiết. Test bằng `streamlit.testing.v1.AppTest`.

@@ -171,7 +171,17 @@ class Pipeline:
                     canh_bao.append("Không suy ra được sự kiện gián tiếp ở lượt này (lỗi LLM) — kết quả chỉ dựa "
                                     "trên các sự kiện bạn nêu trực tiếp.")
                 tg["suy_ra_su_kien"] = time.perf_counter() - t0
+        return self._ket_luan(phien, today, tg, canh_bao, ngay_vi_pham)
 
+    def chay_lai(self, phien: PhienLamViec, ngay_vi_pham: date | None = None) -> KetQuaLuot:
+        """Chạy lại từ bước kiểm tra thiếu thông tin trên hồ sơ hiện có — KHÔNG gọi LLM trích xuất/suy ra (dùng sau
+        khi người dùng sửa bảng sự kiện trên giao diện)."""
+        return self._ket_luan(phien, self.hom_nay or date.today(), {}, [], ngay_vi_pham)
+
+    def _ket_luan(self, phien: PhienLamViec, today: date, tg: dict[str, float], canh_bao: list[str],
+                  ngay_vi_pham: date | None) -> KetQuaLuot:
+        """Bước 4–7: hỏi nếu thiếu → fact_builder → reasoner → quyết định → giải thích."""
+        hs = phien.ho_so
         if ngay_vi_pham is not None:                           # ngày người dùng chọn trên giao diện / CLI
             hs.ngay_tu = hs.ngay_den = ngay_vi_pham
             hs.do_chinh_xac_ngay = "ngay"

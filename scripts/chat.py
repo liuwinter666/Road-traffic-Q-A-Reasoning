@@ -14,7 +14,6 @@ lại cho kết quả giống nhau), --khong-suy-ra (tắt fact_inducer — abla
 from __future__ import annotations
 
 import argparse
-import dataclasses
 import json
 import sys
 from datetime import date
@@ -23,23 +22,10 @@ from loguru import logger
 
 
 def _json(kq) -> dict:
-    def conv(x):
-        if dataclasses.is_dataclass(x):
-            return {k: conv(v) for k, v in dataclasses.asdict(x).items()}
-        if hasattr(x, "model_dump"):
-            return x.model_dump(mode="json")
-        if isinstance(x, dict):
-            return {k: conv(v) for k, v in x.items()}
-        if isinstance(x, (list, tuple)):
-            return [conv(v) for v in x]
-        if isinstance(x, date):
-            return x.isoformat()
-        return x
-    return {"trang_thai": kq.trang_thai, "cau_hoi": [q.cau_hoi for q in kq.cau_hoi],
-            "ho_so": kq.ho_so.model_dump(mode="json"), "case": conv(kq.du_lieu.case) if kq.du_lieu else None,
-            "suy_luan": conv(kq.suy_luan), "quyet_dinh": conv(kq.quyet_dinh), "ghi_chu": kq.ghi_chu,
-            "thoi_gian_s": kq.thoi_gian_s, "tra_loi": kq.tra_loi,
-            "dien_dat": conv(kq.dien_dat), "trace": kq.trace.to_dict() if kq.trace else None}
+    """Cùng định dạng với API (src/dialogue/serialize.py) + kết quả suy luận/quyết định đầy đủ."""
+    from src.dialogue.serialize import chuyen, ket_qua_json
+
+    return {**ket_qua_json(kq), "suy_luan": chuyen(kq.suy_luan), "quyet_dinh": chuyen(kq.quyet_dinh)}
 
 
 def main() -> int:
