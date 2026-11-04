@@ -258,3 +258,19 @@ def test_xac_nhan_loai_xe_bi_bac():
     hs = HoSoVuViec(loai_xe="OTo", nguon={"loai_xe": NguonGoc(goc="con xe cũ", phuong_phap="embedding")})
     Pipeline._ap_dung_xac_nhan(hs, False, {"loai_xe"})
     assert hs.loai_xe is None and "loai_xe" not in hs.nguon
+
+
+def test_xep_loai_xe_khi_dung_tich_den_o_luot_sau(tmp_path, reasoner):
+    """Lượt 1 nói "xe máy", lượt 3 mới nói dung tích → hồ sơ gộp phải được xếp loại lại (xe mô tô hai bánh)."""
+    m1 = "Hôm 3/11/2026 tôi đi xe máy, chưa có giấy phép lái xe"
+    m2 = "xe 110 phân khối"
+    trich = {m1: {"thoi_diem": "3/11/2026", "loai_xe": "xe máy",
+                  "su_kien": [{"mo_ta": "chưa có giấy phép lái xe", "trich_dan": "chưa có giấy phép lái xe"}]},
+             m2: {"dung_tich_xi_lanh": "110 phân khối"}}
+    pl, _ = _pipeline(tmp_path, reasoner, {"TrichXuatLLM": trich})
+    ph = PhienLamViec()
+    k1 = pl.xu_ly(ph, m1)
+    assert k1.trang_thai == "can_hoi" and "dung_tich" in [q.truong for q in k1.cau_hoi]
+    k2 = pl.xu_ly(ph, m2)
+    assert k2.ho_so.loai_xe == "XeMoToHaiBanh" and k2.ho_so.nguon["loai_xe"].phuong_phap == "suy_ra"
+    assert any("GPLX" in d.ten for d in k2.quyet_dinh.hanh_vi)

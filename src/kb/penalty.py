@@ -11,6 +11,7 @@ cứ tại thời điểm vi phạm).
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass, field
 from datetime import date
 from functools import lru_cache
@@ -80,16 +81,43 @@ class QuyetDinh:
     can_cu_chung: list[dict] = field(default_factory=list)
 
 
+def _phan(tu: int, mau: int) -> str:
+    """1/2 → "một nửa", 2/2 → "toàn bộ", còn lại "tu/mau"."""
+    return {(1, 2): "một nửa", (1, 1): "toàn bộ", (2, 2): "toàn bộ"}.get((tu, mau), f"{tu}/{mau}")
+
+
 def _adjust(lo: int, hi: int, n_tang: int, n_giam: int) -> tuple[int, str]:
     """Mức đề xuất trong khung theo quy ước (TODO_VERIFY ở cấu hình)."""
     tb = (lo + hi) // 2
     so_buoc = _cfg()["muc_phat"]["quy_uoc_dieu_chinh"]["so_buoc"]
     net = max(-so_buoc, min(so_buoc, n_tang - n_giam))
     if net > 0:
-        return tb + (hi - tb) * net // so_buoc, f"tăng {net}/{so_buoc} khoảng từ mức trung bình tới mức tối đa"
+        return tb + (hi - tb) * net // so_buoc, f"tăng {_phan(net, so_buoc)} khoảng cách từ mức trung bình lên mức tối đa"
     if net < 0:
-        return tb - (tb - lo) * (-net) // so_buoc, f"giảm {-net}/{so_buoc} khoảng từ mức trung bình tới mức tối thiểu"
+        return tb - (tb - lo) * (-net) // so_buoc, f"giảm {_phan(-net, so_buoc)} khoảng cách từ mức trung bình xuống mức tối thiểu"
     return tb, "mức trung bình của khung"
+
+
+def _tien_vn(s: str) -> str:
+    """Dấu phân cách hàng nghìn kiểu Việt (5,000,000 → 5.000.000)."""
+    return s.replace(",", ".")
+
+
+def _ten_tinh_tiet(kq: KetQuaSuyLuan) -> dict[str, str]:
+    """Mã tình tiết (TTGN_2) → tên theo luật + căn cứ, vd. "tự nguyện khai báo, thành thật hối lỗi (khoản 2 Điều 9
+    Luật Xử lý vi phạm hành chính)". Tên lấy từ mô tả của chính quy tắc đã kích hoạt trong sổ đăng ký luật."""
+    q = load_registry()["quy_tac"]
+    out: dict[str, str] = {}
+    for t in kq.tinh_tiet:
+        ten = "; ".join(dict.fromkeys(q[r]["mo_ta"][0].lower() + q[r]["mo_ta"][1:] for r in t["quy_tac"] if r in q))
+        ids = [q[r]["can_cu"]["id"] for r in t["quy_tac"] if r in q]
+        cc = ""
+        if ids and (m := re.match(r"LXLVPHC-D(\d+)(?:-K(\d+))?(?:-([a-z]+))?$", ids[0])):
+            diem = f"điểm {m.group(3).replace('dd', 'đ')} " if m.group(3) else ""
+            khoan = f"khoản {m.group(2)} " if m.group(2) else ""
+            cc = f" ({diem}{khoan}Điều {m.group(1)} Luật Xử lý vi phạm hành chính)"
+        out[t["tinh_tiet"]] = (ten or t["tinh_tiet"]) + cc
+    return out
 
 
 def _note_effect(sid: str, ngay: date, notes: list[str]) -> None:
@@ -148,10 +176,26 @@ def quyet_dinh(kq: KetQuaSuyLuan, case: dict, ngay: date | None = None) -> Quyet
             lo, hi = d.khung_phat
             muc, why = _adjust(lo, hi, len(d.tinh_tiet_tang), len(d.tinh_tiet_giam))
             d.muc_de_xuat = muc
-            d.ly_do.append(f"Khung {lo:,}–{hi:,} đồng; {why}".replace(",", "."))
-            if d.tinh_tiet_tang or d.tinh_tiet_giam:
-                d.ly_do.append(f"Tình tiết tăng nặng: {d.tinh_tiet_tang or 'không'}; giảm nhẹ: {d.tinh_tiet_giam or 'không'}"
-                               " — mức điều chỉnh theo quy ước hệ thống (TODO_VERIFY)")
+            if not (d.tinh_tiet_tang or d.tinh_tiet_giam):
+                d.ly_do.append(_tien_vn(f"Khung {lo:,}–{hi:,} đồng; {why}"))
+            else:
+                ten = _ten_tinh_tiet(kq)
+                for nhom, ds in (("tăng nặng", d.tinh_tiet_tang), ("giảm nhẹ", d.tinh_tiet_giam)):
+                    for t in ds:
+                        d.ly_do.append(f"Tình tiết {nhom}: {ten.get(t, t)}")
+                tb = (lo + hi) // 2
+                d.ly_do.append(_tien_vn(f"Khung {lo:,}–{hi:,} đồng; mức trung bình {tb:,} đồng."))
+                if muc != tb:
+                    huong = ("giảm, nhưng không thấp hơn mức tối thiểu" if muc < tb else
+                             "tăng, nhưng không vượt quá mức tối đa")
+                    nhom = "giảm nhẹ" if muc < tb else "tăng nặng"
+                    d.ly_do.append(f"Có tình tiết {nhom} nên mức phạt được {huong} của khung "
+                                   "(khoản 4 Điều 23 Luật Xử lý vi phạm hành chính).")
+                    d.ly_do.append(_tien_vn(
+                        f"Mức đề xuất {muc:,} đồng: {why} (mức tham khảo của hệ thống — chưa có văn bản hướng dẫn "
+                        "mức điều chỉnh cụ thể)."))
+                else:
+                    d.ly_do.append("Tình tiết tăng nặng và giảm nhẹ bù trừ nhau nên giữ mức trung bình của khung.")
                 d.can_cu.append(_can_cu(cfg["muc_phat"]["can_cu_gioi_han"]))
         # Người chưa thành niên (chỉ áp cho người điều khiển)
         if nguoi_lai and tuoi is not None:
@@ -182,6 +226,11 @@ def quyet_dinh(kq: KetQuaSuyLuan, case: dict, ngay: date | None = None) -> Quyet
             else:
                 st = "neu_thoa_dieu_kien"
             if d.hinh_thuc_chinh == "khong_xu_phat":
+                st = "khong_ap_dung"
+            # Thu hồi giấy phép lái xe (không hợp lệ, bị tẩy xóa...) chỉ có đối tượng khi người lái CÓ giấy phép:
+            # đã biết không có GPLX (coGPLX = false) thì không có gì để thu hồi
+            if s["loai"] == "thu_hoi" and "giấy phép lái xe" in (s["gia_tri"].get("doi_tuong") or "") \
+                    and sk.get("coGPLX") is False:
                 st = "khong_ap_dung"
             ct = CheTai(s["loai"], s["gia_tri"], COND_LABEL.get(cond, cond), st, s["can_cu_id"], s["nguyen_van"])
             if s["loai"] == "tru_diem":

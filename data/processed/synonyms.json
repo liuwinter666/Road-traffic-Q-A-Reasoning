@@ -317,7 +317,12 @@
       "chưa có bằng",
       "không có giấy phép lái xe",
       "chưa thi bằng",
-      "bằng lái bị thu hồi"
+      "bằng lái bị thu hồi",
+      "chưa có giấy phép lái xe",
+      "chưa thi lấy giấy phép lái xe",
+      "chưa thi bằng lái",
+      "chưa có gplx",
+      "không có gplx"
     ],
     "KhongMangTheoGPLX": [
       "quên bằng lái",

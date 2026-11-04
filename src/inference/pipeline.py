@@ -19,7 +19,7 @@ from datetime import date
 from loguru import logger
 
 from src.extraction import normalizer as N
-from src.extraction.llm_extractor import LLMExtractor
+from src.extraction.llm_extractor import LLMExtractor, xep_loai_xe
 from src.extraction.schema import HoSoVuViec, NguonGoc
 from src.extraction.slot_checker import CauHoi, cho_xac_nhan_lien_ket, kiem_tra, loai_xe_cho_xac_nhan
 from src.inference.fact_builder import DuLieuVuViec, xay_dung
@@ -157,6 +157,9 @@ class Pipeline:
             t0 = time.perf_counter()
             moi = self.extractor.ho_so(tin_nhan, today, [q.cau_hoi for q in phien.cau_hoi_truoc])
             hs = phien.ho_so = hs.cap_nhat(moi)
+            # loại xe và dung tích có thể đến ở hai lượt khác nhau → xếp loại lại trên hồ sơ đã gộp
+            if xep_loai_xe(hs, today):
+                hs.gia_dinh = list(dict.fromkeys(hs.gia_dinh + hs.nguon["loai_xe"].ghi_chu))
             phien.loi_ke.append(tin_nhan)
             tg["trich_xuat"] = time.perf_counter() - t0
 

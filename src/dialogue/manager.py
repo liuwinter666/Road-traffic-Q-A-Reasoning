@@ -135,13 +135,9 @@ def ap_dung_sua(hs: HoSoVuViec, thay_doi: dict, hom_nay: date | None = None) -> 
         da_sua.append(k)
 
     # "xe máy" chung chung + dung tích/công suất → xếp loại theo luật có hiệu lực tại ngày vi phạm
-    if hs.loai_xe in ("NhomXeMoTo", "XeMayDien") and (hs.dung_tich_xi_lanh or hs.cong_suat_dong_co_dien):
-        from src.extraction.llm_extractor import phan_loai_xe_may
+    from src.extraction.llm_extractor import xep_loai_xe
 
-        dt = hs.dung_tich_xi_lanh if hs.loai_xe == "NhomXeMoTo" else None
-        if pl := phan_loai_xe_may(dt, hs.cong_suat_dong_co_dien, hs.ngay_tu or hom_nay or date.today()):
-            hs.loai_xe = pl[0]
-            hs.nguon["loai_xe"] = NguonGoc(goc="người dùng sửa", phuong_phap="suy_ra", ghi_chu=[pl[1]])
+    xep_loai_xe(hs, hom_nay, "người dùng sửa")
     return da_sua
 
 

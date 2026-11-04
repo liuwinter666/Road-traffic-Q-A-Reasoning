@@ -50,6 +50,22 @@ def phan_loai_xe_may(dung_tich: float | None, cong_suat: float | None, ngay: dat
     return None
 
 
+def xep_loai_xe(hs: HoSoVuViec, hom_nay: date | None = None, goc: str | None = None) -> bool:
+    """"Xe máy" chung chung (hoặc xe máy điện) + dung tích/công suất → xe gắn máy / xe mô tô hai bánh theo luật có
+    hiệu lực tại ngày vi phạm. Gọi lại SAU MỖI LẦN GỘP hồ sơ: loại xe và dung tích có thể đến ở hai lượt khác nhau.
+    Trả True nếu đã xếp loại."""
+    if hs.loai_xe not in ("NhomXeMoTo", "XeMayDien") or not (hs.dung_tich_xi_lanh or hs.cong_suat_dong_co_dien):
+        return False
+    dt = hs.dung_tich_xi_lanh if hs.loai_xe == "NhomXeMoTo" else None
+    pl = phan_loai_xe_may(dt, hs.cong_suat_dong_co_dien, hs.ngay_tu or hom_nay or date.today())
+    if not pl:
+        return False
+    cu = hs.nguon.get("loai_xe")
+    hs.loai_xe = pl[0]
+    hs.nguon["loai_xe"] = NguonGoc(goc=goc or (cu.goc if cu else None), phuong_phap="suy_ra", ghi_chu=[pl[1]])
+    return True
+
+
 def xay_dung_ho_so(tx: TrichXuatLLM, linker: EntityLinker, hom_nay: date | None = None) -> HoSoVuViec:
     """Chuẩn hóa đầu ra LLM thành hồ sơ vụ việc."""
     hs = HoSoVuViec()
@@ -100,11 +116,8 @@ def xay_dung_ho_so(tx: TrichXuatLLM, linker: EntityLinker, hom_nay: date | None 
             note("loai_xe", tx.loai_xe, lk.phuong_phap, lk.diem)
         else:
             hs.khong_lien_ket.append(f"loại xe: {tx.loai_xe}")
-    if hs.loai_xe in ("NhomXeMoTo", "XeMayDien") and (hs.dung_tich_xi_lanh or hs.cong_suat_dong_co_dien):
-        dt = hs.dung_tich_xi_lanh if hs.loai_xe == "NhomXeMoTo" else None
-        if pl := phan_loai_xe_may(dt, hs.cong_suat_dong_co_dien, hs.ngay_tu or today):
-            hs.loai_xe = pl[0]
-            note("loai_xe", tx.loai_xe, "suy_ra", 1.0, [pl[1]])
+    if xep_loai_xe(hs, today, tx.loai_xe):
+        hs.gia_dinh.extend(hs.nguon["loai_xe"].ghi_chu)
 
     # Đường
     for raw in tx.loai_duong:

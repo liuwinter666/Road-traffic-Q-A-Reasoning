@@ -95,3 +95,21 @@ def test_penalty_scenarios(run):
     assert d5.tinh_tiet_tang == []
     assert any("LXLVPHC-D23-K4" in n and "không có trong dữ liệu" in n.lower() for n in qd[6].ghi_chu)
     assert qd[6].tru_diem_ap_dung is None                                 # NĐ 100 không có trừ điểm
+
+
+@needs_java
+def test_ly_do_tinh_tiet_va_thu_hoi_gplx(run):
+    """Lý do mức đề xuất ghi tên tình tiết theo luật (không mã nội bộ, không TODO_VERIFY); không thu hồi GPLX của
+    người không có GPLX."""
+    qd = run([
+        {"ngay": "2025-03-01", "xe": "OTo", "nguoi": {"tuoi": 35},
+         "su_kien": {"khongChapHanhDenTinHieu": True, "thanhThatHoiLoi": True}},
+        {"ngay": "2026-11-03", "xe": "XeMoToHaiBanh", "xe_tt": {"dungTichXiLanh": 110}, "nguoi": {"tuoi": 21},
+         "su_kien": {"coGPLX": False}},
+    ])
+    ly_do = " ".join(qd[0].hanh_vi[0].ly_do)
+    assert "tự nguyện khai báo, thành thật hối lỗi (khoản 2 Điều 9 Luật Xử lý vi phạm hành chính)" in ly_do
+    assert "TTGN" not in ly_do and "TODO_VERIFY" not in ly_do and "[" not in ly_do
+    assert "khoản 4 Điều 23" in ly_do and "18.000.000" in ly_do
+    gplx = next(d for d in qd[1].hanh_vi if "GPLX" in d.ten or "giấy phép" in d.ten.lower())
+    assert all(c.trang_thai == "khong_ap_dung" for c in gplx.che_tai if c.loai == "thu_hoi")

@@ -451,12 +451,17 @@ class _Dung:
             def tinh_tiet(ma):
                 t = tt_nhan.get(ma, {})
                 b = lay(id_tinh_tiet(ma), None, self.ngay)
-                return {"ma": ma, "quy_tac": t.get("quy_tac", []), "nhan": nhan(ma),
+                # sự kiện làm phát sinh tình tiết (vd. thanhThatHoiLoi) + nguồn: bạn nêu / suy ra từ lời kể "…"
+                qs = [self.reg["quy_tac"][q] for q in t.get("quy_tac", []) if q in self.reg["quy_tac"]]
+                sk = [asdict(self.su_kien(q["su_kien"], True)) for q in qs if q.get("su_kien")]
+                return {"ma": ma, "quy_tac": t.get("quy_tac", []), "nhan": "; ".join(dict.fromkeys(
+                            q["mo_ta"] for q in qs)) or nhan(ma), "su_kien": sk,
                         "can_cu": asdict(CanCu(b.id, b.trich_dan, b.text)) if b else None}
+            tang, giam = [tinh_tiet(t) for t in d.tinh_tiet_tang], [tinh_tiet(t) for t in d.tinh_tiet_giam]
             ket_luan.append(KetLuanTrace(
-                d.ma_hanh_vi, d.ten, buoc, CanCu(dk_id, d.dieu_khoan, nv), d.hinh_thuc_chinh,
-                list(d.khung_phat) if d.khung_phat else None, d.muc_de_xuat, list(d.ly_do), che_tai, d.tru_diem,
-                [tinh_tiet(t) for t in d.tinh_tiet_tang], [tinh_tiet(t) for t in d.tinh_tiet_giam], khac))
+                d.ma_hanh_vi, sach(d.ten), buoc, CanCu(dk_id, d.dieu_khoan, nv), d.hinh_thuc_chinh,
+                list(d.khung_phat) if d.khung_phat else None, d.muc_de_xuat, _ly_do_kem_nguon(d.ly_do, tang, giam),
+                che_tai, d.tru_diem, tang, giam, khac))
 
         loai_tru = []
         for k in sl.ket_luan:
@@ -489,6 +494,25 @@ class _Dung:
         ghi_chu = list(dict.fromkeys(doc_id(g, self.v, self.ngay) for g in self.kq.ghi_chu + qd.ghi_chu))
         return Trace(pb, su_kien, ket_luan, loai_tru, khong_du, qd.tong_tien_de_xuat, qd.tru_diem_ap_dung,
                      ghi_chu, chung)
+
+
+def _ly_do_kem_nguon(ly_do: list[str], tang: list[dict], giam: list[dict]) -> list[str]:
+    """Dòng "Tình tiết giảm nhẹ: …" của penalty + nguồn của sự kiện làm phát sinh tình tiết
+    ("hệ thống suy ra từ lời kể: “…”" / "bạn nêu: “…”")."""
+    out = list(ly_do)
+    for nhom, ds in (("tăng nặng", tang), ("giảm nhẹ", giam)):
+        for t in ds:
+            sk = next((s for s in t.get("su_kien") or [] if s.get("nguon")), None)
+            if sk is None:
+                continue
+            nguon = {"suy_ra": "hệ thống suy ra từ lời kể", "xac_nhan": "bạn đã xác nhận"}.get(sk["nguon"], "bạn nêu")
+            them = f" — {nguon}" + (f": “{sk['bang_chung']}”" if sk.get("bang_chung") else "")
+            ten = t["nhan"][:1].lower() + t["nhan"][1:]
+            for i, dong in enumerate(out):
+                if dong.startswith(f"Tình tiết {nhom}: {ten}") and them not in dong:
+                    out[i] = dong + them
+                    break
+    return out
 
 
 def _trich(id_: str, v: str, ngay: date | None) -> str:

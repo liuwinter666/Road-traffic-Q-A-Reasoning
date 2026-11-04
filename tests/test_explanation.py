@@ -204,3 +204,18 @@ def test_pipeline_dien_dat_va_goi_y(tmp_path, reasoner, monkeypatch):
     assert k.trang_thai == "khong_phat_hien" and k.dien_dat.nguon == "llm"
     assert k.tra_loi.startswith(tra_loi) and "CHƯA mô hình hóa" in k.tra_loi
     assert k.lien_quan and any("vỉa hè" in b.text for b, _ in k.lien_quan)
+
+
+def test_ly_do_tinh_tiet_kem_nguon(tmp_path, reasoner):
+    msg = "Ngày 3/11/2026 tôi lái ô tô vượt đèn đỏ, sau đó tôi thành thật khai báo với cán bộ"
+    trich = {msg: {"thoi_diem": "3/11/2026", "loai_xe": "ô tô",
+                   "su_kien": [{"mo_ta": "vượt đèn đỏ", "trich_dan": "vượt đèn đỏ"}]}}
+    suy = {msg: {"su_kien": [{"thuoc_tinh": "thanhThatHoiLoi", "gia_tri": True, "do_tin_cay": 0.9,
+                              "bang_chung": "tôi thành thật khai báo với cán bộ", "giai_thich": ""}]}}
+    pl, _ = _pipeline(tmp_path, reasoner, {"TrichXuatLLM": trich, "KetQuaSuyRaLLM": suy})
+    k = pl.xu_ly(PhienLamViec(), msg)
+    ly_do = k.trace.ket_luan[0].ly_do
+    dong = next(x for x in ly_do if x.startswith("Tình tiết giảm nhẹ:"))
+    assert "hệ thống suy ra từ lời kể: “tôi thành thật khai báo với cán bộ”" in dong
+    d = trace_cho_llm(k.trace)["hanh_vi_vi_pham"][0]
+    assert "suy ra từ lời kể" in d["tinh_tiet_giam_nhe"][0] and "TTGN" not in str(d)

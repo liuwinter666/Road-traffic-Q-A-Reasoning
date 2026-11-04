@@ -158,6 +158,16 @@ def _che_tai_chu(c: dict) -> str:
     return f"{ten} {v} — {tt}{dk} — căn cứ {c['trich_dan']}"
 
 
+def _tinh_tiet_chu(t: dict, nguon: dict) -> str:
+    """"Tự nguyện khai báo, thành thật hối lỗi (khoản 2 Điều 9 Luật số 15/2012/QH13) — suy ra từ lời kể: “…”"."""
+    s = t["nhan"] + (f" ({t['can_cu']['trich_dan']})" if t.get("can_cu") else "")
+    for sk in t.get("su_kien") or []:
+        if sk.get("nguon"):
+            s += f" — {nguon.get(sk['nguon'], sk['nguon'])}" + (f": “{sk['bang_chung']}”" if sk.get("bang_chung") else "")
+            break
+    return s
+
+
 def trace_cho_llm(tr: Trace) -> dict:
     """Bản rút gọn, đã định dạng sẵn (tiền, chế tài) để LLM chép đúng."""
     from src.explanation.tracer import _mo_ta_cay
@@ -181,8 +191,8 @@ def trace_cho_llm(tr: Trace) -> dict:
             "muc_de_xuat": _tien(k.muc_de_xuat),
             "ly_do_muc_de_xuat": k.ly_do,
             "hinh_thuc_bo_sung": [_che_tai_chu(c) for c in k.che_tai if c["trang_thai"] != "khong_ap_dung"],
-            "tinh_tiet_tang_nang": [t["nhan"] for t in k.tinh_tiet_tang],
-            "tinh_tiet_giam_nhe": [t["nhan"] for t in k.tinh_tiet_giam],
+            "tinh_tiet_tang_nang": [_tinh_tiet_chu(t, nguon) for t in k.tinh_tiet_tang],
+            "tinh_tiet_giam_nhe": [_tinh_tiet_chu(t, nguon) for t in k.tinh_tiet_giam],
             "chuoi_suy_luan": [f"{q.ma}: " + "; ".join(_mo_ta_cay(n, nguon=True) for n in q.dieu_kien)
                                for q in k.quy_tac],
             "can_cu_khac": [c.trich_dan for c in k.can_cu_khac],
