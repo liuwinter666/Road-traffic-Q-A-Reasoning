@@ -377,8 +377,11 @@ def tab_chi_tiet(kq: dict):
         st.dataframe(pd.DataFrame([{
             "Hành vi": h["ten"], "Căn cứ": h["dieu_khoan"],
             "Khung phạt": f"{tien(h['khung_phat'][0])} – {tien(h['khung_phat'][1])}" if h["khung_phat"] else "—",
-            "Mức đề xuất": tien(h["muc_de_xuat"]), "Trừ điểm": h["tru_diem"] or "—"} for h in kq["hanh_vi"]]),
+            "Mức đề xuất": tien(h["muc_de_xuat"]), "Trừ điểm": h["tru_diem"] or "—",
+            "Quy tắc": ", ".join(h.get("quy_tac") or []), "Mã điều khoản": h["dieu_khoan_id"]} for h in kq["hanh_vi"]]),
             hide_index=True, use_container_width=True)
+        st.caption("Quy tắc: mã luật suy luận (SWRL) trong ontology/rule_registry.yaml đã đưa ra kết luận — tra mã để "
+                   "xem điều kiện, điều khoản gốc và nguyên văn.")
         st.markdown(f"**Tổng đề xuất:** {tien(kq['tong_tien_de_xuat'])}"
                     + (f" · **Trừ điểm GPLX:** {kq['tru_diem_ap_dung']}" if kq.get("tru_diem_ap_dung") else ""))
     dd = kq.get("dien_dat")

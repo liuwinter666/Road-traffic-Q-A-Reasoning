@@ -45,9 +45,12 @@ def ket_qua_json(kq) -> dict:
     """Toàn bộ thông tin một lượt cho giao diện: câu trả lời, câu hỏi, hồ sơ, kết luận, trace, đồ thị, nguyên văn."""
     qd, tr = kq.quyet_dinh, kq.trace
     hanh_vi = []
+    quy_tac = {k.ma_hanh_vi: [q.ma for q in k.quy_tac] for k in tr.ket_luan} if tr else {}
+    ten_sach = {k.ma_hanh_vi: k.ten for k in tr.ket_luan} if tr else {}
     if qd is not None:
         for d in qd.hanh_vi:
-            hanh_vi.append({"ma": d.ma_hanh_vi, "ten": d.ten, "dieu_khoan": d.dieu_khoan, "dieu_khoan_id": d.dieu_khoan_id,
+            hanh_vi.append({"ma": d.ma_hanh_vi, "ten": ten_sach.get(d.ma_hanh_vi, d.ten),
+                            "quy_tac": quy_tac.get(d.ma_hanh_vi, []), "dieu_khoan": d.dieu_khoan, "dieu_khoan_id": d.dieu_khoan_id,
                             "khung_phat": list(d.khung_phat) if d.khung_phat else None, "muc_de_xuat": d.muc_de_xuat,
                             "hinh_thuc_chinh": d.hinh_thuc_chinh, "tru_diem": d.tru_diem, "ly_do": d.ly_do,
                             "che_tai": [chuyen(c) for c in d.che_tai]})

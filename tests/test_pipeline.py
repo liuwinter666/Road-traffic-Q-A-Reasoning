@@ -180,7 +180,10 @@ def test_pipeline_gian_tiep_nhieu_luot(tmp_path, reasoner):
     from src.inference.report import trinh_bay
 
     txt = trinh_bay(k2)
-    assert "ND168-D7-K7-d" in txt and "suy ra từ lời kể" in txt and "LTTATGT-D2-K10" in txt
+    assert "điểm d khoản 7 Điều 7 NĐ 168/2024/NĐ-CP" in txt and "suy ra từ lời kể" in txt and "khoản 10 Điều 2" in txt
+    assert "R124" not in txt and "ND168-D7-K7-d" not in txt and "LTTATGT-D2-K10" not in txt     # không mã nội bộ
+    chi_tiet = trinh_bay(k2, chi_tiet=True)
+    assert "R124" in chi_tiet and "ND168-D7-K7-d" in chi_tiet                                   # chế độ chi tiết vẫn có mã
 
 
 def test_pipeline_ablation_khong_suy_ra(tmp_path, reasoner):

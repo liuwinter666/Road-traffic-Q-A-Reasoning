@@ -148,15 +148,16 @@ class Trace:
         return {x for x in s if x}
 
     # ---- hiển thị ----
-    def dong_suy_luan(self) -> list[str]:
-        """Chuỗi suy luận dạng dòng (cho báo cáo tất định / fallback của verbalizer)."""
+    def dong_suy_luan(self, hien_ma: bool = True) -> list[str]:
+        """Chuỗi suy luận dạng dòng. ``hien_ma=False``: bỏ mã quy tắc R… (câu trả lời cho người dùng; mã vẫn hiện ở
+        tab Cây suy luận / Chi tiết)."""
         out = []
         for k in self.ket_luan:
             for q in k.quy_tac:
                 dk = "; ".join(_mo_ta_cay(n) for n in q.dieu_kien)
-                out.append(f"{q.ma}: {dk} ⇒ {k.ten} ⇒ {k.dieu_khoan.trich_dan}")
+                out.append((f"{q.ma}: " if hien_ma else "") + f"{dk} ⇒ {k.ten} ⇒ {k.dieu_khoan.trich_dan}")
         for x in self.nguoi_khong_du_dieu_kien:
-            out.append(f"{', '.join(x['quy_tac'])}: {x['mo_ta']}")
+            out.append((f"{', '.join(x['quy_tac'])}: " if hien_ma else "") + x["mo_ta"])
         return out
 
     def do_thi(self) -> dict:
@@ -197,8 +198,8 @@ def _mo_ta_cay(n: Nut, nguon: bool = False) -> str:
     """Cây điều kiện thành một dòng; ``nguon=True`` ghi nguồn của từng sự kiện lá (cho verbalizer)."""
     s = n.mo_ta
     if nguon and n.loai == "su_kien" and n.nguon:
-        s += f" [{NGUON_CHU.get(n.nguon, n.nguon)}" + (f": “{n.bang_chung}”" if n.bang_chung and n.nguon in
-                                                       ("suy_ra", "xac_nhan") else "") + "]"
+        s += f" ({NGUON_CHU.get(n.nguon, n.nguon)}" + (f": “{n.bang_chung}”" if n.bang_chung and n.nguon in
+                                                       ("suy_ra", "xac_nhan") else "") + ")"
     if not n.con:
         return s
     return f"{s} ← " + ", ".join(_mo_ta_cay(c, nguon) for c in n.con)
@@ -393,7 +394,7 @@ class _Dung:
         if lop.startswith("HV_"):
             ma = lop[3:]
             qs = [q for k in self.sl.ket_luan if k.ma_hanh_vi == ma for q in k.quy_tac]
-            return Nut("hanh_vi", ma, f"đã kết luận: {nhan(lop)}" + (f" ({', '.join(qs)})" if qs else ""))
+            return Nut("hanh_vi", ma, f"đã kết luận: {nhan(lop)}", gia_tri=qs)       # mã quy tắc để ở gia_tri, không vào câu chữ
         if vai == "x":
             xe = self.case.get("xe")
             n = Nut("phuong_tien", lop, f"{nhan(lop)}")

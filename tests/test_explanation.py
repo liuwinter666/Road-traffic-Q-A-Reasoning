@@ -122,7 +122,7 @@ TOT = """**Hành vi vi phạm**
 - Không chấp hành hiệu lệnh của người điều khiển giao thông — căn cứ điểm d khoản 7 Điều 7 NĐ 168/2024/NĐ-CP;
   mức đề xuất 5.000.000 đồng (khung từ 4.000.000 đồng đến 6.000.000 đồng), trừ 4 điểm giấy phép lái xe.
 - Không đội mũ bảo hiểm — điểm h khoản 2 Điều 7 Nghị định 168/2024/NĐ-CP; mức đề xuất 500.000 đồng.
-Tổng 5,5 triệu đồng. Quy tắc R124, R140. Mức trung bình của khung theo khoản 4 Điều 23 Luật Xử lý vi phạm hành chính.
+Tổng 5,5 triệu đồng. Mức trung bình của khung theo khoản 4 Điều 23 Luật Xử lý vi phạm hành chính.
 CSGT là người điều khiển giao thông (khoản 10 Điều 2 Luật Trật tự, an toàn giao thông đường bộ).
 Kết quả chỉ mang tính tham khảo, không thay thế quyết định của người có thẩm quyền."""
 
@@ -143,7 +143,8 @@ def test_kiem_tra_hop_le(ca_csgt):
     (("NĐ 168/2024/NĐ-CP;", "NĐ 100/2019/NĐ-CP;"), "Văn bản không thuộc"),          # dẫn văn bản hết hiệu lực
     (("5.000.000 đồng (khung", "6.500.000 đồng (khung"), "Số tiền không có trong trace"),
     (("trừ 4 điểm", "trừ 6 điểm"), "Số điểm trừ"),
-    (("Quy tắc R124", "Quy tắc R999"), "Mã quy tắc"),
+    (("Tổng 5,5 triệu đồng.", "Tổng 5,5 triệu đồng (quy tắc R124)."), "mã quy tắc nội bộ"),
+    (("Tổng 5,5 triệu đồng.", "Tổng 5,5 triệu đồng (ND168-D7-K7-d)."), "mã điều khoản nội bộ"),
     (("Kết quả chỉ mang tính tham khảo, ", ""), "tham khảo"),
     (("- Không đội mũ bảo hiểm — điểm h khoản 2 Điều 7 Nghị định 168/2024/NĐ-CP; mức đề xuất 500.000 đồng.", ""),
      "Thiếu căn cứ"),

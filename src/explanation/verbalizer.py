@@ -42,6 +42,7 @@ RE_TIEN_CHU = re.compile(r"(\d+(?:[.,]\d+)?)\s*(triệu|nghìn|ngàn)\b", re.I)
 RE_DIEM = re.compile(r"\b(\d+)\s*điểm\b")
 RE_THANG = re.compile(r"(?<!ngày )\b(\d+)\s*tháng\b(?!\s*\d)")
 RE_QUY_TAC = re.compile(r"\bR\d{3}\b")
+RE_MA_PHAN_TU = re.compile(r"\b(?:ND\d+|LXLVPHC|LTTATGT|GTDB2008|TT\d+)-D\d+(?:-K\d+)?(?:-[a-z]{1,2})?\b")
 
 
 def _dd(x: str | None) -> str | None:
@@ -121,9 +122,12 @@ def kiem_tra(text: str, trace: Trace) -> KetQuaKiemTra:
             thang_ok |= {v for kk, v in c["gia_tri"].items() if kk.endswith("thang")}
     for x in sorted({int(x) for x in RE_THANG.findall(text)} - thang_ok):
         loi.append(f"Thời hạn (tháng) không có trong trace: {x}")
-    qt_ok = set(RE_QUY_TAC.findall(trace_txt))
-    for x in sorted(set(RE_QUY_TAC.findall(text)) - qt_ok):
-        loi.append(f"Mã quy tắc không có trong trace: {x}")
+    # Mã quy tắc R… và mã phần tử (ND168-D7-K7-d) là định danh nội bộ: chỉ hiện ở tab Cây suy luận / Chi tiết,
+    # câu trả lời viết căn cứ bằng chữ
+    for x in sorted(set(RE_QUY_TAC.findall(text))):
+        loi.append(f"Không đưa mã quy tắc nội bộ vào câu trả lời: {x}")
+    for x in sorted(set(RE_MA_PHAN_TU.findall(text))):
+        loi.append(f"Không đưa mã điều khoản nội bộ vào câu trả lời (viết bằng chữ): {x}")
 
     # Đầy đủ
     for k in trace.ket_luan:
@@ -193,7 +197,7 @@ def trace_cho_llm(tr: Trace) -> dict:
             "hinh_thuc_bo_sung": [_che_tai_chu(c) for c in k.che_tai if c["trang_thai"] != "khong_ap_dung"],
             "tinh_tiet_tang_nang": [_tinh_tiet_chu(t, nguon) for t in k.tinh_tiet_tang],
             "tinh_tiet_giam_nhe": [_tinh_tiet_chu(t, nguon) for t in k.tinh_tiet_giam],
-            "chuoi_suy_luan": [f"{q.ma}: " + "; ".join(_mo_ta_cay(n, nguon=True) for n in q.dieu_kien)
+            "chuoi_suy_luan": ["; ".join(_mo_ta_cay(n, nguon=True) for n in q.dieu_kien)
                                for q in k.quy_tac],
             "can_cu_khac": [c.trich_dan for c in k.can_cu_khac],
         } for k in tr.ket_luan],

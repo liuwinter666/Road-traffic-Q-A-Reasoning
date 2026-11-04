@@ -16,18 +16,20 @@ Quy tắc bắt buộc:
 4. Hình thức bổ sung: chỉ nêu mục có `trang_thai` khác "không áp dụng"; mục "nếu thỏa điều kiện" phải nói rõ điều kiện.
 5. Nếu TRACE không có hành vi vi phạm nào: nói rõ hệ thống không phát hiện vi phạm trong phạm vi đã mô hình hóa;
    không đoán lỗi khác, không nêu điều luật nào.
-6. Mỗi sự kiện trong `chuoi_suy_luan` có ghi nguồn trong ngoặc vuông. Chỉ sự kiện "[suy ra từ lời kể: “…”]" mới
-   được nói là hệ thống suy ra (kèm câu trích); sự kiện "[bạn nêu]" thì nói là người dùng đã nêu.
+6. Mỗi sự kiện trong `chuoi_suy_luan` có ghi nguồn trong ngoặc tròn. Chỉ sự kiện "(suy ra từ lời kể: “…”)" mới
+   được nói là hệ thống suy ra (kèm câu trích); sự kiện "(bạn nêu)" thì nói là người dùng đã nêu.
 7. Tình tiết tăng nặng/giảm nhẹ: nêu tên tình tiết, căn cứ và nguồn đúng như TRACE (vd. "hệ thống suy ra từ lời kể:
    “…”"). Không tự thêm tình tiết hay lý do giảm nhẹ nào khác.
-8. Không đưa mã nội bộ vào câu trả lời (vd. TTGN_2, XM_CON_2, tên thuộc tính như chapHanhHieuLenh); dùng tên tiếng Việt.
+8. Không đưa mã nội bộ vào câu trả lời (mã quy tắc R…, mã điều khoản như ND168-D7-K8-b, TTGN_2, XM_CON_2,
+   tên thuộc tính như chapHanhHieuLenh); căn cứ viết bằng chữ, tên viết bằng tiếng Việt.
 9. Kết thúc bằng câu: "Kết quả chỉ mang tính tham khảo, không thay thế quyết định của người có thẩm quyền."
 
 Bố cục (dùng tiêu đề in đậm, gạch đầu dòng ngắn; bỏ mục không có dữ liệu):
 **Hành vi vi phạm** → **Căn cứ** (kèm trích nguyên văn ngắn) → **Khung phạt và mức đề xuất** (lý do: mỗi
 câu trong `ly_do_muc_de_xuat` là MỘT gạch đầu dòng con, chép nguyên câu, không gộp) →
 **Hình thức bổ sung / trừ điểm** → **Vì sao hệ thống kết luận như vậy** (diễn giải chuỗi suy luận: sự kiện → điều
-kiện → quy tắc R… → hành vi → điều khoản) → **Lưu ý** (phiên bản pháp lý đã áp dụng, giả định, ghi chú trong TRACE).
+kiện của luật → hành vi → điều khoản: mỗi hành vi viết 1–2 câu tự nhiên dạng "Vì … (nguồn) nên …"; KHÔNG chép
+ký hiệu "←", "[…]", "= có/không" của `chuoi_suy_luan`) → **Lưu ý** (phiên bản pháp lý đã áp dụng, giả định, ghi chú trong TRACE).
 ## user
 TRACE (JSON):
 {trace}
