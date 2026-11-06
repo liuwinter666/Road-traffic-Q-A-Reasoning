@@ -66,8 +66,10 @@ def xep_loai_xe(hs: HoSoVuViec, hom_nay: date | None = None, goc: str | None = N
     return True
 
 
-def xay_dung_ho_so(tx: TrichXuatLLM, linker: EntityLinker, hom_nay: date | None = None) -> HoSoVuViec:
-    """Chuẩn hóa đầu ra LLM thành hồ sơ vụ việc."""
+def xay_dung_ho_so(tx: TrichXuatLLM, linker: EntityLinker, hom_nay: date | None = None, nm=None) -> HoSoVuViec:
+    """Chuẩn hóa đầu ra LLM thành hồ sơ vụ việc. ``nm``: module/đối tượng chuẩn hóa (mặc định ``normalizer``;
+    thay bằng bản đơn giản cho thí nghiệm ablation)."""
+    nm = nm or N
     hs = HoSoVuViec()
     today = hom_nay or date.today()
 
@@ -75,23 +77,23 @@ def xay_dung_ho_so(tx: TrichXuatLLM, linker: EntityLinker, hom_nay: date | None 
         hs.nguon[field] = NguonGoc(goc=goc, phuong_phap=pp, do_tin_cay=tin_cay, ghi_chu=list(ghi_chu or []))
         hs.gia_dinh.extend(ghi_chu or [])
 
-    if tx.thoi_diem and (td := N.thoi_diem(tx.thoi_diem, today)):
+    if tx.thoi_diem and (td := nm.thoi_diem(tx.thoi_diem, today)):
         hs.ngay_tu, hs.ngay_den, hs.do_chinh_xac_ngay = td.tu, td.den, td.do_chinh_xac
         note("ngay", tx.thoi_diem, ghi_chu=td.gia_dinh)
-    if tx.tuoi_nguoi_lai and (t := N.tuoi(tx.tuoi_nguoi_lai, hs.ngay_vi_pham, today)):
+    if tx.tuoi_nguoi_lai and (t := nm.tuoi(tx.tuoi_nguoi_lai, hs.ngay_vi_pham, today)):
         hs.tuoi_nguoi_lai = int(t.gia_tri)
         note("tuoi_nguoi_lai", tx.tuoi_nguoi_lai, ghi_chu=t.gia_dinh)
-    if tx.tuoi_chu_xe and (t := N.tuoi(tx.tuoi_chu_xe, hs.ngay_vi_pham, today)):
+    if tx.tuoi_chu_xe and (t := nm.tuoi(tx.tuoi_chu_xe, hs.ngay_vi_pham, today)):
         hs.tuoi_chu_xe = int(t.gia_tri)
         note("tuoi_chu_xe", tx.tuoi_chu_xe, ghi_chu=t.gia_dinh)
-    if tx.dung_tich_xi_lanh and (d := N.dung_tich(tx.dung_tich_xi_lanh)):
+    if tx.dung_tich_xi_lanh and (d := nm.dung_tich(tx.dung_tich_xi_lanh)):
         hs.dung_tich_xi_lanh = d.gia_tri
         note("dung_tich_xi_lanh", tx.dung_tich_xi_lanh, ghi_chu=d.gia_dinh)
-    if tx.cong_suat_dong_co and (c := N.cong_suat(tx.cong_suat_dong_co)):
+    if tx.cong_suat_dong_co and (c := nm.cong_suat(tx.cong_suat_dong_co)):
         hs.cong_suat_dong_co_dien = c.gia_tri
         note("cong_suat_dong_co_dien", tx.cong_suat_dong_co, ghi_chu=c.gia_dinh)
     if tx.nong_do_con:
-        dl, loai = N.nong_do_con(tx.nong_do_con)
+        dl, loai = nm.nong_do_con(tx.nong_do_con)
         if dl and loai == "khi_tho":
             hs.nong_do_con_khi_tho = dl.gia_tri
             note("nong_do_con_khi_tho", tx.nong_do_con, ghi_chu=dl.gia_dinh)
@@ -101,7 +103,7 @@ def xay_dung_ho_so(tx: TrichXuatLLM, linker: EntityLinker, hom_nay: date | None 
         else:
             hs.khong_lien_ket.append(f"nồng độ cồn: {tx.nong_do_con}")
     for fld, raw in (("toc_do_thuc_te", tx.toc_do_thuc_te), ("toc_do_toi_da", tx.toc_do_toi_da)):
-        if raw and (v := N.toc_do(raw)):
+        if raw and (v := nm.toc_do(raw)):
             setattr(hs, fld, v.gia_tri)
             note(fld, raw, ghi_chu=v.gia_dinh)
 
@@ -170,11 +172,12 @@ class LLMExtractor:
     """Trích xuất bằng LLM + chuẩn hóa."""
 
     def __init__(self, client: LLMClient | None = None, linker: EntityLinker | None = None,
-                 prompt_version: int | None = None, kiem_chung_cum_tu: bool = True):
+                 prompt_version: int | None = None, kiem_chung_cum_tu: bool = True, normalizer=None):
         self.client = client or get_llm_client()
         self.linker = linker or EntityLinker()
         self.prompt = load_prompt("extraction", prompt_version)
         self.kiem_chung_cum_tu = kiem_chung_cum_tu      # tắt được cho thí nghiệm ablation
+        self.normalizer = normalizer                    # None = normalizer chuẩn; thay được cho ablation
         self.loai_bo_lan_cuoi: list[str] = []
 
     def trich_xuat(self, tin_nhan: str, hom_nay: date | None = None, cau_hoi_truoc: list[str] | None = None) -> TrichXuatLLM:
@@ -193,6 +196,6 @@ class LLMExtractor:
         return out
 
     def ho_so(self, tin_nhan: str, hom_nay: date | None = None, cau_hoi_truoc: list[str] | None = None) -> HoSoVuViec:
-        hs = xay_dung_ho_so(self.trich_xuat(tin_nhan, hom_nay, cau_hoi_truoc), self.linker, hom_nay)
+        hs = xay_dung_ho_so(self.trich_xuat(tin_nhan, hom_nay, cau_hoi_truoc), self.linker, hom_nay, self.normalizer)
         hs.cum_tu_loai_bo = list(self.loai_bo_lan_cuoi)
         return hs

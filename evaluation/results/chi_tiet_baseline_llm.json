@@ -1,0 +1,1124 @@
+[
+ {
+  "id": "S01",
+  "nhom": "don_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K6-c"
+  ],
+  "du_doan": [
+   "ND100-D5-K6-c"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S02",
+  "nhom": "don_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K9-d"
+  ],
+  "du_doan": [
+   "ND100-D6-K8-c"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S03",
+  "nhom": "don_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K5-dd"
+  ],
+  "du_doan": [
+   "ND100-D5-K5-i"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S04",
+  "nhom": "don_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K8-a"
+  ],
+  "du_doan": [
+   "ND100-D6-K6-a"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S05",
+  "nhom": "don_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K7-c"
+  ],
+  "du_doan": [
+   "ND100-D6-K4-e"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S06",
+  "nhom": "don_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K9-d"
+  ],
+  "du_doan": [
+   "ND168-D5-K5-c"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S07",
+  "nhom": "don_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K2-h"
+  ],
+  "du_doan": [
+   "ND100-D6-K2-i"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S08",
+  "nhom": "don_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K5-h"
+  ],
+  "du_doan": [
+   "ND100-D5-K4-h"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S09",
+  "nhom": "don_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K3-k"
+  ],
+  "du_doan": [
+   "ND100-D5-K3-c"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S10",
+  "nhom": "don_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K2-i"
+  ],
+  "du_doan": [
+   "ND168-D6-K2-k"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S11",
+  "nhom": "don_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K11-b"
+  ],
+  "du_doan": [
+   "ND100-D5-K10-b"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S12",
+  "nhom": "don_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K9-a"
+  ],
+  "du_doan": [
+   "ND100-D6-K8-gha"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S13",
+  "nhom": "don_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D18-K9-b"
+  ],
+  "du_doan": [
+   "ND100-D21-K5-b"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S14",
+  "nhom": "don_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K3-d"
+  ],
+  "du_doan": [
+   "ND168-D6-K5-g"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S15",
+  "nhom": "da_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K2-h",
+   "ND168-D7-K8-b"
+  ],
+  "du_doan": [
+   "ND100-D6-K2-k",
+   "ND100-D6-K6-c"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S16",
+  "nhom": "da_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K3-k",
+   "ND168-D6-K9-b"
+  ],
+  "du_doan": [
+   "ND100-D5-K3-c",
+   "ND100-D5-K5-a"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S17",
+  "nhom": "da_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K5-h",
+   "ND168-D6-K6-a"
+  ],
+  "du_doan": [
+   "ND100-D5-K4-h",
+   "ND100-D5-K6-a"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S18",
+  "nhom": "da_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D18-K5-a",
+   "ND168-D7-K7-c"
+  ],
+  "du_doan": [
+   "ND100-D21-K5-a",
+   "ND100-D6-K4-e"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S19",
+  "nhom": "da_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K11-a",
+   "ND168-D6-K6-a"
+  ],
+  "du_doan": [
+   "ND100-D5-K5-a",
+   "ND100-D5-K6-a"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S20",
+  "nhom": "da_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K2-h",
+   "ND168-D7-K2-i",
+   "ND168-D7-K7-a"
+  ],
+  "du_doan": [
+   "ND168-D6-K2-i",
+   "ND168-D6-K2-k",
+   "ND168-D6-K5-c"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S21",
+  "nhom": "da_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K2-a",
+   "ND168-D6-K5-b"
+  ],
+  "du_doan": [
+   "ND100-D5-K1-c",
+   "ND100-D5-K4-g"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S22",
+  "nhom": "da_loi",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K7-a",
+   "ND168-D7-K9-c"
+  ],
+  "du_doan": [
+   "ND168-D6-K5-b",
+   "ND168-D6-K8-b"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 2
+ },
+ {
+  "id": "S23",
+  "nhom": "gian_tiep",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K7-d"
+  ],
+  "du_doan": [
+   "ND100-D6-K4-i"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S24",
+  "nhom": "gian_tiep",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K9-b"
+  ],
+  "du_doan": [
+   "ND100-D5-K5-a"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S25",
+  "nhom": "gian_tiep",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D18-K2-d"
+  ],
+  "du_doan": [
+   "ND168-D21-K2-a"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 2
+ },
+ {
+  "id": "S26",
+  "nhom": "gian_tiep",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K8"
+  ],
+  "du_doan": [
+   "ND168-D5-K8-a"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S27",
+  "nhom": "gian_tiep",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D12-K10",
+   "ND168-D12-K14-a"
+  ],
+  "du_doan": [
+   "ND100-D21-K2-a"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S28",
+  "nhom": "gian_tiep",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K5-h"
+  ],
+  "du_doan": [
+   "ND100-D5-K4-h"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S29",
+  "nhom": "gian_tiep",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K2-i"
+  ],
+  "du_doan": [
+   "ND100-D6-K2-k"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 2
+ },
+ {
+  "id": "S30",
+  "nhom": "gian_tiep",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K11-dd"
+  ],
+  "du_doan": [
+   "ND100-D5-K6-a"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S31",
+  "nhom": "thieu_thong_tin",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K7-c"
+  ],
+  "du_doan": [
+   "ND100-D6-K4-e"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [
+   "_"
+  ],
+  "hoi_can": [
+   "loai_xe"
+  ],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 2
+ },
+ {
+  "id": "S32",
+  "nhom": "thieu_thong_tin",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K8-b"
+  ],
+  "du_doan": [
+   "ND100-D6-K7-c"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [
+   "_"
+  ],
+  "hoi_can": [
+   "nong_do_con"
+  ],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 2
+ },
+ {
+  "id": "S33",
+  "nhom": "thieu_thong_tin",
+  "dung_het": false,
+  "trang_thai": "khong_phat_hien",
+  "chuan": [
+   "ND168-D6-K5-dd"
+  ],
+  "du_doan": [],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [
+   "_"
+  ],
+  "hoi_can": [
+   "toc_do_thuc_te"
+  ],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 2
+ },
+ {
+  "id": "S34",
+  "nhom": "thieu_thong_tin",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D18-K7-b"
+  ],
+  "du_doan": [
+   "ND100-D21-K5-a"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [
+   "dung_tich"
+  ],
+  "hoi_dung_luc": false,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 2
+ },
+ {
+  "id": "S35",
+  "nhom": "thieu_thong_tin",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D18-K2-c"
+  ],
+  "du_doan": [
+   "ND100-D21-K2-a"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [
+   "loai_giay_to"
+  ],
+  "hoi_dung_luc": false,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 2
+ },
+ {
+  "id": "S36",
+  "nhom": "thieu_thong_tin",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K9-b"
+  ],
+  "du_doan": [
+   "ND100-D5-K5-a"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [
+   "ngay_chinh_xac"
+  ],
+  "hoi_dung_luc": false,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 2
+ },
+ {
+  "id": "S37",
+  "nhom": "thieu_thong_tin",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K2-h"
+  ],
+  "du_doan": [
+   "ND168-D6-K2-k"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [
+   "_"
+  ],
+  "hoi_can": [
+   "mo_ta_hanh_vi"
+  ],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 2
+ },
+ {
+  "id": "S38",
+  "nhom": "thieu_thong_tin",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K6-c",
+   "ND168-D6-K9-b"
+  ],
+  "du_doan": [
+   "ND100-D5-K5-e",
+   "ND100-D5-K6-c"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [
+   "_"
+  ],
+  "hoi_can": [
+   "loai_xe",
+   "nong_do_con"
+  ],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 2
+ },
+ {
+  "id": "S39",
+  "nhom": "khac_thoi_diem",
+  "dung_het": true,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND100-D5-K5-a"
+  ],
+  "du_doan": [
+   "ND100-D5-K5-a"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V2",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S40",
+  "nhom": "khac_thoi_diem",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D6-K9-b"
+  ],
+  "du_doan": [
+   "ND100-D5-K5-a"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S41",
+  "nhom": "khac_thoi_diem",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND100-D6-K7-c"
+  ],
+  "du_doan": [
+   "ND100-D6-K6-c"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V1",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S42",
+  "nhom": "khac_thoi_diem",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND168-D7-K8-b"
+  ],
+  "du_doan": [
+   "ND100-D6-K7-c"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S43",
+  "nhom": "khac_thoi_diem",
+  "dung_het": false,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND100-D6-K3-n"
+  ],
+  "du_doan": [
+   "ND100-D6-K2-i"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V2",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S44",
+  "nhom": "khac_thoi_diem",
+  "dung_het": true,
+  "trang_thai": "ket_luan",
+  "chuan": [
+   "ND100-D6-K2-i"
+  ],
+  "du_doan": [
+   "ND100-D6-K2-i"
+  ],
+  "phien_ban": null,
+  "phien_ban_chuan": "V1",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S45",
+  "nhom": "khong_vi_pham",
+  "dung_het": true,
+  "trang_thai": "khong_phat_hien",
+  "chuan": [],
+  "du_doan": [],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S46",
+  "nhom": "khong_vi_pham",
+  "dung_het": true,
+  "trang_thai": "khong_phat_hien",
+  "chuan": [],
+  "du_doan": [],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 2
+ },
+ {
+  "id": "S47",
+  "nhom": "khong_vi_pham",
+  "dung_het": true,
+  "trang_thai": "khong_phat_hien",
+  "chuan": [],
+  "du_doan": [],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S48",
+  "nhom": "khong_vi_pham",
+  "dung_het": true,
+  "trang_thai": "khong_phat_hien",
+  "chuan": [],
+  "du_doan": [],
+  "phien_ban": null,
+  "phien_ban_chuan": "V3",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S49",
+  "nhom": "khong_vi_pham",
+  "dung_het": true,
+  "trang_thai": "khong_phat_hien",
+  "chuan": [],
+  "du_doan": [],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ },
+ {
+  "id": "S50",
+  "nhom": "khong_vi_pham",
+  "dung_het": true,
+  "trang_thai": "khong_phat_hien",
+  "chuan": [],
+  "du_doan": [],
+  "phien_ban": null,
+  "phien_ban_chuan": "V4",
+  "hoi_dau": [],
+  "hoi_can": [],
+  "hoi_dung_luc": true,
+  "sai_truong": [],
+  "sai_su_kien": [],
+  "thieu_node": [],
+  "hoi_ngoai_du_kien": [],
+  "so_luot": 1
+ }
+]

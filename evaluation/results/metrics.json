@@ -1,0 +1,460 @@
+{
+  "day_du": {
+    "so_tinh_huong": 50,
+    "loi": 0,
+    "hanh_vi_p": 0.963,
+    "hanh_vi_r": 0.9455,
+    "hanh_vi_f1": 0.9541,
+    "dieu_khoan_p": 0.9444,
+    "dieu_khoan_r": 0.9273,
+    "dieu_khoan_f1": 0.9358,
+    "khop_tron_ven": 0.9,
+    "khung_phat_acc": 1.0,
+    "phien_ban_acc": 0.9787,
+    "hoi_dung_luc": 0.76,
+    "hoi_thua": 9,
+    "hoi_bo_sot": 3,
+    "hoi_dung_luc_tru_xac_nhan": 0.88,
+    "hoi_xac_nhan_luot_dau": 6,
+    "dan_sai_luat": 0.0556,
+    "dan_het_hieu_luc": 0.0185,
+    "tra_loi_nhac_van_ban_het_hieu_luc": 1,
+    "truong_f1": {
+      "dung_tich_xi_lanh": 1.0,
+      "loai_xe": 1.0,
+      "ngay": 0.9167,
+      "nong_do_con_khi_tho": 1.0,
+      "toc_do_thuc_te": 1.0,
+      "toc_do_toi_da": 1.0
+    },
+    "su_kien_acc": 0.9302,
+    "node_recall": 0.9545,
+    "do_tre_tb_s": 14.766,
+    "do_tre_p95_s": 34.507,
+    "tg_tinh_huong_tb_s": 21.85,
+    "theo_nhom": {
+      "da_loi": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 1.0,
+        "khop_tron_ven": 1.0,
+        "hoi_dung_luc": 0.75
+      },
+      "don_loi": {
+        "n": 14,
+        "loi": 0,
+        "dieu_khoan_f1": 0.9655,
+        "khop_tron_ven": 0.9286,
+        "hoi_dung_luc": 0.9286
+      },
+      "gian_tiep": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.9412,
+        "khop_tron_ven": 0.875,
+        "hoi_dung_luc": 0.5
+      },
+      "khac_thoi_diem": {
+        "n": 6,
+        "loi": 0,
+        "dieu_khoan_f1": 1.0,
+        "khop_tron_ven": 1.0,
+        "hoi_dung_luc": 1.0
+      },
+      "khong_vi_pham": {
+        "n": 6,
+        "loi": 0,
+        "dieu_khoan_f1": 1.0,
+        "khop_tron_ven": 1.0,
+        "hoi_dung_luc": 0.6667
+      },
+      "thieu_thong_tin": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.7059,
+        "khop_tron_ven": 0.625,
+        "hoi_dung_luc": 0.625
+      }
+    }
+  },
+  "khong_normalizer": {
+    "so_tinh_huong": 50,
+    "loi": 0,
+    "hanh_vi_p": 0.9565,
+    "hanh_vi_r": 0.8,
+    "hanh_vi_f1": 0.8713,
+    "dieu_khoan_p": 0.9348,
+    "dieu_khoan_r": 0.7818,
+    "dieu_khoan_f1": 0.8515,
+    "khop_tron_ven": 0.74,
+    "khung_phat_acc": 1.0,
+    "phien_ban_acc": 0.9783,
+    "hoi_dung_luc": 0.74,
+    "hoi_thua": 10,
+    "hoi_bo_sot": 3,
+    "hoi_dung_luc_tru_xac_nhan": 0.86,
+    "hoi_xac_nhan_luot_dau": 6,
+    "dan_sai_luat": 0.0652,
+    "dan_het_hieu_luc": 0.0217,
+    "tra_loi_nhac_van_ban_het_hieu_luc": 1,
+    "truong_f1": {
+      "dung_tich_xi_lanh": 1.0,
+      "loai_xe": 1.0,
+      "ngay": 0.8696,
+      "nong_do_con_khi_tho": 0.0,
+      "toc_do_thuc_te": 1.0,
+      "toc_do_toi_da": 1.0
+    },
+    "su_kien_acc": 0.9302,
+    "node_recall": 0.9545,
+    "do_tre_tb_s": 5.189,
+    "do_tre_p95_s": 14.091,
+    "tg_tinh_huong_tb_s": 8.1,
+    "theo_nhom": {
+      "da_loi": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.9375,
+        "khop_tron_ven": 0.75,
+        "hoi_dung_luc": 0.75
+      },
+      "don_loi": {
+        "n": 14,
+        "loi": 0,
+        "dieu_khoan_f1": 0.8889,
+        "khop_tron_ven": 0.7857,
+        "hoi_dung_luc": 0.8571
+      },
+      "gian_tiep": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.9412,
+        "khop_tron_ven": 0.875,
+        "hoi_dung_luc": 0.5
+      },
+      "khac_thoi_diem": {
+        "n": 6,
+        "loi": 0,
+        "dieu_khoan_f1": 0.8,
+        "khop_tron_ven": 0.6667,
+        "hoi_dung_luc": 1.0
+      },
+      "khong_vi_pham": {
+        "n": 6,
+        "loi": 0,
+        "dieu_khoan_f1": 1.0,
+        "khop_tron_ven": 1.0,
+        "hoi_dung_luc": 0.6667
+      },
+      "thieu_thong_tin": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.5333,
+        "khop_tron_ven": 0.375,
+        "hoi_dung_luc": 0.625
+      }
+    }
+  },
+  "khong_entity_linker": {
+    "so_tinh_huong": 50,
+    "loi": 0,
+    "hanh_vi_p": 1.0,
+    "hanh_vi_r": 0.0364,
+    "hanh_vi_f1": 0.0702,
+    "dieu_khoan_p": 1.0,
+    "dieu_khoan_r": 0.0364,
+    "dieu_khoan_f1": 0.0702,
+    "khop_tron_ven": 0.14,
+    "khung_phat_acc": 1.0,
+    "phien_ban_acc": 1.0,
+    "hoi_dung_luc": 0.16,
+    "hoi_thua": 34,
+    "hoi_bo_sot": 8,
+    "hoi_dung_luc_tru_xac_nhan": 0.18,
+    "hoi_xac_nhan_luot_dau": 1,
+    "dan_sai_luat": 0.0,
+    "dan_het_hieu_luc": 0.0,
+    "tra_loi_nhac_van_ban_het_hieu_luc": 0,
+    "truong_f1": {
+      "dung_tich_xi_lanh": 0.8,
+      "loai_xe": 0.04,
+      "ngay": 0.9167,
+      "nong_do_con_khi_tho": 0.8571,
+      "toc_do_thuc_te": 0.9091,
+      "toc_do_toi_da": 0.9091
+    },
+    "su_kien_acc": 0.9302,
+    "node_recall": 0.8409,
+    "do_tre_tb_s": 5.597,
+    "do_tre_p95_s": 34.8,
+    "tg_tinh_huong_tb_s": 22.17,
+    "theo_nhom": {
+      "da_loi": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.0,
+        "khop_tron_ven": 0.0,
+        "hoi_dung_luc": 0.0
+      },
+      "don_loi": {
+        "n": 14,
+        "loi": 0,
+        "dieu_khoan_f1": 0.0,
+        "khop_tron_ven": 0.0,
+        "hoi_dung_luc": 0.0714
+      },
+      "gian_tiep": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.3636,
+        "khop_tron_ven": 0.125,
+        "hoi_dung_luc": 0.125
+      },
+      "khac_thoi_diem": {
+        "n": 6,
+        "loi": 0,
+        "dieu_khoan_f1": 0.0,
+        "khop_tron_ven": 0.0,
+        "hoi_dung_luc": 0.1667
+      },
+      "khong_vi_pham": {
+        "n": 6,
+        "loi": 0,
+        "dieu_khoan_f1": 1.0,
+        "khop_tron_ven": 1.0,
+        "hoi_dung_luc": 0.8333
+      },
+      "thieu_thong_tin": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.0,
+        "khop_tron_ven": 0.0,
+        "hoi_dung_luc": 0.0
+      }
+    }
+  },
+  "khong_fact_inducer": {
+    "so_tinh_huong": 50,
+    "loi": 0,
+    "hanh_vi_p": 0.9783,
+    "hanh_vi_r": 0.8182,
+    "hanh_vi_f1": 0.8911,
+    "dieu_khoan_p": 0.9565,
+    "dieu_khoan_r": 0.8,
+    "dieu_khoan_f1": 0.8713,
+    "khop_tron_ven": 0.82,
+    "khung_phat_acc": 1.0,
+    "phien_ban_acc": 0.9773,
+    "hoi_dung_luc": 0.76,
+    "hoi_thua": 10,
+    "hoi_bo_sot": 2,
+    "hoi_dung_luc_tru_xac_nhan": 0.88,
+    "hoi_xac_nhan_luot_dau": 6,
+    "dan_sai_luat": 0.0435,
+    "dan_het_hieu_luc": 0.0217,
+    "tra_loi_nhac_van_ban_het_hieu_luc": 1,
+    "truong_f1": {
+      "dung_tich_xi_lanh": 1.0,
+      "loai_xe": 1.0,
+      "ngay": 0.9167,
+      "nong_do_con_khi_tho": 1.0,
+      "toc_do_thuc_te": 1.0,
+      "toc_do_toi_da": 1.0
+    },
+    "su_kien_acc": 0.6977,
+    "node_recall": 0.7955,
+    "do_tre_tb_s": 17.884,
+    "do_tre_p95_s": 11.24,
+    "tg_tinh_huong_tb_s": 31.48,
+    "theo_nhom": {
+      "da_loi": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.9032,
+        "khop_tron_ven": 0.75,
+        "hoi_dung_luc": 0.75
+      },
+      "don_loi": {
+        "n": 14,
+        "loi": 0,
+        "dieu_khoan_f1": 0.9286,
+        "khop_tron_ven": 0.9286,
+        "hoi_dung_luc": 0.9286
+      },
+      "gian_tiep": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.6154,
+        "khop_tron_ven": 0.5,
+        "hoi_dung_luc": 0.5
+      },
+      "khac_thoi_diem": {
+        "n": 6,
+        "loi": 0,
+        "dieu_khoan_f1": 1.0,
+        "khop_tron_ven": 1.0,
+        "hoi_dung_luc": 1.0
+      },
+      "khong_vi_pham": {
+        "n": 6,
+        "loi": 0,
+        "dieu_khoan_f1": 1.0,
+        "khop_tron_ven": 1.0,
+        "hoi_dung_luc": 0.5
+      },
+      "thieu_thong_tin": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.8235,
+        "khop_tron_ven": 0.75,
+        "hoi_dung_luc": 0.75
+      }
+    }
+  },
+  "khong_kiem_chung": {
+    "so_tinh_huong": 50,
+    "loi": 0,
+    "hanh_vi_p": 0.963,
+    "hanh_vi_r": 0.9455,
+    "hanh_vi_f1": 0.9541,
+    "dieu_khoan_p": 0.9444,
+    "dieu_khoan_r": 0.9273,
+    "dieu_khoan_f1": 0.9358,
+    "khop_tron_ven": 0.9,
+    "khung_phat_acc": 1.0,
+    "phien_ban_acc": 0.9787,
+    "hoi_dung_luc": 0.76,
+    "hoi_thua": 9,
+    "hoi_bo_sot": 3,
+    "hoi_dung_luc_tru_xac_nhan": 0.88,
+    "hoi_xac_nhan_luot_dau": 6,
+    "dan_sai_luat": 0.0556,
+    "dan_het_hieu_luc": 0.0185,
+    "tra_loi_nhac_van_ban_het_hieu_luc": 1,
+    "truong_f1": {
+      "dung_tich_xi_lanh": 1.0,
+      "loai_xe": 1.0,
+      "ngay": 0.9167,
+      "nong_do_con_khi_tho": 1.0,
+      "toc_do_thuc_te": 1.0,
+      "toc_do_toi_da": 1.0
+    },
+    "su_kien_acc": 0.9302,
+    "node_recall": 0.9545,
+    "do_tre_tb_s": 3.744,
+    "do_tre_p95_s": 6.86,
+    "tg_tinh_huong_tb_s": 5.54,
+    "theo_nhom": {
+      "da_loi": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 1.0,
+        "khop_tron_ven": 1.0,
+        "hoi_dung_luc": 0.75
+      },
+      "don_loi": {
+        "n": 14,
+        "loi": 0,
+        "dieu_khoan_f1": 0.9655,
+        "khop_tron_ven": 0.9286,
+        "hoi_dung_luc": 0.9286
+      },
+      "gian_tiep": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.9412,
+        "khop_tron_ven": 0.875,
+        "hoi_dung_luc": 0.5
+      },
+      "khac_thoi_diem": {
+        "n": 6,
+        "loi": 0,
+        "dieu_khoan_f1": 1.0,
+        "khop_tron_ven": 1.0,
+        "hoi_dung_luc": 1.0
+      },
+      "khong_vi_pham": {
+        "n": 6,
+        "loi": 0,
+        "dieu_khoan_f1": 1.0,
+        "khop_tron_ven": 1.0,
+        "hoi_dung_luc": 0.6667
+      },
+      "thieu_thong_tin": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.7059,
+        "khop_tron_ven": 0.625,
+        "hoi_dung_luc": 0.625
+      }
+    }
+  },
+  "baseline_llm": {
+    "so_tinh_huong": 50,
+    "loi": 0,
+    "dieu_khoan_p": 0.0377,
+    "dieu_khoan_r": 0.0364,
+    "dieu_khoan_f1": 0.037,
+    "khop_tron_ven": 0.16,
+    "khung_phat_acc": 0.5,
+    "phien_ban_acc": null,
+    "hoi_dung_luc": 0.94,
+    "hoi_thua": 0,
+    "hoi_bo_sot": 3,
+    "hoi_dung_luc_tru_xac_nhan": 0.94,
+    "hoi_xac_nhan_luot_dau": 0,
+    "dan_sai_luat": 0.9623,
+    "dan_het_hieu_luc": 0.717,
+    "tra_loi_nhac_van_ban_het_hieu_luc": 14,
+    "truong_f1": {},
+    "su_kien_acc": null,
+    "node_recall": null,
+    "do_tre_tb_s": 5.117,
+    "do_tre_p95_s": 42.33,
+    "tg_tinh_huong_tb_s": 6.35,
+    "theo_nhom": {
+      "da_loi": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.0,
+        "khop_tron_ven": 0.0,
+        "hoi_dung_luc": 1.0
+      },
+      "don_loi": {
+        "n": 14,
+        "loi": 0,
+        "dieu_khoan_f1": 0.0,
+        "khop_tron_ven": 0.0,
+        "hoi_dung_luc": 1.0
+      },
+      "gian_tiep": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.0,
+        "khop_tron_ven": 0.0,
+        "hoi_dung_luc": 1.0
+      },
+      "khac_thoi_diem": {
+        "n": 6,
+        "loi": 0,
+        "dieu_khoan_f1": 0.3333,
+        "khop_tron_ven": 0.3333,
+        "hoi_dung_luc": 1.0
+      },
+      "khong_vi_pham": {
+        "n": 6,
+        "loi": 0,
+        "dieu_khoan_f1": 1.0,
+        "khop_tron_ven": 1.0,
+        "hoi_dung_luc": 1.0
+      },
+      "thieu_thong_tin": {
+        "n": 8,
+        "loi": 0,
+        "dieu_khoan_f1": 0.0,
+        "khop_tron_ven": 0.0,
+        "hoi_dung_luc": 0.625
+      }
+    }
+  }
+}

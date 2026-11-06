@@ -253,7 +253,9 @@ class GeminiClient(LLMClient):
                 raise TransientError(f"HTTP {code}") from e
             raise LLMError(f"Gemini lỗi {code}: {str(e)[:300]}") from e
         except Exception as e:  # noqa: BLE001 — lỗi mạng/timeout của httpx
-            if "timeout" in type(e).__name__.lower() or "connect" in type(e).__name__.lower():
+            # lỗi mạng tạm thời: hết giờ, không kết nối được, máy chủ ngắt kết nối giữa chừng (ReadError/WinError 10054)
+            ten = type(e).__name__.lower()
+            if any(x in ten for x in ("timeout", "connect", "readerror", "remoteprotocol", "networkerror")):
                 raise TransientError(type(e).__name__) from e
             raise
         text = resp.text

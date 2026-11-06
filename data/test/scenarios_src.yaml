@@ -1,0 +1,268 @@
+# Bộ tình huống đánh giá — NGUỒN do người gán nhãn (xem data/test/annotation_guide.md).
+# `python -m evaluation.sinh_nhan` sinh data/test/scenarios.jsonl: thêm điều khoản + khung phạt chuẩn (tra từ
+# ontology/rule_registry.yaml theo mã hành vi + phiên bản) và các node dấu hiệu kỳ vọng.
+#
+# Ngày "hôm nay" khi chạy đánh giá cố định là 2026-11-06 ("hôm qua" = 2026-11-05 → V4; không nêu ngày → V4).
+# Khóa tra_loi = tên trường câu hỏi của slot_checker (config/slots.yaml); người dùng mô phỏng trả lời theo đó.
+
+hom_nay: "2026-11-06"
+
+loai_xe:            # tập lớp chấp nhận cho trường loai_xe
+  OTO: [OTo, NhomXeOTo, XeOToChoNguoi]
+  XM: [NhomXeMoTo, XeMoToHaiBanh, XeMoTo]
+  XM_MOTO: [XeMoToHaiBanh, XeMoTo]
+  XE_DAP: [XeDap]
+
+tinh_huong:
+  # ======================= ĐƠN LỖI =======================
+  - id: S01
+    nhom: don_loi
+    luot: ["Ngày 12/4/2025 tôi lái ô tô, bị thổi nồng độ cồn 0,2 miligam/lít khí thở."]
+    nhan: {phien_ban: V3, hanh_vi: [OT_CON_1], truong: {loai_xe: OTO, ngay: "2025-04-12", nong_do_con_khi_tho: 0.2}}
+  - id: S02
+    nhom: don_loi
+    luot: ["Hôm qua tôi đi xe máy về nhà, CSGT đo nồng độ cồn được 0,45 mg/l khí thở."]
+    nhan: {phien_ban: V4, hanh_vi: [XM_CON_3], truong: {loai_xe: XM, ngay: "2026-11-05", nong_do_con_khi_tho: 0.45}}
+  - id: S03
+    nhom: don_loi
+    luot: ["Ngày 20/6/2025 tôi lái ô tô trên đường có biển báo tốc độ tối đa 60 km/h, máy bắn tốc độ ghi 78 km/h."]
+    nhan: {phien_ban: V3, hanh_vi: [OT_TD_10_20],
+           truong: {loai_xe: OTO, ngay: "2025-06-20", toc_do_thuc_te: 78, toc_do_toi_da: 60}}
+  - id: S04
+    nhom: don_loi
+    luot: ["Hôm qua tôi chạy xe máy 75 km/h trên đoạn đường có biển giới hạn 50 km/h."]
+    nhan: {phien_ban: V4, hanh_vi: [XM_TD_TREN_20], truong: {loai_xe: XM, toc_do_thuc_te: 75, toc_do_toi_da: 50}}
+  - id: S05
+    nhom: don_loi
+    luot: ["Ngày 3/3/2025 tôi đi xe máy vượt đèn đỏ ở ngã tư Hàng Xanh."]
+    nhan: {phien_ban: V3, hanh_vi: [XM_DEN_DO], truong: {loai_xe: XM, ngay: "2025-03-03"},
+           su_kien: {khongChapHanhDenTinHieu: true}}
+  - id: S06
+    nhom: don_loi
+    luot: ["Ngày 1/10/2026 tôi lái ô tô đi ngược chiều vào đường một chiều."]
+    nhan: {phien_ban: V4, hanh_vi: [OT_NGUOC_CHIEU], truong: {loai_xe: OTO, ngay: "2026-10-01"},
+           su_kien: {diNguocChieu: true}}
+  - id: S07
+    nhom: don_loi
+    luot: ["Ngày 15/5/2025 tôi chạy xe máy không đội mũ bảo hiểm thì bị dừng xe."]
+    nhan: {phien_ban: V3, hanh_vi: [XM_MU_BAO_HIEM], truong: {loai_xe: XM}, su_kien: {doiMuBaoHiem: false}}
+  - id: S08
+    nhom: don_loi
+    luot: ["Hôm qua tôi vừa lái ô tô vừa cầm điện thoại nhắn tin."]
+    nhan: {phien_ban: V4, hanh_vi: [OT_DIEN_THOAI], truong: {loai_xe: OTO}, su_kien: {dungTaySuDungDienThoai: true}}
+  - id: S09
+    nhom: don_loi
+    luot: ["Ngày 8/8/2025 tôi lái ô tô không thắt dây an toàn."]
+    nhan: {phien_ban: V3, hanh_vi: [OT_DAY_AN_TOAN], truong: {loai_xe: OTO}, su_kien: {thatDayAnToan: false}}
+  - id: S10
+    nhom: don_loi
+    luot: ["Ngày 20/9/2026 tôi đi xe máy chở bạn ngồi sau không đội mũ bảo hiểm, còn tôi thì có đội."]
+    nhan: {phien_ban: V4, hanh_vi: [XM_CHO_NGUOI_KHONG_MU], truong: {loai_xe: XM},
+           su_kien: {nguoiNgoiSauDoiMuBaoHiem: false}}
+  - id: S11
+    nhom: don_loi
+    luot: ["Ngày 2/2/2025 tôi lái ô tô và từ chối thổi nồng độ cồn khi CSGT yêu cầu."]
+    nhan: {phien_ban: V3, hanh_vi: [OT_TU_CHOI_DO_CON], truong: {loai_xe: OTO}, su_kien: {tuChoiKiemTraNongDoCon: true}}
+  - id: S12
+    nhom: don_loi
+    luot: ["Hôm qua tôi đi xe máy lạng lách đánh võng trên cầu."]
+    nhan: {phien_ban: V4, hanh_vi: [XM_LANG_LACH], truong: {loai_xe: XM}, su_kien: {langLachDanhVong: true}}
+  - id: S13
+    nhom: don_loi
+    luot: ["Ngày 11/11/2025 tôi lái ô tô mà không có giấy phép lái xe."]
+    nhan: {phien_ban: V3, hanh_vi: [OT_KHONG_GPLX], truong: {loai_xe: OTO}, su_kien: {coGPLX: false}}
+  - id: S14
+    nhom: don_loi
+    luot: ["Ngày 5/10/2026 tôi đi xe máy nhưng đi vào làn đường dành riêng cho ô tô."]
+    nhan: {phien_ban: V4, hanh_vi: [XM_SAI_PHAN_LAN], truong: {loai_xe: XM}, su_kien: {diSaiPhanDuongLanDuong: true}}
+
+  # ======================= ĐA LỖI =======================
+  - id: S15
+    nhom: da_loi
+    luot: ["Ngày 14/2/2025 tôi chạy xe máy sau khi uống bia, bị đo 0,3 mg/l khí thở, lại không đội mũ bảo hiểm."]
+    nhan: {phien_ban: V3, hanh_vi: [XM_CON_2, XM_MU_BAO_HIEM],
+           truong: {loai_xe: XM, nong_do_con_khi_tho: 0.3}, su_kien: {doiMuBaoHiem: false}}
+  - id: S16
+    nhom: da_loi
+    luot: ["Hôm qua tôi lái ô tô vượt đèn đỏ và không thắt dây an toàn."]
+    nhan: {phien_ban: V4, hanh_vi: [OT_DEN_DO, OT_DAY_AN_TOAN], truong: {loai_xe: OTO},
+           su_kien: {khongChapHanhDenTinHieu: true, thatDayAnToan: false}}
+  - id: S17
+    nhom: da_loi
+    luot: ["Ngày 9/9/2025 tôi chạy ô tô 92 km/h ở đoạn có biển 60 km/h, vừa chạy vừa cầm điện thoại nghe gọi."]
+    nhan: {phien_ban: V3, hanh_vi: [OT_TD_20_35, OT_DIEN_THOAI],
+           truong: {loai_xe: OTO, toc_do_thuc_te: 92, toc_do_toi_da: 60}, su_kien: {dungTaySuDungDienThoai: true}}
+  - id: S18
+    nhom: da_loi
+    luot: ["Ngày 30/9/2026 tôi đi xe máy 110 phân khối, chưa có bằng lái, còn vượt đèn đỏ."]
+    nhan: {phien_ban: V4, hanh_vi: [XM_DEN_DO, XM_KHONG_GPLX_NHO],
+           truong: {loai_xe: XM_MOTO, dung_tich_xi_lanh: 110}, su_kien: {coGPLX: false, khongChapHanhDenTinHieu: true}}
+  - id: S19
+    nhom: da_loi
+    luot: ["Ngày 21/3/2025 tôi lái ô tô có nồng độ cồn 0,5 mg/l khí thở và chạy 72 km/h ở đường có biển 50 km/h."]
+    nhan: {phien_ban: V3, hanh_vi: [OT_CON_3, OT_TD_20_35],
+           truong: {loai_xe: OTO, nong_do_con_khi_tho: 0.5, toc_do_thuc_te: 72, toc_do_toi_da: 50}}
+  - id: S20
+    nhom: da_loi
+    luot: ["Hôm qua tôi đi xe máy chở vợ, cả hai không đội mũ bảo hiểm, tôi còn đi ngược chiều."]
+    nhan: {phien_ban: V4, hanh_vi: [XM_MU_BAO_HIEM, XM_CHO_NGUOI_KHONG_MU, XM_NGUOC_CHIEU], truong: {loai_xe: XM},
+           su_kien: {doiMuBaoHiem: false, nguoiNgoiSauDoiMuBaoHiem: false, diNguocChieu: true}}
+  - id: S21
+    nhom: da_loi
+    luot: ["Ngày 6/6/2025 tôi lái ô tô chuyển làn không bật xi nhan rồi chạy vào làn dành cho xe buýt."]
+    nhan: {phien_ban: V3, hanh_vi: [OT_CHUYEN_LAN, OT_SAI_PHAN_LAN], truong: {loai_xe: OTO},
+           su_kien: {chuyenLanSaiQuyDinh: true, diSaiPhanDuongLanDuong: true}}
+  - id: S22
+    nhom: da_loi
+    luot: ["Ngày 1/11/2026 tôi đi xe máy ngược chiều, va chạm với một người đi xe đạp rồi bỏ chạy."]
+    nhan: {phien_ban: V4, hanh_vi: [XM_NGUOC_CHIEU, XM_GAY_TAI_NAN_BO_TRON], truong: {loai_xe: XM},
+           su_kien: {diNguocChieu: true, gayTaiNan: true, dungLaiSauTaiNan: false}}
+    tra_loi: {tai_nan: "Tôi gây va chạm và không dừng lại, bỏ đi luôn."}
+
+  # ======================= GIÁN TIẾP =======================
+  - id: S23
+    nhom: gian_tiep
+    luot: ["Hôm qua thấy CSGT vẫy dừng xe thì tôi rồ ga xe máy chạy luôn."]
+    nhan: {phien_ban: V4, hanh_vi: [XM_HIEU_LENH_CSGT], truong: {loai_xe: XM},
+           su_kien: {coHieuLenhNguoiDieuKhienGT: true, chapHanhHieuLenh: false}}
+  - id: S24
+    nhom: gian_tiep
+    luot: ["Ngày 10/5/2025 tôi lái ô tô, đèn đã chuyển đỏ được vài giây nhưng tôi vẫn cố chạy qua ngã tư."]
+    nhan: {phien_ban: V3, hanh_vi: [OT_DEN_DO], truong: {loai_xe: OTO}, su_kien: {khongChapHanhDenTinHieu: true}}
+  - id: S25
+    nhom: gian_tiep
+    luot: ["Hôm qua tôi chạy chiếc Wave 110 phân khối chở hàng thuê cho một ứng dụng giao hàng, bị kiểm tra thì mới biết để quên bằng lái ở nhà."]
+    nhan: {phien_ban: V4, hanh_vi: [XM_KHONG_MANG_GPLX], truong: {loai_xe: XM_MOTO, dung_tich_xi_lanh: 110},
+           su_kien: {coGPLX: true, mangTheoGPLX: false, kinhDoanhVanTai: true}}
+    tra_loi: {kinh_doanh_van_tai: "Có, tôi chở hàng thuê."}
+  - id: S26
+    nhom: gian_tiep
+    luot: ["Ngày 25/10/2026 tôi lái ô tô quẹt vào xe máy của người khác làm họ ngã, tôi sợ quá nên chạy luôn không dừng lại."]
+    nhan: {phien_ban: V4, hanh_vi: [OT_GAY_TAI_NAN_BO_TRON], truong: {loai_xe: OTO},
+           su_kien: {gayTaiNan: true, dungLaiSauTaiNan: false}}
+  - id: S27
+    nhom: gian_tiep
+    luot: ["Ngày 4/4/2025 tôi đi xe máy, CSGT yêu cầu xuất trình giấy tờ nhưng tôi không đưa mà còn lao vào xô đẩy cán bộ."]
+    nhan: {phien_ban: V3, hanh_vi: [KHONG_CHAP_HANH_KIEM_TRA, CHONG_DOI_CONG_VU], truong: {loai_xe: XM},
+           su_kien: {coYeuCauKiemTraCuaNguoiThiHanhCongVu: true, chapHanhYeuCauKiemTra: false,
+                     chongDoiNguoiThiHanhCongVu: true}}
+  - id: S28
+    nhom: gian_tiep
+    luot: ["Hôm qua tôi lái ô tô, vừa đi vừa cầm điện thoại trên tay để xem bản đồ."]
+    nhan: {phien_ban: V4, hanh_vi: [OT_DIEN_THOAI], truong: {loai_xe: OTO}, su_kien: {dungTaySuDungDienThoai: true}}
+  - id: S29
+    nhom: gian_tiep
+    luot: ["Ngày 7/7/2025 tôi đi xe máy, con tôi ngồi sau không chịu đội mũ bảo hiểm nhưng tôi vẫn chở đi."]
+    nhan: {phien_ban: V3, hanh_vi: [XM_CHO_NGUOI_KHONG_MU], truong: {loai_xe: XM},
+           su_kien: {nguoiNgoiSauDoiMuBaoHiem: false}}
+    tra_loi: {tuoi_nguoi_lai: "Tôi 35 tuổi."}
+  - id: S30
+    nhom: gian_tiep
+    luot: ["Hôm qua tôi lái ô tô trên đường cao tốc, đi lố lối ra nên tôi chạy ngược chiều một đoạn để quay lại."]
+    nhan: {phien_ban: V4, hanh_vi: [OT_NGUOC_CHIEU_CAO_TOC], truong: {loai_xe: OTO}, su_kien: {diNguocChieu: true}}
+
+  # ======================= THIẾU THÔNG TIN (phải hỏi lại) =======================
+  - id: S31
+    nhom: thieu_thong_tin
+    luot: ["Tôi bị phạt vì vượt đèn đỏ."]
+    tra_loi: {loai_xe: "Tôi đi xe máy."}
+    nhan: {phien_ban: V4, hanh_vi: [XM_DEN_DO], hoi_luot_dau: [loai_xe], truong: {loai_xe: XM}}
+  - id: S32
+    nhom: thieu_thong_tin
+    luot: ["Ngày 1/3/2025 tôi bị CSGT thổi nồng độ cồn, tôi đi xe máy."]
+    tra_loi: {nong_do_con: "Kết quả là 0,3 mg/lít khí thở.", don_vi_nong_do: "mg trên một lít khí thở"}
+    nhan: {phien_ban: V3, hanh_vi: [XM_CON_2], hoi_luot_dau: [nong_do_con], truong: {loai_xe: XM, nong_do_con_khi_tho: 0.3}}
+  - id: S33
+    nhom: thieu_thong_tin
+    luot: ["Hôm qua tôi bị bắn tốc độ khi lái ô tô."]
+    tra_loi: {toc_do_thuc_te: "Tôi chạy 75 km/h.", toc_do_toi_da: "Đoạn đó có biển báo tốc độ tối đa 60 km/h.",
+              dac_diem_duong: "Đoạn đó có biển báo tốc độ tối đa 60 km/h."}
+    nhan: {phien_ban: V4, hanh_vi: [OT_TD_10_20], hoi_luot_dau: [toc_do_thuc_te],
+           truong: {loai_xe: OTO, toc_do_thuc_te: 75, toc_do_toi_da: 60}}
+  - id: S34
+    nhom: thieu_thong_tin
+    luot: ["Ngày 9/1/2025 tôi đi xe máy và bị phạt vì không có giấy phép lái xe."]
+    tra_loi: {dung_tich: "Xe 150 phân khối."}
+    nhan: {phien_ban: V3, hanh_vi: [XM_KHONG_GPLX_LON], hoi_luot_dau: [dung_tich],
+           truong: {loai_xe: XM_MOTO, dung_tich_xi_lanh: 150}, su_kien: {coGPLX: false}}
+  - id: S35
+    nhom: thieu_thong_tin
+    luot: ["Hôm qua tôi đi xe máy chở hàng thuê, bị kiểm tra thì không có giấy tờ xe."]
+    tra_loi: {loai_giay_to: "Tôi có giấy đăng ký xe nhưng quên mang theo.", kinh_doanh_van_tai: "Có, tôi chở hàng thuê."}
+    nhan: {phien_ban: V4, hanh_vi: [XM_KHONG_MANG_DANG_KY], hoi_luot_dau: [loai_giay_to], truong: {loai_xe: XM},
+           su_kien: {coDangKyXe: true, mangTheoDangKyXe: false, kinhDoanhVanTai: true}}
+  - id: S36
+    nhom: thieu_thong_tin
+    luot: ["Khoảng từ ngày 28/12/2024 đến ngày 3/1/2025 tôi lái ô tô vượt đèn đỏ, tôi không nhớ chính xác hôm nào."]
+    tra_loi: {ngay_chinh_xac: "Ngày 3/1/2025."}
+    nhan: {phien_ban: V3, hanh_vi: [OT_DEN_DO], hoi_luot_dau: [ngay_chinh_xac], truong: {loai_xe: OTO, ngay: "2025-01-03"}}
+  - id: S37
+    nhom: thieu_thong_tin
+    luot: ["Hôm qua tôi chạy xe máy và bị CSGT dừng xe."]
+    tra_loi: {mo_ta_hanh_vi: "Tôi không đội mũ bảo hiểm."}
+    nhan: {phien_ban: V4, hanh_vi: [XM_MU_BAO_HIEM], hoi_luot_dau: [mo_ta_hanh_vi], truong: {loai_xe: XM},
+           su_kien: {doiMuBaoHiem: false}}
+  - id: S38
+    nhom: thieu_thong_tin
+    luot: ["Hôm qua tôi lái xe vượt đèn đỏ, bị đo nồng độ cồn nữa."]
+    tra_loi: {loai_xe: "Tôi lái ô tô.", nong_do_con: "Kết quả 0,15 mg/lít khí thở.",
+              don_vi_nong_do: "mg trên một lít khí thở"}
+    nhan: {phien_ban: V4, hanh_vi: [OT_DEN_DO, OT_CON_1], hoi_luot_dau: [loai_xe, nong_do_con],
+           truong: {loai_xe: OTO, nong_do_con_khi_tho: 0.15}}
+
+  # ======================= KHÁC THỜI ĐIỂM (cùng hành vi, khác phiên bản) =======================
+  - id: S39
+    nhom: khac_thoi_diem
+    luot: ["Ngày 15/6/2023 tôi lái ô tô vượt đèn đỏ."]
+    nhan: {phien_ban: V2, hanh_vi: [OT_DEN_DO], truong: {loai_xe: OTO, ngay: "2023-06-15"}}
+  - id: S40
+    nhom: khac_thoi_diem
+    luot: ["Ngày 15/6/2025 tôi lái ô tô vượt đèn đỏ."]
+    nhan: {phien_ban: V3, hanh_vi: [OT_DEN_DO], truong: {loai_xe: OTO, ngay: "2025-06-15"}}
+  - id: S41
+    nhom: khac_thoi_diem
+    luot: ["Ngày 10/10/2021 tôi đi xe máy có nồng độ cồn 0,3 mg/l khí thở."]
+    nhan: {phien_ban: V1, hanh_vi: [XM_CON_2], truong: {loai_xe: XM, ngay: "2021-10-10", nong_do_con_khi_tho: 0.3}}
+  - id: S42
+    nhom: khac_thoi_diem
+    luot: ["Ngày 10/10/2026 tôi đi xe máy có nồng độ cồn 0,3 mg/l khí thở."]
+    nhan: {phien_ban: V4, hanh_vi: [XM_CON_2], truong: {loai_xe: XM, ngay: "2026-10-10", nong_do_con_khi_tho: 0.3}}
+  - id: S43
+    nhom: khac_thoi_diem
+    luot: ["Ngày 1/12/2024 tôi chạy xe máy không đội mũ bảo hiểm."]
+    nhan: {phien_ban: V2, hanh_vi: [XM_MU_BAO_HIEM], truong: {loai_xe: XM, ngay: "2024-12-01"}}
+  - id: S44
+    nhom: khac_thoi_diem
+    luot: ["Ngày 1/12/2020 tôi chạy xe máy không đội mũ bảo hiểm."]
+    nhan: {phien_ban: V1, hanh_vi: [XM_MU_BAO_HIEM], truong: {loai_xe: XM, ngay: "2020-12-01"}}
+
+  # ======================= KHÔNG VI PHẠM / GÀI BẪY =======================
+  - id: S45
+    nhom: khong_vi_pham
+    luot: ["Hôm qua tôi lái ô tô dừng đúng vạch khi đèn đỏ, đèn xanh mới đi."]
+    nhan: {phien_ban: V4, hanh_vi: [], truong: {loai_xe: OTO}}
+  - id: S46
+    nhom: khong_vi_pham
+    luot: ["Ngày 5/5/2025 tôi uống rượu ở đám cưới nhưng để xe ở nhà, đi taxi về."]
+    tra_loi: {loai_xe: "Tôi không lái xe, tôi đi taxi.", nong_do_con: "Tôi không bị đo vì không lái xe."}
+    nhan: {phien_ban: V3, hanh_vi: []}
+    ghi_chu: "Bẫy: có từ khóa rượu bia nhưng không điều khiển phương tiện"
+  - id: S47
+    nhom: khong_vi_pham
+    luot: ["Hôm qua tôi đi xe máy, lúc đèn chuyển vàng thì xe tôi đã đi qua vạch dừng nên tôi đi tiếp."]
+    nhan: {phien_ban: V4, hanh_vi: [], truong: {loai_xe: XM}}
+    ghi_chu: "Bẫy: đèn vàng khi đã qua vạch dừng thì được đi tiếp"
+  - id: S48
+    nhom: khong_vi_pham
+    luot: ["Ngày 12/12/2025 tôi chạy xe máy 55 km/h ở đoạn đường có biển giới hạn 60 km/h."]
+    nhan: {phien_ban: V3, hanh_vi: [], truong: {loai_xe: XM, toc_do_thuc_te: 55, toc_do_toi_da: 60}}
+    ghi_chu: "Bẫy: có từ khóa tốc độ nhưng không vượt"
+  - id: S49
+    nhom: khong_vi_pham
+    luot: ["Hôm qua tôi đạp xe đạp đi học, không đội mũ bảo hiểm."]
+    nhan: {phien_ban: V4, hanh_vi: [], truong: {loai_xe: XE_DAP}}
+    ghi_chu: "Ngoài phạm vi MVP (xe đạp) — không được kết luận lỗi mũ bảo hiểm của xe máy"
+  - id: S50
+    nhom: khong_vi_pham
+    luot: ["Hôm qua tôi lái ô tô, thắt dây an toàn đầy đủ, mang đủ giấy tờ, bị CSGT dừng kiểm tra hành chính rồi cho đi."]
+    nhan: {phien_ban: V4, hanh_vi: [], truong: {loai_xe: OTO}}

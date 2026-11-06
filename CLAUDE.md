@@ -12,7 +12,8 @@
 - Quyết định đã chốt: không rõ ngày vi phạm → `default_version: current` (phiên bản hiệu lực hôm nay, không cố định V3).
 - Phase 5: fact_inducer (LLM suy ra sự kiện gián tiếp + kiểm tra tất định), fact_builder, pipeline đầu-cuối, CLI — XONG
 - Phase 6: tracer, retriever (tra nguyên văn theo id + FAISS), verbalizer + kiểm tra chống bịa — XONG
-- Phase 7: dialogue manager, FastAPI, giao diện Streamlit hai cột — ĐANG REVIEW
+- Phase 7: dialogue manager, FastAPI, giao diện Streamlit hai cột — XONG
+- Phase 8: bộ tình huống, đánh giá, baseline LLM-only, ablation, results.md — ĐANG LÀM
 - Gốc project = thư mục `DoAn/` (tương ứng `traffic-law-expert/` trong đặc tả).
 - Tên file dữ liệu thô: `data/raw/ND_100.docx`, `ND_123.docx`, `ND_168.docx`.
 
@@ -34,6 +35,8 @@
 - Chạy hệ thống từ CLI: `python -m scripts.chat` (hội thoại) hoặc `python -m scripts.chat -m "..." -m "..."`
   (tùy chọn `--ngay YYYY-MM-DD`, `--hom-nay`, `--khong-suy-ra`, `--khong-dien-dat`, `--json`, `--chi-tiet`)
 - Test: `pytest`
+- Đánh giá: `python -m evaluation.sinh_nhan` (nhãn → data/test/scenarios.jsonl) → `python -m evaluation.ablation`
+  (đầy đủ + ablation + baseline, chạy tiếp được) → `python -m evaluation.bao_cao` (evaluation/results/results.md)
 - Sinh lại articles_v*.jsonl + consolidation_review.md: `python -m src.ingest.build_articles`
 - Kiểm chứng + sinh bảng hành vi MVP: `python -m src.ingest.mvp_report` (→ docs/mvp_behaviors.md)
 - Sinh ontology: `python -m src.kb.build_ontology` (→ ontology/traffic_law.owl, KHÔNG sửa tay file .owl)
@@ -282,3 +285,15 @@ Bắt đầu với **Phase 0**.
   PUT /phien/{id}/ngay, POST /phien/{id}/moi, /dieu-khoan/{id}. Lỗi: 404 phiên, 422 dữ liệu, 503 LLM.
 - `app/streamlit_app.py`: APP_BACKEND=auto|api|truc_tiep; tab Sự kiện (form + data_editor), Cây suy luận (Graphviz
   từ `Trace.do_thi()`), Điều khoản (nguyên văn theo phiên bản), Chi tiết. Test bằng `streamlit.testing.v1.AppTest`.
+
+## Đánh giá (Phase 8)
+- Nguồn nhãn: `data/test/scenarios_src.yaml` (người gán: mã hành vi + phiên bản + trường/sự kiện/câu hỏi kỳ vọng);
+  `evaluation/sinh_nhan.py` tra điều khoản + khung phạt từ rule_registry (không gõ tay số liệu pháp lý). Hướng dẫn:
+  `data/test/annotation_guide.md`. "Hôm nay" khi đánh giá cố định 2026-11-06.
+- `evaluation/run_eval.py`: người dùng mô phỏng trả lời theo `tra_loi[trường]`, xác nhận theo nhãn; tối đa 5 lượt;
+  khởi động sẵn embedding/Java trước khi đo độ trễ; ghi results/<cấu hình>/ket_qua.jsonl, chạy tiếp khi bị ngắt.
+- Cấu hình: day_du (có verbalizer) | khong_normalizer | khong_entity_linker | khong_fact_inducer | khong_kiem_chung
+  (`evaluation/thanh_phan_ablation.py`); baseline: `evaluation/baseline_llm_only.py` (prompt baseline_v1).
+- `evaluation/metrics.py`: F1 hành vi (mã) / điều khoản (id), đúng trọn vẹn, khung phạt, phiên bản, hỏi đúng lúc,
+  dẫn sai / hết hiệu lực, F1 trường, sự kiện, node, độ trễ; `phan_loai_loi` = tầng gây lỗi đầu tiên.
+- Nhận xét viết tay: `evaluation/results/nhan_xet.md` (được chèn vào results.md khi chạy bao_cao).

@@ -51,6 +51,14 @@ Gợi ý "quy định có thể liên quan" (khi không phát hiện vi phạm) 
 `python -m src.explanation.retriever --build` (mô hình bge-m3 trên CPU: có thể mất hàng chục phút). Lần đầu nhánh embedding cần tải
 model `BAAI/bge-m3` (~2 GB).
 
+## Đánh giá
+```powershell
+python -m evaluation.sinh_nhan    # sinh nhãn chuẩn từ data/test/scenarios_src.yaml
+python -m evaluation.ablation     # hệ thống đầy đủ + ablation + baseline chỉ-LLM (~1 giờ với gói Gemini miễn phí)
+python -m evaluation.bao_cao      # bảng, biểu đồ, evaluation/results/results.md
+```
+Bộ tình huống và cách gán nhãn: `data/test/annotation_guide.md`. Kết quả và phân tích lỗi: `evaluation/results/results.md`.
+
 ## Cấu hình LLM
 
 LLM chỉ dùng để hiểu ngôn ngữ (trích cụm từ, diễn đạt lại câu trả lời) — **không** quyết định điều khoản hay
