@@ -13,7 +13,8 @@
 - Phase 5: fact_inducer (LLM suy ra sự kiện gián tiếp + kiểm tra tất định), fact_builder, pipeline đầu-cuối, CLI — XONG
 - Phase 6: tracer, retriever (tra nguyên văn theo id + FAISS), verbalizer + kiểm tra chống bịa — XONG
 - Phase 7: dialogue manager, FastAPI, giao diện Streamlit hai cột — XONG
-- Phase 8: bộ tình huống, đánh giá, baseline LLM-only, ablation, results.md — ĐANG LÀM
+- Phase 8: bộ tình huống, đánh giá, baseline LLM-only, ablation, results.md — XONG
+- Phase 9: README.md (cài đặt, chạy, xử lý sự cố), docs/architecture.md (sơ đồ Mermaid) — ĐANG REVIEW
 - Gốc project = thư mục `DoAn/` (tương ứng `traffic-law-expert/` trong đặc tả).
 - Tên file dữ liệu thô: `data/raw/ND_100.docx`, `ND_123.docx`, `ND_168.docx`.
 
